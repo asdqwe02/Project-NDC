@@ -41,3 +41,21 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Collision
+    uniqueID: 1351259491
+    locked: 0
+  - name: Floor
+    uniqueID: 2541716133
+    locked: 0
+  - name: Room
+    uniqueID: 252571131
+    locked: 0
+  - name: Sky
+    uniqueID: 964991561
+    locked: 0
+  - name: FixedObjects
+    uniqueID: 3957880391
+    locked: 0
+  - name: Actor
+    uniqueID: 2765224327
+    locked: 0
