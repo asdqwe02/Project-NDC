@@ -4615,9 +4615,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cf248facac78e042a855036c562ffa9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MovementSpeed: 7
+  _bulletPrefab: {fileID: 5825745331536270500, guid: ebd8def4e971cfa46bbf185de7ffd52b, type: 3}
+  _fireRate: 0.07
+  _firingTime: 0
+  _movementSpeed: 0.1
+  _dashRange: 1.5
   rb: {fileID: 1381444936}
-  RotationSpeed: 0
   FacingRight: 1
   Counter: 0
   waitTime: 4
@@ -4675,7 +4678,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1733709626}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0.02, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 197292125}
