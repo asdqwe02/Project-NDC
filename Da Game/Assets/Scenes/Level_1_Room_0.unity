@@ -4515,9 +4515,9 @@ Rigidbody2D:
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!212 &1381444937
 SpriteRenderer:
@@ -4618,12 +4618,12 @@ MonoBehaviour:
   _bulletPrefab: {fileID: 5825745331536270500, guid: ebd8def4e971cfa46bbf185de7ffd52b, type: 3}
   _fireRate: 0.07
   _firingTime: 0
-  _movementSpeed: 0.1
-  _dashRange: 1.5
+  _movementSpeed: 8
+  _dashRange: 4
   rb: {fileID: 1381444936}
   FacingRight: 1
   Counter: 0
-  waitTime: 4
+  waitTime: 10
   scenePassword: 
   animator: {fileID: 1381444939}
 --- !u!61 &1381444941

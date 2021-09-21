@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour
     private Vector2 moveDirection;
     [SerializeField] private float _movementSpeed;
     [SerializeField] private float _dashRange;
+    private bool isDashButtonDown;
     public Rigidbody2D rb;
     private float _rotationSpeed;
     public bool FacingRight ;
@@ -53,8 +54,11 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        //Move();
-        MoveV2();
+        Move();
+        if(isDashButtonDown == true)
+        {
+            Dash();
+        }
     }
 
     void ProcessInput()
@@ -79,7 +83,7 @@ public class PlayerController : MonoBehaviour
 
         //Dash
         if (Input.GetKeyDown(KeyCode.Space))
-            Dash();
+            isDashButtonDown = true;
 
         //Update Animation When Moving
         if (moveDirection.magnitude != 0)
@@ -137,35 +141,10 @@ public class PlayerController : MonoBehaviour
 
 
     }
-    private void MoveV2() //monke code ?
-    {
-        Vector3 pos = transform.position;
-        if (Input.GetKey(KeyCode.A))
-            pos.x -= _movementSpeed;
-        if (Input.GetKey(KeyCode.D))
-            pos.x += _movementSpeed;
-        if (Input.GetKey(KeyCode.S))
-            pos.y -= _movementSpeed;
-        if (Input.GetKey(KeyCode.W))
-            pos.y += _movementSpeed;
-        transform.position = pos;
-
-
-        if ((FacingRight && (rotZ < -89 || rotZ > 89)) || (!FacingRight && (rotZ > -89 && rotZ < 89)))
-            Flip();
-    }
     private void Dash()
     {
-        Vector3 pos = transform.position;
-        if (Input.GetKey(KeyCode.A))
-            pos.x -= _dashRange;
-        if (Input.GetKey(KeyCode.D))
-            pos.x += _dashRange;
-        if (Input.GetKey(KeyCode.S))
-            pos.y -= _dashRange;
-        if (Input.GetKey(KeyCode.W))
-            pos.y += _dashRange;
-        transform.position = pos;
+        rb.MovePosition(transform.position + (Vector3)moveDirection * _dashRange);
+        isDashButtonDown = false;
     }
     private void Flip()
     {
