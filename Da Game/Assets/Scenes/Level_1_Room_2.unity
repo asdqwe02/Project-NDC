@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 109323322}
   - component: {fileID: 109323321}
   - component: {fileID: 109323320}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Exit Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -843,7 +843,7 @@ GameObject:
   - component: {fileID: 171334389}
   - component: {fileID: 171334388}
   - component: {fileID: 171334387}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Room
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4372,7 +4372,7 @@ GameObject:
   - component: {fileID: 354242056}
   - component: {fileID: 354242055}
   - component: {fileID: 354242054}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Exit Right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4494,7 +4494,7 @@ GameObject:
   - component: {fileID: 1483104235}
   - component: {fileID: 1483104234}
   - component: {fileID: 1483104233}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: FixedObjects
   m_TagString: Untagged
   m_Icon: {fileID: 0}

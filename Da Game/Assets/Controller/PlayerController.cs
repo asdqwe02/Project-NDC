@@ -11,10 +11,12 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float _fireRate = 0.5f;
     [SerializeField] private float _firingTime = 0f;
 
+
     //Variables used in Movement
     private Vector2 moveDirection;
     [SerializeField] private float _movementSpeed;
     [SerializeField] private float _dashRange;
+    [SerializeField] private LayerMask _dashLayerMask;
     private bool isDashButtonDown;
     public Rigidbody2D rb;
     private float _rotationSpeed;
@@ -55,10 +57,10 @@ public class PlayerController : MonoBehaviour
     private void FixedUpdate()
     {
         Move();
-        if(isDashButtonDown == true)
-        {
-            Dash();
-        }
+        //if(isDashButtonDown == true)
+        //{
+        //    Dash();
+        //}
     }
 
     void ProcessInput()
@@ -83,7 +85,8 @@ public class PlayerController : MonoBehaviour
 
         //Dash
         if (Input.GetKeyDown(KeyCode.Space))
-            isDashButtonDown = true;
+            //isDashButtonDown = true;
+            Dash();
 
         //Update Animation When Moving
         if (moveDirection.magnitude != 0)
@@ -119,6 +122,7 @@ public class PlayerController : MonoBehaviour
         //Barrel
         Vector3 barrelPos = transform.position;
    
+        //Do this bc we don't have separate gun from the body yet
         barrelPos.z = 0;
         if (FacingRight)
             barrelPos.x += 0.8f;
@@ -143,7 +147,13 @@ public class PlayerController : MonoBehaviour
     }
     private void Dash()
     {
-        rb.MovePosition(transform.position + (Vector3)moveDirection * _dashRange);
+        Vector3 dashPos = transform.position + (Vector3)moveDirection * _dashRange;
+        RaycastHit2D raycastHit2D = Physics2D.Raycast(transform.position, moveDirection, _dashRange,_dashLayerMask);
+        if (raycastHit2D.collider != null)
+        {
+            dashPos = raycastHit2D.point;
+        }
+        rb.MovePosition(dashPos);
         isDashButtonDown = false;
     }
     private void Flip()

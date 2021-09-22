@@ -183,7 +183,7 @@ GameObject:
   - component: {fileID: 254189159}
   - component: {fileID: 254189158}
   - component: {fileID: 254189157}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Room
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3711,7 +3711,7 @@ GameObject:
   m_Component:
   - component: {fileID: 292276949}
   - component: {fileID: 292276948}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Entrance Right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4620,6 +4620,9 @@ MonoBehaviour:
   _firingTime: 0
   _movementSpeed: 8
   _dashRange: 4
+  _dashLayerMask:
+    serializedVersion: 2
+    m_Bits: 192
   rb: {fileID: 1381444936}
   FacingRight: 1
   Counter: 0
@@ -7425,7 +7428,7 @@ GameObject:
   - component: {fileID: 1993672448}
   - component: {fileID: 1993672447}
   - component: {fileID: 1993672446}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Exit Right
   m_TagString: Untagged
   m_Icon: {fileID: 0}

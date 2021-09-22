@@ -3113,7 +3113,7 @@ GameObject:
   - component: {fileID: 1058980954}
   - component: {fileID: 1058980953}
   - component: {fileID: 1058980952}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Room
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6645,7 +6645,7 @@ GameObject:
   - component: {fileID: 1368893558}
   - component: {fileID: 1368893557}
   - component: {fileID: 1368893556}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: FixedObjects
   m_TagString: Untagged
   m_Icon: {fileID: 0}
