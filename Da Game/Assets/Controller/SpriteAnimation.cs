@@ -7,23 +7,25 @@ public class SpriteAnimation : MonoBehaviour
     [SerializeField] private Sprite[] frameArray;
     private int currentFrame;
     private float timer;
-    private float FrameRate = .1f;
+    private float framerate = .1f;
     private SpriteRenderer spriteRenderer;
 
     private void Awake()
     {
         spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
+        
     }
 
-    private void Udpate()
+    private void Update()
     {
         timer += Time.deltaTime;
-        if(timer >= FrameRate)
+
+        if(timer > framerate)
         {
-            timer -= FrameRate;
+            timer -= framerate;
             currentFrame = (currentFrame + 1) % frameArray.Length;
             spriteRenderer.sprite = frameArray[currentFrame];
-            Destroy(gameObject, 0.5f);
         }
+        Destroy(gameObject,0.5f);
     }
 }

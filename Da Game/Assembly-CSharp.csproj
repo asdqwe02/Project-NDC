@@ -55,6 +55,7 @@
   <ItemGroup>
     <Compile Include="Assets\Controller\Exit.cs" />
     <Compile Include="Assets\Controller\WeaponController.cs" />
+    <Compile Include="Assets\Controller\SpriteAnimation.cs" />
     <Compile Include="Assets\Class\PlayerClass.cs" />
     <Compile Include="Assets\Controller\Camera_Follow.cs" />
     <Compile Include="Assets\Class\RangEnemyClass.cs" />
@@ -62,7 +63,7 @@
     <Compile Include="Assets\Controller\PlayerController.cs" />
     <Compile Include="Assets\Class\MovingObjects.cs" />
     <Compile Include="Assets\Class\Bullet.cs" />
-    <Compile Include="Assets\Controller\SpriteAnimation.cs" />
+    <Compile Include="Assets\Class\Utilities.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

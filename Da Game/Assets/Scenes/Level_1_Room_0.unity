@@ -4623,6 +4623,7 @@ MonoBehaviour:
   _dashLayerMask:
     serializedVersion: 2
     m_Bits: 192
+  _DashPrefab: {fileID: 8863281615483567224, guid: 0b05ca15a39a043498868cd5889f9604, type: 3}
   rb: {fileID: 1381444936}
   FacingRight: 1
   Counter: 0

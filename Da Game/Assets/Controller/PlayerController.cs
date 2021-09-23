@@ -17,6 +17,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float _movementSpeed;
     [SerializeField] private float _dashRange;
     [SerializeField] private LayerMask _dashLayerMask;
+    [SerializeField] private Transform _DashPrefab;
     private bool isDashButtonDown;
     public Rigidbody2D rb;
     private float _rotationSpeed;
@@ -146,6 +147,7 @@ public class PlayerController : MonoBehaviour
     }
     private void Dash()
     {
+        Vector3 beforeDashPosition = transform.position;
         Vector3 dashPos = transform.position + (Vector3)moveDirection * _dashRange;
         RaycastHit2D raycastHit2D = Physics2D.Raycast(transform.position, moveDirection, _dashRange,_dashLayerMask);
         if (raycastHit2D.collider != null)
@@ -153,6 +155,13 @@ public class PlayerController : MonoBehaviour
             dashPos = raycastHit2D.point;
         }
         rb.MovePosition(dashPos);
+
+        Transform dashEffectTransform = Instantiate(_DashPrefab, beforeDashPosition, Quaternion.identity);
+        dashEffectTransform.eulerAngles = new Vector3(0, 0, Ultilities.GetAngleFromVectorFloat(moveDirection));
+        float DashEffectWidth = 3.5f;
+        dashEffectTransform.localScale = new Vector3(_dashRange / DashEffectWidth, 1f, 1f);
+
+
         isDashButtonDown = false;
     }
     private void Flip()
