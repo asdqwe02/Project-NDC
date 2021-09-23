@@ -57,10 +57,10 @@ public class PlayerController : MonoBehaviour
     private void FixedUpdate()
     {
         Move();
-        //if(isDashButtonDown == true)
-        //{
-        //    Dash();
-        //}
+        if(isDashButtonDown == true)
+        {
+            Dash();
+        }
     }
 
     void ProcessInput()
@@ -85,8 +85,7 @@ public class PlayerController : MonoBehaviour
 
         //Dash
         if (Input.GetKeyDown(KeyCode.Space))
-            //isDashButtonDown = true;
-            Dash();
+            isDashButtonDown = true;
 
         //Update Animation When Moving
         if (moveDirection.magnitude != 0)
