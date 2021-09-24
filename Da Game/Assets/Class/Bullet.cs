@@ -16,4 +16,14 @@ public class Bullet : MonoBehaviour
     {
         transform.position += _shootDir * _bulletSpeed * Time.deltaTime;
     }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        Slime slime = collision.GetComponent<Slime>();
+        PlayerController p = collision.GetComponent<PlayerController>();
+        Bullet otherBullets =collision.GetComponent<Bullet>();
+        if (p == null && otherBullets==null)
+        {
+            DestroyObject(gameObject);
+        }
+    }
 }

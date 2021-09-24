@@ -164,12 +164,12 @@ public class PlayerController : MonoBehaviour
         Vector2 vecTemp = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         for (int i = 0; i < _bulletAmount; i++)
         {
-
+            //Stable Spread Fire v1
             float burDirX = barrelPos.x + Mathf.Sin((angle * Mathf.PI) / 180f);
             float burDirY = barrelPos.y + Mathf.Cos((angle * Mathf.PI) / 180f);
-
             Vector3 bulleDirVector = new Vector3(burDirX, burDirY, 0f);
             _lookDirection = ((Vector3)vecTemp - bulleDirVector).normalized;
+
             Transform firedBullet = Instantiate(_bulletPrefab, barrelPos, Quaternion.identity);
             firedBullet.GetComponent<Bullet>().setUp(_lookDirection);
             angle += angleStep;
@@ -198,7 +198,12 @@ public class PlayerController : MonoBehaviour
         rb.MovePosition(dashPos);
 
         Transform dashEffectTransform = Instantiate(_DashPrefab, beforeDashPosition, Quaternion.identity);
+        Vector3 Temp = new Vector3(0, 0, Ultilities.GetAngleFromVectorFloat(moveDirection));
         dashEffectTransform.eulerAngles = new Vector3(0, 0, Ultilities.GetAngleFromVectorFloat(moveDirection));
+        if (Temp.z>89 || Temp.z < -89)
+        {
+            dashEffectTransform.Rotate(0f, 180f, 180f);
+        }
         float DashEffectWidth = 3.5f;
         dashEffectTransform.localScale = new Vector3(_dashRange / DashEffectWidth, 1f, 1f);
 
