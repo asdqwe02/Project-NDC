@@ -99,7 +99,7 @@ public class PlayerController : MonoBehaviour
         }
 
         //Dash
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && moveDirection.magnitude != 0)
             isDashButtonDown = true;
 
         //Update Animation When Moving
