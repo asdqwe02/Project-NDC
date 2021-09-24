@@ -10,7 +10,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Transform _bulletPrefab;
     [SerializeField] private float _fireRate = 0.5f;
     [SerializeField] private float _firingTime = 0f;
-
+    [SerializeField] private int _bulletAmount = 3;
+    [SerializeField] private int _fireType = 0;
 
     //Variables used in Movement
     private Vector2 moveDirection;
@@ -18,6 +19,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float _dashRange;
     [SerializeField] private LayerMask _dashLayerMask;
     [SerializeField] private Transform _DashPrefab;
+
+    [SerializeField] private string _buff = "";
+
     private bool isDashButtonDown;
     public Rigidbody2D rb;
     private float _rotationSpeed;
@@ -80,7 +84,17 @@ public class PlayerController : MonoBehaviour
             if (Input.GetMouseButton(0) && !animator.GetBool("ToSleep"))
             {
                 _firingTime = _firingTime + _fireRate;
-                FireBullet();
+                switch (_fireType)
+                {
+                    case 0:
+                        FireBullet();
+                        break;
+                    case 1:
+                        FireBulletSpreadMode();
+                        break;
+                    default:
+                        break;
+                }
             }
         }
 
@@ -116,8 +130,7 @@ public class PlayerController : MonoBehaviour
 
     private void FireBullet()
     {
-        Vector3 vecTemp = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        vecTemp.z = 0;
+        Vector2 vecTemp = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
         //Barrel
         Vector3 barrelPos = transform.position;
@@ -129,12 +142,40 @@ public class PlayerController : MonoBehaviour
         else barrelPos.x -= 0.8f;
         barrelPos.y -= 0.085f;
 
-        _lookDirection = (vecTemp - transform.position).normalized;
+        _lookDirection = ((Vector3)vecTemp - transform.position).normalized;
         //_lookDirection = Camera.main.ScreenToWorldPoint(Input.mousePosition); 
         Transform firedBullet = Instantiate(_bulletPrefab, barrelPos, Quaternion.identity);
         firedBullet.GetComponent<Bullet>().setUp(_lookDirection);
     }
+    private void FireBulletSpreadMode()
+    {
+        //Barrel
+        Vector3 barrelPos = transform.position;
+        //Do this bc we don't have separate gun from the body yet
+        barrelPos.z = 0;
+        if (FacingRight)
+            barrelPos.x += 0.8f;
+        else barrelPos.x -= 0.8f;
+        barrelPos.y -= 0.085f;
 
+        float startAngle = 90f, endAngle = 270f;
+        float angleStep = (endAngle - startAngle) / _bulletAmount;
+        float angle = startAngle;
+        Vector2 vecTemp = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        for (int i = 0; i < _bulletAmount; i++)
+        {
+
+            float burDirX = barrelPos.x + Mathf.Sin((angle * Mathf.PI) / 180f);
+            float burDirY = barrelPos.y + Mathf.Cos((angle * Mathf.PI) / 180f);
+
+            Vector3 bulleDirVector = new Vector3(burDirX, burDirY, 0f);
+            _lookDirection = ((Vector3)vecTemp - bulleDirVector).normalized;
+            Transform firedBullet = Instantiate(_bulletPrefab, barrelPos, Quaternion.identity);
+            firedBullet.GetComponent<Bullet>().setUp(_lookDirection);
+            angle += angleStep;
+        }
+
+    }
     private void Move()
     {
         rb.velocity = new Vector2(moveDirection.x * _movementSpeed, moveDirection.y * _movementSpeed);
@@ -169,6 +210,30 @@ public class PlayerController : MonoBehaviour
         FacingRight = !FacingRight;
         transform.Rotate(0f, 180f, 0f);
     }
+    public void setBuff(Buff buff)
+    {
+        if (string.IsNullOrEmpty(buff.getBuffType()))
+        {
+            _movementSpeed += buff.getSpeedInc();
+        }
+        else
+        {
+            _buff = buff.getBuffType();
+            switch (buff.getBuffType())
+            {
+                case "Spread":
+                    _fireRate = 0.7f;
+                    _fireType = 1;
+                    break;
+                case "SingleLine":
+                    _fireType = 0;
+                    _fireRate = 0.05f;
+                    break;
+                default:
+                    break;
+            }
+        }
 
+    }
 
 }
