@@ -4615,23 +4615,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cf248facac78e042a855036c562ffa9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _bulletPrefab: {fileID: 5825745331536270500, guid: ebd8def4e971cfa46bbf185de7ffd52b, type: 3}
-  _fireRate: 0.5
+  hp: 1
+  movementSpeed: 8
+  attackSpeed: 1
+  armour: 1
+  rb: {fileID: 1381444936}
+  _fireRate: 0.1
   _firingTime: 0
   _bulletAmount: 6
   _fireType: 0
-  _movementSpeed: 8
-  _dashRange: 4
+  _bulletPrefab: {fileID: 5825745331536270500, guid: ebd8def4e971cfa46bbf185de7ffd52b, type: 3}
+  _dashRange: 3
+  _dashPrefab: {fileID: 8863281615483567224, guid: 0b05ca15a39a043498868cd5889f9604, type: 3}
+  scenePassword: 
+  _buff: 
   _dashLayerMask:
     serializedVersion: 2
     m_Bits: 192
-  _DashPrefab: {fileID: 8863281615483567224, guid: 0b05ca15a39a043498868cd5889f9604, type: 3}
-  _buff: 
-  rb: {fileID: 1381444936}
   FacingRight: 1
   Counter: 0
-  waitTime: 10
-  scenePassword: 
+  waitTime: 4
   animator: {fileID: 1381444939}
 --- !u!61 &1381444941
 BoxCollider2D:
@@ -7575,6 +7578,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ceeee4a147afc3f4e927bb3f02bee456, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hp: 10
+  movementSpeed: 1
+  attackSpeed: 1
+  armour: 1
 --- !u!1 &1993672445
 GameObject:
   m_ObjectHideFlags: 0

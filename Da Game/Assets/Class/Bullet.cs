@@ -23,7 +23,11 @@ public class Bullet : MonoBehaviour
         Bullet otherBullets =collision.GetComponent<Bullet>();
         if (p == null && otherBullets==null)
         {
-            DestroyObject(gameObject);
+            Destroy(gameObject);
+        }
+        if (slime != null)
+        {
+            slime.takeDamage(1);
         }
     }
 }

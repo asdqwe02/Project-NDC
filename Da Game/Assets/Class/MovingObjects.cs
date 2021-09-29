@@ -1,26 +1,24 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 public class MovingObjects : MonoBehaviour
 {
-    private float HP;
-    private int MovementSpeed;
-    private int AttackSpeed;
-    private int Armour;
+    [SerializeField] protected float hp;
+    [SerializeField] protected float movementSpeed;
+    [SerializeField] private float attackSpeed;
+    [SerializeField] private int armour;
 
     public MovingObjects()
     {
-        HP = 1;
-        MovementSpeed = 1;
-        AttackSpeed = 1;
-        Armour = 1;
+        hp = 1;
+        movementSpeed = 1;
+        attackSpeed = 1;
+        armour = 1;
     }
-    public MovingObjects(float Hp, int Ms, int As, int Arm)
+    public MovingObjects(float Hp, float Ms, float As, int Armor)
     {
-        HP = Hp;
-        MovementSpeed = Ms;
-        AttackSpeed = As;
-        Armour = Arm;
+        hp = Hp;
+        movementSpeed = Ms;
+        attackSpeed = As;
+        armour = Armor;
     }
     void Move()
     {
@@ -43,5 +41,8 @@ public class MovingObjects : MonoBehaviour
 
     }
 
-
+    public void takeDamage(float damage)
+    {
+        hp -= damage;
+    }
 }

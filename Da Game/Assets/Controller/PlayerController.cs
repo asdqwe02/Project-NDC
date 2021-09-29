@@ -1,45 +1,33 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour
+public class PlayerController : PlayerClass
 {
     //Variables used in Shooting 
     private Vector3 _lookDirection;
-    [SerializeField] private Transform _bulletPrefab;
-    [SerializeField] private float _fireRate = 0.5f;
-    [SerializeField] private float _firingTime = 0f;
-    [SerializeField] private int _bulletAmount = 3;
-    [SerializeField] private int _fireType = 0;
 
     //Variables used in Movement
-    private Vector2 moveDirection;
-    [SerializeField] private float _movementSpeed;
-    [SerializeField] private float _dashRange;
+    private Vector2 _moveDirection;
+    
     [SerializeField] private LayerMask _dashLayerMask;
-    [SerializeField] private Transform _DashPrefab;
-
-    [SerializeField] private string _buff = "";
+    
 
     private bool isDashButtonDown;
-    public Rigidbody2D rb;
+   
     private float _rotationSpeed;
     public bool FacingRight ;
 
     public float Counter = 0;  //Making a counter to wait until the player can go back to sleep if it's in the holding gun state
     public float waitTime = 4;
-
     public static PlayerController instance;
-    public string scenePassword;
-
     public Animator animator;
     private float rotZ;             
     private Vector3 difference;
    
+    
     private void Awake()
     {
-        _firingTime -= Time.deltaTime;
+        
+        FiringTime -= Time.deltaTime;
         if (instance == null)
         {
             instance = this;
@@ -73,18 +61,18 @@ public class PlayerController : MonoBehaviour
         float moveX = Input.GetAxisRaw("Horizontal");
         float moveY = Input.GetAxisRaw("Vertical");
 
-        moveDirection = new Vector2(moveX, moveY).normalized;
+        _moveDirection = new Vector2(moveX, moveY).normalized;
 
 
         //Firing
-        if (_firingTime > 0)
-            _firingTime = _firingTime - Time.deltaTime;
+        if (FiringTime > 0)
+            FiringTime = FiringTime - Time.deltaTime;
         else
         {
             if (Input.GetMouseButton(0) && !animator.GetBool("ToSleep"))
             {
-                _firingTime = _firingTime + _fireRate;
-                switch (_fireType)
+                FiringTime = FiringTime + FireRate;
+                switch (FireType)
                 {
                     case 0:
                         FireBullet();
@@ -99,11 +87,11 @@ public class PlayerController : MonoBehaviour
         }
 
         //Dash
-        if (Input.GetKeyDown(KeyCode.Space) && moveDirection.magnitude != 0)
+        if (Input.GetKeyDown(KeyCode.Space) && _moveDirection.magnitude != 0)
             isDashButtonDown = true;
 
         //Update Animation When Moving
-        if (moveDirection.magnitude != 0)
+        if (_moveDirection.magnitude != 0)
         {
             animator.SetBool("IsRunning", true);        //check whether the player is running with its magnitude
             Counter = 0; //Reset the timer
@@ -143,8 +131,7 @@ public class PlayerController : MonoBehaviour
         barrelPos.y -= 0.085f;
 
         _lookDirection = ((Vector3)vecTemp - transform.position).normalized;
-        //_lookDirection = Camera.main.ScreenToWorldPoint(Input.mousePosition); 
-        Transform firedBullet = Instantiate(_bulletPrefab, barrelPos, Quaternion.identity);
+        Transform firedBullet = Instantiate(BulletPrefab, barrelPos, Quaternion.identity);
         firedBullet.GetComponent<Bullet>().setUp(_lookDirection);
     }
     private void FireBulletSpreadMode()
@@ -159,18 +146,31 @@ public class PlayerController : MonoBehaviour
         barrelPos.y -= 0.085f;
 
         float startAngle = 90f, endAngle = 270f;
-        float angleStep = (endAngle - startAngle) / _bulletAmount;
+        if (!FacingRight)
+        {
+            startAngle = 270f;
+            endAngle = 90f;
+        }
+
+        float angleStep = (endAngle - startAngle) / BulletAmount;
         float angle = startAngle;
         Vector2 vecTemp = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        for (int i = 0; i < _bulletAmount; i++)
+        for (int i = 0; i < BulletAmount; i++)
         {
             //Stable Spread Fire v1
             float burDirX = barrelPos.x + Mathf.Sin((angle * Mathf.PI) / 180f);
             float burDirY = barrelPos.y + Mathf.Cos((angle * Mathf.PI) / 180f);
             Vector3 bulleDirVector = new Vector3(burDirX, burDirY, 0f);
+            
+            //Test
+            vecTemp.x+= Mathf.Sin((angle * Mathf.PI) / 180f);
+            vecTemp.y+= Mathf.Cos((angle * Mathf.PI) / 180f);
+            //Test
+
+
             _lookDirection = ((Vector3)vecTemp - bulleDirVector).normalized;
 
-            Transform firedBullet = Instantiate(_bulletPrefab, barrelPos, Quaternion.identity);
+            Transform firedBullet = Instantiate(BulletPrefab, barrelPos, Quaternion.identity);
             firedBullet.GetComponent<Bullet>().setUp(_lookDirection);
             angle += angleStep;
         }
@@ -178,7 +178,7 @@ public class PlayerController : MonoBehaviour
     }
     private void Move()
     {
-        rb.velocity = new Vector2(moveDirection.x * _movementSpeed, moveDirection.y * _movementSpeed);
+        Rb.velocity = new Vector2(_moveDirection.x * movementSpeed, _moveDirection.y * movementSpeed);
 
         if ((FacingRight && (rotZ < -89 || rotZ > 89)) || (!FacingRight &&(rotZ >-89 && rotZ<89)) )
             Flip();
@@ -189,23 +189,23 @@ public class PlayerController : MonoBehaviour
     private void Dash()
     {
         Vector3 beforeDashPosition = transform.position;
-        Vector3 dashPos = transform.position + (Vector3)moveDirection * _dashRange;
-        RaycastHit2D raycastHit2D = Physics2D.Raycast(transform.position, moveDirection, _dashRange,_dashLayerMask);
+        Vector3 dashPos = transform.position + (Vector3)_moveDirection * DashRange;
+        RaycastHit2D raycastHit2D = Physics2D.Raycast(transform.position, _moveDirection, DashRange,_dashLayerMask);
         if (raycastHit2D.collider != null)
         {
             dashPos = raycastHit2D.point;
         }
-        rb.MovePosition(dashPos);
+        Rb.MovePosition(dashPos);
 
-        Transform dashEffectTransform = Instantiate(_DashPrefab, beforeDashPosition, Quaternion.identity);
-        Vector3 Temp = new Vector3(0, 0, Ultilities.GetAngleFromVectorFloat(moveDirection));
-        dashEffectTransform.eulerAngles = new Vector3(0, 0, Ultilities.GetAngleFromVectorFloat(moveDirection));
+        Transform dashEffectTransform = Instantiate(DashPrefab, beforeDashPosition, Quaternion.identity);
+        Vector3 Temp = new Vector3(0, 0, Ultilities.GetAngleFromVectorFloat(_moveDirection));
+        dashEffectTransform.eulerAngles = new Vector3(0, 0, Ultilities.GetAngleFromVectorFloat(_moveDirection));
         if (Temp.z>89 || Temp.z < -89)
         {
             dashEffectTransform.Rotate(0f, 180f, 180f);
         }
         float DashEffectWidth = 3.5f;
-        dashEffectTransform.localScale = new Vector3(_dashRange / DashEffectWidth, 1f, 1f);
+        dashEffectTransform.localScale = new Vector3(DashRange / DashEffectWidth, 1f, 1f);
 
 
         isDashButtonDown = false;
@@ -219,20 +219,20 @@ public class PlayerController : MonoBehaviour
     {
         if (string.IsNullOrEmpty(buff.getBuffType()))
         {
-            _movementSpeed += buff.getSpeedInc();
+            movementSpeed += buff.getSpeedInc();
         }
         else
         {
-            _buff = buff.getBuffType();
+            Buff = buff.getBuffType();
             switch (buff.getBuffType())
             {
                 case "Spread":
-                    _fireRate = 0.7f;
-                    _fireType = 1;
+                    FireRate = 0.7f;
+                    FireType = 1;
                     break;
                 case "SingleLine":
-                    _fireType = 0;
-                    _fireRate = 0.05f;
+                    FireType = 0;
+                    FireRate = 0.05f;
                     break;
                 default:
                     break;
