@@ -5104,7 +5104,7 @@ MonoBehaviour:
   _firingTime: 0
   _bulletAmount: 6
   _fireType: 0
-  _bulletPrefab: {fileID: 5825745331536270500, guid: ebd8def4e971cfa46bbf185de7ffd52b, type: 3}
+  _bulletPrefab: {fileID: 7542065460064705668, guid: e3c96377c084858459869b5009b733a7, type: 3}
   _dashRange: 3
   _dashPrefab: {fileID: 8863281615483567224, guid: 0b05ca15a39a043498868cd5889f9604, type: 3}
   scenePassword: 
