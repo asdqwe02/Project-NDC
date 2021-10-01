@@ -26,8 +26,8 @@ public class Slime : MovingObjects
         if (hp <= 0)
         {
             isDying = true;
-            animator.SetBool("IsDying", isDying);
             collider2D.enabled = false;
+            animator.SetBool("IsDying", isDying);
         }
             
     }
