@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7542065460064705669}
   - component: {fileID: 7542065460064705666}
   - component: {fileID: 4706746103006470022}
-  - component: {fileID: -4350596587627077796}
+  - component: {fileID: 1785055248158426933}
   - component: {fileID: 8066681840028845279}
   m_Layer: 0
   m_Name: FireBallPrefab
@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 7542065460064705667}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -6.74, y: 0.87, z: 0}
-  m_LocalScale: {x: 0.12578706, y: 0.13067402, z: 1}
+  m_LocalScale: {x: 0.130674, y: 0.13067402, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -72,8 +72,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1529742969
+  m_SortingLayer: 6
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: d3c4c9fa523533d4a96fa09ce84a26f5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -126,8 +126,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!58 &-4350596587627077796
-CircleCollider2D:
+--- !u!61 &1785055248158426933
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -139,9 +139,19 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.100760214, y: 0.08082619}
+  m_Offset: {x: -0.09343529, y: 0.07994813}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 5.12, y: 5.12}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
   serializedVersion: 2
-  m_Radius: 1.6385801
+  m_Size: {x: 3.1059246, y: 3.0813107}
+  m_EdgeRadius: 0
 --- !u!114 &8066681840028845279
 MonoBehaviour:
   m_ObjectHideFlags: 0

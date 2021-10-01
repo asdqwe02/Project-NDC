@@ -1,0 +1,492 @@
+fileFormatVersion: 2
+guid: 1d3d8124e088a5244ac456331cbe7b09
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -6722366562864400919
+    second: Ball Lightning_0
+  - first:
+      213: 7939416085600924909
+    second: Ball Lightning_1
+  - first:
+      213: -7360313374621045391
+    second: Ball Lightning_2
+  - first:
+      213: -7279899852264913196
+    second: Ball Lightning_3
+  - first:
+      213: -497294896612992275
+    second: Ball Lightning_4
+  - first:
+      213: 4196486629070018571
+    second: Ball Lightning_5
+  - first:
+      213: -603545194187080325
+    second: Ball Lightning_6
+  - first:
+      213: -1632476082954496955
+    second: Ball Lightning_7
+  - first:
+      213: 2942497705274279571
+    second: Ball Lightning_8
+  - first:
+      213: -4352919944091239686
+    second: Ball Lightning_9
+  - first:
+      213: -7492891323539145528
+    second: Ball Lightning_10
+  - first:
+      213: -2588447152810585921
+    second: Ball Lightning_11
+  - first:
+      213: -702323283471478358
+    second: Ball Lightning_12
+  - first:
+      213: -3018479859310599479
+    second: Ball Lightning_13
+  - first:
+      213: -2341698034110634327
+    second: Ball Lightning_14
+  - first:
+      213: -5276231928927521468
+    second: Ball Lightning_15
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 10
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Ball Lightning_0
+      rect:
+        serializedVersion: 2
+        x: 115
+        y: 1692
+        width: 81
+        height: 84
+      alignment: 9
+      pivot: {x: 0.53047234, y: 0.3320923}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9e5f08a4a3b55b2a0800000000000000
+      internalID: -6722366562864400919
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ball Lightning_1
+      rect:
+        serializedVersion: 2
+        x: 115
+        y: 1568
+        width: 81
+        height: 84
+      alignment: 9
+      pivot: {x: 0.51879036, y: 0.47285533}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: de4f3427dd87e2e60800000000000000
+      internalID: 7939416085600924909
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ball Lightning_2
+      rect:
+        serializedVersion: 2
+        x: 115
+        y: 1458
+        width: 81
+        height: 84
+      alignment: 9
+      pivot: {x: 0.5215217, y: 0.48923165}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 17de72e7bf9ead990800000000000000
+      internalID: -7360313374621045391
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ball Lightning_3
+      rect:
+        serializedVersion: 2
+        x: 115
+        y: 1344
+        width: 81
+        height: 84
+      alignment: 9
+      pivot: {x: 0.5195522, y: 0.5296093}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d6c459a7a998fa90800000000000000
+      internalID: -7279899852264913196
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ball Lightning_4
+      rect:
+        serializedVersion: 2
+        x: 115
+        y: 1229
+        width: 81
+        height: 84
+      alignment: 9
+      pivot: {x: 0.54478663, y: 0.5558879}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dea94c22de04919f0800000000000000
+      internalID: -497294896612992275
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ball Lightning_5
+      rect:
+        serializedVersion: 2
+        x: 115
+        y: 1129
+        width: 81
+        height: 84
+      alignment: 9
+      pivot: {x: 0.5337743, y: 0.42265102}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b08156eea5aec3a30800000000000000
+      internalID: 4196486629070018571
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ball Lightning_6
+      rect:
+        serializedVersion: 2
+        x: 115
+        y: 1019
+        width: 81
+        height: 84
+      alignment: 9
+      pivot: {x: 0.5243566, y: 0.42014566}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b7db596f7d6cf97f0800000000000000
+      internalID: -603545194187080325
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ball Lightning_7
+      rect:
+        serializedVersion: 2
+        x: 115
+        y: 912
+        width: 81
+        height: 84
+      alignment: 9
+      pivot: {x: 0.5243566, y: 0.35908}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5441d2bd6a74859e0800000000000000
+      internalID: -1632476082954496955
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ball Lightning_8
+      rect:
+        serializedVersion: 2
+        x: 524
+        y: 1686
+        width: 58
+        height: 55
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 396864ba21ad5d820800000000000000
+      internalID: 2942497705274279571
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ball Lightning_9
+      rect:
+        serializedVersion: 2
+        x: 519
+        y: 1570
+        width: 65
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: afa7ab4af525793c0800000000000000
+      internalID: -4352919944091239686
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ball Lightning_10
+      rect:
+        serializedVersion: 2
+        x: 509
+        y: 1452
+        width: 84
+        height: 80
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8ccb7df4a07e30890800000000000000
+      internalID: -7492891323539145528
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ball Lightning_11
+      rect:
+        serializedVersion: 2
+        x: 504
+        y: 1337
+        width: 93
+        height: 90
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fb09ad8570df31cd0800000000000000
+      internalID: -2588447152810585921
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ball Lightning_12
+      rect:
+        serializedVersion: 2
+        x: 504
+        y: 1226
+        width: 95
+        height: 91
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aa1523bd1b8d046f0800000000000000
+      internalID: -702323283471478358
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ball Lightning_13
+      rect:
+        serializedVersion: 2
+        x: 498
+        y: 1113
+        width: 104
+        height: 97
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9c2ee108f843c16d0800000000000000
+      internalID: -3018479859310599479
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ball Lightning_14
+      rect:
+        serializedVersion: 2
+        x: 502
+        y: 1008
+        width: 92
+        height: 94
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9a6ea997b0e908fd0800000000000000
+      internalID: -2341698034110634327
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ball Lightning_15
+      rect:
+        serializedVersion: 2
+        x: 497
+        y: 896
+        width: 100
+        height: 97
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 44573bbe30f07c6b0800000000000000
+      internalID: -5276231928927521468
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
