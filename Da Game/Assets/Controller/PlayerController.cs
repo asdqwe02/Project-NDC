@@ -22,11 +22,12 @@ public class PlayerController : PlayerClass
     public Animator animator;
     private float rotZ;             
     private Vector3 difference;
-   
-    
+
+    public static PlayerController Singleton;
     private void Awake()
     {
-        
+        Singleton = this;
+
         FiringTime -= Time.deltaTime;
         if (instance == null)
         {
