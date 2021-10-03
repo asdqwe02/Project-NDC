@@ -5,7 +5,7 @@ using Pathfinding;
 public class EnemyAI : MonoBehaviour
 {
     public Transform target;
-    public float speed = 400f;
+    public float speed = 400;
     public float nextWaypointDistance = 3f;
     //GFX
     bool FacingRight = true;
@@ -59,11 +59,18 @@ public class EnemyAI : MonoBehaviour
             reachedEndofPath = false;
         }
 
+
         Vector2 direction = ((Vector2)path.vectorPath[currentWaypoint] -rb.position).normalized;
-        Vector2 force = direction * speed * Time.deltaTime;
+
+        Vector2 Velocity = new Vector2(direction.x * speed, direction.y * speed);
+        if(animator.GetBool("IsDying") == true )
+        {
+            Velocity = new Vector2 (0,0);
+        }
+        rb.velocity = Velocity;
 
 
-        rb.AddForce(force);
+
         if ((direction.x >= 0.01f && FacingRight) || (direction.x <= -0.01f && !FacingRight))
             flip();
         if (direction.magnitude ==0)
