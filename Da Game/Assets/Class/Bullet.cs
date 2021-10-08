@@ -26,7 +26,7 @@ public class Bullet : MonoBehaviour
     {
        
         
-        Slime slime = collision.GetComponent<Slime>();
+        MovingObjects Monster = collision.GetComponent<MovingObjects>();
         PlayerController p = collision.GetComponent<PlayerController>();
         Bullet otherBullets = collision.GetComponent<Bullet>();
         if (p != null || otherBullets != null)
@@ -39,9 +39,9 @@ public class Bullet : MonoBehaviour
             isMoving = false;
         }
             
-        if (slime != null)
+        if (Monster != null)
         {
-            slime.takeDamage(1);
+            Monster.takeDamage(1);
             
         }
     }

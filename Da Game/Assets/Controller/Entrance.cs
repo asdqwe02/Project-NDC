@@ -10,11 +10,7 @@ public class Entrance : MonoBehaviour
         if(PlayerController.instance.scenePassword == entrancePassword)
         {
             PlayerController.instance.transform.position = transform.position;
-            Debug.Log("In");
         }
-        else
-        {
-            Debug.Log("Not in");
-        }
+
     }
 }

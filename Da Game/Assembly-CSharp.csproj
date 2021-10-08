@@ -71,6 +71,7 @@
     <Compile Include="Assets\Class\Bullet.cs" />
     <Compile Include="Assets\Controller\EnemySpawner.cs" />
     <Compile Include="Assets\Animation\Enemies Animation\EnemyGFX.cs" />
+    <Compile Include="Assets\SlimeMeleeAttack.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

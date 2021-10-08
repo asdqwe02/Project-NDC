@@ -4,6 +4,13 @@ using UnityEngine;
 using Pathfinding;
 public class EnemyAI : MonoBehaviour
 {
+    private enum State
+    {
+        Walking,
+        Idle,
+        Dead,
+    }
+
     public Transform target;
     public float speed = 400;
     public float nextWaypointDistance = 3f;
@@ -21,6 +28,7 @@ public class EnemyAI : MonoBehaviour
 
     private void Start()
     {
+
         target = PlayerController.Singleton.transform;
         seeker = GetComponent<Seeker>();
         rb = GetComponent<Rigidbody2D>();
@@ -32,7 +40,7 @@ public class EnemyAI : MonoBehaviour
     void UpdatePath()
     {
         if(seeker.IsDone())
-        seeker.StartPath(rb.position, target.transform.position, OnPathComplete);
+            seeker.StartPath(rb.position, target.transform.position, OnPathComplete);
     }
     void OnPathComplete(Path p)
     {
@@ -94,4 +102,6 @@ public class EnemyAI : MonoBehaviour
         FacingRight = !FacingRight;
         transform.Rotate(0f, 180f, 0f);
     }
+
+
 }

@@ -9,8 +9,9 @@ public class PlayerController : PlayerClass
     private Vector2 _moveDirection;
     
     [SerializeField] private LayerMask _dashLayerMask;
-    
-
+    [SerializeField] BoxCollider2D collider2D;
+    private bool IsHurt;
+    private float ImmuneTime = 3;
     private bool isDashButtonDown;
    
     private float _rotationSpeed;
@@ -41,6 +42,10 @@ public class PlayerController : PlayerClass
             }
         }
         DontDestroyOnLoad(gameObject);
+    }
+    private void Start()
+    {
+        collider2D = GetComponent<BoxCollider2D>();
     }
     // Update is called once per frame
     void Update()
@@ -111,7 +116,16 @@ public class PlayerController : PlayerClass
         {
             animator.SetBool("ToSleep", false);
         }
-
+        if(IsHurt)
+        {
+            ImmuneTime -= Time.deltaTime;
+            if(ImmuneTime <=0)
+            {
+                collider2D.enabled = true;
+                animator.SetBool("IsHurt", false);
+                IsHurt = false;
+            }
+        }
 
         difference = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
         rotZ = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;                           //mouse position ,normalize with angle comparing to the player
@@ -241,5 +255,17 @@ public class PlayerController : PlayerClass
         }
 
     }
+    public void takeDamage(float damage, Vector2 KnockBack)
+    {
+        hp -= damage;
+        Rb.position = new Vector2(Rb.position.x + KnockBack.x, Rb.position.y + KnockBack.y);
+        collider2D.enabled = false;
+        animator.SetBool("IsHurt", true);
+        IsHurt = true;
+        ImmuneTime = 3;
+    }
+
+
+
 
 }

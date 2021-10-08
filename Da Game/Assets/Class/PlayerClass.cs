@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 public class PlayerClass : MovingObjects
 {
+
     public static PlayerClass instance;
     [SerializeField] private Rigidbody2D rb;
     //Variables used in Shooting 
-
     [SerializeField] private float _fireRate = 0.5f;
     [SerializeField] private float _firingTime = 0f;
     [SerializeField] private int _bulletAmount = 3;
@@ -44,5 +44,7 @@ public class PlayerClass : MovingObjects
     {
 
     }
+
+
 
 }

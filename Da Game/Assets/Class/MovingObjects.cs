@@ -1,10 +1,13 @@
 using UnityEngine;
+using Pathfinding;
 public class MovingObjects : MonoBehaviour
 {
     [SerializeField] protected float hp;
     [SerializeField] protected float movementSpeed;
-    [SerializeField] private float attackSpeed;
-    [SerializeField] private int armour;
+    [SerializeField] protected float attackSpeed;
+    [SerializeField] protected int armour;
+    [SerializeField] protected float Damage;
+
 
     public MovingObjects()
     {
@@ -12,14 +15,17 @@ public class MovingObjects : MonoBehaviour
         movementSpeed = 1;
         attackSpeed = 1;
         armour = 1;
+        Damage = 1;
     }
-    public MovingObjects(float Hp, float Ms, float As, int Armor)
+    public MovingObjects(float Hp, float Ms, float As, int Armor, float damage)
     {
         hp = Hp;
         movementSpeed = Ms;
         attackSpeed = As;
         armour = Armor;
+        Damage = damage;
     }
+
     void Move()
     {
 
@@ -45,4 +51,7 @@ public class MovingObjects : MonoBehaviour
     {
         hp -= damage;
     }
+
+
+
 }
