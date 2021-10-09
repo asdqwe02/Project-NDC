@@ -173,7 +173,7 @@ public class Slime : MovingObjects
     {
         if(animator.GetBool("IsAttacking") && collision.gameObject.tag == "Player")
         {
-            float scalar = 1;
+            float scalar = 0.3f;
             Vector2 KnockBack = new Vector2(direction.x * scalar, direction.y * scalar);
             collision.gameObject.GetComponent<PlayerController>().takeDamage(Damage, KnockBack);
         }

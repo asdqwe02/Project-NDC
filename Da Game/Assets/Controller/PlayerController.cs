@@ -60,6 +60,10 @@ public class PlayerController : PlayerClass
         {
             Dash();
         }
+        else if (Physics2D.GetIgnoreLayerCollision(9,8) && !isDashButtonDown && !IsHurt)
+        {
+            Physics2D.IgnoreLayerCollision(9, 8, false);
+        }
     }
 
     void ProcessInput()
@@ -94,7 +98,9 @@ public class PlayerController : PlayerClass
 
         //Dash
         if (Input.GetKeyDown(KeyCode.Space) && _moveDirection.magnitude != 0)
+        {
             isDashButtonDown = true;
+        }
 
         //Update Animation When Moving
         if (_moveDirection.magnitude != 0)
@@ -121,8 +127,9 @@ public class PlayerController : PlayerClass
             ImmuneTime -= Time.deltaTime;
             if(ImmuneTime <=0)
             {
-                collider2D.enabled = true;
+                //collider2D.enabled = true;
                 animator.SetBool("IsHurt", false);
+                Physics2D.IgnoreLayerCollision(9, 8, false);
                 IsHurt = false;
             }
         }
@@ -203,6 +210,7 @@ public class PlayerController : PlayerClass
     }
     private void Dash()
     {
+        Physics2D.IgnoreLayerCollision(9, 8);
         Vector3 beforeDashPosition = transform.position;
         Vector3 dashPos = transform.position + (Vector3)_moveDirection * DashRange;
         RaycastHit2D raycastHit2D = Physics2D.Raycast(transform.position, _moveDirection, DashRange,_dashLayerMask);
@@ -221,8 +229,6 @@ public class PlayerController : PlayerClass
         }
         float DashEffectWidth = 3.5f;
         dashEffectTransform.localScale = new Vector3(DashRange / DashEffectWidth, 1f, 1f);
-
-
         isDashButtonDown = false;
     }
     private void Flip()
@@ -258,14 +264,14 @@ public class PlayerController : PlayerClass
     public void takeDamage(float damage, Vector2 KnockBack)
     {
         hp -= damage;
-        Rb.position = new Vector2(Rb.position.x + KnockBack.x, Rb.position.y + KnockBack.y);
-        collider2D.enabled = false;
+        Rb.AddForce(KnockBack);
+        //collider2D.enabled = false
         animator.SetBool("IsHurt", true);
         IsHurt = true;
         ImmuneTime = 3;
+        Physics2D.IgnoreLayerCollision(9, 8);
     }
-
-
+   
 
 
 }

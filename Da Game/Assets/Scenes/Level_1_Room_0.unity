@@ -4492,7 +4492,7 @@ GameObject:
   - component: {fileID: 997163331}
   - component: {fileID: 997163330}
   - component: {fileID: 997163332}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: Circle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4683,7 +4683,7 @@ GameObject:
   - component: {fileID: 1381444936}
   - component: {fileID: 1381444939}
   - component: {fileID: 1381444940}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -4824,8 +4824,8 @@ MonoBehaviour:
   _buff: 
   _dashLayerMask:
     serializedVersion: 2
-    m_Bits: 448
-  collider2D: {fileID: 0}
+    m_Bits: 192
+  collider2D: {fileID: 1381444941}
   FacingRight: 1
   Counter: 0
   waitTime: 4
