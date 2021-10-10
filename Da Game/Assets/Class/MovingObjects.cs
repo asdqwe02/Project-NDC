@@ -2,6 +2,7 @@ using UnityEngine;
 using Pathfinding;
 public class MovingObjects : MonoBehaviour
 {
+    [Header("Basic Stats")]
     [SerializeField] protected float hp;
     [SerializeField] protected float movementSpeed;
     [SerializeField] protected float attackSpeed;

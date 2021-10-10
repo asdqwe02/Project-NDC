@@ -3745,6 +3745,36 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &383127536
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 383127537}
+  m_Layer: 9
+  m_Name: MeleeAttackPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &383127537
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 383127536}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.678, y: 0.007, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1381444938}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &464838148
 GameObject:
   m_ObjectHideFlags: 0
@@ -4770,9 +4800,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1381444935}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 3.64, y: -0.09, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 383127537}
+  - {fileID: 1800483663}
+  - {fileID: 1407258758}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4812,24 +4845,32 @@ MonoBehaviour:
   attackSpeed: 1
   armour: 1
   Damage: 1
-  rb: {fileID: 1381444936}
   _fireRate: 0.1
   _firingTime: 0
   _bulletAmount: 6
   _fireType: 0
-  _bulletPrefab: {fileID: 805058170442436272, guid: 3c1a921af20c9ce4e990a4a57e581b0a, type: 3}
+  _meleeAttackRange: 0.84
   _dashRange: 3
+  rb: {fileID: 1381444936}
+  _bulletPrefab: {fileID: 805058170442436272, guid: 3c1a921af20c9ce4e990a4a57e581b0a, type: 3}
   _dashPrefab: {fileID: 8863281615483567224, guid: 0b05ca15a39a043498868cd5889f9604, type: 3}
-  scenePassword: 
+  _meleeSlashPrefab: {fileID: 5263838983077366921, guid: d5756394fd17aed4aaf8e1e239e8b589, type: 3}
   _buff: 
-  _dashLayerMask:
-    serializedVersion: 2
-    m_Bits: 192
+  scenePassword: 
   collider2D: {fileID: 1381444941}
   FacingRight: 1
   Counter: 0
   waitTime: 4
   animator: {fileID: 1381444939}
+  _dashLayerMask:
+    serializedVersion: 2
+    m_Bits: 192
+  _enemyLayerMask:
+    serializedVersion: 2
+    m_Bits: 256
+  _meleeAttackPoint: {fileID: 383127537}
+  _meleeSlashEffectPoint: {fileID: 1407258758}
+  _fireAttackPoint: {fileID: 1800483663}
 --- !u!61 &1381444941
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4856,6 +4897,36 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.8125, y: 1.0625}
   m_EdgeRadius: 0
+--- !u!1 &1407258757
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1407258758}
+  m_Layer: 9
+  m_Name: MeleeSlashEffectPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1407258758
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1407258757}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.41, y: 0.03, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1381444938}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1733709626
 GameObject:
   m_ObjectHideFlags: 0
@@ -7618,6 +7689,36 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!1 &1800483662
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1800483663}
+  m_Layer: 9
+  m_Name: BarrelPosition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1800483663
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1800483662}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.78, y: -0.13, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1381444938}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1829886221
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7641,7 +7742,7 @@ MonoBehaviour:
   showUnwalkableNodes: 1
   debugMode: 0
   debugFloor: 0
-  debugRoof: 20000
+  debugRoof: 1
   manualDebugFloorRoof: 0
   showSearchTree: 0
   unwalkableNodeDebugSize: 0.3
