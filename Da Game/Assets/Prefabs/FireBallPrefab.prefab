@@ -166,3 +166,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 7542065460064705666}
   _bulletSpeed: 25
+  _isFromPlayer: 0

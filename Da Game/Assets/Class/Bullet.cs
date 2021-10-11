@@ -6,16 +6,30 @@ public class Bullet : MonoBehaviour
 {
     public Animator animator;
     private Vector3 _shootDir;
+    private Vector3 _knockBack;
     private bool isMoving = true, flip=false;
     [SerializeField] private float _bulletSpeed = 50f;
+    [SerializeField] private bool _isFromPlayer = false;
     
-    public void setUp(Vector3 shootDir)
+    public void setUp(Vector3 shootDir, bool IsFromPlayer,float damage,Vector3 KnockBack)
     {
         _shootDir = shootDir;
         transform.eulerAngles = new Vector3(0, 0, GetAngleFromVectorFloat(shootDir));
+        _isFromPlayer = IsFromPlayer;
+        _knockBack = KnockBack;
+        if (!_isFromPlayer)
+            gameObject.layer = 8;
         Destroy(gameObject, 1f);
     }
-
+    public void setUp(Vector3 shootDir, bool IsFromPlayer, float damage)
+    {
+        _shootDir = shootDir;
+        transform.eulerAngles = new Vector3(0, 0, GetAngleFromVectorFloat(shootDir));
+        _isFromPlayer = IsFromPlayer;
+        if (!_isFromPlayer)
+            gameObject.layer = 8;
+        Destroy(gameObject, 1f);
+    }
     // Update is called once per frame
     void Update()
     {
@@ -24,26 +38,52 @@ public class Bullet : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-       
-        
-        MovingObjects Monster = collision.GetComponent<MovingObjects>();
+        Enemy Monster = collision.GetComponent<Enemy>();
         PlayerController p = collision.GetComponent<PlayerController>();
         Bullet otherBullets = collision.GetComponent<Bullet>();
-        if (p != null || otherBullets != null)
+        if (_isFromPlayer)
         {
-            return;
+            if (p != null || otherBullets != null)
+            {
+                return;
+            }
+            else
+            {
+                if (animator != null)
+                    animator.SetBool("Hit", true);
+                isMoving = false;
+            }
+
+            if (Monster != null)
+            {
+                Monster.takeDamage(1);
+
+            }
         }
         else
         {
-            animator.SetBool("Hit", true);
-            isMoving = false;
+            if (Monster != null || otherBullets != null)
+            {
+                return;
+            }
+            else
+            {
+               
+                if (animator != null)
+                    animator.SetBool("Hit", true);
+                isMoving = false;
+            }
+            if (p != null)
+            {
+                Debug.Log("Hit Player");
+                p.takeDamage(1,_knockBack);
+
+            }
         }
-            
-        if (Monster != null)
-        {
-            Monster.takeDamage(1);
-            
-        }
+      
+       
+
+      
     }
     public float GetAngleFromVectorFloat(Vector3 dir)
     {

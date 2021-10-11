@@ -2,11 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Pathfinding;
-public class RangeEnemyAI : MovingObjects
+public class RangeEnemyAI : Enemy
 {
     [SerializeField] CircleCollider2D collider2D;
+    [SerializeField] private Transform _firePoint;
+    [SerializeField] private Transform _projectilePrefab;
     private bool isDying = false;//Bloat TODO:delete
-                                 // Start is called before the first frame update
+                              
 
     private enum State
     {
@@ -16,7 +18,7 @@ public class RangeEnemyAI : MovingObjects
 
     private Vector2 direction;
     private double targetRange = 10;
-    private float nextAttackTime;
+    [SerializeField] private float nextAttackTime=0f;
     private State state;
     public Transform target;
     public float nextWaypointDistance = 3f;
@@ -44,6 +46,7 @@ public class RangeEnemyAI : MovingObjects
         StartingPosition = transform.position;
         animator = GetComponent<Animator>();
         InvokeRepeating("UpdatePath", 0f, .5f);
+        nextAttackTime -=Time.deltaTime; //Next attack time start value
 
     }
 
@@ -64,6 +67,24 @@ public class RangeEnemyAI : MovingObjects
         }
     }
 
+    private void Update()
+    {
+        //next fire time calculation
+        if (nextAttackTime > 0)
+        {
+            nextAttackTime = nextAttackTime - Time.deltaTime;
+            //if (state!=State.Aiming)
+            //    animator.SetBool("IsAttacking", false);
+        }
+        else 
+        {
+            animator.SetBool("IsAttacking", true);
+            if (state == State.Aiming)
+                FireProjectile();
+
+            nextAttackTime += 1 / attackSpeed;
+        }
+    }
     private void FixedUpdate()
     {
         CheckLife();
@@ -93,18 +114,7 @@ public class RangeEnemyAI : MovingObjects
         if (animator.GetBool("IsDying") == true || State.Aiming == state)
         {
             Velocity = new Vector2(0, 0);
-            if (Time.time > nextAttackTime)
-            {
-                animator.SetBool("IsAttacking", true);
-
-                Fire();
-
-                nextAttackTime = Time.time + 1 / attackSpeed;
-            }
-            else
-            {
-                animator.SetBool("IsAttacking", false);
-            }
+            animator.SetBool("IsAttacking", true);
         }
         else
         {
@@ -176,8 +186,17 @@ public class RangeEnemyAI : MovingObjects
             state = State.Roaming;
     }
 
-    private void Fire()
+    private void FireProjectile()
     {
+        //Vector2 vecTemp = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
+
+
+        //Do this bc we don't have separate gun from the body yet
+        float scalar = 0.3f;
+        Vector3 aimDirection = (target.position - _firePoint.position).normalized;
+        Vector2 KnockBack = new Vector2(aimDirection.x* scalar, aimDirection.y* scalar);
+        Transform firedProjectile = Instantiate(_projectilePrefab, _firePoint.position, Quaternion.identity);
+        firedProjectile.GetComponent<Bullet>().setUp(aimDirection,false, Damage,KnockBack);
     }
 }

@@ -10,7 +10,7 @@ public class PlayerController : PlayerClass
 
     [SerializeField] BoxCollider2D collider2D;
     private bool IsHurt;
-    private float ImmuneTime = 3;
+    private float ImmuneTime = 2;
     private bool isDashButtonDown;
 
     private float _rotationSpeed;
@@ -166,7 +166,7 @@ public class PlayerController : PlayerClass
 
         _lookDirection = ((Vector3)vecTemp - transform.position).normalized;
         Transform firedBullet = Instantiate(BulletPrefab, barrelPos, Quaternion.identity);
-        firedBullet.GetComponent<Bullet>().setUp(_lookDirection);
+        firedBullet.GetComponent<Bullet>().setUp(_lookDirection,true,Damage);
     }
     private void FireBulletSpreadMode()
     {
@@ -205,7 +205,7 @@ public class PlayerController : PlayerClass
             _lookDirection = ((Vector3)vecTemp - bulleDirVector).normalized;
 
             Transform firedBullet = Instantiate(BulletPrefab, barrelPos, Quaternion.identity);
-            firedBullet.GetComponent<Bullet>().setUp(_lookDirection);
+            firedBullet.GetComponent<Bullet>().setUp(_lookDirection,true,Damage);
             angle += angleStep;
         }
 

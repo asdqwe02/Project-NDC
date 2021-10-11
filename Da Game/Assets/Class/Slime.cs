@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Pathfinding;
-public class Slime : MovingObjects
+public class Slime : Enemy
 {
     
 
@@ -10,7 +10,7 @@ public class Slime : MovingObjects
 
     [SerializeField] CircleCollider2D collider2D;
     private bool isDying = false;//Bloat TODO:delete
-                                 // Start is called before the first frame update
+                                
 
     private enum State
     {
