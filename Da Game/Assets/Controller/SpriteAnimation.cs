@@ -7,7 +7,8 @@ public class SpriteAnimation : MonoBehaviour
     [SerializeField] private Sprite[] frameArray;
     private int currentFrame;
     private float timer;
-    private float framerate = .1f;
+    [SerializeField]private float destroyAfter = 0f;
+    [SerializeField] private float framerate = .1f;
     private SpriteRenderer spriteRenderer;
 
     private void Awake()
@@ -26,6 +27,6 @@ public class SpriteAnimation : MonoBehaviour
             currentFrame = (currentFrame + 1) % frameArray.Length;
             spriteRenderer.sprite = frameArray[currentFrame];
         }
-        Destroy(gameObject,0.5f);
+        Destroy(gameObject,destroyAfter);
     }
 }

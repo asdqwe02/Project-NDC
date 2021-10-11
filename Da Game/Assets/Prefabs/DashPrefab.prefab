@@ -102,3 +102,5 @@ MonoBehaviour:
   - {fileID: 4074288834972177711, guid: 49fb2a9d4b7ffc045830c1ff258eecc0, type: 3}
   - {fileID: 4969180421085188871, guid: 49fb2a9d4b7ffc045830c1ff258eecc0, type: 3}
   - {fileID: -3361489511542471223, guid: 49fb2a9d4b7ffc045830c1ff258eecc0, type: 3}
+  destroyAfter: 0.5
+  framerate: 0.1

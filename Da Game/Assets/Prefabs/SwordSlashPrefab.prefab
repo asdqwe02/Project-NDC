@@ -101,3 +101,5 @@ MonoBehaviour:
   - {fileID: 21300000, guid: eecee1df828092442b24c91a3dfe19be, type: 3}
   - {fileID: 21300000, guid: b927adced0c3e1d4381dfc2fc971979e, type: 3}
   - {fileID: 21300000, guid: 64a5683a834f859469c669a8445f4528, type: 3}
+  destroyAfter: 0.24
+  framerate: 0.1

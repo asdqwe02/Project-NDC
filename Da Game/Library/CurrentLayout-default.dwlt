@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1920
     height: 1037
   m_ShowMode: 4
-  m_Title: Game
+  m_Title: Project
   m_RootView: {fileID: 8}
   m_MinSize: {x: 875, y: 642}
   m_MaxSize: {x: 10000, y: 10000}
@@ -154,7 +154,7 @@ MonoBehaviour:
   m_MinSize: {x: 708, y: 592}
   m_MaxSize: {x: 18003, y: 18042}
   vertical: 0
-  controlID: 50
+  controlID: 163
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -282,7 +282,7 @@ MonoBehaviour:
   m_MinSize: {x: 232, y: 592}
   m_MaxSize: {x: 10002, y: 18042}
   vertical: 1
-  controlID: 18
+  controlID: 58
 --- !u!114 &12
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -479,18 +479,18 @@ MonoBehaviour:
     m_ExpandedIDs: 00000000c2480000c4480000c6480000c8480000ca480000cc480000ce480000d0480000d248000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: Font
-      m_OriginalName: Font
+      m_Name: 
+      m_OriginalName: 
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: 18666
+      m_UserData: 0
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
-      m_OriginalEventType: 0
+      m_OriginalEventType: 11
       m_IsRenamingFilename: 1
       m_ClientGUIView: {fileID: 7}
     m_SearchString: 
@@ -592,7 +592,7 @@ MonoBehaviour:
     m_ControlHash: -371814159
     m_PrefName: Preview_InspectorPreview
   m_LastInspectedObjectInstanceID: -1
-  m_LastVerticalScrollValue: 0
+  m_LastVerticalScrollValue: 120
   m_GlobalObjectId: 
   m_LockTracker:
     m_IsLocked: 0
@@ -625,9 +625,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 5c450000
-      m_LastClickedID: 17756
-      m_ExpandedIDs: 38fbfffff4ffffff0c450000
+      m_SelectedIDs: 22470000
+      m_LastClickedID: 0
+      m_ExpandedIDs: 38fbfffff4ffffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 

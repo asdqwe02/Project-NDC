@@ -55,6 +55,7 @@
   <ItemGroup>
     <Compile Include="Assets\Controller\RangeEnemyAI.cs" />
     <Compile Include="Assets\Controller\EnemyAI.cs" />
+    <Compile Include="Assets\Class\Enemy.cs" />
     <Compile Include="Assets\Controller\EnemyAIDestinationSetter.cs" />
     <Compile Include="Assets\SlimeMeleeAttack.cs" />
     <Compile Include="Assets\Controller\Exit.cs" />
@@ -73,7 +74,6 @@
     <Compile Include="Assets\Class\Bullet.cs" />
     <Compile Include="Assets\Controller\EnemySpawner.cs" />
     <Compile Include="Assets\Animation\Enemies Animation\EnemyGFX.cs" />
-    <Compile Include="Assets\Class\Enemy.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
