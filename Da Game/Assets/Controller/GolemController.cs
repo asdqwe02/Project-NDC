@@ -48,8 +48,11 @@ public class GolemController : Enemy
     Seeker seeker;
     private Vector3 StartingPosition;
     public float nextWaypointDistance = 3f;
-
     public Animator animator;
+    [Header("Prefabs and Components")]
+    [SerializeField] private Transform _slamPrefab;
+    [Header("Attack Point")]
+    [SerializeField] private Transform _slamPoint;
     // Start is called before the first frame update
     void Start()
     {
@@ -179,12 +182,12 @@ public class GolemController : Enemy
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if ((animator.GetBool("IsSlamming") && collision.gameObject.tag == "Player") || (animator.GetBool("IsFolding") && collision.gameObject.tag == "Player"))
-        {
-            float scalar = 0.3f;
-            Vector2 KnockBack = new Vector2(direction.x * scalar, direction.y * scalar);
-            collision.gameObject.GetComponent<PlayerController>().takeDamage(Damage, KnockBack);
-        }
+        //if ((animator.GetBool("IsSlamming") && collision.gameObject.tag == "Player") || (animator.GetBool("IsFolding") && collision.gameObject.tag == "Player"))
+        //{
+        //    float scalar = 0.3f;
+        //    Vector2 KnockBack = new Vector2(direction.x * scalar, direction.y * scalar);
+        //    collision.gameObject.GetComponent<PlayerController>().takeDamage(Damage, KnockBack);
+        //}
     }
 
 
@@ -311,5 +314,14 @@ public class GolemController : Enemy
     private Vector3 GetRoamingPosition()
     {
         return StartingPosition + Ultilities.GetRandomDir() * Random.Range(10f, 7f);
+    }
+    public void Slam()
+    {
+        float scalar = 0.3f;
+        Vector2 KnockBack = new Vector2(direction.x * scalar, direction.y * scalar);
+        Transform GolemSlam = Instantiate(_slamPrefab, _slamPoint.position, Quaternion.identity);
+        GolemSlam.GetComponent<Slam>().SetUp(Damage, KnockBack);
+        if (FacingRight)
+            GolemSlam.Rotate(0f, 0f,180f);
     }
 }

@@ -7,6 +7,7 @@ public class Bullet : MonoBehaviour
     public Animator animator;
     private Vector3 _shootDir;
     private Vector3 _knockBack;
+    private float _damage;
     private bool isMoving = true, flip=false;
     [SerializeField] private float _bulletSpeed = 50f;
     [SerializeField] private bool _isFromPlayer = false;
