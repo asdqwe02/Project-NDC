@@ -141,15 +141,14 @@ public class GolemController : Enemy
             return;
         }
         direction = ((Vector2)path.vectorPath[currentWaypoint] - rb.position).normalized;
-        
+        Vector2 Velocity = new Vector2(direction.x * movementSpeed, direction.y * movementSpeed);
         if ((direction.x >= 0.01f && FacingRight) || (direction.x <= -0.01f && !FacingRight))
             flip();
         if (state == State.Run)
         {
-            Vector2 Velocity = new Vector2(direction.x * movementSpeed, direction.y * movementSpeed);
+            
             animator.SetBool("IsRunning", true);
             animator.SetBool("IsSlamming", false);
-            rb.velocity = Velocity;
         }
         else if(state == State.Slam)
         {
@@ -166,18 +165,17 @@ public class GolemController : Enemy
 
         if(state == State.Fold)
         {
-            Vector2 Velocity = new Vector2(direction.x * movementSpeed * 3, direction.y * movementSpeed * 3);
+            Velocity = new Vector2(direction.x * movementSpeed * 3, direction.y * movementSpeed * 3);
             animator.SetBool("IsFolding", true);
             animator.SetBool("IsRunning", false);
             animator.SetBool("IsSlamming", false);
-            rb.velocity = Velocity;
         }
         float distance = Vector2.Distance(rb.position, path.vectorPath[currentWaypoint]);
         if (distance < nextWaypointDistance)
         {
             currentWaypoint++;
         }
-
+        rb.velocity = Velocity;
 
     }
     private void OnCollisionEnter2D(Collision2D collision)
@@ -321,7 +319,10 @@ public class GolemController : Enemy
         Vector2 KnockBack = new Vector2(direction.x * scalar, direction.y * scalar);
         Transform GolemSlam = Instantiate(_slamPrefab, _slamPoint.position, Quaternion.identity);
         GolemSlam.GetComponent<Slam>().SetUp(Damage, KnockBack);
-        if (FacingRight)
-            GolemSlam.Rotate(0f, 0f,180f);
+        if ((target.position.x - transform.position.x > 0 && FacingRight == true) || (target.position.x - transform.position.x < 0 && FacingRight == false))
+        {
+            flip();
+            GolemSlam.Rotate(0f, 0f, 180f);
+        }
     }
 }
