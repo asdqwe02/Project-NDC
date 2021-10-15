@@ -263,7 +263,7 @@ GameObject:
   - component: {fileID: 251220851}
   - component: {fileID: 251220850}
   - component: {fileID: 251220848}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Circle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -283,6 +283,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   distanceLaser: 100
+  laserLayerMask:
+    serializedVersion: 2
+    m_Bits: 704
   laserFirePoint: {fileID: 251220852}
   m_linerenderer: {fileID: 251220850}
   endOfLaser: 0
@@ -4041,7 +4044,7 @@ GameObject:
   - component: {fileID: 312698193}
   - component: {fileID: 312698192}
   - component: {fileID: 312698191}
-  m_Layer: 2
+  m_Layer: 8
   m_Name: Archer
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -5245,7 +5248,7 @@ GameObject:
   - component: {fileID: 997163331}
   - component: {fileID: 997163330}
   - component: {fileID: 997163332}
-  m_Layer: 2
+  m_Layer: 8
   m_Name: Slime
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -5466,8 +5469,6 @@ MonoBehaviour:
   armour: 1
   Damage: 1
   collider2D: {fileID: 1069103408}
-  IdleTimer: 1
-  RoamTimer: 2
   wayPoint01: {fileID: 1972232962}
   wayPoint02: {fileID: 672856214}
   wayPoint03: {fileID: 239258067}
@@ -5477,6 +5478,12 @@ MonoBehaviour:
   target: {fileID: 0}
   nextWaypointDistance: 3
   animator: {fileID: 0}
+  IdleTimer: 1
+  SlamTimer: 2
+  SlamCooldown: 2
+  RollnLaserTimer: 0
+  RollnLaserCooldown: 5
+  RoamTimer: 2
   _slamPrefab: {fileID: 2929291095808678524, guid: f6320fd24e43cf34aa28dca9da75ec53, type: 3}
   _laserPoint: {fileID: 0}
   _slamPoint: {fileID: 1545058356}
@@ -5565,7 +5572,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3676398290107529585, guid: 4f1991d07ad25e1418c921ea884eeba2, type: 3}
       propertyPath: m_Layer
-      value: 2
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 3676398290107529585, guid: 4f1991d07ad25e1418c921ea884eeba2, type: 3}
       propertyPath: m_TagString
@@ -5810,7 +5817,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1545058356}
-  m_Layer: 2
+  m_Layer: 8
   m_Name: SlamPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5840,7 +5847,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1574256595}
-  m_Layer: 2
+  m_Layer: 8
   m_Name: FirePoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}

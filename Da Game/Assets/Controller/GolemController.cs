@@ -6,9 +6,6 @@ public class GolemController : Enemy
 {
     [SerializeField] CircleCollider2D collider2D;
     Rigidbody2D rb;
-    public float IdleTimer = 1;
-    float SlamTimer = 2;
-    public float RoamTimer = 1;
 
     float MaxHP;
 
@@ -49,12 +46,21 @@ public class GolemController : Enemy
     private Vector3 StartingPosition;
     public float nextWaypointDistance = 3f;
     public Animator animator;
+
+    [Header("Cooldown and Timer")]
+    public float IdleTimer = 1;
+    [SerializeField] private float SlamTimer, SlamCooldown = 2;
+    [SerializeField] private float RollnLaserTimer, RollnLaserCooldown = 5;
+    public float RoamTimer = 1;
+
     [Header("Prefabs and Components")]
     [SerializeField] private Transform _slamPrefab;
     [SerializeField] private Transform _laserPoint;
     private Laser AccessChildLaser;
+
     [Header("Attack Point")]
     [SerializeField] private Transform _slamPoint;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -151,9 +157,7 @@ public class GolemController : Enemy
             flip();
         if (state == State.Run)
         {
-            
             animator.SetBool("IsRunning", true);
-            animator.SetBool("IsSlamming", false);
         }
         else if(state == State.Slam)
         {
@@ -164,7 +168,6 @@ public class GolemController : Enemy
         {
             rb.velocity = new Vector3(0,0,0);
             animator.SetBool("IsRunning", false);   
-            animator.SetBool("IsSlamming", false);
         }
 
         if(state == State.Fold)
@@ -175,7 +178,6 @@ public class GolemController : Enemy
                 Velocity = new Vector2(0, 0);
             animator.SetBool("IsFolding", true);
             animator.SetBool("IsRunning", false);
-            animator.SetBool("IsSlamming", false);
             normalizeLaser = false; // 
         }
         if(state == State.Laser)
@@ -240,7 +242,7 @@ public class GolemController : Enemy
         if(phase == Phase.FirstPhase)
         {
             double AttackRange = 5;
-            if (Vector3.Distance(transform.position, target.transform.position) <= AttackRange)
+            if (Vector3.Distance(transform.position, target.transform.position) <= AttackRange && SlamTimer==SlamCooldown)
             {
                 state = State.Slam;
             }
@@ -303,6 +305,7 @@ public class GolemController : Enemy
                     state = State.Roam;
                     AccessChildLaser.endOfLaser = false ;
                     AccessChildLaser.start = false;
+                    InvokeRepeating("RollandLaserCDTimer", 0f, 0.5f);
                 }
             }
             if (state == State.Roam)
@@ -347,6 +350,7 @@ public class GolemController : Enemy
     }
     public void Slam()
     {
+        animator.SetBool("IsSlamming", false);
         float scalar = 0.3f;
         Vector2 KnockBack = new Vector2(direction.x * scalar, direction.y * scalar);
         Transform GolemSlam = Instantiate(_slamPrefab, _slamPoint.position, Quaternion.identity);
@@ -356,11 +360,32 @@ public class GolemController : Enemy
             flip();
             GolemSlam.Rotate(0f, 0f, 180f);
         }
+        InvokeRepeating("SlamCDTimer", 0f, 0.5f);
     }
 
     public void HasFolded()
     {
         
         IsFolded = true;
+    }
+    private void SlamCDTimer()
+    {
+        SlamTimer -= 0.5f;
+        if (SlamTimer <= 0)
+        {
+            SlamTimer = SlamCooldown;
+            CancelInvoke("SlamCDTimer");
+        }
+
+    }
+    private void RollandLaserCDTimer()
+    {
+        RollnLaserTimer -= 0.5f;
+        if (RollnLaserTimer <= 0)
+        {
+            RollnLaserTimer = RollnLaserCooldown;
+            CancelInvoke("RollandLaserCDTimer");
+        }
+
     }
 }

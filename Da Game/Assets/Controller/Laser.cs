@@ -5,6 +5,7 @@ using UnityEngine;
 public class Laser : MonoBehaviour
 {
     [SerializeField] private float distanceLaser = 100;
+    [SerializeField] private LayerMask laserLayerMask;
     public Transform laserFirePoint;
     public LineRenderer m_linerenderer;
     Transform m_transform;
@@ -65,7 +66,7 @@ public class Laser : MonoBehaviour
             }
 
 
-            RaycastHit2D _hit = Physics2D.Raycast(m_transform.position, transform.right);
+            RaycastHit2D _hit = Physics2D.Raycast(m_transform.position, transform.right, distanceLaser, laserLayerMask);
             if (_hit != null)
             {
                 Draw2DRay(laserFirePoint.position, _hit.point);
