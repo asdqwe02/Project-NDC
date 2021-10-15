@@ -60,3 +60,6 @@ TagManager:
   - name: Actor
     uniqueID: 2765224327
     locked: 0
+  - name: Laser
+    uniqueID: 897092043
+    locked: 0

@@ -6,10 +6,9 @@ public class GolemController : Enemy
 {
     [SerializeField] CircleCollider2D collider2D;
     Rigidbody2D rb;
-    float IdleTimer = 2;
+    public float IdleTimer = 1;
     float SlamTimer = 2;
-    float LaserTimer = 2;
-    float RollTimer = 2;
+    public float RoamTimer = 1;
 
     float MaxHP;
 
@@ -19,9 +18,10 @@ public class GolemController : Enemy
 
     public Transform wayPoint01, wayPoint02, wayPoint03, wayPoint04, wayPoint05;
     public float toWayPoint = 1;
-    bool reachedWayPoint = false;
     bool FacingRight = false;
     bool EndOfFold = false;
+    bool IsFolded = false;
+    bool normalizeLaser = false;
     private enum State
     {
         Slam,
@@ -51,6 +51,8 @@ public class GolemController : Enemy
     public Animator animator;
     [Header("Prefabs and Components")]
     [SerializeField] private Transform _slamPrefab;
+    [SerializeField] private Transform _laserPoint;
+    private Laser AccessChildLaser;
     [Header("Attack Point")]
     [SerializeField] private Transform _slamPoint;
     // Start is called before the first frame update
@@ -63,7 +65,9 @@ public class GolemController : Enemy
         animator = GetComponent<Animator>();
         phase = Phase.FirstPhase;
         MaxHP = hp;
+        AccessChildLaser = gameObject.GetComponentInChildren<Laser>();
         InvokeRepeating("UpdatePath", 0f, .5f);
+        
 
     }
     void UpdatePath()
@@ -126,6 +130,7 @@ public class GolemController : Enemy
         updatePhase();
         updateState();
         CheckLife();
+        Debug.Log(state);
         if (currentWaypoint >= path.vectorPath.Count)
         {
             reachedEndofPath = true;
@@ -154,21 +159,42 @@ public class GolemController : Enemy
         {
             animator.SetBool("IsRunning", false);
             animator.SetBool("IsSlamming", true);
-
         }
         if(state == State.Idle)
         {
             rb.velocity = new Vector3(0,0,0);
-            animator.SetBool("IsRunning", false);
+            animator.SetBool("IsRunning", false);   
             animator.SetBool("IsSlamming", false);
         }
 
         if(state == State.Fold)
         {
-            Velocity = new Vector2(direction.x * movementSpeed * 3, direction.y * movementSpeed * 3);
+            if (IsFolded)
+                Velocity = new Vector2(direction.x * movementSpeed * 3, direction.y * movementSpeed * 3);
+            else
+                Velocity = new Vector2(0, 0);
             animator.SetBool("IsFolding", true);
             animator.SetBool("IsRunning", false);
             animator.SetBool("IsSlamming", false);
+            normalizeLaser = false; // 
+        }
+        if(state == State.Laser)
+        {
+            AccessChildLaser.start = true;
+            if (!normalizeLaser)
+            {
+                AccessChildLaser.transform.eulerAngles = new Vector3(0, 0, 0); // called only once in this state
+                normalizeLaser = true;
+            }
+            animator.SetBool("IsFolding", false);
+            animator.SetBool("IsLasering", true);
+
+        }
+        if(state == State.Roam)
+        {
+            animator.SetBool("IsLasering", false);
+            animator.SetBool("IsRunning", true);
+
         }
         float distance = Vector2.Distance(rb.position, path.vectorPath[currentWaypoint]);
         if (distance < nextWaypointDistance)
@@ -232,10 +258,8 @@ public class GolemController : Enemy
                 
                 if (IdleTimer < 0)
                 {
-
                     state = State.Fold; 
-
-                    IdleTimer = 2; // reset the timer
+                    IdleTimer = 1; // reset the timer
                 }
             }
             if (state == State.Fold)
@@ -265,24 +289,32 @@ public class GolemController : Enemy
                     }
                 }
                 else
+                {
                     state = State.Laser;
+                    EndOfFold = false;
+                }
+                    
 
             }
             if(state == State.Laser)
             {
-                LaserTimer -= Time.deltaTime;
-                if (LaserTimer < 0)
+                if (AccessChildLaser.endOfLaser)
                 {
                     state = State.Roam;
-                    LaserTimer = 2; // reset the timer
+                    AccessChildLaser.endOfLaser = false ;
+                    AccessChildLaser.start = false;
                 }
             }
             if (state == State.Roam)
             {
-                if (reachedWayPoint)
+
+                RoamTimer -= Time.deltaTime;
+                if (RoamTimer <= 0)
                 {
                     state = State.Idle;
+                    RoamTimer = 1;
                 }
+                
             }
 
         }
@@ -324,5 +356,11 @@ public class GolemController : Enemy
             flip();
             GolemSlam.Rotate(0f, 0f, 180f);
         }
+    }
+
+    public void HasFolded()
+    {
+        
+        IsFolded = true;
     }
 }
