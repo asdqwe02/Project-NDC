@@ -18,6 +18,7 @@ public class PlayerController : PlayerClass
 
     public float Counter = 0;  //Making a counter to wait until the player can go back to sleep if it's in the holding gun state
     public float waitTime = 4;
+    [SerializeField] bool _restrictMovement = false;
     public static PlayerController instance;
     public Animator animator;
     private float rotZ;
@@ -58,12 +59,14 @@ public class PlayerController : PlayerClass
     // Update is called once per frame
     void Update()
     {
-        ProcessInput();
+        if (!_restrictMovement)
+            ProcessInput();
     }
 
     private void FixedUpdate()
     {
-        Move();
+        if (!_restrictMovement)
+            Move();
         if (isDashButtonDown == true)
         {
             Dash();
@@ -311,6 +314,14 @@ public class PlayerController : PlayerClass
             return;
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(_meleeAttackPoint.position, MeleeAttackRange);
+    }
+    public void SetRestrictMovement(bool restrict)
+    {
+        _restrictMovement = restrict;
+    }
+    public void SetVelocity(Vector2 v)
+    {
+        Rb.velocity = v;
     }
 }
 

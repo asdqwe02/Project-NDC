@@ -19,6 +19,7 @@ public class GolemController : Enemy
     bool EndOfFold = false;
     bool IsFolded = false;
     bool normalizeLaser = false;
+    bool pulling = false;
     private enum State
     {
         Slam,
@@ -26,6 +27,7 @@ public class GolemController : Enemy
         Run,
         Fold,
         Laser,
+        FiringArm,
         Roam
     }
 
@@ -48,18 +50,23 @@ public class GolemController : Enemy
     public Animator animator;
 
     [Header("Cooldown and Timer")]
-    public float IdleTimer = 1;
+    public float foldingTimer = 1.5f;
     [SerializeField] private float SlamTimer, SlamCooldown = 2;
-    [SerializeField] private float RollnLaserTimer, RollnLaserCooldown = 5;
+    [SerializeField] private float RollnLaserTimer, RollnLaserCooldown = 10;
+    [SerializeField] private float PullTimer, PullCooldown = 2;
     public float RoamTimer = 1;
 
     [Header("Prefabs and Components")]
     [SerializeField] private Transform _slamPrefab;
+    [SerializeField] private Transform _armProjectilePrefab;
     [SerializeField] private Transform _laserPoint;
     private Laser AccessChildLaser;
 
     [Header("Attack Point")]
     [SerializeField] private Transform _slamPoint;
+    [SerializeField] private Transform _armLaunchPoint;
+    [SerializeField] private Transform _pullPoint;
+
 
     // Start is called before the first frame update
     void Start()
@@ -72,6 +79,9 @@ public class GolemController : Enemy
         phase = Phase.FirstPhase;
         MaxHP = hp;
         AccessChildLaser = gameObject.GetComponentInChildren<Laser>();
+        SlamTimer = SlamCooldown;
+        RollnLaserTimer = RollnLaserCooldown;
+        PullTimer = PullCooldown;
         InvokeRepeating("UpdatePath", 0f, .5f);
         
 
@@ -80,7 +90,7 @@ public class GolemController : Enemy
     {
         if (seeker.IsDone())
         {
-            if(state == State.Idle || state == State.Laser || state == State.Slam)
+            if(state == State.Idle || state == State.Laser || state == State.Slam || state==State.FiringArm)
             {
                 seeker.StartPath(rb.position, rb.position, OnPathComplete);
             }
@@ -164,12 +174,18 @@ public class GolemController : Enemy
             animator.SetBool("IsRunning", false);
             animator.SetBool("IsSlamming", true);
         }
-        if(state == State.Idle)
+        else if (state == State.FiringArm)
+        {
+            //rb.velocity = new Vector3(0, 0, 0);
+            animator.SetBool("IsRunning", false);
+            animator.SetBool("IsFiringArm", true);
+        }
+        if (state == State.Idle)
         {
             rb.velocity = new Vector3(0,0,0);
             animator.SetBool("IsRunning", false);   
         }
-
+       
         if(state == State.Fold)
         {
             if (IsFolded)
@@ -225,7 +241,7 @@ public class GolemController : Enemy
             phase = Phase.SeccondPhase;
             if (switchPhase2 == false)
             {
-                state = State.Idle;
+                //state = State.Idle;
                 switchPhase2 = true;
             }
 
@@ -241,84 +257,31 @@ public class GolemController : Enemy
 
         if(phase == Phase.FirstPhase)
         {
-            double AttackRange = 5;
-            if (Vector3.Distance(transform.position, target.transform.position) <= AttackRange && SlamTimer==SlamCooldown)
-            {
-                state = State.Slam;
-            }
-            else
-            {
-                state = State.Run;
-            }
+            //AttackType(1);
+            //if (PullTimer == PullCooldown)
+            //{
+            //    AttackType(4);
+            //    if (PullTimer != PullCooldown)
+            //        AttackType(1);
+
+            //}
+            AttackType(1);
         }
         else if (phase == Phase.SeccondPhase)
         {
-            if(state == State.Idle)
+            if (!animator.GetBool("IsSlamming") && RollnLaserTimer == RollnLaserCooldown && state!=State.Laser)
             {
-                
-                IdleTimer = IdleTimer - Time.deltaTime;
-                
-                if (IdleTimer < 0)
-                {
-                    state = State.Fold; 
-                    IdleTimer = 1; // reset the timer
-                }
+                state = State.Fold;
+                AttackType(2);
             }
-            if (state == State.Fold)
+            AttackType(3);
+            if (!animator.GetBool("IsLasering") && !animator.GetBool("IsFolding") && RollnLaserTimer != RollnLaserCooldown)
             {
-                if (!EndOfFold)
-                {
-                    if (Vector3.Distance(transform.position, wayPoint01.position) <= 1.3 && toWayPoint == 1)
-                    {
-                        toWayPoint++;
-                    }
-                    if (Vector3.Distance(transform.position, wayPoint02.position) <= 1.3 && toWayPoint == 2)
-                    {
-                        toWayPoint++;
-                    }
-                    if (Vector3.Distance(transform.position, wayPoint03.position) <= 1.3 && toWayPoint == 3)
-                    {
-                        toWayPoint++;
-                    }
-                    if (Vector3.Distance(transform.position, wayPoint04.position) <= 1.3 && toWayPoint == 4)
-                    {
-                        toWayPoint++;
-                    }
-                    if (Vector3.Distance(transform.position, wayPoint05.position) <= 1.3 && toWayPoint == 5)
-                    {
-                        toWayPoint = 1;
-                        EndOfFold = true;
-                    }
-                }
-                else
-                {
-                    state = State.Laser;
-                    EndOfFold = false;
-                }
-                    
-
+                if (PullTimer != PullCooldown)
+                    AttackType(1);
+                else AttackType(4);
             }
-            if(state == State.Laser)
-            {
-                if (AccessChildLaser.endOfLaser)
-                {
-                    state = State.Roam;
-                    AccessChildLaser.endOfLaser = false ;
-                    AccessChildLaser.start = false;
-                    InvokeRepeating("RollandLaserCDTimer", 0f, 0.5f);
-                }
-            }
-            if (state == State.Roam)
-            {
-
-                RoamTimer -= Time.deltaTime;
-                if (RoamTimer <= 0)
-                {
-                    state = State.Idle;
-                    RoamTimer = 1;
-                }
-                
-            }
+            else animator.SetBool("IsSlamming", false);
 
         }
         else if (phase == Phase.LastPhase)
@@ -354,23 +317,134 @@ public class GolemController : Enemy
         float scalar = 0.3f;
         Vector2 KnockBack = new Vector2(direction.x * scalar, direction.y * scalar);
         Transform GolemSlam = Instantiate(_slamPrefab, _slamPoint.position, Quaternion.identity);
+        if (pulling) //pull slam has a different color and much higher damage 
+        {
+            pulling = false;
+            GolemSlam.GetComponent<SpriteRenderer>().material.color = Color.cyan;   //No idea why it's that color
+        }
         GolemSlam.GetComponent<Slam>().SetUp(Damage, KnockBack);
+       
         if ((target.position.x - transform.position.x > 0 && FacingRight == true) || (target.position.x - transform.position.x < 0 && FacingRight == false))
         {
             flip();
             GolemSlam.Rotate(0f, 0f, 180f);
         }
-        InvokeRepeating("SlamCDTimer", 0f, 0.5f);
+        state = State.Idle;
+        InvokeRepeating("SlamCDTimer", 0f, Time.fixedDeltaTime);
     }
+    private void FireArmProj()
+    {
+        if ((target.position.x - transform.position.x > 0 && FacingRight == true) || (target.position.x - transform.position.x < 0 && FacingRight == false))
+        {
+            flip();
+        }
+        animator.SetBool("IsFiringArm", false);
+        Vector3 aimDirection = (target.position - _armLaunchPoint.position).normalized;
+        Transform firedProjectile = Instantiate(_armProjectilePrefab, _armLaunchPoint.position, Quaternion.identity);
+        firedProjectile.GetComponent<GolemArm>().setUp(aimDirection, _pullPoint);
+        state = State.Slam;
+        animator.SetBool("IsSlamming", true);
+        pulling = true;
+        InvokeRepeating("PullCDTimer", 0f, Time.fixedDeltaTime);
+    }
+    private void Roll()
+    {
+        if (!EndOfFold)
+        {
 
+            if (Vector3.Distance(transform.position, wayPoint01.position) <= 1.3 && toWayPoint == 1)
+            {
+                toWayPoint++;
+            }
+            if (Vector3.Distance(transform.position, wayPoint02.position) <= 1.3 && toWayPoint == 2)
+            {
+                toWayPoint++;
+            }
+            if (Vector3.Distance(transform.position, wayPoint03.position) <= 1.3 && toWayPoint == 3)
+            {
+                toWayPoint++;
+            }
+            if (Vector3.Distance(transform.position, wayPoint04.position) <= 1.3 && toWayPoint == 4)
+            {
+                toWayPoint++;
+            }
+            if (Vector3.Distance(transform.position, wayPoint05.position) <= 1.3 && toWayPoint == 5)
+            {
+                toWayPoint = 1;
+                EndOfFold = true;
+            }
+        }
+        else
+        {
+            state = State.Laser;
+            EndOfFold = false;
+        }
+    }
+    private void Lasering()
+    {
+        if (state == State.Laser)
+        {
+            if (AccessChildLaser.endOfLaser)
+            {
+                IsFolded = false;
+                state = State.Roam;
+                AccessChildLaser.endOfLaser = false;
+                AccessChildLaser.start = false;
+                InvokeRepeating("RollandLaserCDTimer", 0f, Time.fixedDeltaTime);   //Laser cooldown 
+            }
+        }
+    }
     public void HasFolded()
     {
         
         IsFolded = true;
     }
+    private void AttackType(int phase)
+    {
+        switch (phase)
+        {
+            case 1:
+                double AttackRange = 5;
+                if (Vector3.Distance(transform.position, target.transform.position) <= AttackRange && SlamTimer == SlamCooldown)
+                {
+                    state = State.Slam;
+                }
+                else
+                {
+                    state = State.Run;
+                }
+                break;
+            case 2:
+                Roll();
+                break;
+            case 3:
+                //Laser
+                Lasering();
+                break;
+            case 4:
+                //Pull here
+                double FireRange = 20;
+                double SlamRange = 5;
+                if (Vector3.Distance(transform.position, target.transform.position) <= FireRange
+                    && Vector3.Distance(transform.position, target.transform.position) > SlamRange
+                    && PullTimer==PullCooldown
+                    && SlamTimer == SlamCooldown)
+                {
+                    state = State.FiringArm;
+                }
+                else
+                {
+                    state = State.Run;
+                }
+                break;
+            default:
+                break;
+        }
+       
+    }
     private void SlamCDTimer()
     {
-        SlamTimer -= 0.5f;
+        SlamTimer -= Time.fixedDeltaTime;
         if (SlamTimer <= 0)
         {
             SlamTimer = SlamCooldown;
@@ -380,12 +454,21 @@ public class GolemController : Enemy
     }
     private void RollandLaserCDTimer()
     {
-        RollnLaserTimer -= 0.5f;
+        RollnLaserTimer -= Time.fixedDeltaTime;
         if (RollnLaserTimer <= 0)
         {
             RollnLaserTimer = RollnLaserCooldown;
             CancelInvoke("RollandLaserCDTimer");
         }
 
+    }
+    private void PullCDTimer()
+    {
+        PullTimer -= Time.fixedDeltaTime;
+        if (PullTimer <= 0)
+        {
+            PullTimer = PullCooldown;
+            CancelInvoke("PullCDTimer");
+        }
     }
 }
