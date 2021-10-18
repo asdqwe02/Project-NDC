@@ -5583,7 +5583,7 @@ MonoBehaviour:
   RoamTimer: 2
   _slamPrefab: {fileID: 2929291095808678524, guid: f6320fd24e43cf34aa28dca9da75ec53, type: 3}
   _armProjectilePrefab: {fileID: 4572293842792702717, guid: 9196321ff0cae084faa43c17c30ec2df, type: 3}
-  _pillarsPrefab: {fileID: 2708473128752272202, guid: b7f89f37b6479f1498cc73ed2a2ad12f, type: 3}
+  _pillarsPrefab: {fileID: 3559341254117129809, guid: 23d8053a3858a8a4cb1b872c8abcc07d, type: 3}
   _slamPoint: {fileID: 1545058356}
   _armLaunchPoint: {fileID: 91784252}
   _pullPoint: {fileID: 224898578}

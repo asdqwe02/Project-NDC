@@ -17,7 +17,7 @@ TagManager:
   - Object
   - Monster
   - Player
-  - 
+  - Pillars
   - 
   - 
   - 
@@ -63,4 +63,7 @@ TagManager:
     locked: 0
   - name: Laser
     uniqueID: 897092043
+    locked: 0
+  - name: Pillar
+    uniqueID: 2538098027
     locked: 0
