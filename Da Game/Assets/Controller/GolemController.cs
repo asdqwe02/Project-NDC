@@ -14,12 +14,16 @@ public class GolemController : Enemy
     bool switchPhase3 = false;
 
     public Transform wayPoint01, wayPoint02, wayPoint03, wayPoint04, wayPoint05;
+    public List<Transform> WayPoints;
     public float toWayPoint = 1;
     bool FacingRight = false;
     bool EndOfFold = false;
     bool IsFolded = false;
     bool normalizeLaser = false;
     bool pulling = false;
+    bool IsSummoning = true;
+    bool IsLasering = false;
+    public bool DoneSummoningPillars = false;
     private enum State
     {
         Slam,
@@ -49,6 +53,9 @@ public class GolemController : Enemy
     public float nextWaypointDistance = 3f;
     public Animator animator;
 
+
+
+
     [Header("Cooldown and Timer")]
     public float foldingTimer = 1.5f;
     [SerializeField] private float SlamTimer, SlamCooldown = 2;
@@ -59,7 +66,7 @@ public class GolemController : Enemy
     [Header("Prefabs and Components")]
     [SerializeField] private Transform _slamPrefab;
     [SerializeField] private Transform _armProjectilePrefab;
-    [SerializeField] private Transform _laserPoint;
+    [SerializeField] private Transform _pillarsPrefab;
     private Laser AccessChildLaser;
 
     [Header("Attack Point")]
@@ -79,12 +86,21 @@ public class GolemController : Enemy
         phase = Phase.FirstPhase;
         MaxHP = hp;
         AccessChildLaser = gameObject.GetComponentInChildren<Laser>();
+        WayPointToArray();
         SlamTimer = SlamCooldown;
         RollnLaserTimer = RollnLaserCooldown;
         PullTimer = PullCooldown;
         InvokeRepeating("UpdatePath", 0f, .5f);
         
 
+    }
+    private void WayPointToArray()
+    {
+        WayPoints.Add(wayPoint01);
+        WayPoints.Add(wayPoint02);
+        WayPoints.Add(wayPoint03);
+        WayPoints.Add(wayPoint04);
+        //WayPoints.Add(wayPoint05);
     }
     void UpdatePath()
     {
@@ -146,7 +162,6 @@ public class GolemController : Enemy
         updatePhase();
         updateState();
         CheckLife();
-        Debug.Log(state);
         if (currentWaypoint >= path.vectorPath.Count)
         {
             reachedEndofPath = true;
@@ -198,18 +213,20 @@ public class GolemController : Enemy
         }
         if(state == State.Laser)
         {
-            AccessChildLaser.start = true;
-            if (!normalizeLaser)
-            {
-                AccessChildLaser.transform.eulerAngles = new Vector3(0, 0, 0); // called only once in this state
-                normalizeLaser = true;
-            }
+
             animator.SetBool("IsFolding", false);
             animator.SetBool("IsLasering", true);
+            animator.SetBool("IsSummoning", true);
+            if(DoneSummoningPillars)
+            {
+                animator.SetBool("IsSummoning", false);
+            }
 
         }
         if(state == State.Roam)
         {
+            IsLasering = false;
+            IsSummoning = true;
             animator.SetBool("IsLasering", false);
             animator.SetBool("IsRunning", true);
 
@@ -382,22 +399,56 @@ public class GolemController : Enemy
     }
     private void Lasering()
     {
-        if (state == State.Laser)
+        if (state == State.Laser && DoneSummoningPillars)
         {
-            if (AccessChildLaser.endOfLaser)
+
+            if (IsSummoning && !IsLasering)
             {
-                IsFolded = false;
-                state = State.Roam;
-                AccessChildLaser.endOfLaser = false;
-                AccessChildLaser.start = false;
-                InvokeRepeating("RollandLaserCDTimer", 0f, Time.fixedDeltaTime);   //Laser cooldown 
+                foreach (Transform Position in WayPoints)
+                {
+                    SummonningPillars(Position);
+                }
+                IsSummoning = false;
+            }
+            else if (IsLasering)
+            {
+
+                AccessChildLaser.start = true;
+                if (!normalizeLaser)
+                {
+                    AccessChildLaser.transform.eulerAngles = new Vector3(0, 0, 0); // called only once in this state
+                    normalizeLaser = true;
+                }
+                if (AccessChildLaser.endOfLaser)
+                {
+                    IsFolded = false;
+                    state = State.Roam;
+                    AccessChildLaser.endOfLaser = false;
+                    AccessChildLaser.start = false;
+                    InvokeRepeating("RollandLaserCDTimer", 0f, Time.fixedDeltaTime);   //Laser cooldown 
+                }
+
             }
         }
     }
+
+    private void SummonningPillars(Transform Position)
+    {
+        Transform Pillars = Instantiate(_pillarsPrefab , Position.position, Quaternion.identity);
+
+        
+    }
     public void HasFolded()
     {
-        
         IsFolded = true;
+    }
+    public void InLaseringAnimation()
+    {
+        IsLasering = true;
+    }
+    public void Summoning()
+    {
+        DoneSummoningPillars = true;
     }
     private void AttackType(int phase)
     {
