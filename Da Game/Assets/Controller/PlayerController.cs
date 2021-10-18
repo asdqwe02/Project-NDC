@@ -24,6 +24,8 @@ public class PlayerController : PlayerClass
     private float rotZ;
     private Vector3 difference;
 
+    private float MaxHealth;
+    public HealthBarController Healthbar;
     public static PlayerController Singleton;
     [Header("Layer Masks")]
     [SerializeField] private LayerMask _dashLayerMask;
@@ -54,11 +56,14 @@ public class PlayerController : PlayerClass
     }
     private void Start()
     {
+        MaxHealth = hp;
         collider2D = GetComponent<BoxCollider2D>();
+        
     }
     // Update is called once per frame
     void Update()
     {
+        Healthbar.setHealth(hp, MaxHealth);
         if (!_restrictMovement)
             ProcessInput();
     }

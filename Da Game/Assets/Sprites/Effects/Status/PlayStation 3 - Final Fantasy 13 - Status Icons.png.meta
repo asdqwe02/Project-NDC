@@ -1,0 +1,1332 @@
+fileFormatVersion: 2
+guid: f2bc175a615c26e4d908eec8a4bdf1bd
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -2137002887202817711
+    second: PlayStation 3 - Final Fantasy 13 - Status Icons_0
+  - first:
+      213: -6546675900525468755
+    second: PlayStation 3 - Final Fantasy 13 - Status Icons_1
+  - first:
+      213: 704143409959111571
+    second: PlayStation 3 - Final Fantasy 13 - Status Icons_2
+  - first:
+      213: 8237357845330532027
+    second: PlayStation 3 - Final Fantasy 13 - Status Icons_3
+  - first:
+      213: -4863342371374972093
+    second: PlayStation 3 - Final Fantasy 13 - Status Icons_4
+  - first:
+      213: -6520776465930754812
+    second: PlayStation 3 - Final Fantasy 13 - Status Icons_5
+  - first:
+      213: 7687807826074785844
+    second: PlayStation 3 - Final Fantasy 13 - Status Icons_6
+  - first:
+      213: -54135726859954621
+    second: PlayStation 3 - Final Fantasy 13 - Status Icons_7
+  - first:
+      213: -1330510025937147563
+    second: PlayStation 3 - Final Fantasy 13 - Status Icons_8
+  - first:
+      213: 679125091986864051
+    second: PlayStation 3 - Final Fantasy 13 - Status Icons_9
+  - first:
+      213: 4320564895475845919
+    second: PlayStation 3 - Final Fantasy 13 - Status Icons_10
+  - first:
+      213: -7444550782476895905
+    second: PlayStation 3 - Final Fantasy 13 - Status Icons_11
+  - first:
+      213: -8787379634864014552
+    second: PlayStation 3 - Final Fantasy 13 - Status Icons_12
+  - first:
+      213: -2168044400561428618
+    second: PlayStation 3 - Final Fantasy 13 - Status Icons_13
+  - first:
+      213: -5996727780082475491
+    second: PlayStation 3 - Final Fantasy 13 - Status Icons_14
+  - first:
+      213: 7388126163468488234
+    second: PlayStation 3 - Final Fantasy 13 - Status Icons_15
+  - first:
+      213: 5858722771803501369
+    second: PlayStation 3 - Final Fantasy 13 - Status Icons_16
+  - first:
+      213: -6648624580258893723
+    second: PlayStation 3 - Final Fantasy 13 - Status Icons_17
+  - first:
+      213: -2285009504104777996
+    second: PlayStation 3 - Final Fantasy 13 - Status Icons_18
+  - first:
+      213: 4200546979834347151
+    second: PlayStation 3 - Final Fantasy 13 - Status Icons_19
+  - first:
+      213: 9167093999874609374
+    second: PlayStation 3 - Final Fantasy 13 - Status Icons_20
+  - first:
+      213: -8018433112009768633
+    second: PlayStation 3 - Final Fantasy 13 - Status Icons_21
+  - first:
+      213: -6854744873012746123
+    second: PlayStation 3 - Final Fantasy 13 - Status Icons_22
+  - first:
+      213: 4015457431067916517
+    second: PlayStation 3 - Final Fantasy 13 - Status Icons_23
+  - first:
+      213: 2200588614670256673
+    second: PlayStation 3 - Final Fantasy 13 - Status Icons_24
+  - first:
+      213: 4293069860162359919
+    second: PlayStation 3 - Final Fantasy 13 - Status Icons_25
+  - first:
+      213: 1743140104682883301
+    second: PlayStation 3 - Final Fantasy 13 - Status Icons_26
+  - first:
+      213: -4891011570520478780
+    second: PlayStation 3 - Final Fantasy 13 - Status Icons_27
+  - first:
+      213: 3352206880625837905
+    second: PlayStation 3 - Final Fantasy 13 - Status Icons_28
+  - first:
+      213: -1685203832645503802
+    second: PlayStation 3 - Final Fantasy 13 - Status Icons_29
+  - first:
+      213: -7417609741992868264
+    second: PlayStation 3 - Final Fantasy 13 - Status Icons_30
+  - first:
+      213: 7557929462643310930
+    second: PlayStation 3 - Final Fantasy 13 - Status Icons_31
+  - first:
+      213: -1192240209766411827
+    second: PlayStation 3 - Final Fantasy 13 - Status Icons_32
+  - first:
+      213: -1518400025962621536
+    second: PlayStation 3 - Final Fantasy 13 - Status Icons_33
+  - first:
+      213: -248364839315856983
+    second: PlayStation 3 - Final Fantasy 13 - Status Icons_34
+  - first:
+      213: -8573118555253494628
+    second: PlayStation 3 - Final Fantasy 13 - Status Icons_35
+  - first:
+      213: 7058153480460419697
+    second: PlayStation 3 - Final Fantasy 13 - Status Icons_36
+  - first:
+      213: -1614327450399056071
+    second: PlayStation 3 - Final Fantasy 13 - Status Icons_37
+  - first:
+      213: 2755208200060781935
+    second: PlayStation 3 - Final Fantasy 13 - Status Icons_38
+  - first:
+      213: 2638750211575677300
+    second: PlayStation 3 - Final Fantasy 13 - Status Icons_39
+  - first:
+      213: -8577228595503847847
+    second: PlayStation 3 - Final Fantasy 13 - Status Icons_40
+  - first:
+      213: -9114481598504401755
+    second: PlayStation 3 - Final Fantasy 13 - Status Icons_41
+  - first:
+      213: -2938370262827494078
+    second: PlayStation 3 - Final Fantasy 13 - Status Icons_42
+  - first:
+      213: -8092902248191157458
+    second: PlayStation 3 - Final Fantasy 13 - Status Icons_43
+  - first:
+      213: -8492067542790890854
+    second: PlayStation 3 - Final Fantasy 13 - Status Icons_44
+  - first:
+      213: -6089666197591663417
+    second: PlayStation 3 - Final Fantasy 13 - Status Icons_45
+  - first:
+      213: 4873331032083964881
+    second: PlayStation 3 - Final Fantasy 13 - Status Icons_46
+  - first:
+      213: 5814389534632111108
+    second: PlayStation 3 - Final Fantasy 13 - Status Icons_47
+  - first:
+      213: 1384007821247170742
+    second: PlayStation 3 - Final Fantasy 13 - Status Icons_48
+  - first:
+      213: -927808859440109073
+    second: PlayStation 3 - Final Fantasy 13 - Status Icons_49
+  - first:
+      213: -8992679689138735832
+    second: PlayStation 3 - Final Fantasy 13 - Status Icons_50
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 10
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: PlayStation 3 - Final Fantasy 13 - Status Icons_0
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 182
+        width: 24
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 159ba484237d752e0800000000000000
+      internalID: -2137002887202817711
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation 3 - Final Fantasy 13 - Status Icons_1
+      rect:
+        serializedVersion: 2
+        x: 33
+        y: 182
+        width: 24
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: da3a19944f88525a0800000000000000
+      internalID: -6546675900525468755
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation 3 - Final Fantasy 13 - Status Icons_2
+      rect:
+        serializedVersion: 2
+        x: 63
+        y: 182
+        width: 24
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 39b8b8d53be95c900800000000000000
+      internalID: 704143409959111571
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation 3 - Final Fantasy 13 - Status Icons_3
+      rect:
+        serializedVersion: 2
+        x: 93
+        y: 182
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bb614b22159f05270800000000000000
+      internalID: 8237357845330532027
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation 3 - Final Fantasy 13 - Status Icons_4
+      rect:
+        serializedVersion: 2
+        x: 123
+        y: 182
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 343c61d51efe18cb0800000000000000
+      internalID: -4863342371374972093
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation 3 - Final Fantasy 13 - Status Icons_5
+      rect:
+        serializedVersion: 2
+        x: 153
+        y: 182
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 40568705a5c8185a0800000000000000
+      internalID: -6520776465930754812
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation 3 - Final Fantasy 13 - Status Icons_6
+      rect:
+        serializedVersion: 2
+        x: 183
+        y: 182
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 438d7ae6c7490ba60800000000000000
+      internalID: 7687807826074785844
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation 3 - Final Fantasy 13 - Status Icons_7
+      rect:
+        serializedVersion: 2
+        x: 213
+        y: 182
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 346daded7dbaf3ff0800000000000000
+      internalID: -54135726859954621
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation 3 - Final Fantasy 13 - Status Icons_8
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 152
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 559abe54e24198de0800000000000000
+      internalID: -1330510025937147563
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation 3 - Final Fantasy 13 - Status Icons_9
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 152
+        width: 22
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3b77ee94cacbc6900800000000000000
+      internalID: 679125091986864051
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation 3 - Final Fantasy 13 - Status Icons_10
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 152
+        width: 22
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f1b4cdf81eab5fb30800000000000000
+      internalID: 4320564895475845919
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation 3 - Final Fantasy 13 - Status Icons_11
+      rect:
+        serializedVersion: 2
+        x: 93
+        y: 152
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f59bb1a9184afa890800000000000000
+      internalID: -7444550782476895905
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation 3 - Final Fantasy 13 - Status Icons_12
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 152
+        width: 19
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 82bbd6597c4fc0680800000000000000
+      internalID: -8787379634864014552
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation 3 - Final Fantasy 13 - Status Icons_13
+      rect:
+        serializedVersion: 2
+        x: 153
+        y: 152
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 677e24fba1f89e1e0800000000000000
+      internalID: -2168044400561428618
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation 3 - Final Fantasy 13 - Status Icons_14
+      rect:
+        serializedVersion: 2
+        x: 183
+        y: 152
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d1e97752bd757cca0800000000000000
+      internalID: -5996727780082475491
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation 3 - Final Fantasy 13 - Status Icons_15
+      rect:
+        serializedVersion: 2
+        x: 213
+        y: 152
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a2e0f490a95e78660800000000000000
+      internalID: 7388126163468488234
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation 3 - Final Fantasy 13 - Status Icons_16
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 122
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 933f6d2f15d5e4150800000000000000
+      internalID: 5858722771803501369
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation 3 - Final Fantasy 13 - Status Icons_17
+      rect:
+        serializedVersion: 2
+        x: 33
+        y: 122
+        width: 23
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 560fcb09b275bb3a0800000000000000
+      internalID: -6648624580258893723
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation 3 - Final Fantasy 13 - Status Icons_18
+      rect:
+        serializedVersion: 2
+        x: 63
+        y: 122
+        width: 23
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4f6717766f30a40e0800000000000000
+      internalID: -2285009504104777996
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation 3 - Final Fantasy 13 - Status Icons_19
+      rect:
+        serializedVersion: 2
+        x: 94
+        y: 122
+        width: 22
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f8ebd5309375b4a30800000000000000
+      internalID: 4200546979834347151
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation 3 - Final Fantasy 13 - Status Icons_20
+      rect:
+        serializedVersion: 2
+        x: 124
+        y: 122
+        width: 22
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ed0142d6c6f083f70800000000000000
+      internalID: 9167093999874609374
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation 3 - Final Fantasy 13 - Status Icons_21
+      rect:
+        serializedVersion: 2
+        x: 154
+        y: 122
+        width: 22
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7418d6f619dc8b090800000000000000
+      internalID: -8018433112009768633
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation 3 - Final Fantasy 13 - Status Icons_22
+      rect:
+        serializedVersion: 2
+        x: 185
+        y: 122
+        width: 22
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 57825222bdd0fd0a0800000000000000
+      internalID: -6854744873012746123
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation 3 - Final Fantasy 13 - Status Icons_23
+      rect:
+        serializedVersion: 2
+        x: 215
+        y: 122
+        width: 22
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5e8718d3245c9b730800000000000000
+      internalID: 4015457431067916517
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation 3 - Final Fantasy 13 - Status Icons_24
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 92
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 12a80329faf0a8e10800000000000000
+      internalID: 2200588614670256673
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation 3 - Final Fantasy 13 - Status Icons_25
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 92
+        width: 19
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f62d9eaca4c049b30800000000000000
+      internalID: 4293069860162359919
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation 3 - Final Fantasy 13 - Status Icons_26
+      rect:
+        serializedVersion: 2
+        x: 63
+        y: 92
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5e84c5d80b0e03810800000000000000
+      internalID: 1743140104682883301
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation 3 - Final Fantasy 13 - Status Icons_27
+      rect:
+        serializedVersion: 2
+        x: 93
+        y: 92
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4cb2dcae3e2af1cb0800000000000000
+      internalID: -4891011570520478780
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation 3 - Final Fantasy 13 - Status Icons_28
+      rect:
+        serializedVersion: 2
+        x: 123
+        y: 92
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 157c25da56e658e20800000000000000
+      internalID: 3352206880625837905
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation 3 - Final Fantasy 13 - Status Icons_29
+      rect:
+        serializedVersion: 2
+        x: 153
+        y: 92
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6c4b905fa04fc98e0800000000000000
+      internalID: -1685203832645503802
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation 3 - Final Fantasy 13 - Status Icons_30
+      rect:
+        serializedVersion: 2
+        x: 183
+        y: 92
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 856c9066d3b5f0990800000000000000
+      internalID: -7417609741992868264
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation 3 - Final Fantasy 13 - Status Icons_31
+      rect:
+        serializedVersion: 2
+        x: 213
+        y: 92
+        width: 21
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 251405a7dc823e860800000000000000
+      internalID: 7557929462643310930
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation 3 - Final Fantasy 13 - Status Icons_32
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 62
+        width: 21
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dc19fe198df447fe0800000000000000
+      internalID: -1192240209766411827
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation 3 - Final Fantasy 13 - Status Icons_33
+      rect:
+        serializedVersion: 2
+        x: 33
+        y: 62
+        width: 22
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0a5dd81a83f8deae0800000000000000
+      internalID: -1518400025962621536
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation 3 - Final Fantasy 13 - Status Icons_34
+      rect:
+        serializedVersion: 2
+        x: 63
+        y: 62
+        width: 22
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9a1a1e99e71ad8cf0800000000000000
+      internalID: -248364839315856983
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation 3 - Final Fantasy 13 - Status Icons_35
+      rect:
+        serializedVersion: 2
+        x: 94
+        y: 63
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c9c2ec8a81a260980800000000000000
+      internalID: -8573118555253494628
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation 3 - Final Fantasy 13 - Status Icons_36
+      rect:
+        serializedVersion: 2
+        x: 124
+        y: 63
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 172c70dd13993f160800000000000000
+      internalID: 7058153480460419697
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation 3 - Final Fantasy 13 - Status Icons_37
+      rect:
+        serializedVersion: 2
+        x: 155
+        y: 62
+        width: 20
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 93f5dc7acb1c899e0800000000000000
+      internalID: -1614327450399056071
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation 3 - Final Fantasy 13 - Status Icons_38
+      rect:
+        serializedVersion: 2
+        x: 183
+        y: 62
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f65cdde92477c3620800000000000000
+      internalID: 2755208200060781935
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation 3 - Final Fantasy 13 - Status Icons_39
+      rect:
+        serializedVersion: 2
+        x: 213
+        y: 62
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 47184f33659be9420800000000000000
+      internalID: 2638750211575677300
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation 3 - Final Fantasy 13 - Status Icons_40
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 32
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 956aba7590097f880800000000000000
+      internalID: -8577228595503847847
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation 3 - Final Fantasy 13 - Status Icons_41
+      rect:
+        serializedVersion: 2
+        x: 33
+        y: 32
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5a48f49d64bd28180800000000000000
+      internalID: -9114481598504401755
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation 3 - Final Fantasy 13 - Status Icons_42
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 32
+        width: 19
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 245989960dfc837d0800000000000000
+      internalID: -2938370262827494078
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation 3 - Final Fantasy 13 - Status Icons_43
+      rect:
+        serializedVersion: 2
+        x: 95
+        y: 33
+        width: 19
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e2b1b96884c30bf80800000000000000
+      internalID: -8092902248191157458
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation 3 - Final Fantasy 13 - Status Icons_44
+      rect:
+        serializedVersion: 2
+        x: 123
+        y: 32
+        width: 23
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a9a135f009d162a80800000000000000
+      internalID: -8492067542790890854
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation 3 - Final Fantasy 13 - Status Icons_45
+      rect:
+        serializedVersion: 2
+        x: 158
+        y: 34
+        width: 14
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7cc58d39bd82d7ba0800000000000000
+      internalID: -6089666197591663417
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation 3 - Final Fantasy 13 - Status Icons_46
+      rect:
+        serializedVersion: 2
+        x: 185
+        y: 32
+        width: 21
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d3a040f0cc81a340800000000000000
+      internalID: 4873331032083964881
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation 3 - Final Fantasy 13 - Status Icons_47
+      rect:
+        serializedVersion: 2
+        x: 215
+        y: 32
+        width: 20
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 40cee7dc97cd0b050800000000000000
+      internalID: 5814389534632111108
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation 3 - Final Fantasy 13 - Status Icons_48
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 2
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6b8ccc7d7cbf43310800000000000000
+      internalID: 1384007821247170742
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation 3 - Final Fantasy 13 - Status Icons_49
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 3
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fe9ac9112c2cf13f0800000000000000
+      internalID: -927808859440109073
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation 3 - Final Fantasy 13 - Status Icons_50
+      rect:
+        serializedVersion: 2
+        x: 63
+        y: 5
+        width: 24
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 825f30ec775933380800000000000000
+      internalID: -8992679689138735832
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
