@@ -7,7 +7,8 @@ public class PillarController : MonoBehaviour
     private Animator animator;
 
     private BoxCollider2D collider;
-    [SerializeField] private Transform _slamPrefab;
+    [SerializeField] private Transform _explosionPrefab;
+    [SerializeField] private Transform ExplosionPoint;
     public bool Active=true;
     private float _damage;
     public float LiveTime = 5;
@@ -61,8 +62,7 @@ public class PillarController : MonoBehaviour
 
     private void End()
     {
-        Transform GolemSlam = Instantiate(_slamPrefab, transform.position, Quaternion.identity);
-        GolemSlam.GetComponent<Slam>().SetUp(_damage, new Vector3(0, 0, 0));
+        Transform Explosion = Instantiate(_explosionPrefab, ExplosionPoint.position, Quaternion.identity);
         Destroy(gameObject);
 
     }
