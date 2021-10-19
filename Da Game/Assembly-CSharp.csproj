@@ -61,6 +61,7 @@
     <Compile Include="Assets\Controller\WeaponController.cs" />
     <Compile Include="Assets\Controller\SpriteAnimation.cs" />
     <Compile Include="Assets\Controller\Camera_Follow.cs" />
+    <Compile Include="Assets\Controller\HealthBarController.cs" />
     <Compile Include="Assets\Class\RangEnemyClass.cs" />
     <Compile Include="Assets\Controller\Entrance.cs" />
     <Compile Include="Assets\Controller\PlayerController.cs" />
@@ -79,7 +80,7 @@
     <Compile Include="Assets\Controller\IsDyingEvent.cs" />
     <Compile Include="Assets\Class\MovingObjects.cs" />
     <Compile Include="Assets\Animation\Enemies Animation\EnemyGFX.cs" />
-    <Compile Include="Assets\Controller\HealthBarController.cs" />
+    <Compile Include="Assets\Controller\StatusController.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
