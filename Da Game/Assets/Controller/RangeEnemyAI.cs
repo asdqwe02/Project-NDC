@@ -197,6 +197,8 @@ public class RangeEnemyAI : Enemy
         Vector3 aimDirection = (target.position - _firePoint.position).normalized;
         Vector2 KnockBack = new Vector2(aimDirection.x* scalar, aimDirection.y* scalar);
         Transform firedProjectile = Instantiate(_projectilePrefab, _firePoint.position, Quaternion.identity);
-        firedProjectile.GetComponent<Bullet>().setUp(aimDirection,false, Damage,KnockBack);
+
+        //Replace DamageType enum with a variable damageType later
+        firedProjectile.GetComponent<Bullet>().setUp(aimDirection,false, Damage,(int)DamageType.Cold,KnockBack);
     }
 }

@@ -4398,6 +4398,9 @@ MonoBehaviour:
   attackSpeed: 1
   armour: 1
   Damage: 1
+  damageType: 0
+  statusEffects: 000000000000000000000000
+  shockedTimer: 4
   collider2D: {fileID: 312698194}
   _firePoint: {fileID: 1574256595}
   _projectilePrefab: {fileID: 5825745331536270500, guid: ebd8def4e971cfa46bbf185de7ffd52b, type: 3}
@@ -6164,6 +6167,9 @@ MonoBehaviour:
   attackSpeed: 0.2
   armour: 1
   Damage: 1
+  damageType: 0
+  statusEffects: 000000000000000000000000
+  shockedTimer: 4
   collider2D: {fileID: 997163325}
   target: {fileID: 0}
   nextWaypointDistance: 3
@@ -6279,11 +6285,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0f60e772a78ace4988710b7c26285b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 10
+  hp: 20
   movementSpeed: 3
   attackSpeed: 1
   armour: 1
   Damage: 1
+  damageType: 0
+  statusEffects: 
+  shockedTimer: 4
   collider2D: {fileID: 1069103408}
   wayPoint01: {fileID: 1972232962}
   wayPoint02: {fileID: 672856214}
@@ -6550,6 +6559,9 @@ MonoBehaviour:
   attackSpeed: 1
   armour: 1
   Damage: 1
+  damageType: 0
+  statusEffects: 
+  shockedTimer: 4
   _fireRate: 0.1
   _firingTime: 0
   _bulletAmount: 6
@@ -9969,11 +9981,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1341481478067925411, guid: f0cbe3677cda3814aba2bf364411ca87, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 19.46
+      value: 19.96
       objectReference: {fileID: 0}
     - target: {fileID: 1341481478067925411, guid: f0cbe3677cda3814aba2bf364411ca87, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.07
+      value: 1.18
       objectReference: {fileID: 0}
     - target: {fileID: 1341481478067925411, guid: f0cbe3677cda3814aba2bf364411ca87, type: 3}
       propertyPath: m_LocalPosition.z

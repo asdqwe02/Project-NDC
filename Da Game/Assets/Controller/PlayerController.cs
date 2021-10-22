@@ -174,7 +174,9 @@ public class PlayerController : PlayerClass
 
         _lookDirection = ((Vector3)vecTemp - transform.position).normalized;
         Transform firedBullet = Instantiate(BulletPrefab, barrelPos, Quaternion.identity);
-        firedBullet.GetComponent<Bullet>().setUp(_lookDirection,true,Damage);
+
+        //Replace DamageType enum with a variable damageType later
+        firedBullet.GetComponent<Bullet>().setUp(_lookDirection,true,Damage,(int)DamageType.Lightning);
     }
     private void FireBulletSpreadMode()
     {
@@ -213,7 +215,9 @@ public class PlayerController : PlayerClass
             _lookDirection = ((Vector3)vecTemp - bulleDirVector).normalized;
 
             Transform firedBullet = Instantiate(BulletPrefab, barrelPos, Quaternion.identity);
-            firedBullet.GetComponent<Bullet>().setUp(_lookDirection,true,Damage);
+
+            //Replace DamageType enum with a variable damageType later
+            firedBullet.GetComponent<Bullet>().setUp(_lookDirection,true,Damage, (int)DamageType.Lightning); 
             angle += angleStep;
         }
 

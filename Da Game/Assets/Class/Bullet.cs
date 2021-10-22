@@ -8,11 +8,17 @@ public class Bullet : MonoBehaviour
     private Vector3 _shootDir;
     private Vector3 _knockBack;
     private float _damage;
+    private int _damageType;
+    private RNG statusEffectRNG;
     private bool isMoving = true, flip=false;
     [SerializeField] private float _bulletSpeed = 50f;
     [SerializeField] private bool _isFromPlayer = false;
-    
-    public void setUp(Vector3 shootDir, bool IsFromPlayer,float damage,Vector3 KnockBack)
+
+    private void Start()
+    {
+        statusEffectRNG = new RNG();
+    }
+    public void setUp(Vector3 shootDir, bool IsFromPlayer,float damage,int damageType, Vector3 KnockBack)
     {
         _shootDir = shootDir;
         transform.eulerAngles = new Vector3(0, 0, GetAngleFromVectorFloat(shootDir));
@@ -20,15 +26,17 @@ public class Bullet : MonoBehaviour
         _knockBack = KnockBack;
         if (!_isFromPlayer)
             gameObject.layer = 8;
+        _damageType = damageType; 
         Destroy(gameObject, 1f);
     }
-    public void setUp(Vector3 shootDir, bool IsFromPlayer, float damage)
+    public void setUp(Vector3 shootDir, bool IsFromPlayer, float damage,int damageType)
     {
         _shootDir = shootDir;
         transform.eulerAngles = new Vector3(0, 0, GetAngleFromVectorFloat(shootDir));
         _isFromPlayer = IsFromPlayer;
         if (!_isFromPlayer)
             gameObject.layer = 8;
+        _damageType = damageType;
         Destroy(gameObject, 1f);
     }
     // Update is called once per frame
@@ -58,6 +66,11 @@ public class Bullet : MonoBehaviour
             if (Monster != null)
             {
                 Monster.takeDamage(1);
+                bool applyStatus = statusEffectRNG.RollNumber(25f);
+                if (applyStatus)
+                {
+                    Monster.ApplyStatusEffect(_damageType);
+                }
 
             }
         }
