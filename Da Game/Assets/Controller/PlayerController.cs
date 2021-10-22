@@ -176,7 +176,7 @@ public class PlayerController : PlayerClass
         Transform firedBullet = Instantiate(BulletPrefab, barrelPos, Quaternion.identity);
 
         //Replace DamageType enum with a variable damageType later
-        firedBullet.GetComponent<Bullet>().setUp(_lookDirection,true,Damage,(int)DamageType.Lightning);
+        firedBullet.GetComponent<Bullet>().setUp(_lookDirection,true,Damage,(int)DamageType.Cold);
     }
     private void FireBulletSpreadMode()
     {

@@ -66,7 +66,7 @@ public class Bullet : MonoBehaviour
             if (Monster != null)
             {
                 Monster.takeDamage(1);
-                bool applyStatus = statusEffectRNG.RollNumber(25f);
+                bool applyStatus = statusEffectRNG.RollNumber(25f); //Apply status effect to monster
                 if (applyStatus)
                 {
                     Monster.ApplyStatusEffect(_damageType);
