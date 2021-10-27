@@ -2,8 +2,13 @@ using UnityEngine;
 using Pathfinding;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 public class MovingObjects : MonoBehaviour
-{   
+{
+    private bool dropped = false;
+    protected bool IsPlayer = false;
+
+
     [Header("Status Effect Timer")]
     [SerializeField] protected float shockedTimer = 4f;
     [SerializeField] protected float burningTimer = 3f;
@@ -28,14 +33,16 @@ public class MovingObjects : MonoBehaviour
         attackSpeed = 1;
         armour = 1;
         Damage = 1;
+        
     }
-    public MovingObjects(float Hp, float Ms, float As, int Armor, float damage)
+    public MovingObjects(float Hp, float Ms, float As, int Armor, float damage )
     {
         hp = Hp;
         movementSpeed = Ms;
         attackSpeed = As;
         armour = Armor;
         Damage = damage;
+        
     }
     protected enum DamageType
     {
@@ -57,11 +64,38 @@ public class MovingObjects : MonoBehaviour
         if (statusEffects.Count >= 3)
             return;
         StatusEffect tempStatusEffect = (StatusEffect) damagetype;
+
         if (statusEffects.Contains(tempStatusEffect))
             return;
         else
         {
             statusEffects.Add(tempStatusEffect);
+            //update player's gfx status bar
+            if (IsPlayer)
+            {
+                GameObject parent = GameObject.Find("Status Bar");
+                switch (damagetype)
+                {
+                    case 1:
+                        GameObject childObject = parent.transform.GetChild(0).gameObject;
+                        childObject.GetComponent<SpriteRenderer>().enabled = true;
+                        break;
+                    case 2:
+                        childObject = parent.transform.GetChild(1).gameObject;
+                        childObject.GetComponent<SpriteRenderer>().enabled = true;
+                        break;
+                        break;
+                    case 3:
+                        childObject = parent.transform.GetChild(2).gameObject;
+                        childObject.GetComponent<SpriteRenderer>().enabled = true;
+                        break;
+
+                }
+                    
+
+
+            }
+
             switch (damagetype)
             {
                 case 1:
@@ -83,8 +117,31 @@ public class MovingObjects : MonoBehaviour
         StatusEffect tempStatusEffect = (StatusEffect)statustype;
         int removeIndes = statusEffects.IndexOf(tempStatusEffect);
         statusEffects.RemoveAt(removeIndes);
-        
-        
+        if (IsPlayer)
+        {
+            GameObject parent = GameObject.Find("Status Bar");
+            switch (statustype)
+            {
+                case 1:
+                    GameObject childObject = parent.transform.GetChild(0).gameObject;
+                    childObject.GetComponent<SpriteRenderer>().enabled = false;
+                    break;
+                case 2:
+                    childObject = parent.transform.GetChild(1).gameObject;
+                    childObject.GetComponent<SpriteRenderer>().enabled = false;
+                    break;
+                    break;
+                case 3:
+                    childObject = parent.transform.GetChild(2).gameObject;
+                    childObject.GetComponent<SpriteRenderer>().enabled = false;
+                    break;
+
+            }
+
+
+
+        }
+
     }
     public void takeDamage(float damage)
     {
@@ -118,6 +175,15 @@ public class MovingObjects : MonoBehaviour
             shockedTimer = 4f;
             RemoveStatusEffect(3);
             CancelInvoke("ShockedTimer");
+        }
+    }
+
+    protected void DropMoney(int low, int high)
+    {
+        if (!dropped)
+        {
+            PlayerController.instance.Money += Random.RandomRange(1, 10);
+            dropped = true;
         }
     }
 }

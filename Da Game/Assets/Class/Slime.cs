@@ -10,7 +10,7 @@ public class Slime : Enemy
 
     [SerializeField] CircleCollider2D collider2D;
     private bool isDying = false;//Bloat TODO:delete
-                                
+
 
     private enum State
     {
@@ -54,10 +54,14 @@ public class Slime : Enemy
     void UpdatePath()
     {
         if (seeker.IsDone())
-            if(state == State.ChaseTarget)
+            if (state == State.ChaseTarget)
+            {
                 seeker.StartPath(rb.position, target.transform.position, OnPathComplete);
-            else if(state == State.Roaming)
+            }
+            else if (state == State.Roaming)
+            {
                 seeker.StartPath(rb.position, GetRoamingPosition(), OnPathComplete);
+            }
     }
     void OnPathComplete(Path p)
     {
@@ -73,7 +77,6 @@ public class Slime : Enemy
         CheckLife();
 
         FindTarget();
-
 
         if (currentWaypoint >= path.vectorPath.Count)
         {
@@ -147,6 +150,7 @@ public class Slime : Enemy
         {
             isDying = true;
             collider2D.enabled = false;
+            DropMoney(1,10);
             animator.SetBool("IsDying", true);
             
         }
@@ -178,6 +182,5 @@ public class Slime : Enemy
             collision.gameObject.GetComponent<PlayerController>().takeDamage(Damage, KnockBack);
         }
     }
-
 
 }

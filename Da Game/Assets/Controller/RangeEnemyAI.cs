@@ -165,6 +165,7 @@ public class RangeEnemyAI : Enemy
         {
             isDying = true;
             collider2D.enabled = false;
+            DropMoney(5, 7);
             animator.SetBool("IsDying", true);
 
         }

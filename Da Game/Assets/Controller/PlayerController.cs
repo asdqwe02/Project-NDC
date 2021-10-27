@@ -2,17 +2,19 @@ using UnityEngine;
 
 public class PlayerController : PlayerClass
 {
+    public int Money;
+    public GameObject interacIcon;
+    public int UnlockedSlot;
     //Variables used in Shooting 
     private Vector3 _lookDirection;
 
     //Variables used in Movement
     private Vector2 _moveDirection;
-
     [SerializeField] BoxCollider2D collider2D;
     private bool IsHurt;
     private float ImmuneTime = 2;
     private bool isDashButtonDown;
-
+    private float MaxHealth;
     private float _rotationSpeed;
     public bool FacingRight;
 
@@ -24,8 +26,6 @@ public class PlayerController : PlayerClass
     private float rotZ;
     private Vector3 difference;
 
-    private float MaxHealth;
-    public HealthBarController Healthbar;
     public static PlayerController Singleton;
     [Header("Layer Masks")]
     [SerializeField] private LayerMask _dashLayerMask;
@@ -35,6 +35,9 @@ public class PlayerController : PlayerClass
     [SerializeField] private Transform _meleeAttackPoint;
     [SerializeField] private Transform _meleeSlashEffectPoint;
     [SerializeField] private Transform _fireAttackPoint; //Haven't used this yet will use later
+
+    [Header("miscellaneous")]
+    private Vector2 Size = new Vector2(0.1f, 0.1f);
 
     private void Awake()
     {
@@ -52,24 +55,30 @@ public class PlayerController : PlayerClass
                 Destroy(gameObject);
             }
         }
+        
         DontDestroyOnLoad(gameObject);
     }
     private void Start()
     {
         MaxHealth = hp;
+        IsPlayer = true;
+        Money = 0;
+        interacIcon.SetActive(false);
         collider2D = GetComponent<BoxCollider2D>();
+        UnlockedSlot = 0;
         
+
     }
     // Update is called once per frame
     void Update()
     {
-        Healthbar.setHealth(hp, MaxHealth);
         if (!_restrictMovement)
             ProcessInput();
     }
 
     private void FixedUpdate()
     {
+        
         if (!_restrictMovement)
             Move();
         if (isDashButtonDown == true)
@@ -80,6 +89,7 @@ public class PlayerController : PlayerClass
         {
             Physics2D.IgnoreLayerCollision(9, 8, false);
         }
+        
     }
 
     void ProcessInput()
@@ -89,7 +99,24 @@ public class PlayerController : PlayerClass
 
         _moveDirection = new Vector2(moveX, moveY).normalized;
 
+        if(Input.GetKeyDown(KeyCode.F1))
+        {
+            ApplyStatusEffect(1);
+        }
+        if (Input.GetKeyDown(KeyCode.F2))
+        {
+            ApplyStatusEffect(2);
+        }
+        if (Input.GetKeyDown(KeyCode.F3))
+        {
+            ApplyStatusEffect(3);
+        }
 
+
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            CheckInteraction();
+        }
         //Firing
         if (FiringTime > 0)
             FiringTime = FiringTime - Time.deltaTime;
@@ -331,6 +358,39 @@ public class PlayerController : PlayerClass
     public void SetVelocity(Vector2 v)
     {
         Rb.velocity = v;
+    }
+
+    public void OpenInteractableIcon()
+    {
+        interacIcon.SetActive(true);
+    }
+    public void CloseInteractableIcon()
+    {
+        interacIcon.SetActive(false);
+    }
+    private void CheckInteraction()
+    {
+        RaycastHit2D[] hits = Physics2D.BoxCastAll(transform.position, Size, 0, Vector2.zero);
+        if(hits.Length > 0)
+        {
+            foreach(RaycastHit2D rc in hits)
+            {
+                if(rc.transform.GetComponent<Interactable>())
+                {
+                    rc.transform.GetComponent<Interactable>().Interact();
+                    return;
+                }
+            }
+        }
+    }
+
+    public  float GetHealth()
+    {
+        return hp;
+    }
+    public float GetMaxHealth()
+    {
+        return MaxHealth;
     }
 }
 
