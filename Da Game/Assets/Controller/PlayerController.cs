@@ -2,9 +2,11 @@ using UnityEngine;
 
 public class PlayerController : PlayerClass
 {
+    public static bool IsLoading; //1: load , 2 : create
     public int Money;
     public GameObject interacIcon;
     public int UnlockedSlot;
+    public static string slot;
     //Variables used in Shooting 
     private Vector3 _lookDirection;
 
@@ -41,6 +43,15 @@ public class PlayerController : PlayerClass
 
     private void Awake()
     {
+        if (IsLoading)
+        {
+            PlayerData data = SaveSytemManagement.LoadPlayer(slot);
+            if (data != null)
+                Load(data);
+        }
+        //save 
+        SaveSytemManagement.SavePlayer(slot, this);
+
         Singleton = this;
 
         FiringTime -= Time.deltaTime;
@@ -66,6 +77,7 @@ public class PlayerController : PlayerClass
         interacIcon.SetActive(false);
         collider2D = GetComponent<BoxCollider2D>();
         UnlockedSlot = 0;
+
         
 
     }
@@ -78,7 +90,6 @@ public class PlayerController : PlayerClass
 
     private void FixedUpdate()
     {
-        
         if (!_restrictMovement)
             Move();
         if (isDashButtonDown == true)
@@ -391,6 +402,17 @@ public class PlayerController : PlayerClass
     public float GetMaxHealth()
     {
         return MaxHealth;
+    }
+
+    public void Load(PlayerData data)
+    {
+        UnlockedSlot = data.UnlockedSlots;
+        Money = data.Money;
+    }
+
+    public void Save()
+    {
+        SaveSytemManagement.SavePlayer(slot, this);
     }
 }
 

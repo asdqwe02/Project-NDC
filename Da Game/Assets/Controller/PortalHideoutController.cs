@@ -9,6 +9,7 @@ public class PortalHideoutController : Interactable
     public override void Interact()
     {
         PlayerController.instance.scenePassword = newScenePassword;
+        PlayerController.instance.Save();
         SceneManager.LoadScene(sceneName);
     }
 }
