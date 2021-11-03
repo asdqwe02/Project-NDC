@@ -1,0 +1,510 @@
+fileFormatVersion: 2
+guid: 08e0c2f9e8bea574b88746aa960ca88f
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -8205013586649674959
+    second: Light Beam_2
+  - first:
+      213: -5700116402626325399
+    second: Light Beam_3
+  - first:
+      213: -2341835021209288949
+    second: Light Beam_4
+  - first:
+      213: 4435380456423604531
+    second: Light Beam_5
+  - first:
+      213: 7846989332473213947
+    second: Light Beam_6
+  - first:
+      213: 1279751653116326614
+    second: Light Beam_7
+  - first:
+      213: 5868589899561843159
+    second: Light Beam_8
+  - first:
+      213: -1478104171705783441
+    second: Light Beam_9
+  - first:
+      213: -5160040276458231356
+    second: Light Beam_10
+  - first:
+      213: -251802403009496565
+    second: Light Beam_11
+  - first:
+      213: -2308277790921460663
+    second: Light Beam_12
+  - first:
+      213: 9053499921297810109
+    second: Light Beam_13
+  - first:
+      213: -1226011033215221068
+    second: Light Beam_14
+  - first:
+      213: 4260628896027870566
+    second: Light Beam_15
+  - first:
+      213: 2415192084256638774
+    second: Light Beam_16
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 0
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 80
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Light Beam_0
+      rect:
+        serializedVersion: 2
+        x: 268
+        y: 1442
+        width: 61
+        height: 60
+      alignment: 9
+      pivot: {x: 0.49630886, y: 0.19600627}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e707f6304451db650800000000000000
+      internalID: 6250175239719710846
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Light Beam_1
+      rect:
+        serializedVersion: 2
+        x: 826
+        y: 1401
+        width: 142
+        height: 142
+      alignment: 9
+      pivot: {x: 0.51460373, y: 0.1422162}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 13ed8738e29c3cd80800000000000000
+      internalID: -8231514492291719631
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Light Beam_2
+      rect:
+        serializedVersion: 2
+        x: 1421
+        y: 1397
+        width: 150
+        height: 150
+      alignment: 9
+      pivot: {x: 0.5069124, y: 0.16129802}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 13b0e7e6d9fe12e80800000000000000
+      internalID: -8205013586649674959
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Light Beam_3
+      rect:
+        serializedVersion: 2
+        x: 2017
+        y: 1390
+        width: 156
+        height: 160
+      alignment: 9
+      pivot: {x: 0.51033527, y: 0.19770202}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9649413155e15e0b0800000000000000
+      internalID: -5700116402626325399
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Light Beam_4
+      rect:
+        serializedVersion: 2
+        x: 2635
+        y: 1381
+        width: 149
+        height: 114
+      alignment: 9
+      pivot: {x: 0.5162296, y: 0.330288}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b0f304ea471208fd0800000000000000
+      internalID: -2341835021209288949
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Light Beam_5
+      rect:
+        serializedVersion: 2
+        x: 244
+        y: 1106
+        width: 148
+        height: 96
+      alignment: 9
+      pivot: {x: 0.5043704, y: 0.19565327}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 331c6d48603ad8d30800000000000000
+      internalID: 4435380456423604531
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Light Beam_6
+      rect:
+        serializedVersion: 2
+        x: 842
+        y: 1109
+        width: 149
+        height: 17
+      alignment: 9
+      pivot: {x: 0.4861106, y: 0.93254536}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bf37856093b16ec60800000000000000
+      internalID: 7846989332473213947
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Light Beam_7
+      rect:
+        serializedVersion: 2
+        x: 1492
+        y: 1107
+        width: 15
+        height: 271
+      alignment: 9
+      pivot: {x: 0.54046226, y: 0.021271534}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6d2b7bc195792c110800000000000000
+      internalID: 1279751653116326614
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Light Beam_8
+      rect:
+        serializedVersion: 2
+        x: 2095
+        y: 1107
+        width: 7
+        height: 272
+      alignment: 9
+      pivot: {x: 0.5733119, y: 0.019156063}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7d934d7ab6b617150800000000000000
+      internalID: 5868589899561843159
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Light Beam_9
+      rect:
+        serializedVersion: 2
+        x: 239
+        y: 830
+        width: 126
+        height: 274
+      alignment: 9
+      pivot: {x: 0.50275964, y: 0.043202423}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f6b24705618bc7be0800000000000000
+      internalID: -1478104171705783441
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Light Beam_10
+      rect:
+        serializedVersion: 2
+        x: 826
+        y: 827
+        width: 162
+        height: 276
+      alignment: 9
+      pivot: {x: 0.47037685, y: 0.050820835}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4c9aff625bad368b0800000000000000
+      internalID: -5160040276458231356
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Light Beam_11
+      rect:
+        serializedVersion: 2
+        x: 1412
+        y: 831
+        width: 187
+        height: 272
+      alignment: 9
+      pivot: {x: 0.48514658, y: 0.05274806}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b0a770f6c0b618cf0800000000000000
+      internalID: -251802403009496565
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Light Beam_12
+      rect:
+        serializedVersion: 2
+        x: 1996
+        y: 829
+        width: 218
+        height: 275
+      alignment: 9
+      pivot: {x: 0.48664394, y: 0.038349167}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 944f335349957ffd0800000000000000
+      internalID: -2308277790921460663
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Light Beam_13
+      rect:
+        serializedVersion: 2
+        x: 2583
+        y: 826
+        width: 234
+        height: 274
+      alignment: 9
+      pivot: {x: 0.4898567, y: 0.06115322}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: db2abfef53e74ad70800000000000000
+      internalID: 9053499921297810109
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Light Beam_14
+      rect:
+        serializedVersion: 2
+        x: 196
+        y: 554
+        width: 152
+        height: 274
+      alignment: 9
+      pivot: {x: 0.67819273, y: 0.04120341}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4b24f7206755cfee0800000000000000
+      internalID: -1226011033215221068
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Light Beam_15
+      rect:
+        serializedVersion: 2
+        x: 874
+        y: 557
+        width: 74
+        height: 258
+      alignment: 9
+      pivot: {x: 0.53516865, y: 0.04480288}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 665818b386bc02b30800000000000000
+      internalID: 4260628896027870566
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Light Beam_16
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 649
+        width: 98
+        height: 98
+      alignment: 9
+      pivot: {x: 0.511796, y: 0.48533723}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 637c376876c748120800000000000000
+      internalID: 2415192084256638774
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
