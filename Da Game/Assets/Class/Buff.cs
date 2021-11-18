@@ -2,13 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Buff : MonoBehaviour
+public class Buff : Interactable
 {
-    [SerializeField] private string _buffType = "";
-    [SerializeField] private int _speedInc = 0;
     private bool isTriggered = false;
     private PlayerController pc;
     [SerializeField] BuffType buffType;
+    [SerializeField] GameObject statStickPrefab; //This thing will never be instantiate 
+    private PlayerClass statStick;
     Animator animator;
 
     enum BuffType
@@ -19,49 +19,94 @@ public class Buff : MonoBehaviour
         LightningAttack,
         FireResistance,
         ColdResistance,
-        LightningResistance
+        LightningResistance,
+        HPBoost,
+        SingleBullet,
+        MultiBullet,
     }
     private void Start()
     {
-         animator = GetComponent<Animator>();
+        animator = GetComponent<Animator>();
+        statStick = statStickPrefab.GetComponent<PlayerClass>();
     }
     private void Update()
     {
         if (isTriggered && Input.GetKeyDown(KeyCode.E) && pc != null)
         {
-            pc.setBuff(this);
-            Destroy(gameObject);
-            return;
+            Interact();
         }
     }
+
+    //delete later
     public string getBuffType()
     {
-        return this._buffType;
+        return null;
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        this.pc = collision.GetComponent<PlayerController>();
-        if (pc != null)
+        if (collision.gameObject.CompareTag("Player"))
         {
+            this.pc = collision.GetComponent<PlayerController>();
+            TurnOnIIcon(collision);
             isTriggered = true;
         }
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
-        this.pc = collision.GetComponent<PlayerController>();
-        if (pc != null)
+        
+        if (collision.gameObject.CompareTag("Player"))
         {
+            this.pc = null;
+            TurnOffIIcon(collision);
             isTriggered = false;
             return;
         }
     }
-    public int getSpeedInc()
+    public override void Interact()
     {
-        return _speedInc;
+        if (pc != null) 
+        { 
+            switch (buffType)
+            {
+                case BuffType.PhysicalAttack:
+                    break;
+                case BuffType.FireAttack:
+                    pc.DamageType_ = MovingObjects.DamageType.Fire;
+                    break;
+                case BuffType.ColdAttack:
+                    pc.DamageType_ = MovingObjects.DamageType.Cold;
+                    break;
+                case BuffType.LightningAttack:
+                    pc.DamageType_ = MovingObjects.DamageType.Lightning;
+                    break;
+                case BuffType.FireResistance:
+                    break;
+                case BuffType.ColdResistance:
+                    break;
+                case BuffType.LightningResistance:
+                    break;
+                case BuffType.HPBoost:
+                    pc.Hp += statStick.Hp;
+                    break;
+                case BuffType.SingleBullet:
+                    pc.FireType = 0;
+                    pc.FireRate = statStick.FireRate;
+                    break;
+                case BuffType.MultiBullet:
+                    pc.FireType = 1;
+                    pc.FireRate = statStick.FireRate*10;
+                    break;
+                default:
+                    break;
+            }
+            Destroy(gameObject);
+        }
+        //throw new System.NotImplementedException();
     }
-    private void ChangeToBuffType()
+   
+    private void ChangeAniToBuffType()
     {
-        int temp = (int)buffType;
+        int temp = (int) buffType;
         Debug.Log("buff type: " + temp);
         switch (temp)
         {
@@ -82,6 +127,15 @@ public class Buff : MonoBehaviour
                 break;
             case 6:
                 animator.SetBool("isLightningRes", true);
+                break;
+            case 7:
+                animator.SetBool("isHPBoost", true);
+                break;
+            case 8:
+                animator.SetBool("isSingleBullet", true);
+                break;
+            case 9:
+                animator.SetBool("isMultiBullet", true);
                 break;
             default:
                 break;

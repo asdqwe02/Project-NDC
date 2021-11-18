@@ -95,7 +95,7 @@ public class Slime : Enemy
         }
         direction = ((Vector2)path.vectorPath[currentWaypoint] - rb.position).normalized;
 
-        Vector2 Velocity = new Vector2(direction.x * movementSpeed, direction.y * movementSpeed);
+        Vector2 Velocity = new Vector2(direction.x * MovementSpeed, direction.y * MovementSpeed);
 
         if (animator.GetBool("IsDying") == true || Vector3.Distance(transform.position, target.transform.position) <= AttackRange)
         {
@@ -103,7 +103,7 @@ public class Slime : Enemy
             if(Time.time > nextAttackTime)
             {
                 animator.SetBool("IsAttacking", true);
-                nextAttackTime = Time.time + 1/attackSpeed;
+                nextAttackTime = Time.time + 1/AttackSpeed;
             }
             
 
@@ -146,7 +146,7 @@ public class Slime : Enemy
 
     void CheckLife()
     {
-        if (hp <= 0)
+        if (Hp <= 0)
         {
             isDying = true;
             collider2D.enabled = false;

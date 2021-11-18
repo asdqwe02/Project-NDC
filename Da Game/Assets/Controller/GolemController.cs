@@ -84,7 +84,7 @@ public class GolemController : Enemy
         StartingPosition = transform.position;
         animator = GetComponent<Animator>();
         phase = Phase.FirstPhase;
-        MaxHP = hp;
+        MaxHP = Hp;
         AccessChildLaser = gameObject.GetComponentInChildren<Laser>();
         WayPointToArray();
         SlamTimer = SlamCooldown;
@@ -177,7 +177,7 @@ public class GolemController : Enemy
             return;
         }
         direction = ((Vector2)path.vectorPath[currentWaypoint] - rb.position).normalized;
-        Vector2 Velocity = new Vector2(direction.x * movementSpeed, direction.y * movementSpeed);
+        Vector2 Velocity = new Vector2(direction.x * MovementSpeed, direction.y * MovementSpeed);
         if ((direction.x >= 0.01f && FacingRight) || (direction.x <= -0.01f && !FacingRight))
             flip();
         if (state == State.Run)
@@ -204,7 +204,7 @@ public class GolemController : Enemy
         if(state == State.Fold)
         {
             if (IsFolded)
-                Velocity = new Vector2(direction.x * movementSpeed * 3, direction.y * movementSpeed * 3);
+                Velocity = new Vector2(direction.x * MovementSpeed * 3, direction.y * MovementSpeed * 3);
             else
                 Velocity = new Vector2(0, 0);
             animator.SetBool("IsFolding", true);
@@ -253,7 +253,7 @@ public class GolemController : Enemy
     void updatePhase()
     {
 
-        if ((hp > (MaxHP * 0.3)) && (hp < (MaxHP * 0.6)))
+        if ((Hp > (MaxHP * 0.3)) && (Hp < (MaxHP * 0.6)))
         {
             phase = Phase.SeccondPhase;
             if (switchPhase2 == false)
@@ -264,7 +264,7 @@ public class GolemController : Enemy
 
             
         }
-        else if(hp <= MaxHP * 0.3)
+        else if(Hp <= MaxHP * 0.3)
         {
             phase = Phase.LastPhase;
         }
@@ -317,7 +317,7 @@ public class GolemController : Enemy
 
     void CheckLife()
     {
-        if (hp <= 0)
+        if (Hp <= 0)
         {
             collider2D.enabled = false;
             animator.SetBool("IsDying", true);

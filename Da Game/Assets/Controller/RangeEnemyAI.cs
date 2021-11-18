@@ -82,7 +82,7 @@ public class RangeEnemyAI : Enemy
             if (state == State.Aiming)
                 FireProjectile();
 
-            nextAttackTime += 1 / attackSpeed;
+            nextAttackTime += 1 / AttackSpeed;
         }
     }
     private void FixedUpdate()
@@ -109,7 +109,7 @@ public class RangeEnemyAI : Enemy
         }
         direction = ((Vector2)path.vectorPath[currentWaypoint] - rb.position).normalized;
 
-        Vector2 Velocity = new Vector2(direction.x * movementSpeed, direction.y * movementSpeed);
+        Vector2 Velocity = new Vector2(direction.x * MovementSpeed, direction.y * MovementSpeed);
 
         if (animator.GetBool("IsDying") == true || State.Aiming == state)
         {
@@ -161,7 +161,7 @@ public class RangeEnemyAI : Enemy
 
     void CheckLife()
     {
-        if (hp <= 0)
+        if (Hp <= 0)
         {
             isDying = true;
             collider2D.enabled = false;

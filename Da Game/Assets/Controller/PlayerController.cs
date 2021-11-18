@@ -4,7 +4,6 @@ public class PlayerController : PlayerClass
 {
     public static bool IsLoading; //1: load , 2 : create
     public int Money;
-    public GameObject interacIcon;
     public int UnlockedSlot;
     public static string slot;
     //Variables used in Shooting 
@@ -38,8 +37,10 @@ public class PlayerController : PlayerClass
     [SerializeField] private Transform _meleeSlashEffectPoint;
     [SerializeField] private Transform _fireAttackPoint; //Haven't used this yet will use later
 
-    [Header("miscellaneous")]
+    [Header("Miscellaneous")]
+    [SerializeField] private GameObject interactIcon;
     private Vector2 Size = new Vector2(0.1f, 0.1f);
+
 
     private void Awake()
     {
@@ -71,10 +72,9 @@ public class PlayerController : PlayerClass
     }
     private void Start()
     {
-        MaxHealth = hp;
+        MaxHealth = Hp;
         IsPlayer = true;
         Money = 0;
-        interacIcon.SetActive(false);
         collider2D = GetComponent<BoxCollider2D>();
         UnlockedSlot = 0;
 
@@ -211,7 +211,26 @@ public class PlayerController : PlayerClass
         barrelPos.y -= 0.085f;
 
         _lookDirection = ((Vector3)vecTemp - transform.position).normalized;
-        Transform firedBullet = Instantiate(BulletPrefab, barrelPos, Quaternion.identity);
+
+        //this is very dumb and will need a default bullet type TODO: assign a default bullet 
+        Transform bulletType= null;
+        switch (DamageType_)
+        {
+            case DamageType.Physical:
+                break;
+            case DamageType.Fire:
+                bulletType = BulletPrefab[1];
+                break;
+            case DamageType.Cold:
+                bulletType = BulletPrefab[2];
+                break;
+            case DamageType.Lightning:
+                bulletType = BulletPrefab[3];
+                break;
+            default:
+                break;
+        }
+        Transform firedBullet = Instantiate(bulletType, barrelPos, Quaternion.identity);
 
         //Replace DamageType enum with a variable damageType later
         firedBullet.GetComponent<Bullet>().setUp(_lookDirection,true,Damage,(int)DamageType.Cold);
@@ -237,6 +256,25 @@ public class PlayerController : PlayerClass
         float angleStep = (endAngle - startAngle) / BulletAmount;
         float angle = startAngle;
         Vector2 vecTemp = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
+        //this is very dumb and will need a default bullet type TODO: assign a default bullet 
+        Transform bulletType = null;
+        switch (DamageType_)
+        {
+            case DamageType.Physical:
+                break;
+            case DamageType.Fire:
+                bulletType = BulletPrefab[1];
+                break;
+            case DamageType.Cold:
+                bulletType = BulletPrefab[2];
+                break;
+            case DamageType.Lightning:
+                bulletType = BulletPrefab[3];
+                break;
+            default:
+                break;
+        }
         for (int i = 0; i < BulletAmount; i++)
         {
             //Stable Spread Fire v1
@@ -252,7 +290,7 @@ public class PlayerController : PlayerClass
 
             _lookDirection = ((Vector3)vecTemp - bulleDirVector).normalized;
 
-            Transform firedBullet = Instantiate(BulletPrefab, barrelPos, Quaternion.identity);
+            Transform firedBullet = Instantiate(bulletType, barrelPos, Quaternion.identity);
 
             //Replace DamageType enum with a variable damageType later
             firedBullet.GetComponent<Bullet>().setUp(_lookDirection,true,Damage, (int)DamageType.Lightning); 
@@ -262,7 +300,7 @@ public class PlayerController : PlayerClass
     }
     private void Move()
     {
-        Rb.velocity = new Vector2(_moveDirection.x * movementSpeed, _moveDirection.y * movementSpeed);
+        Rb.velocity = new Vector2(_moveDirection.x * MovementSpeed, _moveDirection.y * MovementSpeed);
 
         if ((FacingRight && (rotZ < -89 || rotZ > 89)) || (!FacingRight && (rotZ > -89 && rotZ < 89)))
             Flip();
@@ -312,12 +350,15 @@ public class PlayerController : PlayerClass
     {
         FacingRight = !FacingRight;
         transform.Rotate(0f, 180f, 0f);
+        interactIcon.transform.Rotate(0f, 180f, 0f);
     }
+
+    //obsolete delete later PLEASE DO NOT USE THIS
     public void setBuff(Buff buff)
     {
         if (string.IsNullOrEmpty(buff.getBuffType()))
         {
-            movementSpeed += buff.getSpeedInc();
+           // movementSpeed += buff.getSpeedInc();
         }
         else
         {
@@ -340,7 +381,7 @@ public class PlayerController : PlayerClass
     }
     public void takeDamage(float damage, Vector2 KnockBack)
     {
-        hp -= damage;
+        Hp -= damage;
         Rb.AddForce(KnockBack);
         //collider2D.enabled = false
         animator.SetBool("IsHurt", true);
@@ -371,13 +412,14 @@ public class PlayerController : PlayerClass
         Rb.velocity = v;
     }
 
+    //Interact
     public void OpenInteractableIcon()
     {
-        interacIcon.SetActive(true);
+        interactIcon.SetActive(true);
     }
     public void CloseInteractableIcon()
     {
-        interacIcon.SetActive(false);
+        interactIcon.SetActive(false);
     }
     private void CheckInteraction()
     {
@@ -394,10 +436,11 @@ public class PlayerController : PlayerClass
             }
         }
     }
-
+    
+    //Do we even need these get Hp method ??? (Thien)
     public  float GetHealth()
     {
-        return hp;
+        return Hp;
     }
     public float GetMaxHealth()
     {

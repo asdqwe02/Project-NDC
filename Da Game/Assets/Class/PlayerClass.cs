@@ -17,7 +17,7 @@ public class PlayerClass : MovingObjects
 
     [Header("Prefab and Components")]
     [SerializeField] private Rigidbody2D rb;
-    [SerializeField] private Transform _bulletPrefab;
+    [SerializeField] private List<Transform> _bulletPrefab;
     [SerializeField] private Transform _dashPrefab;
     [SerializeField] private Transform _meleeSlashPrefab;
 
@@ -31,7 +31,7 @@ public class PlayerClass : MovingObjects
     public float FiringTime { get => _firingTime; set => _firingTime = value; }
     public float FireRate { get => _fireRate; set => _fireRate = value; }
     public int BulletAmount { get => _bulletAmount; set => _bulletAmount = value; }
-    public Transform BulletPrefab { get => _bulletPrefab; set => _bulletPrefab = value; }
+    public List<Transform> BulletPrefab { get => _bulletPrefab; set => _bulletPrefab = value; }
 
     public float DashRange { get => _dashRange; set => _dashRange = value; }
     public Transform DashPrefab { get => _dashPrefab; set => _dashPrefab = value; }
@@ -39,19 +39,5 @@ public class PlayerClass : MovingObjects
     public string Buff { get => _buff; set => _buff = value; }
     public Transform MeleeSlashPrefab { get => _meleeSlashPrefab; set => _meleeSlashPrefab = value; }
     public float MeleeAttackRange { get => _meleeAttackRange; set => _meleeAttackRange = value; }
-
-    void Dash()
-    {
-    }
-    void ChargedAttack()
-    {
-
-    }
-    void Interact()
-    {
-
-    }
-
-
-
+ 
 }

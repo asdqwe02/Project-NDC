@@ -15,16 +15,20 @@ public class MovingObjects : MonoBehaviour
     [SerializeField] protected float freezingTimer = 2f;
 
     [Header("Basic Stats")]
-    [SerializeField] protected float hp;
-    [SerializeField] protected float movementSpeed;
-    [SerializeField] protected float attackSpeed;
-    [SerializeField] protected int armour;
-    [SerializeField] protected float Damage;
-    [SerializeField] protected DamageType damageType;
+    [SerializeField] private float hp;
+    [SerializeField] private float movementSpeed;
+    [SerializeField] private float attackSpeed;
+    [SerializeField] private int armour;
+    [SerializeField] private float damage;
+    [SerializeField] private DamageType damageType;
     [SerializeField] protected List<StatusEffect> statusEffects = new List<StatusEffect>();
-  
-   
 
+    public float Hp { get => hp; set => hp = value; }
+    public float MovementSpeed { get => movementSpeed; set => movementSpeed = value; }
+    public float AttackSpeed { get => attackSpeed; set => attackSpeed = value; }
+    public int Armour { get => armour; set => armour = value; }
+    public float Damage { get => damage; set => damage = value; }
+    public DamageType DamageType_ { get => damageType; set => damageType = value; }
 
     public MovingObjects()
     {
@@ -44,7 +48,7 @@ public class MovingObjects : MonoBehaviour
         Damage = damage;
         
     }
-    protected enum DamageType
+    public enum DamageType
     {
         Physical,
         Fire,
@@ -52,7 +56,7 @@ public class MovingObjects : MonoBehaviour
         Lightning
         
     }
-    protected enum StatusEffect
+    public enum StatusEffect
     {
         None,
         Burning,
