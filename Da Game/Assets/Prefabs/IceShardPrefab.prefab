@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 5087070743509748620}
   m_Layer: 0
   m_Name: IceShardPrefab
-  m_TagString: Untagged
+  m_TagString: bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

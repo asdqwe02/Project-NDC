@@ -77,7 +77,6 @@ public class PlayerController : PlayerClass
         Money = 0;
         collider2D = GetComponent<BoxCollider2D>();
         UnlockedSlot = 0;
-
         
 
     }

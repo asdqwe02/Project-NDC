@@ -77,21 +77,22 @@ public class MovingObjects : MonoBehaviour
             //update player's gfx status bar
             if (IsPlayer)
             {
+                GameObject temp;
                 GameObject parent = GameObject.Find("Status Bar");
                 switch (damagetype)
                 {
                     case 1:
-                        GameObject childObject = parent.transform.GetChild(0).gameObject;
-                        childObject.GetComponent<SpriteRenderer>().enabled = true;
+                        temp = Instantiate(Resources.Load("StatusEffectGFX/BurntEffectGFX") as GameObject);
+                        temp.transform.SetParent(parent.transform);
                         break;
                     case 2:
-                        childObject = parent.transform.GetChild(1).gameObject;
-                        childObject.GetComponent<SpriteRenderer>().enabled = true;
-                        break;
+
+                        temp = Instantiate(Resources.Load("StatusEffectGFX/FrozenEffectGFX") as GameObject);
+                        temp.transform.SetParent(parent.transform);
                         break;
                     case 3:
-                        childObject = parent.transform.GetChild(2).gameObject;
-                        childObject.GetComponent<SpriteRenderer>().enabled = true;
+                        temp = Instantiate(Resources.Load("StatusEffectGFX/ShockedEffectGFX") as GameObject);
+                        temp.transform.SetParent(parent.transform);
                         break;
 
                 }
@@ -127,17 +128,14 @@ public class MovingObjects : MonoBehaviour
             switch (statustype)
             {
                 case 1:
-                    GameObject childObject = parent.transform.GetChild(0).gameObject;
-                    childObject.GetComponent<SpriteRenderer>().enabled = false;
+                    Destroy(GameObject.Find("BurntEffectGFX(Clone)"));
                     break;
                 case 2:
-                    childObject = parent.transform.GetChild(1).gameObject;
-                    childObject.GetComponent<SpriteRenderer>().enabled = false;
-                    break;
+                    Destroy(GameObject.Find("FrozenEffectGFX(Clone)"));
+
                     break;
                 case 3:
-                    childObject = parent.transform.GetChild(2).gameObject;
-                    childObject.GetComponent<SpriteRenderer>().enabled = false;
+                    Destroy(GameObject.Find("ShockedEffectGFX(Clone)"));
                     break;
 
             }

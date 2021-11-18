@@ -40,6 +40,7 @@ public class Bullet : MonoBehaviour
         Destroy(gameObject, 1f);
     }
     // Update is called once per frame
+   
     void Update()
     {
         if (isMoving)

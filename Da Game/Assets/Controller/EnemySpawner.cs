@@ -16,7 +16,7 @@ public class EnemySpawner : MonoBehaviour
     }
 
     public Wave[] waves;
-
+    public BeginWaves begin;
     private int nextWave = 0;
 
     public float timeBetweenWave = 5f;
@@ -33,31 +33,34 @@ public class EnemySpawner : MonoBehaviour
 
     private void Update()
     {
-        if (state == SpawnState.FINISHED)
-            return;
-        if (state == SpawnState.WAITING)
+        if (begin.start)
         {
-
-            if (!EnemyIsAlive())
+            if (state == SpawnState.FINISHED)
+                return;
+            if (state == SpawnState.WAITING)
             {
-                WaveComplete();
+
+                if (!EnemyIsAlive())
+                {
+                    WaveComplete();
+                }
+                else
+                {
+                    return;
+                }
+
+            }
+            if (waveCountdown <= 0)
+            {
+                if (state != SpawnState.SPAWNING)
+                {
+                    StartCoroutine(SpawnWave(waves[nextWave]));
+                }
             }
             else
             {
-                return;
+                waveCountdown -= Time.deltaTime;
             }
-
-        }
-        if (waveCountdown <= 0)
-        {
-            if (state != SpawnState.SPAWNING)
-            {
-                StartCoroutine(SpawnWave(waves[nextWave]));
-            }
-        }
-        else
-        {
-            waveCountdown -= Time.deltaTime;
         }
     }
 
@@ -74,6 +77,8 @@ public class EnemySpawner : MonoBehaviour
         }
         return true;
     }
+
+
     void WaveComplete()
     {
         state = SpawnState.COUNTING;
