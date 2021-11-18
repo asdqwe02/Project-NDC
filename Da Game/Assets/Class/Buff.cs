@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Buff : Interactable
 {
-    private bool isTriggered = false;
+
     private PlayerController pc;
     [SerializeField] BuffType buffType;
     [SerializeField] GameObject statStickPrefab; //This thing will never be instantiate 
@@ -42,26 +42,7 @@ public class Buff : Interactable
     {
         return null;
     }
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.CompareTag("Player"))
-        {
-            this.pc = collision.GetComponent<PlayerController>();
-            TurnOnIIcon(collision);
-            isTriggered = true;
-        }
-    }
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        
-        if (collision.gameObject.CompareTag("Player"))
-        {
-            this.pc = null;
-            TurnOffIIcon(collision);
-            isTriggered = false;
-            return;
-        }
-    }
+
     public override void Interact()
     {
         if (pc != null) 

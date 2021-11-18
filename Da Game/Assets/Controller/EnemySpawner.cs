@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
-    public enum SpawnState { SPAWNING, WAITING, COUNTING };
+    public enum SpawnState { SPAWNING, WAITING, COUNTING, FINISHED };
 
     [System.Serializable]
     public class Wave
@@ -22,24 +22,25 @@ public class EnemySpawner : MonoBehaviour
     public float timeBetweenWave = 5f;
     public float waveCountdown;
 
-    private float searchCountdown = 1f;
+    public float searchCountdown = 5;
     private SpawnState state = SpawnState.COUNTING;
 
     private void Start()
     {
         waveCountdown = timeBetweenWave;
+
     }
 
     private void Update()
     {
-
+        if (state == SpawnState.FINISHED)
+            return;
         if (state == SpawnState.WAITING)
         {
+
             if (!EnemyIsAlive())
             {
-                //Begin a new round
-                Debug.Log("wave completed");
-                return;
+                WaveComplete();
             }
             else
             {
@@ -47,15 +48,11 @@ public class EnemySpawner : MonoBehaviour
             }
 
         }
-
         if (waveCountdown <= 0)
         {
             if (state != SpawnState.SPAWNING)
             {
-                //start spawning waves
                 StartCoroutine(SpawnWave(waves[nextWave]));
-
-
             }
         }
         else
@@ -69,15 +66,27 @@ public class EnemySpawner : MonoBehaviour
         searchCountdown -= Time.deltaTime;
         if (searchCountdown <= 0)
         {
-            searchCountdown = 1f;
-            if (GameObject.FindGameObjectsWithTag("Enemy") == null)
-            {
+            searchCountdown = 1f;      
+            if (GameObject.FindGameObjectsWithTag("Enemy").Length == 0)
+            { 
                 return false;
             }
         }
         return true;
     }
-
+    void WaveComplete()
+    {
+        state = SpawnState.COUNTING;
+        waveCountdown = timeBetweenWave;
+        if (nextWave + 1 > waves.Length - 1)
+        {
+            state = SpawnState.FINISHED;
+        }
+        else
+        {
+            nextWave++;
+        }
+    }
     IEnumerator SpawnWave(Wave _wave)
     {
         Debug.Log("spawning wave +" + _wave.name);
@@ -90,16 +99,15 @@ public class EnemySpawner : MonoBehaviour
             yield return new WaitForSeconds(1f / _wave.rate);
         }
 
-
         state = SpawnState.WAITING;
-
+        
         yield break;
     }
 
     void SpawnEnemy(Transform _enemy)
     {
         //spawn enemies
-        Debug.Log("spawning enemy: " + _enemy.name);
+        //Debug.Log("spawning enemy: " + _enemy.name);
         Instantiate(_enemy, transform.position, transform.rotation);
 
     }
