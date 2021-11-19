@@ -48,12 +48,15 @@ public class Bullet : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        //TODO: Change these to compare tag or make an ignore trigger list
         Enemy Monster = collision.GetComponent<Enemy>();
         PlayerController p = collision.GetComponent<PlayerController>();
         Bullet otherBullets = collision.GetComponent<Bullet>();
+        BeginWaves bw = collision.GetComponent<BeginWaves>();
+        
         if (_isFromPlayer)
         {
-            if (p != null || otherBullets != null)
+            if (p != null || otherBullets != null ||bw!=null )
             {
                 return;
             }
@@ -77,7 +80,7 @@ public class Bullet : MonoBehaviour
         }
         else
         {
-            if (Monster != null || otherBullets != null)
+            if (Monster != null || otherBullets != null || bw !=null)
             {
                 return;
             }

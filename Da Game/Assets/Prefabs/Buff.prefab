@@ -117,7 +117,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buffType: 7
-  statStickPrefab: {fileID: 0}
+  statStickPrefab: {fileID: 3064044316242461660, guid: 0e14a9956621aa54da7af1870c65e3c8, type: 3}
 --- !u!58 &6924557645021770606
 CircleCollider2D:
   m_ObjectHideFlags: 0

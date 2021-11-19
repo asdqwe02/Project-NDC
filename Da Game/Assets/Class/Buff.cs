@@ -6,6 +6,7 @@ public class Buff : Interactable
 {
 
     private PlayerController pc;
+    protected bool isTriggered = false;
     [SerializeField] BuffType buffType;
     [SerializeField] GameObject statStickPrefab; //This thing will never be instantiate 
     private PlayerClass statStick;
@@ -41,6 +42,26 @@ public class Buff : Interactable
     public string getBuffType()
     {
         return null;
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            this.pc = collision.GetComponent<PlayerController>();
+            TurnOnIIcon(collision);
+            isTriggered = true;
+        }
+    }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            this.pc = null;
+            TurnOffIIcon(collision);
+            isTriggered = false;
+            return;
+        }
     }
 
     public override void Interact()

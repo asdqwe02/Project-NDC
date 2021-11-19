@@ -10,11 +10,19 @@ public class PortalHideoutController : Interactable
     public override void Interact()
     {
         PlayerController.Singleton.CloseInteractableIcon();
-        isTriggered = false;
-        turnoffIsTrigger();
+        //isTriggered = false;
+        //turnoffIsTrigger();
         PlayerController.instance.scenePassword = newScenePassword;
         PlayerController.instance.Save();
         SceneManager.LoadScene(sceneName);
 
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        TurnOnIIcon(collision);
+    }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        TurnOffIIcon(collision);
     }
 }
