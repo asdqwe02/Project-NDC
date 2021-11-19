@@ -21,8 +21,8 @@ public class HealthBarController : MonoBehaviour
     }
     private void Update()
     {
-        Slider.transform.position = Camera.main.WorldToScreenPoint(PlayerController.Singleton.transform.position + offset);
-        setHealth(PlayerController.Singleton.GetHealth(), PlayerController.Singleton.GetMaxHealth()); 
+        Slider.transform.position = Camera.main.WorldToScreenPoint(PlayerController.instance.transform.position + offset);
+        setHealth(PlayerController.instance.GetHealth(), PlayerController.instance.GetMaxHealth()); 
     }
 
 }

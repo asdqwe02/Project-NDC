@@ -15,6 +15,6 @@ public class StatusbarController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        RectTransform.position=Camera.main.WorldToScreenPoint(PlayerController.Singleton.transform.position + offset);
+        RectTransform.position=Camera.main.WorldToScreenPoint(PlayerController.instance.transform.position + offset);
     }
 }
