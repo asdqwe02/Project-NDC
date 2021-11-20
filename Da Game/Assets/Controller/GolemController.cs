@@ -369,8 +369,9 @@ public class GolemController : Enemy
         if (!EndOfFold)
         {
 
+
             if (Vector3.Distance(transform.position, wayPoint01.position) <= 1.3 && toWayPoint == 1)
-            {
+            { 
                 toWayPoint++;
             }
             if (Vector3.Distance(transform.position, wayPoint02.position) <= 1.3 && toWayPoint == 2)
