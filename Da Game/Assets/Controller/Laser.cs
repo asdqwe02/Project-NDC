@@ -6,7 +6,9 @@ public class Laser : MonoBehaviour
 {
     [SerializeField] private float distanceLaser = 100;
     [SerializeField] private LayerMask laserLayerMask;
-    public Transform laserFirePoint;
+
+
+    public Quaternion temp;
     public LineRenderer m_linerenderer;
     Transform m_transform;
     private bool rotating = true;
@@ -14,10 +16,13 @@ public class Laser : MonoBehaviour
     float DelayTime = 1;
     public bool endOfLaser = false;
     public bool start = false;
+
+    private bool RotationFix = true;
+
     void Start()
     {
+        //transform.eulerAngles = new Vector3(0, 0, 345);
         m_transform = GetComponent<Transform>();
-        transform.eulerAngles = new Vector3(0, 0, 0);
     }
 
     // Update is called once per frame
@@ -25,60 +30,74 @@ public class Laser : MonoBehaviour
     {
         ShootLaser();
     }
+    void Rotate()
+    {
+        
+        if (rotating)
+        {
+            Vector3 to = new Vector3(0, -180, 224);
+            if (Vector3.Distance(transform.eulerAngles, to) > 0.5)
+            {
+                transform.Rotate(0, 0, (float)(Time.deltaTime *10) * 1);
+            }
+            else
+            {
+                transform.eulerAngles = to;
+                rotating = false;
+                rotating2 = true;
+
+            }
+        }
+        if (!rotating && rotating2)
+        {
+            DelayTime -= Time.deltaTime;
+            if (DelayTime <= 0)
+            {
+
+                Vector3 to = new Vector3(0, -180, 125);
+                if (Vector3.Distance(transform.eulerAngles, to) > 0.5)
+                {
+                    transform.Rotate(0, 0, (float)(Time.deltaTime * 10) * -1);
+                }
+                else
+                {
+                    transform.eulerAngles = to;
+                    rotating2 = false;
+                    endOfLaser = true;
+                    RotationFix = true;
+                }
+            }
+        }
+    }
+
     void ShootLaser()
     {
 
         if (start)
         {
-            if (rotating)
+            if(RotationFix)
             {
-                Vector3 to = new Vector3(0, 0, 180);
-                if (Vector3.Distance(transform.eulerAngles, to) > 1)
-                {
-                    transform.Rotate(0, 0, (Time.deltaTime + 0.5f) * -1);
-                }
-                else
-                {
-                    transform.eulerAngles = to;
-                    rotating = false;
-                    rotating2 = true;
+                
+                RotationFix = false;
+                transform.rotation = temp;
 
-                }
             }
-            if (!rotating && rotating2)
+            transform.rotation = temp;
+            //Rotate();
+            RaycastHit2D _hit = Physics2D.Raycast(m_transform.position, m_transform.right , distanceLaser, laserLayerMask);
+            Draw2DRay(m_transform.position, m_transform.right);
+            if (_hit != null) 
             {
-                DelayTime -= Time.deltaTime;
-                if (DelayTime <= 0)
-                {
-
-                    Vector3 to = new Vector3(0, 0, 0);
-                    if (Vector3.Distance(transform.eulerAngles, to) > 1)
-                    {
-                        transform.Rotate(0, 0, (Time.deltaTime + 0.5f));
-                    }
-                    else
-                    {
-                        transform.eulerAngles = to;
-                        rotating2 = false;
-                        endOfLaser = true;
-                    }
-                }
-            }
-
-
-            RaycastHit2D _hit = Physics2D.Raycast(m_transform.position, transform.right, distanceLaser, laserLayerMask);
-            if (_hit != null)
-            {
-                Draw2DRay(laserFirePoint.position, _hit.point);
+                Draw2DRay(m_transform.position, _hit.point);
             }
             else
             {
-                Draw2DRay(laserFirePoint.position, laserFirePoint.transform.right * distanceLaser);
+                Draw2DRay(m_transform.position, m_transform.right * distanceLaser);
             }
         }
         else
         {
-            Draw2DRay(laserFirePoint.position, laserFirePoint.position);
+            Draw2DRay(m_transform.position, m_transform.position);
             rotating = true;
             rotating2 = false;
             DelayTime = 1;

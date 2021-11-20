@@ -67,7 +67,7 @@ public class GolemController : Enemy
     [SerializeField] private Transform _slamPrefab;
     [SerializeField] private Transform _armProjectilePrefab;
     [SerializeField] private Transform _pillarsPrefab;
-    private Laser AccessChildLaser;
+    private LaserUpdated AccessChildLaser;
 
     [Header("Attack Point")]
     [SerializeField] private Transform _slamPoint;
@@ -85,7 +85,7 @@ public class GolemController : Enemy
         animator = GetComponent<Animator>();
         phase = Phase.FirstPhase;
         MaxHP = Hp;
-        AccessChildLaser = gameObject.GetComponentInChildren<Laser>();
+        AccessChildLaser = gameObject.GetComponentInChildren<LaserUpdated>();
         WayPointToArray();
         SlamTimer = SlamCooldown;
         RollnLaserTimer = RollnLaserCooldown;
@@ -100,7 +100,7 @@ public class GolemController : Enemy
         WayPoints.Add(wayPoint02);
         WayPoints.Add(wayPoint03);
         WayPoints.Add(wayPoint04);
-        //WayPoints.Add(wayPoint05);
+        WayPoints.Add(wayPoint05);
     }
     void UpdatePath()
     {
@@ -405,8 +405,11 @@ public class GolemController : Enemy
 
             if (IsSummoning && !IsLasering)
             {
-                foreach (Transform Position in WayPoints)
+                List<Transform> temp = WayPoints;
+                temp.RemoveAt(temp.Count - 1);
+                foreach (Transform Position in temp)
                 {
+                    
                     SummonningPillars(Position);
                 }
                 IsSummoning = false;

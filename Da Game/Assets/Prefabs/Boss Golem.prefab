@@ -71,7 +71,6 @@ GameObject:
   - component: {fileID: 251220852}
   - component: {fileID: 251220851}
   - component: {fileID: 251220850}
-  - component: {fileID: 251220848}
   m_Layer: 8
   m_Name: Circle
   m_TagString: Untagged
@@ -242,26 +241,6 @@ LineRenderer:
     generateLightingData: 0
   m_UseWorldSpace: 1
   m_Loop: 0
---- !u!114 &251220848
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 251220847}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 83d60a688a33c374bad1667f9f532989, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  distanceLaser: 100
-  laserLayerMask:
-    serializedVersion: 2
-    m_Bits: 704
-  laserFirePoint: {fileID: 251220852}
-  m_linerenderer: {fileID: 251220850}
-  endOfLaser: 0
-  start: 0
 --- !u!1 &1545058355
 GameObject:
   m_ObjectHideFlags: 0
