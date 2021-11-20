@@ -19,22 +19,30 @@ public class MenuController : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.Escape))
         {
-            if(PauseMenu.active)
+            if (PauseMenu.active)
+            {
                 PauseMenu.SetActive(false);
+                Time.timeScale = 1f;
+            }
             else
+            {
                 PauseMenu.SetActive(true);
+                Time.timeScale = 0f;
+            }
         }
     }
 
     public void BackToMainMenu()
     {
         SceneManager.LoadScene("MainMenu");
+        Time.timeScale = 1f;
     }
 
     public void BackToHideout()
     {
         PlayerController.instance.scenePassword = "Hideout";
         SceneManager.LoadScene("Hideout");
+        Time.timeScale = 1f;
     }
 
 }
