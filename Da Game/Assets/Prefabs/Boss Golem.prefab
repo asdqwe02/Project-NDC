@@ -454,11 +454,11 @@ MonoBehaviour:
   shockedTimer: 4
   burningTimer: 3
   freezingTimer: 2
-  hp: 20
+  hp: 50
   movementSpeed: 3
   attackSpeed: 1
   armour: 1
-  Damage: 1
+  damage: 1
   damageType: 0
   statusEffects: 
   collider2D: {fileID: 1069103408}

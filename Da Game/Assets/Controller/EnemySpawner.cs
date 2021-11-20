@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemySpawner : MonoBehaviour
 {
     public enum SpawnState { SPAWNING, WAITING, COUNTING, FINISHED };
-
+    SpriteRenderer sr;
     [System.Serializable]
     public class Wave
     {
@@ -19,7 +19,7 @@ public class EnemySpawner : MonoBehaviour
     public BeginWaves begin;
     private int nextWave = 0;
 
-    public float timeBetweenWave = 5f;
+    public float timeBetweenWave = 2.5f;
     public float waveCountdown;
 
     public float searchCountdown = 5;
@@ -28,6 +28,7 @@ public class EnemySpawner : MonoBehaviour
     private void Start()
     {
         waveCountdown = timeBetweenWave;
+        sr = GetComponent<SpriteRenderer>();
 
     }
 
@@ -35,6 +36,8 @@ public class EnemySpawner : MonoBehaviour
     {
         if (begin.start)
         {
+            if (!sr.enabled)
+                sr.enabled=true;
             if (state == SpawnState.FINISHED)
                 return;
             if (state == SpawnState.WAITING)
@@ -81,6 +84,7 @@ public class EnemySpawner : MonoBehaviour
 
     void WaveComplete()
     {
+        //??? explain ???
         state = SpawnState.COUNTING;
         waveCountdown = timeBetweenWave;
         if (nextWave + 1 > waves.Length - 1)
