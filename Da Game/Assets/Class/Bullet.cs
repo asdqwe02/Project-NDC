@@ -11,12 +11,15 @@ public class Bullet : MonoBehaviour
     private int _damageType;
     private RNG statusEffectRNG;
     private bool isMoving = true, flip=false;
+    private Rigidbody2D rb;
     [SerializeField] private float _bulletSpeed = 50f;
     [SerializeField] private bool _isFromPlayer = false;
 
     private void Start()
     {
         statusEffectRNG = new RNG();
+        rb = GetComponent<Rigidbody2D>();
+        
     }
     public void setUp(Vector3 shootDir, bool IsFromPlayer,float damage,int damageType, Vector3 KnockBack)
     {
@@ -37,14 +40,18 @@ public class Bullet : MonoBehaviour
         if (!_isFromPlayer)
             gameObject.layer = 8;
         _damageType = damageType;
+        
         Destroy(gameObject, 1f);
     }
-    // Update is called once per frame
-   
-    void Update()
+
+    void FixedUpdate()
     {
         if (isMoving)
-            transform.position += _shootDir * _bulletSpeed * Time.deltaTime;
+        {
+            rb.velocity = _shootDir * _bulletSpeed;
+        }
+        else
+            rb.velocity = Vector2.zero;
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {

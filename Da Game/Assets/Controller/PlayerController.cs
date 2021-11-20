@@ -67,7 +67,7 @@ public class PlayerController : PlayerClass
                 Destroy(gameObject);
             }
         }
-        
+
         DontDestroyOnLoad(gameObject);
     }
     private void Start()
@@ -77,7 +77,7 @@ public class PlayerController : PlayerClass
         Money = 0;
         collider2D = GetComponent<BoxCollider2D>();
         UnlockedSlot = 0;
-        
+
 
     }
     // Update is called once per frame
@@ -99,7 +99,7 @@ public class PlayerController : PlayerClass
         {
             Physics2D.IgnoreLayerCollision(9, 8, false);
         }
-        
+
     }
 
     void ProcessInput()
@@ -109,7 +109,7 @@ public class PlayerController : PlayerClass
 
         _moveDirection = new Vector2(moveX, moveY).normalized;
 
-        if(Input.GetKeyDown(KeyCode.F1))
+        if (Input.GetKeyDown(KeyCode.F1))
         {
             ApplyStatusEffect(1);
         }
@@ -200,50 +200,21 @@ public class PlayerController : PlayerClass
         Vector2 vecTemp = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
         //Barrel
-        Vector3 barrelPos = transform.position;
-
-        //Do this bc we don't have separate gun from the body yet
-        barrelPos.z = 0;
-        if (FacingRight)
-            barrelPos.x += 0.8f;
-        else barrelPos.x -= 0.8f;
-        barrelPos.y -= 0.085f;
+        Vector3 barrelPos = _fireAttackPoint.position;
 
         _lookDirection = ((Vector3)vecTemp - transform.position).normalized;
 
         //this is very dumb and will need a default bullet type TODO: assign a default bullet 
-        Transform bulletType= null;
-        switch (DamageType_)
-        {
-            case DamageType.Physical:
-                break;
-            case DamageType.Fire:
-                bulletType = BulletPrefab[1];
-                break;
-            case DamageType.Cold:
-                bulletType = BulletPrefab[2];
-                break;
-            case DamageType.Lightning:
-                bulletType = BulletPrefab[3];
-                break;
-            default:
-                break;
-        }
+        Transform bulletType = GetBulletType();
         Transform firedBullet = Instantiate(bulletType, barrelPos, Quaternion.identity);
 
         //Replace DamageType enum with a variable damageType later
-        firedBullet.GetComponent<Bullet>().setUp(_lookDirection,true,Damage,(int)DamageType.Cold);
+        firedBullet.GetComponent<Bullet>().setUp(_lookDirection, true, Damage, (int)DamageType.Cold);
     }
     private void FireBulletSpreadMode()
     {
         //Barrel
-        Vector3 barrelPos = transform.position;
-        //Do this bc we don't have separate gun from the body yet
-        barrelPos.z = 0;
-        if (FacingRight)
-            barrelPos.x += 0.8f;
-        else barrelPos.x -= 0.8f;
-        barrelPos.y -= 0.085f;
+        Vector3 barrelPos = _fireAttackPoint.position;
 
         float startAngle = 90f, endAngle = 270f;
         if (!FacingRight)
@@ -257,23 +228,7 @@ public class PlayerController : PlayerClass
         Vector2 vecTemp = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
         //this is very dumb and will need a default bullet type TODO: assign a default bullet 
-        Transform bulletType = null;
-        switch (DamageType_)
-        {
-            case DamageType.Physical:
-                break;
-            case DamageType.Fire:
-                bulletType = BulletPrefab[1];
-                break;
-            case DamageType.Cold:
-                bulletType = BulletPrefab[2];
-                break;
-            case DamageType.Lightning:
-                bulletType = BulletPrefab[3];
-                break;
-            default:
-                break;
-        }
+        Transform bulletType = GetBulletType();
         for (int i = 0; i < BulletAmount; i++)
         {
             //Stable Spread Fire v1
@@ -292,10 +247,39 @@ public class PlayerController : PlayerClass
             Transform firedBullet = Instantiate(bulletType, barrelPos, Quaternion.identity);
 
             //Replace DamageType enum with a variable damageType later
-            firedBullet.GetComponent<Bullet>().setUp(_lookDirection,true,Damage, (int)DamageType.Lightning); 
+            firedBullet.GetComponent<Bullet>().setUp(_lookDirection, true, Damage, (int)DamageType.Lightning);
             angle += angleStep;
         }
 
+    }
+    //Get bullet type function
+    private Transform GetBulletType()
+    {
+        try
+        {
+            switch (DamageType_)
+            {
+                case DamageType.Physical:
+                    break;
+                case DamageType.Fire:
+                    return BulletPrefab[1];
+                    break;
+                case DamageType.Cold:
+                    return BulletPrefab[2];
+                    break;
+                case DamageType.Lightning:
+                    return BulletPrefab[3];
+                    break;
+                default:
+                    break;
+            }
+        }
+        catch (System.ArgumentNullException)
+        {
+            
+            throw;
+        }
+        return null; //If damage type is not found throw null exception and return null
     }
     private void Move()
     {
@@ -357,7 +341,7 @@ public class PlayerController : PlayerClass
     {
         if (string.IsNullOrEmpty(buff.getBuffType()))
         {
-           // movementSpeed += buff.getSpeedInc();
+            // movementSpeed += buff.getSpeedInc();
         }
         else
         {
@@ -423,11 +407,11 @@ public class PlayerController : PlayerClass
     private void CheckInteraction()
     {
         RaycastHit2D[] hits = Physics2D.BoxCastAll(transform.position, Size, 0, Vector2.zero);
-        if(hits.Length > 0)
+        if (hits.Length > 0)
         {
-            foreach(RaycastHit2D rc in hits)
+            foreach (RaycastHit2D rc in hits)
             {
-                if(rc.transform.GetComponent<Interactable>())
+                if (rc.transform.GetComponent<Interactable>())
                 {
                     rc.transform.GetComponent<Interactable>().Interact();
                     return;
@@ -435,9 +419,9 @@ public class PlayerController : PlayerClass
             }
         }
     }
-    
+
     //Do we even need these get Hp method ??? (Thien)
-    public  float GetHealth()
+    public float GetHealth()
     {
         return Hp;
     }
