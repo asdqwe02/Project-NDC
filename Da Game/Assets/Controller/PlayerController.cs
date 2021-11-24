@@ -111,15 +111,15 @@ public class PlayerController : PlayerClass
 
         if (Input.GetKeyDown(KeyCode.F1))
         {
-            ApplyStatusEffect(1);
+            ApplyStatusEffect(DamageType_);
         }
         if (Input.GetKeyDown(KeyCode.F2))
         {
-            ApplyStatusEffect(2);
+            ApplyStatusEffect(DamageType_);
         }
         if (Input.GetKeyDown(KeyCode.F3))
         {
-            ApplyStatusEffect(3);
+            ApplyStatusEffect(DamageType_);
         }
 
 
@@ -209,7 +209,7 @@ public class PlayerController : PlayerClass
         Transform firedBullet = Instantiate(bulletType, barrelPos, Quaternion.identity);
 
         //Replace DamageType enum with a variable damageType later
-        firedBullet.GetComponent<Bullet>().setUp(_lookDirection, true, Damage, (int)DamageType.Cold);
+        firedBullet.GetComponent<Bullet>().setUp(_lookDirection, true, Damage,DamageType_);
     }
     private void FireBulletSpreadMode()
     {
@@ -240,14 +240,12 @@ public class PlayerController : PlayerClass
             vecTemp.x += Mathf.Sin((angle * Mathf.PI) / 180f);
             vecTemp.y += Mathf.Cos((angle * Mathf.PI) / 180f);
             //Test
-
-
             _lookDirection = ((Vector3)vecTemp - bulleDirVector).normalized;
 
             Transform firedBullet = Instantiate(bulletType, barrelPos, Quaternion.identity);
 
             //Replace DamageType enum with a variable damageType later
-            firedBullet.GetComponent<Bullet>().setUp(_lookDirection, true, Damage, (int)DamageType.Lightning);
+            firedBullet.GetComponent<Bullet>().setUp(_lookDirection, true, Damage, DamageType_);
             angle += angleStep;
         }
 
@@ -362,23 +360,30 @@ public class PlayerController : PlayerClass
         }
 
     }
-    public void takeDamage(float damage, Vector2 KnockBack)
+
+    public override void takeDamage(float damage, DamageType damageType, Vector2 KnockBack)
     {
-        Hp -= damage;
+        base.takeDamage(damage, damageType, KnockBack);
         Rb.AddForce(KnockBack);
-        //collider2D.enabled = false
         animator.SetBool("IsHurt", true);
         IsHurt = true;
         ImmuneTime = 3;
         Physics2D.IgnoreLayerCollision(9, 8);
     }
 
-    //Use this to show the melee attack range
+    /*remove the block bellow if the takeDamage function above work*/
 
-    //if (_meleeAttackPoint == null)
-    //    return;
-    //Gizmos.color = Color.red;
-    //Gizmos.DrawWireSphere(_meleeAttackPoint.position,MeleeAttackRange);
+    //public override void takeDamage(float damage, Vector2 KnockBack)
+    //{
+
+    //    base.takeDamage();
+    //    Hp -= damage;
+       
+    //    //collider2D.enabled = false
+      
+    //}
+
+    /*Use this to show the melee attack range*/
     private void OnDrawGizmosSelected()
     {
         if (_meleeAttackPoint == null)

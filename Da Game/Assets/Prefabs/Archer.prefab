@@ -217,12 +217,13 @@ MonoBehaviour:
   shockedTimer: 4
   burningTimer: 3
   freezingTimer: 2
+  numberPopUp: {fileID: 6161134254988266509, guid: cdfc0503540752946bc3d0e7226c4aad, type: 3}
   hp: 20
   movementSpeed: 3
   attackSpeed: 1
   armour: 1
-  Damage: 1
-  damageType: 0
+  damage: 2
+  damageType: 2
   statusEffects: 000000000000000000000000
   collider2D: {fileID: 6773402051567981194}
   _firePoint: {fileID: 6773402050616805387}

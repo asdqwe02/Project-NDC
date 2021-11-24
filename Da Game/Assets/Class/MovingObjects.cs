@@ -13,7 +13,8 @@ public class MovingObjects : MonoBehaviour
     [SerializeField] protected float shockedTimer = 4f;
     [SerializeField] protected float burningTimer = 3f;
     [SerializeField] protected float freezingTimer = 2f;
-
+    [Header("Basic Prefab")]
+    [SerializeField] public Transform numberPopUp;
     [Header("Basic Stats")]
     [SerializeField] private float hp;
     [SerializeField] private float movementSpeed;
@@ -63,7 +64,7 @@ public class MovingObjects : MonoBehaviour
         Freeze,
         Shocked
     }
-    public void ApplyStatusEffect(int damagetype)
+    public void ApplyStatusEffect(DamageType damagetype)
     {
         if (statusEffects.Count >= 3)
             return;
@@ -74,50 +75,50 @@ public class MovingObjects : MonoBehaviour
         else
         {
             statusEffects.Add(tempStatusEffect);
-            //update player's gfx status bar
+            //update player's gfx status bar (seem a bit repetitive)
             if (IsPlayer)
             {
                 GameObject temp;
                 GameObject parent = GameObject.Find("Status Bar");
                 switch (damagetype)
                 {
-                    case 1:
+                    case DamageType.Fire:
                         temp = Instantiate(Resources.Load("StatusEffectGFX/BurntEffectGFX") as GameObject);
                         temp.transform.SetParent(parent.transform);
                         break;
-                    case 2:
+                    case DamageType.Cold:
 
                         temp = Instantiate(Resources.Load("StatusEffectGFX/FrozenEffectGFX") as GameObject);
                         temp.transform.SetParent(parent.transform);
                         break;
-                    case 3:
+                    case DamageType.Lightning:
                         temp = Instantiate(Resources.Load("StatusEffectGFX/ShockedEffectGFX") as GameObject);
                         temp.transform.SetParent(parent.transform);
                         break;
+                    default: //usually mean physical
+                        break;
 
                 }
-                    
-
 
             }
-
             switch (damagetype)
             {
-                case 1:
+                case DamageType.Fire:
                     InvokeRepeating("BurningTimer", 0f, Time.fixedDeltaTime);
                     break;
-                case 2:
+                case DamageType.Cold:
                     InvokeRepeating("FreezingTimer", 0f, Time.fixedDeltaTime);
                     break;
-                case 3:
+                case DamageType.Lightning:
                     InvokeRepeating("ShockedTimer", 0f, Time.fixedDeltaTime);
                     break;
-                default:
+                default: //usually mean physical
                     break;
             }
         }
     }
-    public void RemoveStatusEffect(int statustype)
+
+    public void RemoveStatusEffect(int statustype) //Might want to imrpove this
     {
         StatusEffect tempStatusEffect = (StatusEffect)statustype;
         int removeIndes = statusEffects.IndexOf(tempStatusEffect);
@@ -145,9 +146,26 @@ public class MovingObjects : MonoBehaviour
         }
 
     }
-    public void takeDamage(float damage)
+    public  virtual void takeDamage(float damageTaken,DamageType damageTypeTaken)
     {
-        hp -= damage;
+        hp -= damageTaken;
+        if (numberPopUp != null)
+        {
+            numberPopUp.GetComponent<NumberPopupController>().DamageNumberSetUp(damageTaken, damageTypeTaken);
+            Instantiate(numberPopUp, transform.position, Quaternion.identity);
+        }
+    }
+    public virtual void takeDamage(float damageTaken, DamageType damageTypeTaken, Vector2 KnockBack)
+    {
+        //idk if this will summon the devil and kill me or not but it should work ... I think
+        takeDamage(damageTaken, damageTypeTaken);
+        
+        /*Backup*/
+
+        //hp -= damage;
+        //Instantiate(numberPopUp, transform.position, Quaternion.identity);
+        //numberPopUp.GetComponent<NumberPopupController>().DamageNumberSetUp(damage, damageType);
+
     }
     private void BurningTimer()
     {

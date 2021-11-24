@@ -8,7 +8,7 @@ public class Bullet : MonoBehaviour
     private Vector3 _shootDir;
     private Vector3 _knockBack;
     private float _damage;
-    private int _damageType;
+    private MovingObjects.DamageType _damageType;
     private RNG statusEffectRNG;
     private bool isMoving = true, flip=false;
     private Rigidbody2D rb;
@@ -21,9 +21,10 @@ public class Bullet : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         
     }
-    public void setUp(Vector3 shootDir, bool IsFromPlayer,float damage,int damageType, Vector3 KnockBack)
+    public void setUp(Vector3 shootDir, bool IsFromPlayer,float damage,MovingObjects.DamageType damageType, Vector3 KnockBack)
     {
         _shootDir = shootDir;
+        _damage = damage;
         transform.eulerAngles = new Vector3(0, 0, GetAngleFromVectorFloat(shootDir));
         _isFromPlayer = IsFromPlayer;
         _knockBack = KnockBack;
@@ -32,15 +33,15 @@ public class Bullet : MonoBehaviour
         _damageType = damageType; 
         Destroy(gameObject, 1f);
     }
-    public void setUp(Vector3 shootDir, bool IsFromPlayer, float damage,int damageType)
+    public void setUp(Vector3 shootDir, bool IsFromPlayer, float damage,MovingObjects.DamageType damageType)
     {
         _shootDir = shootDir;
+        _damage = damage;
         transform.eulerAngles = new Vector3(0, 0, GetAngleFromVectorFloat(shootDir));
         _isFromPlayer = IsFromPlayer;
         if (!_isFromPlayer)
             gameObject.layer = 8;
         _damageType = damageType;
-        
         Destroy(gameObject, 1f);
     }
 
@@ -76,8 +77,8 @@ public class Bullet : MonoBehaviour
 
             if (Monster != null)
             {
-                Monster.takeDamage(1);
-                bool applyStatus = statusEffectRNG.RollNumber(25f); //Apply status effect to monster
+                Monster.takeDamage(_damage,_damageType);
+                bool applyStatus = statusEffectRNG.RollNumber(25f); //Apply status effect to monster and player
                 if (applyStatus)
                 {
                     Monster.ApplyStatusEffect(_damageType);
@@ -101,7 +102,7 @@ public class Bullet : MonoBehaviour
             if (p != null)
             {
                 Debug.Log("Hit Player");
-                p.takeDamage(1,_knockBack);
+                p.takeDamage(_damage,_damageType,_knockBack);
 
             }
         }

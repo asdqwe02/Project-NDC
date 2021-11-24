@@ -179,7 +179,7 @@ public class Slime : Enemy
         {
             float scalar = 0.3f;
             Vector2 KnockBack = new Vector2(direction.x * scalar, direction.y * scalar);
-            collision.gameObject.GetComponent<PlayerController>().takeDamage(Damage, KnockBack);
+            collision.gameObject.GetComponent<PlayerController>().takeDamage(Damage, DamageType_,KnockBack);
         }
     }
 

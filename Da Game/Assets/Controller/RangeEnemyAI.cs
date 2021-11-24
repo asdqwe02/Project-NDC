@@ -200,6 +200,6 @@ public class RangeEnemyAI : Enemy
         Transform firedProjectile = Instantiate(_projectilePrefab, _firePoint.position, Quaternion.identity);
 
         //Replace DamageType enum with a variable damageType later
-        firedProjectile.GetComponent<Bullet>().setUp(aimDirection,false, Damage,(int)DamageType.Cold,KnockBack);
+        firedProjectile.GetComponent<Bullet>().setUp(aimDirection,false, Damage,DamageType_,KnockBack);
     }
 }

@@ -50,7 +50,7 @@ public class PillarController : MonoBehaviour
             }
             if (p != null)
             {
-                p.takeDamage(1, new Vector3(0,0,0));
+                p.takeDamage(1, MovingObjects.DamageType.Fire,new Vector3(0,0,0));
             }
         }
     }
