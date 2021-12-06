@@ -55,9 +55,11 @@
   <ItemGroup>
     <Compile Include="Assets\Controller\Laser.cs" />
     <Compile Include="Assets\Class\Enemy.cs" />
+    <Compile Include="Assets\Controller\CrateController.cs" />
     <Compile Include="Assets\Controller\ShopNPController.cs" />
     <Compile Include="Assets\SlimeMeleeAttack.cs" />
     <Compile Include="Assets\Controller\GolemController.cs" />
+    <Compile Include="Assets\Class\NonMovingObject.cs" />
     <Compile Include="Assets\Class\Slime.cs" />
     <Compile Include="Assets\Controller\WeaponController.cs" />
     <Compile Include="Assets\Controller\BeginWaves.cs" />
@@ -77,9 +79,12 @@
     <Compile Include="Assets\Class\GolemArm.cs" />
     <Compile Include="Assets\Controller\RangeEnemyAI.cs" />
     <Compile Include="Assets\Controller\EnemyAI.cs" />
+    <Compile Include="Assets\Controller\CoinCounterController.cs" />
     <Compile Include="Assets\Controller\StatusController.cs" />
     <Compile Include="Assets\Controller\EnemyAIDestinationSetter.cs" />
     <Compile Include="Assets\Controller\MenuController.cs" />
+    <Compile Include="Assets\Controller\NumberPopupController.cs" />
+    <Compile Include="Assets\Controller\CoinController.cs" />
     <Compile Include="Assets\Controller\Exit.cs" />
     <Compile Include="Assets\Class\Utilities.cs" />
     <Compile Include="Assets\Controller\StatusbarController.cs" />
@@ -90,10 +95,11 @@
     <Compile Include="Assets\Controller\IsDyingEvent.cs" />
     <Compile Include="Assets\Class\MovingObjects.cs" />
     <Compile Include="Assets\Controller\FileSlotDisplayController.cs" />
+    <Compile Include="Assets\Controller\HealthPotionController.cs" />
     <Compile Include="Assets\Controller\Interactable.cs" />
     <Compile Include="Assets\Class\Player Data.cs" />
     <Compile Include="Assets\Animation\Enemies Animation\EnemyGFX.cs" />
-    <Compile Include="Assets\Controller\NumberPopupController.cs" />
+    <Compile Include="Assets\Controller\StatSheetController.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Font\TextMesh Pro\Shaders\TMPro.cginc" />

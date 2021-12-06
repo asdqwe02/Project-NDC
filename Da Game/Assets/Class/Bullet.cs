@@ -10,7 +10,7 @@ public class Bullet : MonoBehaviour
     private float _damage;
     private MovingObjects.DamageType _damageType;
     private RNG statusEffectRNG;
-    private bool isMoving = true, flip=false;
+    private bool isMoving = true, flip = false;
     private Rigidbody2D rb;
     [SerializeField] private float _bulletSpeed = 50f;
     [SerializeField] private bool _isFromPlayer = false;
@@ -19,9 +19,9 @@ public class Bullet : MonoBehaviour
     {
         statusEffectRNG = new RNG();
         rb = GetComponent<Rigidbody2D>();
-        
+
     }
-    public void setUp(Vector3 shootDir, bool IsFromPlayer,float damage,MovingObjects.DamageType damageType, Vector3 KnockBack)
+    public void setUp(Vector3 shootDir, bool IsFromPlayer, float damage, MovingObjects.DamageType damageType, Vector3 KnockBack)
     {
         _shootDir = shootDir;
         _damage = damage;
@@ -30,10 +30,10 @@ public class Bullet : MonoBehaviour
         _knockBack = KnockBack;
         if (!_isFromPlayer)
             gameObject.layer = 8;
-        _damageType = damageType; 
+        _damageType = damageType;
         Destroy(gameObject, 1f);
     }
-    public void setUp(Vector3 shootDir, bool IsFromPlayer, float damage,MovingObjects.DamageType damageType)
+    public void setUp(Vector3 shootDir, bool IsFromPlayer, float damage, MovingObjects.DamageType damageType)
     {
         _shootDir = shootDir;
         _damage = damage;
@@ -54,6 +54,7 @@ public class Bullet : MonoBehaviour
         else
             rb.velocity = Vector2.zero;
     }
+    //very bad implementation due to lack of experience early on will fix later if have timee
     private void OnTriggerEnter2D(Collider2D collision)
     {
         //TODO: Change these to compare tag or make an ignore trigger list
@@ -61,10 +62,11 @@ public class Bullet : MonoBehaviour
         PlayerController p = collision.GetComponent<PlayerController>();
         Bullet otherBullets = collision.GetComponent<Bullet>();
         BeginWaves bw = collision.GetComponent<BeginWaves>();
-        
+        Interactable interactable = collision.GetComponent<Interactable>();
+
         if (_isFromPlayer)
         {
-            if (p != null || otherBullets != null ||bw!=null )
+            if (p != null || otherBullets != null || bw != null || interactable != null)
             {
                 return;
             }
@@ -77,24 +79,24 @@ public class Bullet : MonoBehaviour
 
             if (Monster != null)
             {
-                Monster.takeDamage(_damage,_damageType);
-                bool applyStatus = statusEffectRNG.RollNumber(25f); //Apply status effect to monster and player
+                Monster.takeDamage(_damage, _damageType);
+                bool applyStatus = statusEffectRNG.RollNumber(25f); //Apply status effect to monster 
                 if (applyStatus)
                 {
-                    Monster.ApplyStatusEffect(_damageType);
+                    Monster.ApplyStatusEffect(_damage, _damageType);
                 }
 
             }
         }
         else
         {
-            if (Monster != null || otherBullets != null || bw !=null)
+            if (Monster != null || otherBullets != null || bw != null || interactable != null)
             {
                 return;
             }
             else
             {
-               
+
                 if (animator != null)
                     animator.SetBool("Hit", true);
                 isMoving = false;
@@ -102,14 +104,15 @@ public class Bullet : MonoBehaviour
             if (p != null)
             {
                 Debug.Log("Hit Player");
-                p.takeDamage(_damage,_damageType,_knockBack);
+                p.takeDamage(_damage, _damageType, _knockBack);
+                bool applyStatus = statusEffectRNG.RollNumber(25f); //Apply status effect to player
+                if (applyStatus)
+                {
+                    p.ApplyStatusEffect(_damage, _damageType);
+                }
 
             }
         }
-      
-       
-
-      
     }
     public float GetAngleFromVectorFloat(Vector3 dir)
     {

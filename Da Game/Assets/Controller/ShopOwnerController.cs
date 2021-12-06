@@ -27,11 +27,11 @@ public class ShopOwnerController : MonoBehaviour
 
     public void tryBuy()
     {
-        int currentMoney = PlayerController.Singleton.Money;
+        int currentMoney = PlayerController.Singleton.coins;
         int UnlockedSlot = PlayerController.Singleton.UnlockedSlot;
         if(currentMoney >= CalculatePrice(UnlockedSlot))
         {
-            PlayerController.Singleton.Money = (int)(currentMoney - CalculatePrice(UnlockedSlot));
+            PlayerController.Singleton.coins = (int)(currentMoney - CalculatePrice(UnlockedSlot));
             displayBuyOption();
         }
     }

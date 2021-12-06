@@ -1,9 +1,8 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 public class PlayerController : PlayerClass
 {
     public static bool IsLoading; //1: load , 2 : create
-    public int Money;
     public int UnlockedSlot;
     public static string slot;
     //Variables used in Shooting 
@@ -55,7 +54,8 @@ public class PlayerController : PlayerClass
 
         Singleton = this;
 
-        FiringTime -= Time.deltaTime;
+        FiringTime -= Time.deltaTime; // reset firing time
+        BaseDamage = Damage; // setup base damage
         if (instance == null)
         {
             instance = this;
@@ -74,7 +74,7 @@ public class PlayerController : PlayerClass
     {
         MaxHealth = Hp;
         IsPlayer = true;
-        Money = 0;
+        coins = 0;
         collider2D = GetComponent<BoxCollider2D>();
         UnlockedSlot = 0;
 
@@ -83,14 +83,20 @@ public class PlayerController : PlayerClass
     // Update is called once per frame
     void Update()
     {
-        if (!_restrictMovement)
+        if (!_restrictMovement && !statusEffects.Contains(StatusEffect.Freeze))
             ProcessInput();
     }
 
     private void FixedUpdate()
     {
-        if (!_restrictMovement)
+        if (!_restrictMovement && !statusEffects.Contains(StatusEffect.Freeze))
             Move();
+        if (statusEffects.Contains(StatusEffect.Freeze))
+        {
+            Rb.velocity = Vector2.zero;
+            animator.SetBool("IsRunning", false);
+
+        }
         if (isDashButtonDown == true)
         {
             Dash();
@@ -111,15 +117,15 @@ public class PlayerController : PlayerClass
 
         if (Input.GetKeyDown(KeyCode.F1))
         {
-            ApplyStatusEffect(DamageType_);
+            ApplyStatusEffect(10, DamageType.Fire); //damage taken is 10 for tessting purpose
         }
         if (Input.GetKeyDown(KeyCode.F2))
         {
-            ApplyStatusEffect(DamageType_);
+            ApplyStatusEffect(10, DamageType.Cold);
         }
         if (Input.GetKeyDown(KeyCode.F3))
         {
-            ApplyStatusEffect(DamageType_);
+            ApplyStatusEffect(10, DamageType.Lightning);
         }
 
 
@@ -141,7 +147,8 @@ public class PlayerController : PlayerClass
                         FireBullet();
                         break;
                     case 1:
-                        FireBulletSpreadMode();
+                        //FireBulletSpreadMode();
+                        FireBulletSpreadV2(); //Machine god control this not me 
                         break;
                     default:
                         break;
@@ -192,24 +199,56 @@ public class PlayerController : PlayerClass
         }
 
         difference = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
-        rotZ = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;                           //mouse position ,normalize with angle comparing to the player
+        rotZ = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg; //mouse position ,normalize with angle comparing to the player
     }
 
     private void FireBullet()
     {
         Vector2 vecTemp = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-
+        //this is very dumb and will need a default bullet type TODO: assign a default bullet 
+        Transform bulletType = GetBulletType();
         //Barrel
         Vector3 barrelPos = _fireAttackPoint.position;
 
         _lookDirection = ((Vector3)vecTemp - transform.position).normalized;
 
-        //this is very dumb and will need a default bullet type TODO: assign a default bullet 
-        Transform bulletType = GetBulletType();
-        Transform firedBullet = Instantiate(bulletType, barrelPos, Quaternion.identity);
 
-        //Replace DamageType enum with a variable damageType later
-        firedBullet.GetComponent<Bullet>().setUp(_lookDirection, true, Damage,DamageType_);
+        Transform firedBullet = Instantiate(bulletType, barrelPos, Quaternion.identity);
+        firedBullet.GetComponent<Bullet>().setUp(_lookDirection, true, Damage, DamageType_);
+    }
+
+    //Spread fire version 2 this is control by the machine god idk how it work exactly 
+    private void FireBulletSpreadV2() 
+    {
+        //Barrel
+        Vector3 barrelPos = _fireAttackPoint.position;
+        Transform bulletType = GetBulletType();
+
+        Vector2 vecTemp = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        _lookDirection = ((Vector3)vecTemp - transform.position).normalized;
+
+        float spreadAngle = 5f * (float)BulletAmount; //5 is the magiic number that make it work don't ask why
+        float startRotation = spreadAngle / 2f; //might be something wrong with this  Utilities.GetAngleFromVectorFloatWF(_lookDirection) + 
+        float angleIncrease = spreadAngle / ((float)BulletAmount - 1f);
+        Debug.Log("Spread Angle Increase = " + angleIncrease);
+
+
+        for (int i = 0; i < BulletAmount; i++)
+        {
+            float tempRota;
+            Vector3 spreadDirection;
+            tempRota = startRotation - angleIncrease * i; // minus to rotate counter clockwise and plus to rotate clockwise
+
+            /*this rotate the vector by tempRota degree but it seem like it also flip the vecotr around so 
+                I use -_lookDirection instead... BUT with an odd amount of bullet amount it's reverse... idk why
+            BUT also the spreadAngle doesn't work right when there are an odd amount of bullet :| */
+            spreadDirection = Utilities.RotateA2DVector(-_lookDirection, tempRota);
+
+            Transform firedBullet = Instantiate(bulletType, barrelPos, Quaternion.identity);
+            if (i == 0)
+                firedBullet.GetComponent<SpriteRenderer>().color = Color.red;
+            firedBullet.GetComponent<Bullet>().setUp(spreadDirection, true, Damage, DamageType_);
+        }
     }
     private void FireBulletSpreadMode()
     {
@@ -226,26 +265,42 @@ public class PlayerController : PlayerClass
         float angleStep = (endAngle - startAngle) / BulletAmount;
         float angle = startAngle;
         Vector2 vecTemp = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        _lookDirection = ((Vector3)vecTemp - transform.position).normalized;
+
+        //Spread Fire v2 this doesn't work yet 
+        //Rad2Deg convert Atan which use randians (Rad) to degree so we can use it easier 
+        //float spreadAngle = 270f;
+        //_lookDirection = ((Vector3)vecTemp - transform.position).normalized;
+        //float playerFacingRotation = Mathf.Atan2(_lookDirection.y, _lookDirection.x) * Mathf.Rad2Deg;
+        //float startRotation = playerFacingRotation + spreadAngle / 2f;
+        //float angleIncrease = spreadAngle / ((float)BulletAmount - 1f);
+
 
         //this is very dumb and will need a default bullet type TODO: assign a default bullet 
         Transform bulletType = GetBulletType();
         for (int i = 0; i < BulletAmount; i++)
         {
-            //Stable Spread Fire v1
-            float burDirX = barrelPos.x + Mathf.Sin((angle * Mathf.PI) / 180f);
-            float burDirY = barrelPos.y + Mathf.Cos((angle * Mathf.PI) / 180f);
-            Vector3 bulleDirVector = new Vector3(burDirX, burDirY, 0f);
+            //Spread Fire V2 not stable need tweak nad more MATH
+            //float tempRota = startRotation + angleIncrease * i;
+            //float buDirX = barrelPos.x + Mathf.Sin(tempRota * Mathf.Deg2Rad);
+            //float buDirY = barrelPos.y + Mathf.Cos(tempRota * Mathf.Deg2Rad);
+            //Vector3 bulleDirVector = new Vector3(buDirX, buDirY, 0f);
+            //vecTemp.x += Mathf.Sin(tempRota * Mathf.Deg2Rad);
+            //vecTemp.y += Mathf.Cos(tempRota * Mathf.Deg2Rad);
+            //_lookDirection = ((Vector3)vecTemp - bulleDirVector).normalized;
 
-            //Test
-            vecTemp.x += Mathf.Sin((angle * Mathf.PI) / 180f);
-            vecTemp.y += Mathf.Cos((angle * Mathf.PI) / 180f);
-            //Test
+            //Stable Spread Fire v1
+            float buDirX = barrelPos.x + Mathf.Sin((angle * Mathf.PI) / 180f);
+            float buDirY = barrelPos.y + Mathf.Cos((angle * Mathf.PI) / 180f);
+            Vector3 bulleDirVector = new Vector3(buDirX, buDirY, 0f);
+
             _lookDirection = ((Vector3)vecTemp - bulleDirVector).normalized;
 
-            Transform firedBullet = Instantiate(bulletType, barrelPos, Quaternion.identity);
 
-            //Replace DamageType enum with a variable damageType later
+            Transform firedBullet = Instantiate(bulletType, barrelPos, Quaternion.identity);
             firedBullet.GetComponent<Bullet>().setUp(_lookDirection, true, Damage, DamageType_);
+            vecTemp.x += Mathf.Sin((angle * Mathf.PI) / 180f);
+            vecTemp.y += Mathf.Cos((angle * Mathf.PI) / 180f);
             angle += angleStep;
         }
 
@@ -274,13 +329,13 @@ public class PlayerController : PlayerClass
         }
         catch (System.ArgumentNullException)
         {
-            
             throw;
         }
         return null; //If damage type is not found throw null exception and return null
     }
     private void Move()
     {
+
         Rb.velocity = new Vector2(_moveDirection.x * MovementSpeed, _moveDirection.y * MovementSpeed);
 
         if ((FacingRight && (rotZ < -89 || rotZ > 89)) || (!FacingRight && (rotZ > -89 && rotZ < 89)))
@@ -302,8 +357,8 @@ public class PlayerController : PlayerClass
         Rb.MovePosition(dashPos);
 
         Transform dashEffectTransform = Instantiate(DashPrefab, beforeDashPosition, Quaternion.identity);
-        Vector3 Temp = new Vector3(0, 0, Ultilities.GetAngleFromVectorFloat(_moveDirection));
-        dashEffectTransform.eulerAngles = new Vector3(0, 0, Ultilities.GetAngleFromVectorFloat(_moveDirection));
+        Vector3 Temp = new Vector3(0, 0, Utilities.GetAngleFromVectorFloat(_moveDirection));
+        dashEffectTransform.eulerAngles = new Vector3(0, 0, Utilities.GetAngleFromVectorFloat(_moveDirection));
         if (Temp.z > 89 || Temp.z < -89)
         {
             dashEffectTransform.Rotate(0f, 180f, 180f);
@@ -371,19 +426,6 @@ public class PlayerController : PlayerClass
         Physics2D.IgnoreLayerCollision(9, 8);
     }
 
-    /*remove the block bellow if the takeDamage function above work*/
-
-    //public override void takeDamage(float damage, Vector2 KnockBack)
-    //{
-
-    //    base.takeDamage();
-    //    Hp -= damage;
-       
-    //    //collider2D.enabled = false
-      
-    //}
-
-    /*Use this to show the melee attack range*/
     private void OnDrawGizmosSelected()
     {
         if (_meleeAttackPoint == null)
@@ -438,7 +480,7 @@ public class PlayerController : PlayerClass
     public void Load(PlayerData data)
     {
         UnlockedSlot = data.UnlockedSlots;
-        Money = data.Money;
+        coins = data.coins;
     }
 
     public void Save()

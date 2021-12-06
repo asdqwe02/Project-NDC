@@ -14,7 +14,9 @@ public class SpriteAnimation : MonoBehaviour
     private void Awake()
     {
         spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
-        
+        if (destroyAfter!=0)
+            Destroy(gameObject, destroyAfter);
+
     }
 
     private void Update()
@@ -27,6 +29,6 @@ public class SpriteAnimation : MonoBehaviour
             currentFrame = (currentFrame + 1) % frameArray.Length;
             spriteRenderer.sprite = frameArray[currentFrame];
         }
-        Destroy(gameObject,destroyAfter);
+       
     }
 }

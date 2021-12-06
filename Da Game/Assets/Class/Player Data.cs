@@ -6,11 +6,11 @@ using UnityEngine;
 public class PlayerData 
 {
     public int UnlockedSlots;
-    public int Money;
+    public int coins;
     
     public PlayerData(PlayerController player)
     {
         UnlockedSlots = player.UnlockedSlot;
-        Money = player.Money;
+        coins = player.coins;
     }
 }

@@ -438,9 +438,15 @@ MonoBehaviour:
   movementSpeed: 3
   attackSpeed: 1
   armour: 1
+  fireResistance: 0
+  coldResistance: 0
+  lightningResistance: 0
   damage: 10
   damageType: 0
   statusEffects: 
+  coinsPrefab: {fileID: 7675367445763309639, guid: 8ce031827186a1b4cb4597c8d786cc23, type: 3}
+  minCoinDrop: 0
+  maxCoinDrop: 0
   collider2D: {fileID: 1069103408}
   wayPoint01: {fileID: 0}
   wayPoint02: {fileID: 0}

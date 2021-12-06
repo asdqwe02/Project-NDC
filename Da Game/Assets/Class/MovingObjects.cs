@@ -20,7 +20,11 @@ public class MovingObjects : MonoBehaviour
     [SerializeField] private float movementSpeed;
     [SerializeField] private float attackSpeed;
     [SerializeField] private int armour;
+    [SerializeField] private int fireResistance;
+    [SerializeField] private int coldResistance;
+    [SerializeField] private int lightningResistance;
     [SerializeField] private float damage;
+    private float burningDamage=0;    // dodn't make this public or serialized it 
     [SerializeField] private DamageType damageType;
     [SerializeField] protected List<StatusEffect> statusEffects = new List<StatusEffect>();
 
@@ -30,6 +34,9 @@ public class MovingObjects : MonoBehaviour
     public int Armour { get => armour; set => armour = value; }
     public float Damage { get => damage; set => damage = value; }
     public DamageType DamageType_ { get => damageType; set => damageType = value; }
+    public int FireResistance { get => fireResistance; set => fireResistance = value; }
+    public int ColdResistance { get => coldResistance; set => coldResistance = value; }
+    public int LightningResistance { get => lightningResistance; set => lightningResistance = value; }
 
     public MovingObjects()
     {
@@ -37,17 +44,23 @@ public class MovingObjects : MonoBehaviour
         movementSpeed = 1;
         attackSpeed = 1;
         armour = 1;
+        fireResistance = 0;
+        coldResistance = 0;
+        lightningResistance = 0;
         Damage = 1;
-        
+
     }
-    public MovingObjects(float Hp, float Ms, float As, int Armor, float damage )
+    public MovingObjects(float Hp, float Ms, float As, int Armor, int FireRes, int ColdRes, int LightingRes, float damage)
     {
         hp = Hp;
         movementSpeed = Ms;
         attackSpeed = As;
         armour = Armor;
+        fireResistance = FireRes;
+        coldResistance = ColdRes;
+        lightningResistance = LightingRes;
         Damage = damage;
-        
+
     }
     public enum DamageType
     {
@@ -55,7 +68,7 @@ public class MovingObjects : MonoBehaviour
         Fire,
         Cold,
         Lightning
-        
+
     }
     public enum StatusEffect
     {
@@ -64,11 +77,11 @@ public class MovingObjects : MonoBehaviour
         Freeze,
         Shocked
     }
-    public void ApplyStatusEffect(DamageType damagetype)
+    public void ApplyStatusEffect(float damageTaken,DamageType damagetype)
     {
         if (statusEffects.Count >= 3)
             return;
-        StatusEffect tempStatusEffect = (StatusEffect) damagetype;
+        StatusEffect tempStatusEffect = (StatusEffect)((int)damagetype); //look stupid
 
         if (statusEffects.Contains(tempStatusEffect))
             return;
@@ -95,7 +108,7 @@ public class MovingObjects : MonoBehaviour
                         temp = Instantiate(Resources.Load("StatusEffectGFX/ShockedEffectGFX") as GameObject);
                         temp.transform.SetParent(parent.transform);
                         break;
-                    default: //usually mean physical
+                    default: //usually mean physical can change later
                         break;
 
                 }
@@ -104,7 +117,9 @@ public class MovingObjects : MonoBehaviour
             switch (damagetype)
             {
                 case DamageType.Fire:
+                    burningDamage = damageTaken+(float)armour*10/100;
                     InvokeRepeating("BurningTimer", 0f, Time.fixedDeltaTime);
+                    InvokeRepeating("TakeBurningDamage", 0f, 0.95f); // 0.95s interval so it can deal all damage during burning time
                     break;
                 case DamageType.Cold:
                     InvokeRepeating("FreezingTimer", 0f, Time.fixedDeltaTime);
@@ -112,7 +127,7 @@ public class MovingObjects : MonoBehaviour
                 case DamageType.Lightning:
                     InvokeRepeating("ShockedTimer", 0f, Time.fixedDeltaTime);
                     break;
-                default: //usually mean physical
+                default: //usually mean physical can change later
                     break;
             }
         }
@@ -146,12 +161,39 @@ public class MovingObjects : MonoBehaviour
         }
 
     }
-    public  virtual void takeDamage(float damageTaken,DamageType damageTypeTaken)
+    public virtual void takeDamage(float damageTaken, DamageType damageTypeTaken)
     {
-        hp -= damageTaken;
+        float finalDamage = damageTaken;
+
+        //damage increased on shocked enemies or player
+        if (statusEffects.Contains(StatusEffect.Shocked))
+            finalDamage = finalDamage * 1.3f;
+
+        switch (damageTypeTaken)
+        {
+            //Might wanna change all defense value to float instead of int 
+            case DamageType.Physical:
+                finalDamage = finalDamage - (float)armour;
+                break;
+            case DamageType.Fire:
+                finalDamage = finalDamage * (1 - (float)fireResistance * 20 / 100) - (float)armour * 10 / 100; //can change to 0.2 and 0.1
+                break;
+            case DamageType.Cold:
+                finalDamage = finalDamage * (1 - (float)coldResistance * 20 / 100) - (float)armour * 10 / 100;
+                break;
+            case DamageType.Lightning:
+                finalDamage = finalDamage * (1 - (float)lightningResistance * 20 / 100) - (float)armour * 10 / 100;
+                break;
+            default:
+                break;
+        }
+        finalDamage = Mathf.Round(finalDamage * 100f) / 100f; //round final damage to have only 2 numbers after decimal point
+        if (finalDamage < 0)
+            finalDamage = 0f;
+        hp -= finalDamage; 
         if (numberPopUp != null)
         {
-            numberPopUp.GetComponent<NumberPopupController>().DamageNumberSetUp(damageTaken, damageTypeTaken);
+            numberPopUp.GetComponent<NumberPopupController>().DamageNumberSetUp(finalDamage, damageTypeTaken);
             Instantiate(numberPopUp, transform.position, Quaternion.identity);
         }
     }
@@ -159,7 +201,7 @@ public class MovingObjects : MonoBehaviour
     {
         //idk if this will summon the devil and kill me or not but it should work ... I think
         takeDamage(damageTaken, damageTypeTaken);
-        
+
         /*Backup*/
 
         //hp -= damage;
@@ -175,6 +217,7 @@ public class MovingObjects : MonoBehaviour
             burningTimer = 3f;
             RemoveStatusEffect(1);
             CancelInvoke("BurningTimer");
+            CancelInvoke("TakeBurningDamage");
         }
     }
     private void FreezingTimer()
@@ -197,13 +240,18 @@ public class MovingObjects : MonoBehaviour
             CancelInvoke("ShockedTimer");
         }
     }
+    private void TakeBurningDamage()
+    {
+        takeDamage(burningDamage, DamageType.Fire);
+    }
 
+    //should remove this 
     protected void DropMoney(int low, int high)
     {
         if (!dropped)
         {
-            PlayerController.instance.Money += Random.RandomRange(1, 10);
-            dropped = true;
+            PlayerController.instance.coins += Random.RandomRange(1, 10);
+            dropped = true; //should remove this also
         }
     }
 }

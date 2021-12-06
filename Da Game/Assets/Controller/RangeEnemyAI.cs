@@ -8,7 +8,7 @@ public class RangeEnemyAI : Enemy
     [SerializeField] private Transform _firePoint;
     [SerializeField] private Transform _projectilePrefab;
     private bool isDying = false;//Bloat TODO:delete
-                              
+
 
     private enum State
     {
@@ -18,7 +18,7 @@ public class RangeEnemyAI : Enemy
 
     private Vector2 direction;
     private double targetRange = 10;
-    [SerializeField] private float nextAttackTime=0f;
+    [SerializeField] private float nextAttackTime = 0f;
     private State state;
     public Transform target;
     public float nextWaypointDistance = 3f;
@@ -46,7 +46,7 @@ public class RangeEnemyAI : Enemy
         StartingPosition = transform.position;
         animator = GetComponent<Animator>();
         InvokeRepeating("UpdatePath", 0f, .5f);
-        nextAttackTime -=Time.deltaTime; //Next attack time start value
+        nextAttackTime -= Time.deltaTime; //Next attack time start value
 
     }
 
@@ -73,10 +73,8 @@ public class RangeEnemyAI : Enemy
         if (nextAttackTime > 0)
         {
             nextAttackTime = nextAttackTime - Time.deltaTime;
-            //if (state!=State.Aiming)
-            //    animator.SetBool("IsAttacking", false);
         }
-        else 
+        else if (!statusEffects.Contains(StatusEffect.Freeze))
         {
             animator.SetBool("IsAttacking", true);
             if (state == State.Aiming)
@@ -87,11 +85,53 @@ public class RangeEnemyAI : Enemy
     }
     private void FixedUpdate()
     {
+
         CheckLife();
 
         FindTarget();
 
+        if (!statusEffects.Contains(StatusEffect.Freeze))
+            ProcessAction();
 
+    }
+
+    void flip()
+    {
+        FacingRight = !FacingRight;
+        transform.Rotate(0f, 180f, 0f);
+    }
+
+
+
+    void CheckLife() // maybe moving this to Enenmy class
+    {
+        if (Hp <= 0)
+        {
+            isDying = true;
+            collider2D.enabled = false;
+            DropCoins();
+            animator.SetBool("IsDying", true);
+
+        }
+    }
+
+    private Vector3 GetRoamingPosition()
+    {
+        return StartingPosition + Utilities.GetRandomDir() * Random.Range(10f, 7f);
+    }
+
+    private void FindTarget()
+    {
+        if (Vector3.Distance(transform.position, target.transform.position) < targetRange)
+        {
+            //player within target range
+            state = State.Aiming;
+        }
+        else
+            state = State.Roaming;
+    }
+    private void ProcessAction()
+    {
         if (currentWaypoint >= path.vectorPath.Count)
         {
             reachedEndofPath = true;
@@ -109,6 +149,7 @@ public class RangeEnemyAI : Enemy
         }
         direction = ((Vector2)path.vectorPath[currentWaypoint] - rb.position).normalized;
 
+        //move with a velocity
         Vector2 Velocity = new Vector2(direction.x * MovementSpeed, direction.y * MovementSpeed);
 
         if (animator.GetBool("IsDying") == true || State.Aiming == state)
@@ -123,12 +164,9 @@ public class RangeEnemyAI : Enemy
         }
         rb.velocity = Velocity;
 
-
-
-
         if ((direction.x >= 0.01f && FacingRight) || (direction.x <= -0.01f && !FacingRight))
             flip();
-        if (rb.velocity == new Vector2(0,0))
+        if (rb.velocity == new Vector2(0, 0))
         {
             if ((target.position.x > transform.position.x && FacingRight == false) || (target.position.x < transform.position.x && FacingRight == true))
             {
@@ -150,43 +188,6 @@ public class RangeEnemyAI : Enemy
             currentWaypoint++;
         }
     }
-
-    void flip()
-    {
-        FacingRight = !FacingRight;
-        transform.Rotate(0f, 180f, 0f);
-    }
-
-
-
-    void CheckLife()
-    {
-        if (Hp <= 0)
-        {
-            isDying = true;
-            collider2D.enabled = false;
-            DropMoney(5, 7);
-            animator.SetBool("IsDying", true);
-
-        }
-    }
-
-    private Vector3 GetRoamingPosition()
-    {
-        return StartingPosition + Ultilities.GetRandomDir() * Random.Range(10f, 7f);
-    }
-
-    private void FindTarget()
-    {
-        if (Vector3.Distance(transform.position, target.transform.position) < targetRange)
-        {
-            //player within target range
-            state = State.Aiming;
-        }
-        else
-            state = State.Roaming;
-    }
-
     private void FireProjectile()
     {
         //Vector2 vecTemp = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -196,10 +197,10 @@ public class RangeEnemyAI : Enemy
         //Do this bc we don't have separate gun from the body yet
         float scalar = 0.3f;
         Vector3 aimDirection = (target.position - _firePoint.position).normalized;
-        Vector2 KnockBack = new Vector2(aimDirection.x* scalar, aimDirection.y* scalar);
+        Vector2 KnockBack = new Vector2(aimDirection.x * scalar, aimDirection.y * scalar);
         Transform firedProjectile = Instantiate(_projectilePrefab, _firePoint.position, Quaternion.identity);
 
         //Replace DamageType enum with a variable damageType later
-        firedProjectile.GetComponent<Bullet>().setUp(aimDirection,false, Damage,DamageType_,KnockBack);
+        firedProjectile.GetComponent<Bullet>().setUp(aimDirection, false, Damage, DamageType_, KnockBack);
     }
 }

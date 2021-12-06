@@ -20,7 +20,7 @@ public class FileSlotDisplayController : MonoBehaviour
         if (data != null)
         {
             bufferUnlockedSlot.text = data.UnlockedSlots.ToString();
-            bufferMoney.text = data.Money.ToString();
+            bufferMoney.text = data.coins.ToString();
         }
         else
         {
@@ -35,7 +35,7 @@ public class FileSlotDisplayController : MonoBehaviour
         if (data != null)
         {
             bufferUnlockedSlot.text = data.UnlockedSlots.ToString();
-            bufferMoney.text = data.Money.ToString();
+            bufferMoney.text = data.coins.ToString();
         }
         else
         {
@@ -50,7 +50,7 @@ public class FileSlotDisplayController : MonoBehaviour
         if (data != null)
         {
             bufferUnlockedSlot.text = data.UnlockedSlots.ToString();
-            bufferMoney.text = data.Money.ToString();
+            bufferMoney.text = data.coins.ToString();
         }
         else
         {

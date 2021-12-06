@@ -92,10 +92,12 @@ public class Buff : Interactable
                     break;
                 case BuffType.SingleBullet:
                     pc.FireType = 0;
+                    pc.Damage = pc.BaseDamage; //reset damage to base damage
                     pc.FireRate = statStick.FireRate;
                     break;
                 case BuffType.MultiBullet:
                     pc.FireType = 1;
+                    pc.Damage = pc.BaseDamage / 2; // reduce damage for spread mode 
                     pc.FireRate = statStick.FireRate*10;
                     break;
                 default:

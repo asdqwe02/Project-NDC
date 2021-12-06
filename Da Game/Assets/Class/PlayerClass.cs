@@ -7,6 +7,7 @@ public class PlayerClass : MovingObjects
 
     [Header("Player Stats")]
     //Variables used in shooting projectiles
+    private float baseDamage = 0;
     [SerializeField] private float _fireRate = 0.5f;
     [SerializeField] private float _firingTime = 0f;
     [SerializeField] private int _bulletAmount = 3;
@@ -27,6 +28,7 @@ public class PlayerClass : MovingObjects
     [Header("Utilities")]
     //Utilities
     public string scenePassword;
+    public int coins = 0;
     public int FireType { get => _fireType; set => _fireType = value; }
     public float FiringTime { get => _firingTime; set => _firingTime = value; }
     public float FireRate { get => _fireRate; set => _fireRate = value; }
@@ -39,5 +41,5 @@ public class PlayerClass : MovingObjects
     public string Buff { get => _buff; set => _buff = value; }
     public Transform MeleeSlashPrefab { get => _meleeSlashPrefab; set => _meleeSlashPrefab = value; }
     public float MeleeAttackRange { get => _meleeAttackRange; set => _meleeAttackRange = value; }
- 
+    public float BaseDamage { get => baseDamage; set => baseDamage = value; }
 }

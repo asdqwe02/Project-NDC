@@ -78,6 +78,54 @@ public class Slime : Enemy
 
         FindTarget();
 
+        if (!statusEffects.Contains(StatusEffect.Freeze))
+            ProcessAction();
+        else
+        {
+            animator.SetBool("IsRunning", false);
+            rb.velocity = Vector2.zero;
+        }
+    }
+
+    void flip()
+    {
+        FacingRight = !FacingRight;
+        transform.Rotate(0f, 180f, 0f);
+    }
+
+
+
+    void CheckLife() //should move this to Enemy class
+    {
+        if (Hp <= 0)
+        {
+            isDying = true;
+            collider2D.enabled = false;
+            DropCoins(); // drop money seem kinda bad
+            animator.SetBool("IsDying", true);
+            
+        }
+    }
+
+    private Vector3 GetRoamingPosition()
+    {
+        return StartingPosition + Utilities.GetRandomDir() * Random.Range(10f, 7f);
+    }
+
+    private void FindTarget()
+    {
+        float targetRange = 10f;
+        if (Vector3.Distance(transform.position, target.transform.position) < targetRange)
+        {
+            //player within target range
+            state = State.ChaseTarget;
+        }
+        else
+            state = State.Roaming;
+    }
+
+    private void ProcessAction()
+    {
         if (currentWaypoint >= path.vectorPath.Count)
         {
             reachedEndofPath = true;
@@ -100,12 +148,12 @@ public class Slime : Enemy
         if (animator.GetBool("IsDying") == true || Vector3.Distance(transform.position, target.transform.position) <= AttackRange)
         {
             Velocity = new Vector2(0, 0);
-            if(Time.time > nextAttackTime)
+            if (Time.time > nextAttackTime)
             {
                 animator.SetBool("IsAttacking", true);
-                nextAttackTime = Time.time + 1/AttackSpeed;
+                nextAttackTime = Time.time + 1 / AttackSpeed;
             }
-            
+
 
         }
         else
@@ -114,9 +162,6 @@ public class Slime : Enemy
 
         }
         rb.velocity = Velocity;
-
-
-
 
         if ((direction.x >= 0.01f && FacingRight) || (direction.x <= -0.01f && !FacingRight))
             flip();
@@ -135,44 +180,6 @@ public class Slime : Enemy
             currentWaypoint++;
         }
     }
-
-    void flip()
-    {
-        FacingRight = !FacingRight;
-        transform.Rotate(0f, 180f, 0f);
-    }
-
-
-
-    void CheckLife()
-    {
-        if (Hp <= 0)
-        {
-            isDying = true;
-            collider2D.enabled = false;
-            DropMoney(1,10);
-            animator.SetBool("IsDying", true);
-            
-        }
-    }
-
-    private Vector3 GetRoamingPosition()
-    {
-        return StartingPosition + Ultilities.GetRandomDir() * Random.Range(10f, 7f);
-    }
-
-    private void FindTarget()
-    {
-        float targetRange = 10f;
-        if (Vector3.Distance(transform.position, target.transform.position) < targetRange)
-        {
-            //player within target range
-            state = State.ChaseTarget;
-        }
-        else
-            state = State.Roaming;
-    }
-
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if(animator.GetBool("IsAttacking") && collision.gameObject.tag == "Player")
