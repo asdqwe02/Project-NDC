@@ -101,7 +101,7 @@ public class Slime : Enemy
         {
             isDying = true;
             collider2D.enabled = false;
-            DropCoins(); // drop money seem kinda bad
+            DropItem();
             animator.SetBool("IsDying", true);
             
         }

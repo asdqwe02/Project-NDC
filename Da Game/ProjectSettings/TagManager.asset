@@ -8,6 +8,7 @@ TagManager:
   - Golem
   - StartPlate
   - bullet
+  - EnemySpawner
   layers:
   - Default
   - TransparentFX

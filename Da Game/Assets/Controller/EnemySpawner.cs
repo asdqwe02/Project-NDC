@@ -112,7 +112,10 @@ public class EnemySpawner : MonoBehaviour
         
         yield break;
     }
-
+    public SpawnState GetSpawnState()
+    {
+        return state;
+    }
     void SpawnEnemy(Transform _enemy)
     {
         //spawn enemies

@@ -229,6 +229,7 @@ MonoBehaviour:
   damageType: 2
   statusEffects: 
   coinsPrefab: {fileID: 7675367445763309639, guid: 8ce031827186a1b4cb4597c8d786cc23, type: 3}
+  healthPotionPrefab: {fileID: 7280410895787419857, guid: e42bbcb4223175f4f91737422063b27a, type: 3}
   minCoinDrop: 10
   maxCoinDrop: 100
   collider2D: {fileID: 6773402051567981194}

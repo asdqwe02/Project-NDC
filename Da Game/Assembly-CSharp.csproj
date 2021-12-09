@@ -91,6 +91,7 @@
     <Compile Include="Assets\Class\PlayerClass.cs" />
     <Compile Include="Assets\Controller\LaserUpdated.cs" />
     <Compile Include="Assets\Controller\ShopOwnerController.cs" />
+    <Compile Include="Assets\Controller\StatSheetController.cs" />
     <Compile Include="Assets\Class\SaveSytemManagement.cs" />
     <Compile Include="Assets\Controller\IsDyingEvent.cs" />
     <Compile Include="Assets\Class\MovingObjects.cs" />
@@ -99,7 +100,7 @@
     <Compile Include="Assets\Controller\Interactable.cs" />
     <Compile Include="Assets\Class\Player Data.cs" />
     <Compile Include="Assets\Animation\Enemies Animation\EnemyGFX.cs" />
-    <Compile Include="Assets\Controller\StatSheetController.cs" />
+    <Compile Include="Assets\Controller\BuffSpawnController.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Font\TextMesh Pro\Shaders\TMPro.cginc" />

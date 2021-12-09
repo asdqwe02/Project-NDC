@@ -14,7 +14,6 @@ public class PlayerController : PlayerClass
     private bool IsHurt;
     private float ImmuneTime = 2;
     private bool isDashButtonDown;
-    private float MaxHealth;
     private float _rotationSpeed;
     public bool FacingRight;
 
@@ -72,7 +71,7 @@ public class PlayerController : PlayerClass
     }
     private void Start()
     {
-        MaxHealth = Hp;
+        MaxHP = Hp;
         IsPlayer = true;
         coins = 0;
         collider2D = GetComponent<BoxCollider2D>();
@@ -375,10 +374,15 @@ public class PlayerController : PlayerClass
             meleeSlashEffectTransform.Rotate(0f, 0f, 224.2f);
         else meleeSlashEffectTransform.Rotate(0f, 180f, 224.2f);
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(_meleeAttackPoint.position, MeleeAttackRange, _enemyLayerMask);
+        Vector2 vecTemp = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        _lookDirection = ((Vector3)vecTemp - transform.position).normalized;
         foreach (Collider2D enemy in hitEnemies)
         {
-            MovingObjects Monster = enemy.GetComponent<MovingObjects>();
-            Debug.Log("Hit" + enemy.name);
+            Enemy Monster = enemy.GetComponent<Enemy>();
+
+            if (!Monster.CompareTag("Golem"))
+                Monster.takeDamage(0, DamageType.Physical, _lookDirection);
+            //Debug.Log("Hit" + enemy.name);
         }
 
     }
@@ -387,33 +391,6 @@ public class PlayerController : PlayerClass
         FacingRight = !FacingRight;
         transform.Rotate(0f, 180f, 0f);
         interactIcon.transform.Rotate(0f, 180f, 0f);
-    }
-
-    //obsolete delete later PLEASE DO NOT USE THIS
-    public void setBuff(Buff buff)
-    {
-        if (string.IsNullOrEmpty(buff.getBuffType()))
-        {
-            // movementSpeed += buff.getSpeedInc();
-        }
-        else
-        {
-            Buff = buff.getBuffType();
-            switch (buff.getBuffType())
-            {
-                case "Spread":
-                    FireRate = 0.7f;
-                    FireType = 1;
-                    break;
-                case "SingleLine":
-                    FireType = 0;
-                    FireRate = 0.05f;
-                    break;
-                default:
-                    break;
-            }
-        }
-
     }
 
     public override void takeDamage(float damage, DamageType damageType, Vector2 KnockBack)
@@ -471,10 +448,6 @@ public class PlayerController : PlayerClass
     public float GetHealth()
     {
         return Hp;
-    }
-    public float GetMaxHealth()
-    {
-        return MaxHealth;
     }
 
     public void Load(PlayerData data)

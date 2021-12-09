@@ -321,6 +321,7 @@ public class GolemController : Enemy
         {
             collider2D.enabled = false;
             animator.SetBool("IsDying", true);
+            DropCoins();
 
         }
     }

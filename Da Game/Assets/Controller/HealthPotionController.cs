@@ -19,7 +19,10 @@ public class HealthPotionController : Interactable
     }
     public override void Interact()
     {
+        HealHP = pc.MaxHP * 0.2f;
         pc.Hp += HealHP;
+        if (pc.Hp > pc.MaxHP)
+            pc.Hp = pc.MaxHP;
         numberPopUp.GetComponent<NumberPopupController>().HealingNumberSetUp(HealHP);
         Instantiate(numberPopUp, transform.position, Quaternion.identity);
         Destroy(gameObject);

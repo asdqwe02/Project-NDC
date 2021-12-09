@@ -7,7 +7,8 @@ public class PlayerClass : MovingObjects
 
     [Header("Player Stats")]
     //Variables used in shooting projectiles
-    private float baseDamage = 0;
+    private float baseDamage = 0; //this is use to calculate damage increase or decrease when switching fire mode
+    private float maxHP = 0;
     [SerializeField] private float _fireRate = 0.5f;
     [SerializeField] private float _firingTime = 0f;
     [SerializeField] private int _bulletAmount = 3;
@@ -42,4 +43,5 @@ public class PlayerClass : MovingObjects
     public Transform MeleeSlashPrefab { get => _meleeSlashPrefab; set => _meleeSlashPrefab = value; }
     public float MeleeAttackRange { get => _meleeAttackRange; set => _meleeAttackRange = value; }
     public float BaseDamage { get => baseDamage; set => baseDamage = value; }
+    public float MaxHP { get => maxHP; set => maxHP = value; }
 }

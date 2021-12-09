@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 795340681}
   m_Layer: 0
   m_Name: Enemy Spawner
-  m_TagString: StartPlate
+  m_TagString: EnemySpawner
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

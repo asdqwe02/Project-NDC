@@ -202,11 +202,8 @@ public class MovingObjects : MonoBehaviour
         //idk if this will summon the devil and kill me or not but it should work ... I think
         takeDamage(damageTaken, damageTypeTaken);
 
-        /*Backup*/
-
-        //hp -= damage;
-        //Instantiate(numberPopUp, transform.position, Quaternion.identity);
-        //numberPopUp.GetComponent<NumberPopupController>().DamageNumberSetUp(damage, damageType);
+        //GetComponent<Rigidbody2D>().AddForce(KnockBack);
+        //GetComponent<Rigidbody2D>().velocity = KnockBack * 10f;
 
     }
     private void BurningTimer()

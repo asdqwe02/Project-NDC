@@ -12,7 +12,7 @@ public class Buff : Interactable
     private PlayerClass statStick;
     Animator animator;
 
-    enum BuffType
+    public enum BuffType
     {
         PhysicalAttack,
         FireAttack,
@@ -38,10 +38,9 @@ public class Buff : Interactable
         }
     }
 
-    //delete later
-    public string getBuffType()
+   public void SetUp(BuffType buff)
     {
-        return null;
+        buffType = buff;
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -66,8 +65,8 @@ public class Buff : Interactable
 
     public override void Interact()
     {
-        if (pc != null) 
-        { 
+        if (pc != null)
+        {
             switch (buffType)
             {
                 case BuffType.PhysicalAttack:
@@ -88,6 +87,7 @@ public class Buff : Interactable
                 case BuffType.LightningResistance:
                     break;
                 case BuffType.HPBoost:
+                    pc.MaxHP += statStick.Hp;
                     pc.Hp += statStick.Hp;
                     break;
                 case BuffType.SingleBullet:
@@ -98,7 +98,7 @@ public class Buff : Interactable
                 case BuffType.MultiBullet:
                     pc.FireType = 1;
                     pc.Damage = pc.BaseDamage / 2; // reduce damage for spread mode 
-                    pc.FireRate = statStick.FireRate*10;
+                    pc.FireRate = statStick.FireRate * 10;
                     break;
                 default:
                     break;
@@ -107,10 +107,10 @@ public class Buff : Interactable
         }
         //throw new System.NotImplementedException();
     }
-   
+
     private void ChangeAniToBuffType()
     {
-        int temp = (int) buffType;
+        int temp = (int)buffType;
         Debug.Log("buff type: " + temp);
         switch (temp)
         {

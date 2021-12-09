@@ -109,7 +109,7 @@ public class RangeEnemyAI : Enemy
         {
             isDying = true;
             collider2D.enabled = false;
-            DropCoins();
+            DropItem();
             animator.SetBool("IsDying", true);
 
         }
