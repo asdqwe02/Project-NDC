@@ -78,7 +78,7 @@ public class GolemController : Enemy
     // Start is called before the first frame update
     void Start()
     {
-        target = PlayerController.Singleton.transform;
+        target = PlayerController.instance.transform;
         rb = GetComponent<Rigidbody2D>();
         seeker = GetComponent<Seeker>();
         StartingPosition = transform.position;
