@@ -190,17 +190,13 @@ public class RangeEnemyAI : Enemy
     }
     private void FireProjectile()
     {
-        //Vector2 vecTemp = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-
-
-
-        //Do this bc we don't have separate gun from the body yet
         float scalar = 0.3f;
-        Vector3 aimDirection = (target.position - _firePoint.position).normalized;
+        Vector3 vecTemp = target.position;
+        vecTemp.z = transform.position.z;
+        Vector3 aimDirection = (vecTemp - _firePoint.position).normalized;
+        Debug.Log("Range Enemy Aim Direction Magnitude" + aimDirection.magnitude);
         Vector2 KnockBack = new Vector2(aimDirection.x * scalar, aimDirection.y * scalar);
         Transform firedProjectile = Instantiate(_projectilePrefab, _firePoint.position, Quaternion.identity);
-
-        //Replace DamageType enum with a variable damageType later
         firedProjectile.GetComponent<Bullet>().setUp(aimDirection, false, Damage, DamageType_, KnockBack);
     }
 }

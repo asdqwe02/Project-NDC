@@ -234,7 +234,7 @@ MonoBehaviour:
   maxCoinDrop: 100
   collider2D: {fileID: 6773402051567981194}
   _firePoint: {fileID: 6773402050616805387}
-  _projectilePrefab: {fileID: 5825745331536270500, guid: ebd8def4e971cfa46bbf185de7ffd52b, type: 3}
+  _projectilePrefab: {fileID: 7645317348785127874, guid: f360086de2f9a514cb514c673fbf246a, type: 3}
   nextAttackTime: 0
   target: {fileID: 0}
   nextWaypointDistance: 3

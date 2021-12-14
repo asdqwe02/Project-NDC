@@ -19,18 +19,22 @@ public class Bullet : MonoBehaviour
     {
         statusEffectRNG = new RNG();
         rb = GetComponent<Rigidbody2D>();
+        rb.AddForce(_shootDir * _bulletSpeed, ForceMode2D.Impulse);
+
 
     }
     public void setUp(Vector3 shootDir, bool IsFromPlayer, float damage, MovingObjects.DamageType damageType, Vector3 KnockBack)
     {
         _shootDir = shootDir;
         _damage = damage;
+        
         transform.eulerAngles = new Vector3(0, 0, GetAngleFromVectorFloat(shootDir));
         _isFromPlayer = IsFromPlayer;
         _knockBack = KnockBack;
         if (!_isFromPlayer)
             gameObject.layer = 8;
         _damageType = damageType;
+        //rb.AddForce(_shootDir * _bulletSpeed, ForceMode2D.Impulse);
         Destroy(gameObject, 1f);
     }
     public void setUp(Vector3 shootDir, bool IsFromPlayer, float damage, MovingObjects.DamageType damageType)
@@ -49,10 +53,14 @@ public class Bullet : MonoBehaviour
     {
         if (isMoving)
         {
-            rb.velocity = _shootDir * _bulletSpeed;
+            //rb.velocity =  _shootDir * _bulletSpeed; // this has a bug need to fix asap
+            
         }
         else
             rb.velocity = Vector2.zero;
+
+
+
     }
     //very bad implementation due to lack of experience early on will fix later if have timee
     private void OnTriggerEnter2D(Collider2D collision)

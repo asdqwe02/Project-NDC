@@ -6,7 +6,7 @@ public class PlayerController : PlayerClass
     public int UnlockedSlot;
     public static string slot;
     //Variables used in Shooting 
-    private Vector3 _lookDirection;
+    private Vector2 _lookDirection;
 
     //Variables used in Movement
     private Vector2 _moveDirection;
@@ -203,14 +203,15 @@ public class PlayerController : PlayerClass
 
     private void FireBullet()
     {
-        Vector2 vecTemp = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        Vector3 vecTemp = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        vecTemp.z = transform.position.z;
         //this is very dumb and will need a default bullet type TODO: assign a default bullet 
         Transform bulletType = GetBulletType();
         //Barrel
         Vector3 barrelPos = _fireAttackPoint.position;
 
-        _lookDirection = ((Vector3)vecTemp - transform.position).normalized;
-
+        _lookDirection = (vecTemp - transform.position).normalized;
+        Debug.Log("Shoot direction length:" + _lookDirection.magnitude);
 
         Transform firedBullet = Instantiate(bulletType, barrelPos, Quaternion.identity);
         firedBullet.GetComponent<Bullet>().setUp(_lookDirection, true, Damage, DamageType_);
@@ -223,13 +224,13 @@ public class PlayerController : PlayerClass
         Vector3 barrelPos = _fireAttackPoint.position;
         Transform bulletType = GetBulletType();
 
-        Vector2 vecTemp = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        _lookDirection = ((Vector3)vecTemp - transform.position).normalized;
-
+        Vector3 vecTemp = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        vecTemp.z = transform.position.z;
+        _lookDirection = (vecTemp - transform.position).normalized;
         float spreadAngle = 5f * (float)BulletAmount; //5 is the magiic number that make it work don't ask why
         float startRotation = spreadAngle / 2f; //might be something wrong with this  Utilities.GetAngleFromVectorFloatWF(_lookDirection) + 
         float angleIncrease = spreadAngle / ((float)BulletAmount - 1f);
-        Debug.Log("Spread Angle Increase = " + angleIncrease);
+        //Debug.Log("Spread Angle Increase = " + angleIncrease);
 
 
         for (int i = 0; i < BulletAmount; i++)
@@ -244,8 +245,9 @@ public class PlayerController : PlayerClass
             spreadDirection = Utilities.RotateA2DVector(-_lookDirection, tempRota);
 
             Transform firedBullet = Instantiate(bulletType, barrelPos, Quaternion.identity);
-            if (i == 0)
-                firedBullet.GetComponent<SpriteRenderer>().color = Color.red;
+
+            //if (i == 0)
+            //    firedBullet.GetComponent<SpriteRenderer>().color = Color.red; //this is used for debugging 
             firedBullet.GetComponent<Bullet>().setUp(spreadDirection, true, Damage, DamageType_);
         }
     }
