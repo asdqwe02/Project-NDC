@@ -34,15 +34,26 @@ public class MenuController : MonoBehaviour
 
     public void BackToMainMenu()
     {
+        PlayerController.instance.Save();
         SceneManager.LoadScene("MainMenu");
         Time.timeScale = 1f;
     }
 
     public void BackToHideout()
     {
+        PlayerController.instance.Save();
         PlayerController.instance.scenePassword = "Hideout";
+        PlayerController.instance.Load_Base();
         SceneManager.LoadScene("Hideout");
         Time.timeScale = 1f;
     }
 
+    public void BackToHideout_Penalty()
+    {
+        PlayerController.instance.coins -= (int)(PlayerController.instance.Coin_tobeAdded * 0.03);
+        PlayerController.instance.Save();
+        PlayerController.instance.scenePassword = "Hideout";
+        SceneManager.LoadScene("Hideout");
+        Time.timeScale = 1f;
+    }
 }

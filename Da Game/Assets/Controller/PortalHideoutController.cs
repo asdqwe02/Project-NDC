@@ -11,6 +11,7 @@ public class PortalHideoutController : Interactable
     public override void Interact()
     {
         PlayerController.instance.CloseInteractableIcon();
+        PlayerController.instance.Coin_tobeAdded = 0;
         PlayerController.instance.scenePassword = newScenePassword;
         PlayerController.instance.Save();
         SceneManager.LoadScene(sceneName);

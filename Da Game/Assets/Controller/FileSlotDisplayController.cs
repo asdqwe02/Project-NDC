@@ -101,6 +101,7 @@ public class FileSlotDisplayController : MonoBehaviour
     {
         PlayerController.slot = slot;
         PlayerController.IsLoading = true;
+        PlayerController.To_Load = true;
         ResetScene();
         SceneManager.LoadScene("Hideout");
     }
@@ -108,6 +109,7 @@ public class FileSlotDisplayController : MonoBehaviour
     {
         PlayerController.slot = slot;
         PlayerController.IsLoading = false;
+        PlayerController.To_Load = true;
         ResetScene();
         SceneManager.LoadScene("Hideout");
     }

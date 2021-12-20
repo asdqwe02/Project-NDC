@@ -42,6 +42,7 @@ public class CoinController : Interactable
     public override void Interact()
     {
         pc.coins += coinAmount;
+        pc.Coin_tobeAdded += coinAmount;
         Destroy(gameObject);
     }
 }

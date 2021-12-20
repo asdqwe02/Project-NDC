@@ -111,7 +111,6 @@ public class Buff : Interactable
     private void ChangeAniToBuffType()
     {
         int temp = (int)buffType;
-        Debug.Log("buff type: " + temp);
         switch (temp)
         {
             case 1:

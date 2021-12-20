@@ -16,14 +16,14 @@ public class MovingObjects : MonoBehaviour
     [Header("Basic Prefab")]
     [SerializeField] public Transform numberPopUp;
     [Header("Basic Stats")]
-    [SerializeField] private float hp;
-    [SerializeField] private float movementSpeed;
-    [SerializeField] private float attackSpeed;
-    [SerializeField] private int armour;
-    [SerializeField] private int fireResistance;
-    [SerializeField] private int coldResistance;
-    [SerializeField] private int lightningResistance;
-    [SerializeField] private float damage;
+    [SerializeField] public float hp;
+    [SerializeField] public float movementSpeed;
+    [SerializeField] public float attackSpeed;
+    [SerializeField] public int armour;
+    [SerializeField] public int fireResistance;
+    [SerializeField] public int coldResistance;
+    [SerializeField] public int lightningResistance;
+    [SerializeField] public float damage;
     private float burningDamage=0;    // dodn't make this public or serialized it 
     [SerializeField] private DamageType damageType;
     [SerializeField] protected List<StatusEffect> statusEffects = new List<StatusEffect>();

@@ -21,7 +21,7 @@ public class CrateController : NonMovingObject
     {
         if (collision.gameObject.CompareTag("bullet"))
         {
-            Debug.Log("crate hit by a bullet!");
+
             takdeDamage(1);
             if (checkDestroy())
             {

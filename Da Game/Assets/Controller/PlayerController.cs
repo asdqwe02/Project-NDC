@@ -1,8 +1,9 @@
 ﻿using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class PlayerController : PlayerClass
 {
     public static bool IsLoading; //1: load , 2 : create
+    public static bool To_Load = false;
     public int UnlockedSlot;
     public static string slot;
     //Variables used in Shooting 
@@ -38,19 +39,12 @@ public class PlayerController : PlayerClass
     [Header("Miscellaneous")]
     [SerializeField] private GameObject interactIcon;
     private Vector2 Size = new Vector2(0.1f, 0.1f);
+    public float Coin_tobeAdded = 0;
 
+    private Scene scene;
 
     private void Awake()
     {
-        if (IsLoading)
-        {
-            PlayerData data = SaveSytemManagement.LoadPlayer(slot);
-            if (data != null)
-                Load(data);
-        }
-        //save 
-        SaveSytemManagement.SavePlayer(slot, this);
-
         Singleton = this;
 
         FiringTime -= Time.deltaTime; // reset firing time
@@ -66,19 +60,41 @@ public class PlayerController : PlayerClass
                 Destroy(gameObject);
             }
         }
-
         DontDestroyOnLoad(gameObject);
     }
+
     private void Start()
     {
+        if (IsLoading)
+        {
+            PlayerData data = SaveSytemManagement.LoadPlayer(slot);
+            if (data != null)
+            {
+
+                UnlockedSlot = data.UnlockedSlots;
+                coins = data.coins;
+            }
+        }
+        else
+        {
+            coins = 0;
+            UnlockedSlot = 0;
+        }
+        //save 
+        SaveSytemManagement.SavePlayer(slot, this);
         MaxHP = Hp;
         IsPlayer = true;
-        coins = 0;
+
+        MaxHP = Hp;
+
+        IsPlayer = true;
         collider2D = GetComponent<BoxCollider2D>();
-        UnlockedSlot = 0;
 
-
+        Save_Base();
     }
+    
+
+
     // Update is called once per frame
     void Update()
     {
@@ -88,6 +104,8 @@ public class PlayerController : PlayerClass
 
     private void FixedUpdate()
     {
+        if (To_Load)
+            Load();
         if (!_restrictMovement && !statusEffects.Contains(StatusEffect.Freeze))
             Move();
         if (statusEffects.Contains(StatusEffect.Freeze))
@@ -211,7 +229,7 @@ public class PlayerController : PlayerClass
         Vector3 barrelPos = _fireAttackPoint.position;
 
         _lookDirection = (vecTemp - transform.position).normalized;
-        Debug.Log("Shoot direction length:" + _lookDirection.magnitude);
+
 
         Transform firedBullet = Instantiate(bulletType, barrelPos, Quaternion.identity);
         firedBullet.GetComponent<Bullet>().setUp(_lookDirection, true, Damage, DamageType_);
@@ -452,15 +470,54 @@ public class PlayerController : PlayerClass
         return Hp;
     }
 
-    public void Load(PlayerData data)
+    public void Load()
     {
-        UnlockedSlot = data.UnlockedSlots;
-        coins = data.coins;
+        if (IsLoading)
+        {
+            Load_Base();
+            PlayerData data = SaveSytemManagement.LoadPlayer(slot);
+            if (data != null)
+            {
+                UnlockedSlot = data.UnlockedSlots;
+                coins = data.coins;
+            }
+        }
+        else
+        {
+            coins = 0;
+            UnlockedSlot = 0;
+        }
+        //save 
+        SaveSytemManagement.SavePlayer(slot, this);
+        MaxHP = Hp;
+
+        To_Load = false;
+        IsLoading = true;
     }
 
+    public void Load_Base()
+    {
+        PlayerData data = SaveSytemManagement.LoadPlayer("Base");
+        if (data != null)
+        {
+            Hp = data.Hp;
+            MovementSpeed = data.MS;
+            Damage = data.damage;
+            Armour = data.Armour;
+            FireResistance = data.FireRes;
+            ColdResistance = data.ColdRes;
+            LightningResistance = data.LightningRes;
+            attackSpeed = data.AS;
+        }
+    }
     public void Save()
     {
         SaveSytemManagement.SavePlayer(slot, this);
     }
+    public void Save_Base()
+    {
+        SaveSytemManagement.SavePlayer("Base", this);
+    }
+
 }
 
