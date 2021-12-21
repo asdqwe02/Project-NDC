@@ -500,6 +500,7 @@ public class PlayerController : PlayerClass
         PlayerData data = SaveSytemManagement.LoadPlayer("Base");
         if (data != null)
         {
+            MaxHP= data.Hp; ;
             Hp = data.Hp;
             MovementSpeed = data.MS;
             Damage = data.damage;
@@ -508,6 +509,10 @@ public class PlayerController : PlayerClass
             ColdResistance = data.ColdRes;
             LightningResistance = data.LightningRes;
             attackSpeed = data.AS;
+            FireRate = data.FireRate;
+            FireType = data.FireType;
+            BulletAmount = data.BulletAmount;
+            DamageType_ = DamageType.Lightning;
         }
     }
     public void Save()

@@ -6,8 +6,8 @@ using UnityEngine;
 public class PlayerData 
 {
     public int UnlockedSlots;
-    public int coins,FireRes,ColdRes,LightningRes,Armour;
-    public float Hp,MS,AS, damage;
+    public int coins,FireRes,ColdRes,LightningRes,Armour, BulletAmount, FireType;
+    public float Hp,MS,AS, damage,FireRate;
 
     public PlayerData(PlayerController player)
     {
@@ -21,6 +21,9 @@ public class PlayerData
         LightningRes = player.LightningResistance;
         Armour = player.Armour;
         damage = player.Damage;
+        FireRate = player.FireRate;
+        BulletAmount = player.BulletAmount;
+        FireType = player.FireType;
 
     }
 }
