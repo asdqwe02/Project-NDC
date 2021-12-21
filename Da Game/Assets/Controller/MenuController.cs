@@ -50,7 +50,7 @@ public class MenuController : MonoBehaviour
 
     public void BackToHideout_Penalty()
     {
-        PlayerController.instance.coins -= (int)(PlayerController.instance.Coin_tobeAdded * 0.07);
+        PlayerController.instance.coins -= (int)(PlayerController.instance.Coin_tobeAdded * 0.7);
         PlayerController.instance.Save();
         PlayerController.instance.scenePassword = "Hideout";
         PlayerController.instance.Load_Base();

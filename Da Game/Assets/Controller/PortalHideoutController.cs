@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 using TMPro;
 public class PortalHideoutController : Interactable
 {
-    public GameObject ToDisplay;
+    public GameObject ToDisplay,Menu;
     public TextMeshProUGUI TextToDisplay;
     public string sceneName;
     Collider2D colliderP;
@@ -87,6 +87,19 @@ public class PortalHideoutController : Interactable
                 Text_Display += "+10% HP  \n";
             }
         }
+        TextToDisplay.text = Text_Display;
 
+        // Stop time and disable input 
+        Time.timeScale = 0f;
+        Menu.SetActive(false);
+
+
+    }
+
+    public void To_Dungeon()
+    {
+        SceneManager.LoadScene(sceneName);
+        Time.timeScale = 1f;
+        Menu.SetActive(true);
     }
 }
