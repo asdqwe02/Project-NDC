@@ -5,6 +5,7 @@ using UnityEngine.UI;
 public class StatusbarController : MonoBehaviour
 {
     public Vector3 offset;
+    public RectTransform CircularHealthbar;
     private RectTransform RectTransform;
     // Start is called before the first frame update
     void Start()
@@ -15,6 +16,6 @@ public class StatusbarController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        RectTransform.position=Camera.main.WorldToScreenPoint(PlayerController.instance.transform.position + offset);
+        RectTransform.position = CircularHealthbar.transform.position + offset;
     }
 }
