@@ -19,7 +19,7 @@ public class Slime : Enemy
     }
 
     private Vector2 direction;
-    private double AttackRange = 1.8;
+    private double AttackRange = 4;
     private float nextAttackTime;
     private State state;
     public Transform target;
@@ -46,7 +46,6 @@ public class Slime : Enemy
         seeker = GetComponent<Seeker>();
         rb = GetComponent<Rigidbody2D>();
         StartingPosition = transform.position;
-
         InvokeRepeating("UpdatePath", 0f, .5f);
 
     }
@@ -126,6 +125,7 @@ public class Slime : Enemy
 
     private void ProcessAction()
     {
+        Debug.Log(Vector3.Distance(transform.position, target.transform.position));
         if (currentWaypoint >= path.vectorPath.Count)
         {
             reachedEndofPath = true;
@@ -182,8 +182,9 @@ public class Slime : Enemy
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(animator.GetBool("IsAttacking") && collision.gameObject.tag == "Player")
+        if (animator.GetBool("IsAttacking") && collision.gameObject.tag == "Player")
         {
+
             float scalar = 0.3f;
             Vector2 KnockBack = new Vector2(direction.x * scalar, direction.y * scalar);
             collision.gameObject.GetComponent<PlayerController>().takeDamage(Damage, DamageType_,KnockBack);

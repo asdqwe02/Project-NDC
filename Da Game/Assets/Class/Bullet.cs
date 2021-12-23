@@ -111,7 +111,6 @@ public class Bullet : MonoBehaviour
             }
             if (p != null)
             {
-                Debug.Log("Hit Player");
                 p.takeDamage(_damage, _damageType, _knockBack);
                 bool applyStatus = statusEffectRNG.RollNumber(25f); //Apply status effect to player
                 if (applyStatus)

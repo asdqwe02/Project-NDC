@@ -194,7 +194,7 @@ public class RangeEnemyAI : Enemy
         Vector3 vecTemp = target.position;
         vecTemp.z = transform.position.z;
         Vector3 aimDirection = (vecTemp - _firePoint.position).normalized;
-        Debug.Log("Range Enemy Aim Direction Magnitude" + aimDirection.magnitude);
+        //Debug.Log("Range Enemy Aim Direction Magnitude" + aimDirection.magnitude);
         Vector2 KnockBack = new Vector2(aimDirection.x * scalar, aimDirection.y * scalar);
         Transform firedProjectile = Instantiate(_projectilePrefab, _firePoint.position, Quaternion.identity);
         firedProjectile.GetComponent<Bullet>().setUp(aimDirection, false, Damage, DamageType_, KnockBack);
