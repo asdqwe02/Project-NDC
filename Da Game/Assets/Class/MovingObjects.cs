@@ -144,13 +144,17 @@ public class MovingObjects : MonoBehaviour
             switch (statustype)
             {
                 case 1:
+                    CancelInvoke("BurningTimer");
+                    CancelInvoke("TakeBurningDamage");
                     Destroy(GameObject.Find("BurntEffectGFX(Clone)"));
                     break;
                 case 2:
+                    CancelInvoke("FreezingTimer");
                     Destroy(GameObject.Find("FrozenEffectGFX(Clone)"));
 
                     break;
                 case 3:
+                    CancelInvoke("ShockedTimer");
                     Destroy(GameObject.Find("ShockedEffectGFX(Clone)"));
                     break;
 

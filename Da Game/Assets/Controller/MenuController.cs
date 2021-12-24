@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 public class MenuController : MonoBehaviour
 {
     public GameObject PauseMenu;
+    public GameObject DeathMenu;
 
     private void Start()
     {
@@ -13,6 +14,8 @@ public class MenuController : MonoBehaviour
     private void Update()
     {
         CheckInput();
+        if(!PlayerController.instance.InHO)
+            CheckPlayerDeath();
     }
 
     void CheckInput()
@@ -29,6 +32,24 @@ public class MenuController : MonoBehaviour
                 PauseMenu.SetActive(true);
                 Time.timeScale = 0f;
             }
+        }
+    }
+
+    public void CheckPlayerDeath()
+    {
+        if (PlayerController.instance.hp <= 0)
+        {
+            PlayerController.instance.animator.SetBool("IsDying", true);
+            if (PlayerController.instance.Death == true)
+            {
+                PlayerController.instance.CleanseEffect();
+                DeathMenu.SetActive(true);
+                Time.timeScale = 0f;
+            }
+        }
+        else
+        {
+            PlayerController.instance.animator.SetBool("IsDying", false);
         }
     }
 
@@ -52,6 +73,17 @@ public class MenuController : MonoBehaviour
     {
         PlayerController.instance.coins -= (int)(PlayerController.instance.Coin_tobeAdded * 0.7);
         PlayerController.instance.Save();
+        PlayerController.instance.scenePassword = "Hideout";
+        PlayerController.instance.Load_Base();
+        SceneManager.LoadScene("Hideout");
+        Time.timeScale = 1f;
+    }
+
+    public void BackToHideout_Death()
+    {
+        PlayerController.instance.Death = false;
+        PlayerController.instance.animator.SetBool("IsDying", false);
+        PlayerController.instance.coins -= (int)(PlayerController.instance.Coin_tobeAdded * 1);
         PlayerController.instance.scenePassword = "Hideout";
         PlayerController.instance.Load_Base();
         SceneManager.LoadScene("Hideout");

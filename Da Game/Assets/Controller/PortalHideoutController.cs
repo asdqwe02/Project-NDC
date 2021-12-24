@@ -16,7 +16,7 @@ public class PortalHideoutController : Interactable
         PlayerController.instance.Coin_tobeAdded = 0;
         PlayerController.instance.scenePassword = newScenePassword;
         PlayerController.instance.Save();
-        
+        PlayerController.instance.InHO = false;
         Activate_Buffs();
         //SceneManager.LoadScene(sceneName);
 

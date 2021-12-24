@@ -9810,7 +9810,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1402683049}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.2157927, y: 0.60179234, z: -0.4365383}
+  m_LocalPosition: {x: 4.12, y: 1.16, z: -0.4365383}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -11521,6 +11521,10 @@ PrefabInstance:
       propertyPath: statSheetsWindow
       value: 
       objectReference: {fileID: 1851141665}
+    - target: {fileID: 612004504858912930, guid: 6c22640a0fad1e34ba90d1ce0d376127, type: 3}
+      propertyPath: DeathMenu
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 612004504858912930, guid: 6c22640a0fad1e34ba90d1ce0d376127, type: 3}
       propertyPath: PauseMenu
       value: 

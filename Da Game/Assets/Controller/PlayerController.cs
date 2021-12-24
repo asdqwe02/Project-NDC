@@ -40,6 +40,8 @@ public class PlayerController : PlayerClass
     [SerializeField] private GameObject interactIcon;
     private Vector2 Size = new Vector2(0.1f, 0.1f);
     public float Coin_tobeAdded = 0;
+    public bool Death = false;
+    public bool InHO = true;
 
     private Scene scene;
 
@@ -471,6 +473,13 @@ public class PlayerController : PlayerClass
         return Hp;
     }
 
+    public void HasDied()
+    {
+        Death = true;
+    }
+
+
+
     public void Load()
     {
         if (IsLoading)
@@ -496,6 +505,7 @@ public class PlayerController : PlayerClass
         IsLoading = true;
     }
 
+
     public void Load_Base()
     {
         PlayerData data = SaveSytemManagement.LoadPlayer("Base");
@@ -513,7 +523,9 @@ public class PlayerController : PlayerClass
             FireRate = data.FireRate;
             FireType = data.FireType;
             BulletAmount = data.BulletAmount;
-            DamageType_ = DamageType.Lightning;
+            DamageType_ = DamageType.Physical;
+            InHO = true;
+            CleanseEffect();
         }
     }
     public void Save()
@@ -524,6 +536,24 @@ public class PlayerController : PlayerClass
     {
         SaveSytemManagement.SavePlayer("Base", this);
     }
+
+    public void CleanseEffect()
+    {
+        if (statusEffects.Contains(StatusEffect.Freeze))
+        {
+            RemoveStatusEffect(2);
+        }
+        if (statusEffects.Contains(StatusEffect.Burning))
+        {
+            RemoveStatusEffect(1);
+        }
+        if (statusEffects.Contains(StatusEffect.Shocked))
+        {
+            RemoveStatusEffect(3);
+        }
+    }
+
+
 
 }
 
