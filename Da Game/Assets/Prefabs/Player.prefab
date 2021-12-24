@@ -235,6 +235,9 @@ MonoBehaviour:
   movementSpeed: 8
   attackSpeed: 1
   armour: 1
+  fireResistance: 0
+  coldResistance: 0
+  lightningResistance: 0
   damage: 1
   damageType: 0
   statusEffects: 
@@ -246,14 +249,15 @@ MonoBehaviour:
   _dashRange: 3
   rb: {fileID: 5269449442251462119}
   _bulletPrefab:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 8586053710399425739, guid: 6fb691c8e3a9b534289be1ee23e89a40, type: 3}
+  - {fileID: 7542065460064705668, guid: e3c96377c084858459869b5009b733a7, type: 3}
+  - {fileID: 7733938266634911422, guid: 51e17107ac527094890120e3cc848659, type: 3}
+  - {fileID: 805058170442436272, guid: 3c1a921af20c9ce4e990a4a57e581b0a, type: 3}
   _dashPrefab: {fileID: 8863281615483567224, guid: 0b05ca15a39a043498868cd5889f9604, type: 3}
   _meleeSlashPrefab: {fileID: 5263838983077366921, guid: d5756394fd17aed4aaf8e1e239e8b589, type: 3}
   _buff: 
   scenePassword: 
-  Money: 0
+  coins: 0
   UnlockedSlot: 0
   collider2D: {fileID: 5269449442251462114}
   FacingRight: 1
@@ -271,6 +275,7 @@ MonoBehaviour:
   _meleeSlashEffectPoint: {fileID: 5269449442245830697}
   _fireAttackPoint: {fileID: 5269449442636942304}
   interactIcon: {fileID: 0}
+  Coin_tobeAdded: 0
 --- !u!1 &5269449442636942305
 GameObject:
   m_ObjectHideFlags: 0

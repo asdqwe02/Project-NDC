@@ -332,6 +332,7 @@ public class PlayerController : PlayerClass
             switch (DamageType_)
             {
                 case DamageType.Physical:
+                    return BulletPrefab[0];
                     break;
                 case DamageType.Fire:
                     return BulletPrefab[1];
