@@ -5012,6 +5012,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5750134934204668070, guid: cefc3dd0eb565c740aae94cc702580d3, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1715710369}
+    - target: {fileID: 5750134934204668070, guid: cefc3dd0eb565c740aae94cc702580d3, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: BackToHideout_Death
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cefc3dd0eb565c740aae94cc702580d3, type: 3}
 --- !u!224 &493038234 stripped

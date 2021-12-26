@@ -67,6 +67,7 @@ public class GolemController : Enemy
     [SerializeField] private Transform _slamPrefab;
     [SerializeField] private Transform _armProjectilePrefab;
     [SerializeField] private Transform _pillarsPrefab;
+    public GameObject EndStagePopUp;
     private LaserUpdated AccessChildLaser;
 
     [Header("Attack Point")]
@@ -74,6 +75,8 @@ public class GolemController : Enemy
     [SerializeField] private Transform _armLaunchPoint;
     [SerializeField] private Transform _pullPoint;
 
+    [Header("Animator Parameter")]
+    private bool HasDied = false;
 
     // Start is called before the first frame update
     void Start()
@@ -321,7 +324,8 @@ public class GolemController : Enemy
         {
             collider2D.enabled = false;
             animator.SetBool("IsDying", true);
-            DropCoins();
+            DropCoins();     
+             EndStagePopUp.SetActive(true);
 
         }
     }
@@ -527,4 +531,6 @@ public class GolemController : Enemy
             CancelInvoke("PullCDTimer");
         }
     }
+
+
 }

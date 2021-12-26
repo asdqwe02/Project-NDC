@@ -102,6 +102,7 @@
     <Compile Include="Assets\Controller\Interactable.cs" />
     <Compile Include="Assets\Class\Player Data.cs" />
     <Compile Include="Assets\Animation\Enemies Animation\EnemyGFX.cs" />
+    <Compile Include="Assets\Controller\EndStageController.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Font\TextMesh Pro\Shaders\TMPro.cginc" />
