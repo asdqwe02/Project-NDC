@@ -242,6 +242,16 @@ public class GolemController : Enemy
         rb.velocity = Velocity;
 
     }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        //if ((animator.GetBool("IsSlamming") && collision.gameObject.tag == "Player") || (animator.GetBool("IsFolding") && collision.gameObject.tag == "Player"))
+        //{
+        //    float scalar = 0.3f;
+        //    Vector2 KnockBack = new Vector2(direction.x * scalar, direction.y * scalar);
+        //    collision.gameObject.GetComponent<PlayerController>().takeDamage(Damage, KnockBack);
+        //}
+    }
+
 
     void updatePhase()
     {
@@ -491,17 +501,6 @@ public class GolemController : Enemy
                 break;
         }
        
-    }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.CompareTag("Player"))
-        {
-            Debug.Log("Golem touch player butt");
-            Vector3 KnockBackDir = (transform.position - PlayerController.instance.transform.position).normalized;
-            KnockBackDir.z = 0;
-            PlayerController.instance.takeDamage(damage, DamageType.Physical, KnockBackDir);
-        }
     }
     private void SlamCDTimer()
     {

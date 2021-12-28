@@ -9977,10 +9977,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: DeathMenu
       objectReference: {fileID: 0}
-    - target: {fileID: 5750134934182684118, guid: cefc3dd0eb565c740aae94cc702580d3, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5750134934182684119, guid: cefc3dd0eb565c740aae94cc702580d3, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5

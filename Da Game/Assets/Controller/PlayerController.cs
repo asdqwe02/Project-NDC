@@ -100,7 +100,6 @@ public class PlayerController : PlayerClass
     // Update is called once per frame
     void Update()
     {
-        CheckHP();
         if (!_restrictMovement && !statusEffects.Contains(StatusEffect.Freeze))
             ProcessInput();
     }
@@ -262,7 +261,7 @@ public class PlayerController : PlayerClass
 
             /*this rotate the vector by tempRota degree but it seem like it also flip the vecotr around so 
                 I use -_lookDirection instead... BUT with an odd amount of bullet amount it's reverse... idk why
-            BUT also the spreadAngle doesn't work right when there are an odd amount of bullet */
+            BUT also the spreadAngle doesn't work right when there are an odd amount of bullet :| */
             spreadDirection = Utilities.RotateA2DVector(-_lookDirection, tempRota);
 
             Transform firedBullet = Instantiate(bulletType, barrelPos, Quaternion.identity);
@@ -468,21 +467,17 @@ public class PlayerController : PlayerClass
         }
     }
 
-    private void CheckHP()
+    //Do we even need these get Hp method ??? (Thien)
+    public float GetHealth()
     {
-        if (Hp <= 0 && !InHO)
-        {
-            animator.SetBool("IsDying", true);
-            Rb.velocity = Vector2.zero;
-            _restrictMovement = true;
-        }
+        return Hp;
     }
- 
 
     public void HasDied()
     {
         Death = true;
     }
+
 
 
     public void Load()
@@ -516,7 +511,7 @@ public class PlayerController : PlayerClass
         PlayerData data = SaveSytemManagement.LoadPlayer("Base");
         if (data != null)
         {
-            MaxHP = data.Hp; ;
+            MaxHP= data.Hp; ;
             Hp = data.Hp;
             MovementSpeed = data.MS;
             Damage = data.damage;
@@ -530,9 +525,6 @@ public class PlayerController : PlayerClass
             BulletAmount = data.BulletAmount;
             DamageType_ = DamageType.Physical;
             InHO = true;
-            _restrictMovement = false;
-            Death = false;
-            animator.SetBool("IsDying", false);
             CleanseEffect();
         }
     }
