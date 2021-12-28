@@ -37,15 +37,16 @@ public class MenuController : MonoBehaviour
 
     public void CheckPlayerDeath()
     {
+        if (PlayerController.instance.Death == true)
+        {
+            //PlayerController.instance.CleanseEffect();
+            DeathMenu.SetActive(true);
+            Time.timeScale = 0f;
+        }
         if (PlayerController.instance.hp <= 0)
         {
             PlayerController.instance.animator.SetBool("IsDying", true);
-            if (PlayerController.instance.Death == true)
-            {
-                PlayerController.instance.CleanseEffect();
-                DeathMenu.SetActive(true);
-                Time.timeScale = 0f;
-            }
+            
         }
         else
         {
