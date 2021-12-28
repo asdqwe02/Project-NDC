@@ -18,6 +18,7 @@ public class Buff : Interactable
         FireAttack,
         ColdAttack,
         LightningAttack,
+        Armour,
         FireResistance,
         ColdResistance,
         LightningResistance,
@@ -70,6 +71,7 @@ public class Buff : Interactable
             switch (buffType)
             {
                 case BuffType.PhysicalAttack:
+                    pc.DamageType_ = MovingObjects.DamageType.Physical;
                     break;
                 case BuffType.FireAttack:
                     pc.DamageType_ = MovingObjects.DamageType.Fire;
@@ -80,11 +82,17 @@ public class Buff : Interactable
                 case BuffType.LightningAttack:
                     pc.DamageType_ = MovingObjects.DamageType.Lightning;
                     break;
+                case BuffType.Armour:
+                    pc.Armour += statStick.Armour;
+                    break;
                 case BuffType.FireResistance:
+                    pc.FireResistance +=statStick.FireResistance;
                     break;
                 case BuffType.ColdResistance:
+                    pc.ColdResistance += statStick.ColdResistance;
                     break;
                 case BuffType.LightningResistance:
+                    pc.LightningResistance += statStick.LightningResistance;
                     break;
                 case BuffType.HPBoost:
                     pc.MaxHP += statStick.Hp;
@@ -113,6 +121,9 @@ public class Buff : Interactable
         int temp = (int)buffType;
         switch (temp)
         {
+            case 0:
+                animator.SetBool("isPhysAtt", true);
+                break;
             case 1:
                 animator.SetBool("isFireAtt", true);
                 break;
@@ -123,21 +134,24 @@ public class Buff : Interactable
                 animator.SetBool("isLightningAtt", true);
                 break;
             case 4:
-                animator.SetBool("isFireRes", true);
+                animator.SetBool("isArmour", true);
                 break;
             case 5:
-                animator.SetBool("isColdRes", true);
+                animator.SetBool("isFireRes", true);
                 break;
             case 6:
-                animator.SetBool("isLightningRes", true);
+                animator.SetBool("isColdRes", true);
                 break;
             case 7:
-                animator.SetBool("isHPBoost", true);
+                animator.SetBool("isLightningRes", true);
                 break;
             case 8:
-                animator.SetBool("isSingleBullet", true);
+                animator.SetBool("isHPBoost", true);
                 break;
             case 9:
+                animator.SetBool("isSingleBullet", true);
+                break;
+            case 10:
                 animator.SetBool("isMultiBullet", true);
                 break;
             default:

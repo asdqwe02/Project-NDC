@@ -16,15 +16,15 @@ public class MovingObjects : MonoBehaviour
     [Header("Basic Prefab")]
     [SerializeField] public Transform numberPopUp;
     [Header("Basic Stats")]
-    [SerializeField] public float hp;
-    [SerializeField] public float movementSpeed;
-    [SerializeField] public float attackSpeed;
-    [SerializeField] public int armour;
-    [SerializeField] public int fireResistance;
-    [SerializeField] public int coldResistance;
-    [SerializeField] public int lightningResistance;
-    [SerializeField] public float damage;
-    private float burningDamage=0;    // dodn't make this public or serialized it 
+    [SerializeField] private float hp;
+    [SerializeField] private float movementSpeed;
+    [SerializeField] private float attackSpeed;
+    [SerializeField] private int armour;
+    [SerializeField] private int fireResistance;
+    [SerializeField] private int coldResistance;
+    [SerializeField] private int lightningResistance;
+    [SerializeField] private float damage;
+    private float burningDamage = 0;    // dodn't make this public or serialized it 
     [SerializeField] private DamageType damageType;
     [SerializeField] protected List<StatusEffect> statusEffects = new List<StatusEffect>();
 
@@ -77,7 +77,7 @@ public class MovingObjects : MonoBehaviour
         Freeze,
         Shocked
     }
-    public void ApplyStatusEffect(float damageTaken,DamageType damagetype)
+    public void ApplyStatusEffect(float damageTaken, DamageType damagetype)
     {
         if (statusEffects.Count >= 3)
             return;
@@ -117,7 +117,7 @@ public class MovingObjects : MonoBehaviour
             switch (damagetype)
             {
                 case DamageType.Fire:
-                    burningDamage = damageTaken+(float)armour*10/100;
+                    burningDamage = (damageTaken / 5) * (1 - (float)fireResistance * 20 / 100) - (float)armour * 10 / 100;
                     InvokeRepeating("BurningTimer", 0f, Time.fixedDeltaTime);
                     InvokeRepeating("TakeBurningDamage", 0f, 0.95f); // 0.95s interval so it can deal all damage during burning time
                     break;
@@ -194,7 +194,7 @@ public class MovingObjects : MonoBehaviour
         finalDamage = Mathf.Round(finalDamage * 100f) / 100f; //round final damage to have only 2 numbers after decimal point
         if (finalDamage < 0)
             finalDamage = 0f;
-        hp -= finalDamage; 
+        hp -= finalDamage;
         if (numberPopUp != null)
         {
             numberPopUp.GetComponent<NumberPopupController>().DamageNumberSetUp(finalDamage, damageTypeTaken);

@@ -51,18 +51,18 @@ public class Bullet : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (isMoving)
+        if (!isMoving)
         {
-            //rb.velocity =  _shootDir * _bulletSpeed; // this has a bug need to fix asap
-            
-        }
-        else
             rb.velocity = Vector2.zero;
+            //rb.velocity =  _shootDir * _bulletSpeed; // this has a bug need to fix asap
+
+        }
+           
 
 
 
     }
-    //very bad implementation due to lack of experience early on will fix later if have timee
+    //Bad implementation
     private void OnTriggerEnter2D(Collider2D collision)
     {
         //TODO: Change these to compare tag or make an ignore trigger list
@@ -71,6 +71,7 @@ public class Bullet : MonoBehaviour
         Bullet otherBullets = collision.GetComponent<Bullet>();
         BeginWaves bw = collision.GetComponent<BeginWaves>();
         Interactable interactable = collision.GetComponent<Interactable>();
+        DummyController dummy = collision.GetComponent<DummyController>();
 
         if (_isFromPlayer)
         {
@@ -94,6 +95,15 @@ public class Bullet : MonoBehaviour
                     Monster.ApplyStatusEffect(_damage, _damageType);
                 }
 
+            }
+            if (dummy != null)
+            {
+                dummy.takeDamage(_damage, _damageType);
+                bool applyStatus = statusEffectRNG.RollNumber(25f);
+                if (applyStatus)
+                {
+                    dummy.ApplyStatusEffect(_damage, _damageType);
+                }
             }
         }
         else
@@ -119,7 +129,7 @@ public class Bullet : MonoBehaviour
                 }
 
             }
-        }
+        }  
     }
     public float GetAngleFromVectorFloat(Vector3 dir)
     {

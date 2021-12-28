@@ -31,7 +31,7 @@ public class CircularHPBar : MonoBehaviour
 
     private void UpdateHP()
     {
-        CurrentHP = PlayerController.instance.hp;
+        CurrentHP = PlayerController.instance.Hp;
         MaxHP = PlayerController.instance.MaxHP;
 
         string HP_Text = CurrentHP.ToString("R") + " / " + MaxHP.ToString("R");

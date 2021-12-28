@@ -43,15 +43,15 @@ public class MenuController : MonoBehaviour
             DeathMenu.SetActive(true);
             Time.timeScale = 0f;
         }
-        if (PlayerController.instance.hp <= 0)
-        {
-            PlayerController.instance.animator.SetBool("IsDying", true);
+        //if (PlayerController.instance.hp <= 0)
+        //{
+        //    PlayerController.instance.animator.SetBool("IsDying", true);
             
-        }
-        else
-        {
-            PlayerController.instance.animator.SetBool("IsDying", false);
-        }
+        //}
+        //else
+        //{
+        //    PlayerController.instance.animator.SetBool("IsDying", false);
+        //}
     }
 
     public void BackToMainMenu()

@@ -500,7 +500,7 @@ public class GolemController : Enemy
             Debug.Log("Golem touch player butt");
             Vector3 KnockBackDir = (transform.position - PlayerController.instance.transform.position).normalized;
             KnockBackDir.z = 0;
-            PlayerController.instance.takeDamage(damage, DamageType.Physical, KnockBackDir);
+            PlayerController.instance.takeDamage(Damage, DamageType.Physical, KnockBackDir);
         }
     }
     private void SlamCDTimer()

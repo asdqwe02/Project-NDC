@@ -47,10 +47,14 @@ MonoBehaviour:
   shockedTimer: 4
   burningTimer: 3
   freezingTimer: 2
+  numberPopUp: {fileID: 0}
   hp: 1
   movementSpeed: 1
   attackSpeed: 1
   armour: 1
+  fireResistance: 1
+  coldResistance: 1
+  lightningResistance: 1
   damage: 1
   damageType: 0
   statusEffects: 
@@ -66,6 +70,7 @@ MonoBehaviour:
   _meleeSlashPrefab: {fileID: 0}
   _buff: 
   scenePassword: 
+  coins: 0
 --- !u!212 &993841309578436645
 SpriteRenderer:
   m_ObjectHideFlags: 0

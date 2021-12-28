@@ -524,7 +524,7 @@ public class PlayerController : PlayerClass
             FireResistance = data.FireRes;
             ColdResistance = data.ColdRes;
             LightningResistance = data.LightningRes;
-            attackSpeed = data.AS;
+            AttackSpeed = data.AS;
             FireRate = data.FireRate;
             FireType = data.FireType;
             BulletAmount = data.BulletAmount;
