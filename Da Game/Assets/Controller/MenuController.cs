@@ -90,4 +90,12 @@ public class MenuController : MonoBehaviour
         SceneManager.LoadScene("Hideout");
         Time.timeScale = 1f;
     }
+
+    //this function shouldn't be here but I don't want to make a whole new script to do this one simple function
+    public void TutorialSceneReset() 
+    {
+        PlayerController.instance.Load_Base();
+        Scene scene = SceneManager.GetActiveScene();
+        SceneManager.LoadScene(scene.name);
+    }
 }

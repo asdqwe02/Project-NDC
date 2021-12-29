@@ -8,7 +8,7 @@ public class GolemController : Enemy
     Rigidbody2D rb;
 
     float MaxHP;
-
+    float _baseMoveSpeed;
 
     bool switchPhase2 = false;
     bool switchPhase3 = false;
@@ -93,6 +93,7 @@ public class GolemController : Enemy
         SlamTimer = SlamCooldown;
         RollnLaserTimer = RollnLaserCooldown;
         PullTimer = PullCooldown;
+        _baseMoveSpeed = MovementSpeed;
         InvokeRepeating("UpdatePath", 0f, .5f);
         
 
@@ -329,13 +330,15 @@ public class GolemController : Enemy
         float scalar = 0.3f;
         Vector2 KnockBack = new Vector2(direction.x * scalar, direction.y * scalar);
         Transform GolemSlam = Instantiate(_slamPrefab, _slamPoint.position, Quaternion.identity);
+        GolemSlam.GetComponent<Slam>().SetUp(PlayerController.instance.MaxHP * 0.5f, KnockBack);
         if (pulling) //pull slam has a different color and much higher damage 
         {
             pulling = false;
             GolemSlam.GetComponent<SpriteRenderer>().material.color = Color.cyan;   //No idea why it's that color
+            GolemSlam.GetComponent<Slam>().SetUp(PlayerController.instance.MaxHP * 0.9f, KnockBack);
         }
-        GolemSlam.GetComponent<Slam>().SetUp(Damage, KnockBack);
-       
+
+
         if ((target.position.x - transform.position.x > 0 && FacingRight == true) || (target.position.x - transform.position.x < 0 && FacingRight == false))
         {
             flip();
@@ -363,8 +366,6 @@ public class GolemController : Enemy
     {
         if (!EndOfFold)
         {
-
-
             if (Vector3.Distance(transform.position, wayPoint01.position) <= 1.3 && toWayPoint == 1)
             { 
                 toWayPoint++;
@@ -421,6 +422,7 @@ public class GolemController : Enemy
                 if (AccessChildLaser.endOfLaser)
                 {
                     IsFolded = false;
+                    //MovementSpeed = _baseMoveSpeed;
                     state = State.Roam;
                     AccessChildLaser.endOfLaser = false;
                     AccessChildLaser.start = false;
@@ -440,6 +442,7 @@ public class GolemController : Enemy
     public void HasFolded()
     {
         IsFolded = true;
+        //MovementSpeed = _baseMoveSpeed * 1.2f;
     }
     public void InLaseringAnimation()
     {
@@ -497,10 +500,10 @@ public class GolemController : Enemy
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            Debug.Log("Golem touch player butt");
+            //Debug.Log("Golem touch player butt");
             Vector3 KnockBackDir = (transform.position - PlayerController.instance.transform.position).normalized;
             KnockBackDir.z = 0;
-            PlayerController.instance.takeDamage(Damage, DamageType.Physical, KnockBackDir);
+            PlayerController.instance.takeDamage(Damage*0.25f, DamageType.Physical, KnockBackDir);
         }
     }
     private void SlamCDTimer()

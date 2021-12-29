@@ -9,6 +9,7 @@ TagManager:
   - StartPlate
   - bullet
   - EnemySpawner
+  - Dummy
   layers:
   - Default
   - TransparentFX

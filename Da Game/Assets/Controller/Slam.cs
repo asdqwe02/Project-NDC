@@ -33,7 +33,7 @@ public class Slam : MonoBehaviour
         if (p != null)
         {
             Debug.Log("Hit Player");
-            p.takeDamage(1, MovingObjects.DamageType.Fire,_knockBack);
+            p.takeDamage(_damage, MovingObjects.DamageType.Fire,_knockBack);
 
         }
     }

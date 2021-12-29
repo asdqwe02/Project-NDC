@@ -29,7 +29,7 @@ public class LaserUpdated : MonoBehaviour
     void ShootLaser()
     {
 
-        if (start) 
+        if (start)
         {
             if (RotationFix)
             {
@@ -43,6 +43,11 @@ public class LaserUpdated : MonoBehaviour
             if (_hit)
             {
                 Draw2DRay(m_transform.position, _hit.point);
+                if (_hit.transform.CompareTag("Player"))
+                {
+                    float LaserDamage = PlayerController.instance.MaxHP*0.2f;
+                    PlayerController.instance.takeDamage(LaserDamage, MovingObjects.DamageType.Cold);
+                }
             }
             else
             {
@@ -62,11 +67,11 @@ public class LaserUpdated : MonoBehaviour
     {
         if (rotating)
         {
-            
+
             Vector3 to = new Vector3(0, 0, 179);
-            if(Vector3.Distance(to, transform.rotation.eulerAngles) >= 0.5)
+            if (Vector3.Distance(to, transform.rotation.eulerAngles) >= 0.5)
             {
-                transform.Rotate(0, 0, (Time.deltaTime + 0.5f) * -1);
+                transform.Rotate(0, 0, (Time.deltaTime + 0.25f) * -1);
             }
             else
             {
@@ -84,7 +89,7 @@ public class LaserUpdated : MonoBehaviour
                 Vector3 to = new Vector3(0, 0, 0);
                 if (Vector3.Distance(to, transform.rotation.eulerAngles) >= 0.5)
                 {
-                    transform.Rotate(0, 0, (Time.deltaTime + 0.5f) * 1);
+                    transform.Rotate(0, 0, (Time.deltaTime + 0.25f) * 1);
                 }
                 else
                 {

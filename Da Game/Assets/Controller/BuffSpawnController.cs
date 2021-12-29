@@ -32,7 +32,7 @@ public class BuffSpawnController : MonoBehaviour
             Instantiate(buff, spawnPosition, Quaternion.identity);
         }
     }
-    // Update is called once per frame
+    
     void FixedUpdate()
     {
         if (!conditions[0])

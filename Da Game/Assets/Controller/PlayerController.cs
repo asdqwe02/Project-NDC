@@ -402,10 +402,21 @@ public class PlayerController : PlayerClass
         _lookDirection = ((Vector3)vecTemp - transform.position).normalized;
         foreach (Collider2D enemy in hitEnemies)
         {
-            Enemy Monster = enemy.GetComponent<Enemy>();
-
-            if (!Monster.CompareTag("Golem"))
+           
+            //for dummy
+            if (enemy.CompareTag("Dummy"))
+            {
+                DummyController dummy = enemy.GetComponent<DummyController>();
+                dummy.takeDamage(0, DamageType.Physical);
+                return;
+            }
+            if (!enemy.CompareTag("Golem"))
+            {
+                Enemy Monster = enemy.GetComponent<Enemy>();
                 Monster.takeDamage(0, DamageType.Physical, _lookDirection);
+            }
+
+
             //Debug.Log("Hit" + enemy.name);
         }
 

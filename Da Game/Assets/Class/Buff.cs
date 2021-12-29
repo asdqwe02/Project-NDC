@@ -39,9 +39,13 @@ public class Buff : Interactable
         }
     }
 
-   public void SetUp(BuffType buff)
+    public void SetUp(BuffType buff)
     {
         buffType = buff;
+    }
+    public BuffType GetBuff()
+    {
+        return buffType;
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -86,7 +90,7 @@ public class Buff : Interactable
                     pc.Armour += statStick.Armour;
                     break;
                 case BuffType.FireResistance:
-                    pc.FireResistance +=statStick.FireResistance;
+                    pc.FireResistance += statStick.FireResistance;
                     break;
                 case BuffType.ColdResistance:
                     pc.ColdResistance += statStick.ColdResistance;

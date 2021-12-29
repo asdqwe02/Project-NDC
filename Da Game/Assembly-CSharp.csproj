@@ -77,6 +77,7 @@
     <Compile Include="Assets\Controller\PillarController.cs" />
     <Compile Include="Assets\Controller\EnemySpawner.cs" />
     <Compile Include="Assets\Controller\EndStageController.cs" />
+    <Compile Include="Assets\Controller\DummyController.cs" />
     <Compile Include="Assets\Class\GolemArm.cs" />
     <Compile Include="Assets\Controller\RangeEnemyAI.cs" />
     <Compile Include="Assets\Controller\EnemyAI.cs" />
@@ -103,7 +104,7 @@
     <Compile Include="Assets\Controller\Interactable.cs" />
     <Compile Include="Assets\Class\Player Data.cs" />
     <Compile Include="Assets\Animation\Enemies Animation\EnemyGFX.cs" />
-    <Compile Include="Assets\Controller\DummyController.cs" />
+    <Compile Include="Assets\Controller\TutorialBuffSpawnController.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Font\TextMesh Pro\Shaders\TMPro.cginc" />
