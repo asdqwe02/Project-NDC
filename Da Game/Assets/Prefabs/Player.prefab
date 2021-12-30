@@ -256,7 +256,7 @@ MonoBehaviour:
   _dashPrefab: {fileID: 8863281615483567224, guid: 0b05ca15a39a043498868cd5889f9604, type: 3}
   _meleeSlashPrefab: {fileID: 5263838983077366921, guid: d5756394fd17aed4aaf8e1e239e8b589, type: 3}
   _buff: 
-  scenePassword: 
+  scenePassword: Hideout
   coins: 0
   UnlockedSlot: 0
   collider2D: {fileID: 5269449442251462114}
@@ -276,6 +276,8 @@ MonoBehaviour:
   _fireAttackPoint: {fileID: 5269449442636942304}
   interactIcon: {fileID: 0}
   Coin_tobeAdded: 0
+  Death: 0
+  InHO: 1
 --- !u!1 &5269449442636942305
 GameObject:
   m_ObjectHideFlags: 0

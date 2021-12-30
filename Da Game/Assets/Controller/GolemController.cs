@@ -362,27 +362,29 @@ public class GolemController : Enemy
         pulling = true;
         InvokeRepeating("PullCDTimer", 0f, Time.fixedDeltaTime);
     }
+
+
     private void Roll()
     {
         if (!EndOfFold)
         {
-            if (Vector3.Distance(transform.position, wayPoint01.position) <= 1.3 && toWayPoint == 1)
-            { 
-                toWayPoint++;
-            }
-            if (Vector3.Distance(transform.position, wayPoint02.position) <= 1.3 && toWayPoint == 2)
+            if (Vector3.Distance(transform.position, wayPoint01.position) <= 1.3f && toWayPoint == 1)
             {
                 toWayPoint++;
             }
-            if (Vector3.Distance(transform.position, wayPoint03.position) <= 1.3 && toWayPoint == 3)
+            if (Vector3.Distance(transform.position, wayPoint02.position) <= 1.3f && toWayPoint == 2)
             {
                 toWayPoint++;
             }
-            if (Vector3.Distance(transform.position, wayPoint04.position) <= 1.3 && toWayPoint == 4)
+            if (Vector3.Distance(transform.position, wayPoint03.position) <= 1.3f && toWayPoint == 3)
             {
                 toWayPoint++;
             }
-            if (Vector3.Distance(transform.position, wayPoint05.position) <= 1.3 && toWayPoint == 5)
+            if (Vector3.Distance(transform.position, wayPoint04.position) <= 1.3f && toWayPoint == 4)
+            {
+                toWayPoint++;
+            }
+            if (Vector3.Distance(transform.position, wayPoint05.position) <= 1.3f && toWayPoint == 5)
             {
                 toWayPoint = 1;
                 EndOfFold = true;
@@ -442,7 +444,7 @@ public class GolemController : Enemy
     public void HasFolded()
     {
         IsFolded = true;
-        //MovementSpeed = _baseMoveSpeed * 1.2f;
+        MovementSpeed = _baseMoveSpeed * 1.2f;
     }
     public void InLaseringAnimation()
     {
@@ -460,7 +462,7 @@ public class GolemController : Enemy
                 double AttackRange = 5;
                 if (Vector3.Distance(transform.position, target.transform.position) <= AttackRange && SlamTimer == SlamCooldown)
                 {
-                    state = State.Slam;
+                    state = State.Slam; 
                 }
                 else
                 {

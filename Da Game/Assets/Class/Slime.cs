@@ -125,7 +125,7 @@ public class Slime : Enemy
 
     private void ProcessAction()
     {
-        Debug.Log(Vector3.Distance(transform.position, target.transform.position));
+        //Debug.Log(Vector3.Distance(transform.position, target.transform.position));
         if (currentWaypoint >= path.vectorPath.Count)
         {
             reachedEndofPath = true;

@@ -13,9 +13,11 @@ public class ShopOwnerController : MonoBehaviour
     {
         textToDisplay = Shop.GetComponent<TextMeshProUGUI>();
         int unlockedSlots = PlayerController.Singleton.UnlockedSlot;
+
         if (unlockedSlots < MaxSlot)
         {
-            string text = "Unlockable Slot " + unlockedSlots + 1;
+            int temp = unlockedSlots + 1;
+            string text = "Unlockable Slot " + temp;
             text = text +" : "+ CalculatePrice(unlockedSlots) + " gold";
             textToDisplay.text = text.ToString();
         }

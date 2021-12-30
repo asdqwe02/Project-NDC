@@ -40,6 +40,7 @@ public class LaserUpdated : MonoBehaviour
             }
             rotate();
             RaycastHit2D _hit = Physics2D.Raycast(m_transform.position, m_transform.right, distanceLaser, laserLayerMask);
+            Debug.Log(_hit.transform.tag);
             if (_hit)
             {
                 Draw2DRay(m_transform.position, _hit.point);

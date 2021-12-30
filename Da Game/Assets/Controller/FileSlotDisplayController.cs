@@ -114,6 +114,12 @@ public class FileSlotDisplayController : MonoBehaviour
         SceneManager.LoadScene("Hideout");
     }
 
+    public void ToTutorial()
+    {
+        //PlayerController.instance.Load_Base();
+        Debug.Log("Pressed");
+        SceneManager.LoadScene("Tutorial");
+    }
     public void Quit()
     {
         Application.Quit();
