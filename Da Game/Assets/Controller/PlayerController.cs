@@ -11,12 +11,13 @@ public class PlayerController : PlayerClass
 
     //Variables used in Movement
     private Vector2 _moveDirection;
+    private double DashReset_TakeTooLong = 0.75;
     private bool CanDash = true;
     private int HasDashCounter = 0;
-    private double DashCoolDown = 1.5;
+    private double DashCoolDown = 0.75;
     [SerializeField] BoxCollider2D collider2D;
     private bool IsHurt;
-    private float ImmuneTime = 2;
+    private double ImmuneTime = 0.75;
     private bool isDashButtonDown;
     private float _rotationSpeed;
     public bool FacingRight;
@@ -186,7 +187,15 @@ public class PlayerController : PlayerClass
         //Dash
         if (CanDash)
         {
-
+            if(HasDashCounter == 1)
+            {
+                DashReset_TakeTooLong -= Time.deltaTime;
+                if(DashReset_TakeTooLong <= 0)
+                {
+                    DashReset_TakeTooLong = 0.75;
+                    HasDashCounter = 0;
+                }
+            }
             if (Input.GetKeyDown(KeyCode.Space) && _moveDirection.magnitude != 0)
             {
                 isDashButtonDown = true;
@@ -194,7 +203,8 @@ public class PlayerController : PlayerClass
                 if(HasDashCounter == 2)
                 {
                     CanDash = false;
-                    DashCoolDown = 1.5;
+                    DashCoolDown = 0.75;
+                    DashReset_TakeTooLong = 0.75;
                 }
             }
         }
@@ -456,7 +466,7 @@ public class PlayerController : PlayerClass
         Rb.AddForce(KnockBack);
         animator.SetBool("IsHurt", true);
         IsHurt = true;
-        ImmuneTime = 3;
+        ImmuneTime = 0.75;
         Physics2D.IgnoreLayerCollision(9, 8);
     }
 

@@ -12,7 +12,7 @@ public class ShopOwnerController : MonoBehaviour
     public void displayBuyOption()
     {
         textToDisplay = Shop.GetComponent<TextMeshProUGUI>();
-        int unlockedSlots = PlayerController.Singleton.UnlockedSlot;
+        int unlockedSlots = PlayerController.instance.UnlockedSlot;
 
         if (unlockedSlots < MaxSlot)
         {
@@ -29,11 +29,12 @@ public class ShopOwnerController : MonoBehaviour
 
     public void tryBuy()
     {
-        int currentMoney = PlayerController.Singleton.coins;
-        int UnlockedSlot = PlayerController.Singleton.UnlockedSlot;
+        int currentMoney = PlayerController.instance.coins;
+        int UnlockedSlot = PlayerController.instance.UnlockedSlot;
         if(currentMoney >= CalculatePrice(UnlockedSlot))
         {
-            PlayerController.Singleton.coins = (int)(currentMoney - CalculatePrice(UnlockedSlot));
+            PlayerController.instance.coins = (int)(currentMoney - CalculatePrice(UnlockedSlot));
+            PlayerController.instance.UnlockedSlot += 1;
             displayBuyOption();
         }
     }
