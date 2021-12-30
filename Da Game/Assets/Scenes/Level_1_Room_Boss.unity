@@ -4484,6 +4484,14 @@ PrefabInstance:
       value: Golem
       objectReference: {fileID: 0}
     - target: {fileID: 1069103413, guid: 4f1991d07ad25e1418c921ea884eeba2, type: 3}
+      propertyPath: hp
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 1069103413, guid: 4f1991d07ad25e1418c921ea884eeba2, type: 3}
+      propertyPath: armour
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 1069103413, guid: 4f1991d07ad25e1418c921ea884eeba2, type: 3}
       propertyPath: wayPoint01
       value: 
       objectReference: {fileID: 1207721491}
@@ -4510,6 +4518,18 @@ PrefabInstance:
     - target: {fileID: 1069103413, guid: 4f1991d07ad25e1418c921ea884eeba2, type: 3}
       propertyPath: movementSpeed
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1069103413, guid: 4f1991d07ad25e1418c921ea884eeba2, type: 3}
+      propertyPath: coldResistance
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1069103413, guid: 4f1991d07ad25e1418c921ea884eeba2, type: 3}
+      propertyPath: fireResistance
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1069103413, guid: 4f1991d07ad25e1418c921ea884eeba2, type: 3}
+      propertyPath: lightningResistance
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3676398290107529548, guid: 4f1991d07ad25e1418c921ea884eeba2, type: 3}
       propertyPath: m_RootOrder

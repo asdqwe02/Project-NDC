@@ -11,6 +11,9 @@ public class PlayerController : PlayerClass
 
     //Variables used in Movement
     private Vector2 _moveDirection;
+    private bool CanDash = true;
+    private int HasDashCounter = 0;
+    private double DashCoolDown = 1.5;
     [SerializeField] BoxCollider2D collider2D;
     private bool IsHurt;
     private float ImmuneTime = 2;
@@ -181,9 +184,28 @@ public class PlayerController : PlayerClass
             MeleeAttack();
 
         //Dash
-        if (Input.GetKeyDown(KeyCode.Space) && _moveDirection.magnitude != 0)
+        if (CanDash)
         {
-            isDashButtonDown = true;
+
+            if (Input.GetKeyDown(KeyCode.Space) && _moveDirection.magnitude != 0)
+            {
+                isDashButtonDown = true;
+                HasDashCounter += 1;
+                if(HasDashCounter == 2)
+                {
+                    CanDash = false;
+                    DashCoolDown = 1.5;
+                }
+            }
+        }
+        else
+        {
+            DashCoolDown -= Time.deltaTime;
+            if(DashCoolDown <= 0)
+            {
+                CanDash = true;
+                HasDashCounter = 0;
+            }
         }
 
         //Update Animation When Moving

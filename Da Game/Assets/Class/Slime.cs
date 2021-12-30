@@ -19,7 +19,7 @@ public class Slime : Enemy
     }
 
     private Vector2 direction;
-    private double AttackRange = 4;
+    private double AttackRange = 1.5f;
     private float nextAttackTime;
     private State state;
     public Transform target;
@@ -145,7 +145,7 @@ public class Slime : Enemy
 
         Vector2 Velocity = new Vector2(direction.x * MovementSpeed, direction.y * MovementSpeed);
 
-        if (animator.GetBool("IsDying") == true || Vector3.Distance(transform.position, target.transform.position) <= AttackRange)
+        if (animator.GetBool("IsDying") == true || Vector2.Distance(transform.position, target.transform.position) <= AttackRange)
         {
             Velocity = new Vector2(0, 0);
             if (Time.time > nextAttackTime)

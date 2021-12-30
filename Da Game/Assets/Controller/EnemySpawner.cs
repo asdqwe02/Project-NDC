@@ -39,7 +39,10 @@ public class EnemySpawner : MonoBehaviour
             if (!sr.enabled)
                 sr.enabled=true;
             if (state == SpawnState.FINISHED)
+            {
+                sr.enabled = false;
                 return;
+            }
             if (state == SpawnState.WAITING)
             {
 
@@ -84,7 +87,7 @@ public class EnemySpawner : MonoBehaviour
 
     void WaveComplete()
     {
-        //??? explain ???
+        //??? explain ???  --- To known which wave to start
         state = SpawnState.COUNTING;
         waveCountdown = timeBetweenWave;
         if (nextWave + 1 > waves.Length - 1)

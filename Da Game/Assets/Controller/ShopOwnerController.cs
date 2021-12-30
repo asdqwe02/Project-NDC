@@ -39,7 +39,7 @@ public class ShopOwnerController : MonoBehaviour
     }
     public float CalculatePrice(float unlockedSlot)
     {
-        return Mathf.Pow(2, unlockedSlot) * 1000;
+        return Mathf.Pow(2, unlockedSlot) * 10000;
     }
 
 }
