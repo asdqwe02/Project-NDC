@@ -12,8 +12,16 @@ public class BuffSpawnController : MonoBehaviour
     GameObject[] Spawner, StartPlate, MonsterAlive;
     bool[] conditions;
     bool spawned = false;
+    private Buff.BuffRNG[] buffs;
     void Start()
     {
+        buffs = new Buff.BuffRNG[4] {
+            new Buff.BuffRNG(Buff.BuffType.PhysicalAttack,100),
+            new Buff.BuffRNG(Buff.BuffType.FireAttack,200),
+            new Buff.BuffRNG(Buff.BuffType.Armour,300),
+            new Buff.BuffRNG(Buff.BuffType.ColdAttack, 200)
+        };
+        Buff.SortBuffRNGByWeight(ref buffs); //sort buffs
         pc = PlayerController.instance;
         buff.GetComponent<Buff>().SetUp(buffType);
         conditions = new bool[3] { false, false, false };
@@ -27,6 +35,8 @@ public class BuffSpawnController : MonoBehaviour
     {
         if (!spawned)
         {
+            Buff.BuffType BuffToSpawn = Buff.RollBuffRNG(buffs);
+            buff.GetComponent<Buff>().SetUp(BuffToSpawn);
             Vector3 spawnPosition = pc.transform.position;
             spawnPosition.x += Random.Range(-0.2f, 0.2f);
             spawnPosition.y += Random.Range(-0.2f, 0.2f);

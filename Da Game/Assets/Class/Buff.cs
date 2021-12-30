@@ -4,14 +4,12 @@ using UnityEngine;
 
 public class Buff : Interactable
 {
-
     private PlayerController pc;
     protected bool isTriggered = false;
     [SerializeField] BuffType buffType;
     [SerializeField] GameObject statStickPrefab; //This thing will never be instantiate 
     private PlayerClass statStick;
     Animator animator;
-
     public enum BuffType
     {
         PhysicalAttack,
@@ -25,7 +23,20 @@ public class Buff : Interactable
         HPBoost,
         SingleBullet,
         MultiBullet,
+        NULL //NULL as last value (use this to see if there are any errors/bugs)
     }
+    public struct BuffRNG
+    {
+        public Buff.BuffType buffType;
+        public float weight;
+
+        public BuffRNG(Buff.BuffType buffType, float weight)
+        {
+            this.buffType = buffType;
+            this.weight = weight;
+        }
+    }
+  
     private void Start()
     {
         animator = GetComponent<Animator>();
@@ -68,6 +79,7 @@ public class Buff : Interactable
         }
     }
 
+    //might want to change pc to PlayerController.instance and remove pc entirely
     public override void Interact()
     {
         if (pc != null)
@@ -119,7 +131,53 @@ public class Buff : Interactable
         }
         //throw new System.NotImplementedException();
     }
+    public static void ApplyBuff(BuffType buff,PlayerClass StatStick)
+    {
 
+        switch (buff)
+        {
+            case BuffType.PhysicalAttack:
+                PlayerController.instance.DamageType_ = MovingObjects.DamageType.Physical;
+                break;
+            case BuffType.FireAttack:
+                PlayerController.instance.DamageType_ = MovingObjects.DamageType.Fire;
+                break;
+            case BuffType.ColdAttack:
+                PlayerController.instance.DamageType_ = MovingObjects.DamageType.Cold;
+                break;
+            case BuffType.LightningAttack:
+                PlayerController.instance.DamageType_ = MovingObjects.DamageType.Lightning;
+                break;
+            case BuffType.Armour:
+                PlayerController.instance.Armour += StatStick.Armour;
+                break;
+            case BuffType.FireResistance:
+                PlayerController.instance.FireResistance += StatStick.FireResistance;
+                break;
+            case BuffType.ColdResistance:
+                PlayerController.instance.ColdResistance += StatStick.ColdResistance;
+                break;
+            case BuffType.LightningResistance:
+                PlayerController.instance.LightningResistance += StatStick.LightningResistance;
+                break;
+            case BuffType.HPBoost:
+                PlayerController.instance.MaxHP += StatStick.Hp;
+                PlayerController.instance.Hp += StatStick.Hp;
+                break;
+            case BuffType.SingleBullet:
+                PlayerController.instance.FireType = 0;
+                PlayerController.instance.Damage = PlayerController.instance.BaseDamage; //reset damage to base damage
+                PlayerController.instance.FireRate = StatStick.FireRate;
+                break;
+            case BuffType.MultiBullet:
+                PlayerController.instance.FireType = 1;
+                PlayerController.instance.Damage = PlayerController.instance.BaseDamage / 2; // reduce damage for spread mode 
+                PlayerController.instance.FireRate = StatStick.FireRate * 10;
+                break;
+            default:
+                break;
+        }
+    }
     private void ChangeAniToBuffType()
     {
         int temp = (int)buffType;
@@ -161,5 +219,83 @@ public class Buff : Interactable
             default:
                 break;
         }
+    }
+
+    //Utility function for BuffRNG
+
+    //using insertion sort to sort BuffRNG by weight
+    public static void SortBuffRNGByWeight(ref BuffRNG[] buffs)
+    {
+        for (int i = 0; i < buffs.Length; i++)
+        {
+            for (int j = i+1; j < buffs.Length; j++)
+            {
+                if (buffs[i].weight > buffs[j].weight)
+                    SwapBuffRNG(ref buffs[i], ref buffs[j]);
+            }
+        }
+    }
+    public static void SwapBuffRNG(ref BuffRNG a, ref BuffRNG b)
+    {
+        BuffRNG temp = a;
+        a = b;
+        b = temp;
+    }
+    public static float BuffRNGTotalWeight(BuffRNG[] buffWeight)
+    {
+        float sum = 0f;
+        foreach (BuffRNG item in buffWeight)
+        {
+            sum += item.weight;
+        }
+        return sum;
+    }
+    public static BuffType RollBuffRNG(BuffRNG[] buffs)
+    {
+        float CumulativeProbability = 0f;
+        float RNGRoll = Random.Range(0f, 1f);
+        float TotalWeight = BuffRNGTotalWeight(buffs);
+        foreach  (BuffRNG item in buffs)
+        {
+            CumulativeProbability += item.weight/TotalWeight;
+            if (RNGRoll <= CumulativeProbability)
+                return item.buffType;
+        }
+        return BuffType.NULL; // this should never happened if it's null it's a bug 
+    }
+
+    //second option for rolling BuffRNG
+    public static BuffType RollBuffRNG(BuffRNG[] buffs,float RNGRoll)
+    {
+        float CumulativeProbability = 0f;
+        float TotalWeight = BuffRNGTotalWeight(buffs);
+        foreach (BuffRNG item in buffs)
+        {
+            CumulativeProbability += item.weight / TotalWeight;
+            if (RNGRoll <= CumulativeProbability)
+                return item.buffType;
+        }
+        return BuffType.NULL; // this should never happened if it's null it's a bug 
+    }
+    public static void RemoveDamageTypeBuffsFromPool(ref BuffRNG[] buffs)
+    {
+        List<BuffRNG> temp = new List<BuffRNG>();
+        foreach  (BuffRNG item in buffs)
+        {
+            switch (item.buffType)
+            {
+                case BuffType.PhysicalAttack:
+                case BuffType.FireAttack:
+                case BuffType.ColdAttack:
+                case BuffType.LightningAttack:
+                    break;
+                default:
+                    BuffRNG tempBuffRNG = new BuffRNG(item.buffType, item.weight);
+                    temp.Add(tempBuffRNG);
+                    break;
+            }
+        }
+        System.Array.Clear(buffs, 0, buffs.Length);
+        buffs = temp.ToArray();
     }
 }
