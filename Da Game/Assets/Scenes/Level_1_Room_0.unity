@@ -9952,6 +9952,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buff: {fileID: 6924557645021770601, guid: 4180503280d74c142bb3a034d86ad085, type: 3}
   buffType: 7
+  indicatorPrefab: {fileID: 7904593532633344675, guid: 0fb66eddb1dfeb64cb3f6055e259566b, type: 3}
 --- !u!4 &2059842705
 Transform:
   m_ObjectHideFlags: 0
@@ -9960,7 +9961,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2059842703}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8.361873, y: 0.5550767, z: -1.2836481}
+  m_LocalPosition: {x: 14.22, y: -0.2, z: -1.2836481}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}

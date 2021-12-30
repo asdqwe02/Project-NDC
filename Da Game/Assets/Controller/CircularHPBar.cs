@@ -36,7 +36,8 @@ public class CircularHPBar : MonoBehaviour
         if (CurrentHP < 0)
             CurrentHP = 0;
         //CurrentHP.ToString("R") +
-        string HP_Text =  string.Format("{0:0.00}", CurrentHP) +" / " + MaxHP.ToString("R");
+        //string HP_Text = CurrentHP.ToString("R") + " / " + MaxHP.ToString("R");
+        string HP_Text = string.Format("{0:0.##}", CurrentHP) + " / " + MaxHP.ToString("R");
         HealthDisplay.text = HP_Text;
     }
     private void CircleFill()

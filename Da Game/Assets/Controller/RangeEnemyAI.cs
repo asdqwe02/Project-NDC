@@ -132,6 +132,10 @@ public class RangeEnemyAI : Enemy
     }
     private void ProcessAction()
     {
+        if (path == null)
+        {
+            return;
+        }
         if (currentWaypoint >= path.vectorPath.Count)
         {
             reachedEndofPath = true;
@@ -142,11 +146,7 @@ public class RangeEnemyAI : Enemy
             reachedEndofPath = false;
         }
 
-
-        if (path == null)
-        {
-            return;
-        }
+       
         direction = ((Vector2)path.vectorPath[currentWaypoint] - rb.position).normalized;
 
         //move with a velocity

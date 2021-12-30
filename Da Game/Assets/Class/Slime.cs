@@ -125,6 +125,10 @@ public class Slime : Enemy
 
     private void ProcessAction()
     {
+        if (path == null)
+        {
+            return;
+        }
         //Debug.Log(Vector3.Distance(transform.position, target.transform.position));
         if (currentWaypoint >= path.vectorPath.Count)
         {
@@ -137,10 +141,6 @@ public class Slime : Enemy
         }
 
 
-        if (path == null)
-        {
-            return;
-        }
         direction = ((Vector2)path.vectorPath[currentWaypoint] - rb.position).normalized;
 
         Vector2 Velocity = new Vector2(direction.x * MovementSpeed, direction.y * MovementSpeed);

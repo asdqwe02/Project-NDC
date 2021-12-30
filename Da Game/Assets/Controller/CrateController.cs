@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class CrateController : NonMovingObject
 {
     private Animator animator;
@@ -21,7 +21,8 @@ public class CrateController : NonMovingObject
     {
         if (collision.gameObject.CompareTag("bullet"))
         {
-
+            if (SceneManager.GetActiveScene().name == "Tutorial" && !collision.GetComponent<Bullet>().isFromPlayer)
+                return;
             takdeDamage(1);
             if (checkDestroy())
             {

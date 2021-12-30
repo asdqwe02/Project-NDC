@@ -13,7 +13,7 @@ public class Bullet : MonoBehaviour
     private bool isMoving = true, flip = false;
     private Rigidbody2D rb;
     [SerializeField] private float _bulletSpeed = 50f;
-    [SerializeField] private bool _isFromPlayer = false;
+    public bool isFromPlayer = false;
 
     private void Start()
     {
@@ -29,9 +29,9 @@ public class Bullet : MonoBehaviour
         _damage = damage;
         
         transform.eulerAngles = new Vector3(0, 0, GetAngleFromVectorFloat(shootDir));
-        _isFromPlayer = IsFromPlayer;
+        isFromPlayer = IsFromPlayer;
         _knockBack = KnockBack;
-        if (!_isFromPlayer)
+        if (!isFromPlayer)
             gameObject.layer = 8;
         _damageType = damageType;
         //rb.AddForce(_shootDir * _bulletSpeed, ForceMode2D.Impulse);
@@ -42,8 +42,8 @@ public class Bullet : MonoBehaviour
         _shootDir = shootDir;
         _damage = damage;
         transform.eulerAngles = new Vector3(0, 0, GetAngleFromVectorFloat(shootDir));
-        _isFromPlayer = IsFromPlayer;
-        if (!_isFromPlayer)
+        isFromPlayer = IsFromPlayer;
+        if (!isFromPlayer)
             gameObject.layer = 8;
         _damageType = damageType;
         Destroy(gameObject, 1f);
@@ -57,11 +57,8 @@ public class Bullet : MonoBehaviour
             //rb.velocity =  _shootDir * _bulletSpeed; // this has a bug need to fix asap
 
         }
-           
-
-
-
     }
+
     //Bad implementation
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -73,7 +70,7 @@ public class Bullet : MonoBehaviour
         Interactable interactable = collision.GetComponent<Interactable>();
         DummyController dummy = collision.GetComponent<DummyController>();
 
-        if (_isFromPlayer)
+        if (isFromPlayer)
         {
             if (p != null || otherBullets != null || bw != null || interactable != null)
             {

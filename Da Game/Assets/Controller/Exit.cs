@@ -8,12 +8,15 @@ public class Exit : MonoBehaviour
     [SerializeField] private string newScenePassword;
     [SerializeField] private string exitTagCondition;
     GameObject[] monstersAlive;
+    Buff buff;
+
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (!string.IsNullOrEmpty(exitTagCondition))
         {
             monstersAlive = GameObject.FindGameObjectsWithTag(exitTagCondition);
-            if (monstersAlive.Length != 0)
+            buff = GameObject.FindObjectOfType<Buff>();
+            if (monstersAlive.Length != 0 || buff!=null)
                 return;
         }
         if(other.tag =="Player")

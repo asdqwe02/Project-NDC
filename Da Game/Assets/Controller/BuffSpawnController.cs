@@ -7,6 +7,7 @@ public class BuffSpawnController : MonoBehaviour
     // Start is called before the first frame update
     public Transform buff;
     public Buff.BuffType buffType; //TODO: change this to buff pool 
+    public Transform indicatorPrefab;
     PlayerController pc;
     GameObject[] Spawner, StartPlate, MonsterAlive;
     bool[] conditions;
@@ -30,11 +31,15 @@ public class BuffSpawnController : MonoBehaviour
             spawnPosition.x += Random.Range(-0.2f, 0.2f);
             spawnPosition.y += Random.Range(-0.2f, 0.2f);
             Instantiate(buff, spawnPosition, Quaternion.identity);
+            Instantiate(indicatorPrefab, transform.position, Quaternion.identity);
         }
     }
     
     void FixedUpdate()
     {
+
+        /*conditions might take longer to compute if there are a lot more objects 
+         note: one of the condition might be redundant*/
         if (!conditions[0])
         {
             int c = 0;
