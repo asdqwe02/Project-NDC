@@ -20,8 +20,15 @@ public class PortalHideoutController : Interactable
         PlayerController.instance.scenePassword = newScenePassword;
         PlayerController.instance.Save();
         PlayerController.instance.InHO = false;
-        Activate_Buffs();
-        //SceneManager.LoadScene(sceneName);
+        if (PlayerController.instance.UnlockedSlot == 0)
+        {
+            SceneManager.LoadScene(sceneName);
+        }
+
+        else
+        {
+            Activate_Buffs();
+        }
 
     }
     private void OnTriggerEnter2D(Collider2D collision)

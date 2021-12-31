@@ -10024,9 +10024,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5269449442251462115, guid: 34c9bdab8fa6858419e3e91245639865, type: 3}
+      propertyPath: _fireRate
+      value: 0.28
+      objectReference: {fileID: 0}
+    - target: {fileID: 5269449442251462115, guid: 34c9bdab8fa6858419e3e91245639865, type: 3}
+      propertyPath: _dashRange
+      value: 2.2
+      objectReference: {fileID: 0}
     - target: {fileID: 5269449442251462117, guid: 34c9bdab8fa6858419e3e91245639865, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5269449442251462117, guid: 34c9bdab8fa6858419e3e91245639865, type: 3}
       propertyPath: m_LocalPosition.x

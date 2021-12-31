@@ -242,12 +242,12 @@ MonoBehaviour:
   damage: 12
   damageType: 0
   statusEffects: 
-  _fireRate: 0.1
+  _fireRate: 0.2
   _firingTime: 0
   _bulletAmount: 6
   _fireType: 0
   _meleeAttackRange: 0.84
-  _dashRange: 3
+  _dashRange: 2.2
   rb: {fileID: 5269449442251462119}
   _bulletPrefab:
   - {fileID: 8586053710399425739, guid: 6fb691c8e3a9b534289be1ee23e89a40, type: 3}
