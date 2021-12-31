@@ -403,11 +403,10 @@ public class GolemController : Enemy
 
             if (IsSummoning && !IsLasering)
             {
-                List<Transform> temp = WayPoints;
+                List<Transform> temp = new List<Transform>(WayPoints);
                 temp.RemoveAt(temp.Count - 1);
                 foreach (Transform Position in temp)
                 {
-                    
                     SummonningPillars(Position);
                 }
                 IsSummoning = false;
@@ -444,7 +443,7 @@ public class GolemController : Enemy
     public void HasFolded()
     {
         IsFolded = true;
-        MovementSpeed = _baseMoveSpeed * 1.2f;
+        MovementSpeed = _baseMoveSpeed * 1.3f;
     }
     public void InLaseringAnimation()
     {
