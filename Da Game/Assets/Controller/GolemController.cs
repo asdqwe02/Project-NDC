@@ -166,6 +166,11 @@ public class GolemController : Enemy
         updatePhase();
         updateState();
         CheckLife();
+
+        if (path == null)
+        {
+            return;
+        }
         if (currentWaypoint >= path.vectorPath.Count)
         {
             reachedEndofPath = true;
@@ -174,11 +179,6 @@ public class GolemController : Enemy
         else
         {
             reachedEndofPath = false;
-        }
-
-        if (path == null)
-        {
-            return;
         }
         direction = ((Vector2)path.vectorPath[currentWaypoint] - rb.position).normalized;
         Vector2 Velocity = new Vector2(direction.x * MovementSpeed, direction.y * MovementSpeed);

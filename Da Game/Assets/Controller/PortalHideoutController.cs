@@ -60,12 +60,7 @@ public class PortalHideoutController : Interactable
     private void Activate_Buffs()
     {
         statStick = statStickPrefab.GetComponent<PlayerClass>();
-        buffs = new Buff.BuffRNG[4] {
-            new Buff.BuffRNG(Buff.BuffType.PhysicalAttack,100),
-            new Buff.BuffRNG(Buff.BuffType.FireAttack,200),
-            new Buff.BuffRNG(Buff.BuffType.Armour,300),
-            new Buff.BuffRNG(Buff.BuffType.ColdAttack, 200)
-        };
+        buffs = Utilities.BasicBuffsPool;
         Buff.SortBuffRNGByWeight(ref buffs); //sort buffs
         
         //debug
@@ -143,7 +138,6 @@ public class PortalHideoutController : Interactable
         // Stop time and disable input 
         Time.timeScale = 0f;
         Menu.SetActive(false);
-
 
     }
 

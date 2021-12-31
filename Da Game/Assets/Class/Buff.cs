@@ -295,7 +295,7 @@ public class Buff : Interactable
                     break;
             }
         }
-        System.Array.Clear(buffs, 0, buffs.Length);
-        buffs = temp.ToArray();
+        //System.Array.Clear(buffs, 0, buffs.Length);
+        buffs = temp.ToArray(); // might be bad in term of memory managing 
     }
 }

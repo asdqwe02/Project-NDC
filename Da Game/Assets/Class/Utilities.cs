@@ -4,6 +4,20 @@ using UnityEngine;
 
 public class Utilities
 {
+    public static Buff.BuffRNG[] BasicBuffsPool = new Buff.BuffRNG[11]
+    {
+         new Buff.BuffRNG(Buff.BuffType.PhysicalAttack,250),
+         new Buff.BuffRNG(Buff.BuffType.FireAttack,250),
+         new Buff.BuffRNG(Buff.BuffType.ColdAttack,250),
+         new Buff.BuffRNG(Buff.BuffType.LightningAttack,250),
+         new Buff.BuffRNG(Buff.BuffType.Armour,300),
+         new Buff.BuffRNG(Buff.BuffType.FireResistance,300),
+         new Buff.BuffRNG(Buff.BuffType.ColdResistance,300),
+         new Buff.BuffRNG(Buff.BuffType.LightningResistance,300),
+         new Buff.BuffRNG(Buff.BuffType.HPBoost,500),
+         new Buff.BuffRNG(Buff.BuffType.SingleBullet,150),
+         new Buff.BuffRNG(Buff.BuffType.MultiBullet,150)
+    };
     public static float GetAngleFromVectorFloat(Vector3 dir)
     {
         dir = dir.normalized;
@@ -30,6 +44,6 @@ public class Utilities
         float newX = vector.x * Mathf.Cos(angle) - vector.y * Mathf.Sin(angle);
         float newY = vector.x * Mathf.Sin(angle) + vector.y * Mathf.Cos(angle);
         return new Vector2(newX, newY);
-
     }
+
 }

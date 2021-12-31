@@ -224,7 +224,7 @@ public class PlayerController : PlayerClass
             animator.SetBool("IsRunning", true);        //check whether the player is running with its magnitude
             Counter = 0; //Reset the timer
         }
-        else
+        else if (Counter < waitTime)
         {
             Counter += Time.deltaTime;
             animator.SetBool("IsRunning", false);
