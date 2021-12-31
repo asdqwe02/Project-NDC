@@ -4485,11 +4485,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1069103413, guid: 4f1991d07ad25e1418c921ea884eeba2, type: 3}
       propertyPath: hp
-      value: 1000
+      value: 500
       objectReference: {fileID: 0}
     - target: {fileID: 1069103413, guid: 4f1991d07ad25e1418c921ea884eeba2, type: 3}
       propertyPath: armour
-      value: 20
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1069103413, guid: 4f1991d07ad25e1418c921ea884eeba2, type: 3}
       propertyPath: wayPoint01
@@ -4517,7 +4517,7 @@ PrefabInstance:
       objectReference: {fileID: 1888685471}
     - target: {fileID: 1069103413, guid: 4f1991d07ad25e1418c921ea884eeba2, type: 3}
       propertyPath: movementSpeed
-      value: 6
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 1069103413, guid: 4f1991d07ad25e1418c921ea884eeba2, type: 3}
       propertyPath: coldResistance

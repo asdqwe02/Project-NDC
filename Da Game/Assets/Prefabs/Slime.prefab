@@ -187,14 +187,14 @@ MonoBehaviour:
   burningTimer: 3
   freezingTimer: 2
   numberPopUp: {fileID: 6161134254988266509, guid: cdfc0503540752946bc3d0e7226c4aad, type: 3}
-  hp: 230
-  movementSpeed: 4
-  attackSpeed: 0.156
-  armour: 3
+  hp: 50
+  movementSpeed: 5.2
+  attackSpeed: 0.2
+  armour: 4
   fireResistance: 1
   coldResistance: 2
   lightningResistance: 1
-  damage: 7
+  damage: 10
   damageType: 0
   statusEffects: 
   coinsPrefab: {fileID: 7675367445763309639, guid: 8ce031827186a1b4cb4597c8d786cc23, type: 3}

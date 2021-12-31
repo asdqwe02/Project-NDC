@@ -454,14 +454,14 @@ MonoBehaviour:
   burningTimer: 3
   freezingTimer: 2
   numberPopUp: {fileID: 6161134254988266509, guid: cdfc0503540752946bc3d0e7226c4aad, type: 3}
-  hp: 50
-  movementSpeed: 3
+  hp: 500
+  movementSpeed: 4
   attackSpeed: 1
-  armour: 1
-  fireResistance: 0
-  coldResistance: 0
-  lightningResistance: 0
-  damage: 10
+  armour: 3
+  fireResistance: 2
+  coldResistance: 2
+  lightningResistance: 2
+  damage: 20
   damageType: 0
   statusEffects: 
   coinsPrefab: {fileID: 7675367445763309639, guid: 8ce031827186a1b4cb4597c8d786cc23, type: 3}
@@ -491,6 +491,7 @@ MonoBehaviour:
   _slamPrefab: {fileID: 2929291095808678524, guid: f6320fd24e43cf34aa28dca9da75ec53, type: 3}
   _armProjectilePrefab: {fileID: 4572293842792702717, guid: 9196321ff0cae084faa43c17c30ec2df, type: 3}
   _pillarsPrefab: {fileID: 3559341254117129809, guid: 23d8053a3858a8a4cb1b872c8abcc07d, type: 3}
+  EndStagePopUp: {fileID: 0}
   _slamPoint: {fileID: 1545058356}
   _armLaunchPoint: {fileID: 91784252}
   _pullPoint: {fileID: 224898578}

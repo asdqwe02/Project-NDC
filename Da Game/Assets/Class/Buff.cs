@@ -23,6 +23,7 @@ public class Buff : Interactable
         HPBoost,
         SingleBullet,
         MultiBullet,
+        Movespeed,
         NULL //NULL as last value (use this to see if there are any errors/bugs)
     }
     public struct BuffRNG
@@ -124,6 +125,9 @@ public class Buff : Interactable
                     pc.Damage = pc.BaseDamage / 2; // reduce damage for spread mode 
                     pc.FireRate = statStick.FireRate * 10;
                     break;
+                case BuffType.Movespeed:
+                    pc.MovementSpeed += statStick.MovementSpeed;
+                    break;
                 default:
                     break;
             }
@@ -174,6 +178,9 @@ public class Buff : Interactable
                 PlayerController.instance.Damage = PlayerController.instance.BaseDamage / 2; // reduce damage for spread mode 
                 PlayerController.instance.FireRate = StatStick.FireRate * 10;
                 break;
+            case BuffType.Movespeed:
+                PlayerController.instance.MovementSpeed += StatStick.MovementSpeed;
+                break;
             default:
                 break;
         }
@@ -181,40 +188,43 @@ public class Buff : Interactable
     private void ChangeAniToBuffType()
     {
         int temp = (int)buffType;
-        switch (temp)
+        switch (buffType)
         {
-            case 0:
+            case BuffType.PhysicalAttack:
                 animator.SetBool("isPhysAtt", true);
                 break;
-            case 1:
+            case BuffType.FireAttack:
                 animator.SetBool("isFireAtt", true);
                 break;
-            case 2:
+            case BuffType.ColdAttack:
                 animator.SetBool("isColdAtt", true);
                 break;
-            case 3:
+            case BuffType.LightningAttack:
                 animator.SetBool("isLightningAtt", true);
                 break;
-            case 4:
+            case BuffType.Armour:
                 animator.SetBool("isArmour", true);
                 break;
-            case 5:
+            case BuffType.FireResistance:
                 animator.SetBool("isFireRes", true);
                 break;
-            case 6:
+            case BuffType.ColdResistance:
                 animator.SetBool("isColdRes", true);
                 break;
-            case 7:
+            case BuffType.LightningResistance:
                 animator.SetBool("isLightningRes", true);
                 break;
-            case 8:
+            case BuffType.HPBoost:
                 animator.SetBool("isHPBoost", true);
                 break;
-            case 9:
+            case BuffType.SingleBullet:
                 animator.SetBool("isSingleBullet", true);
                 break;
-            case 10:
+            case BuffType.MultiBullet:
                 animator.SetBool("isMultiBullet", true);
+                break;
+            case BuffType.Movespeed:
+                animator.SetBool("isMovespeed", true);
                 break;
             default:
                 break;

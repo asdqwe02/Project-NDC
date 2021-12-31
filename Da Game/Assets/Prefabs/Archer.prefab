@@ -218,12 +218,12 @@ MonoBehaviour:
   burningTimer: 3
   freezingTimer: 2
   numberPopUp: {fileID: 6161134254988266509, guid: cdfc0503540752946bc3d0e7226c4aad, type: 3}
-  hp: 120
+  hp: 30
   movementSpeed: 3
-  attackSpeed: 1
+  attackSpeed: 1.4
   armour: 0
   fireResistance: 2
-  coldResistance: 0
+  coldResistance: 1
   lightningResistance: 0
   damage: 5
   damageType: 2

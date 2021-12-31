@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class Utilities
 {
-    public static Buff.BuffRNG[] BasicBuffsPool = new Buff.BuffRNG[11]
+    //currently 12 buffs if increased or reduce amount of buffs in pool please change the number
+    public static Buff.BuffRNG[] BasicBuffsPool = new Buff.BuffRNG[12]
     {
          new Buff.BuffRNG(Buff.BuffType.PhysicalAttack,250),
          new Buff.BuffRNG(Buff.BuffType.FireAttack,250),
@@ -16,7 +17,8 @@ public class Utilities
          new Buff.BuffRNG(Buff.BuffType.LightningResistance,300),
          new Buff.BuffRNG(Buff.BuffType.HPBoost,500),
          new Buff.BuffRNG(Buff.BuffType.SingleBullet,150),
-         new Buff.BuffRNG(Buff.BuffType.MultiBullet,150)
+         new Buff.BuffRNG(Buff.BuffType.MultiBullet,150),
+         new Buff.BuffRNG(Buff.BuffType.Movespeed,400)
     };
     public static float GetAngleFromVectorFloat(Vector3 dir)
     {
