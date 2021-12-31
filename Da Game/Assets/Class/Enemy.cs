@@ -46,5 +46,6 @@ public class Enemy : MovingObjects
     {
         base.takeDamage(damageTaken, damageTypeTaken, KnockBack);
         GetComponent<Rigidbody2D>().velocity = KnockBack * knockBackForce;
+        //GetComponent<Rigidbody2D>().AddForce(KnockBack*knockBackForce);
     }
 }

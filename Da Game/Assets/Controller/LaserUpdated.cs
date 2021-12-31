@@ -13,7 +13,7 @@ public class LaserUpdated : MonoBehaviour
     Transform m_transform;
     private bool rotating = true;
     private bool rotating2 = false;
-    float DelayTime = 1f;
+    float DelayTime = 0.75f;
     public bool endOfLaser = false;
     public bool start = false;
 
@@ -63,7 +63,7 @@ public class LaserUpdated : MonoBehaviour
             Draw2DRay(m_transform.position, m_transform.position);
             rotating = true;
             rotating2 = false;
-            DelayTime = 1f;
+            DelayTime = 0.75f;
         }
     }
 
@@ -75,7 +75,7 @@ public class LaserUpdated : MonoBehaviour
             Vector3 to = new Vector3(0, 0, 179);
             if (Vector3.Distance(to, transform.rotation.eulerAngles) >= 0.5)
             {
-                transform.Rotate(0, 0, (Time.deltaTime + 0.25f) * -1);
+                transform.Rotate(0, 0, (Time.deltaTime + 2f) * -1);
             }
             else
             {
@@ -93,7 +93,7 @@ public class LaserUpdated : MonoBehaviour
                 Vector3 to = new Vector3(0, 0, 0);
                 if (Vector3.Distance(to, transform.rotation.eulerAngles) >= 0.5)
                 {
-                    transform.Rotate(0, 0, (Time.deltaTime + 0.25f) * 1);
+                    transform.Rotate(0, 0, (Time.deltaTime + 2f) * 1);
                 }
                 else
                 {

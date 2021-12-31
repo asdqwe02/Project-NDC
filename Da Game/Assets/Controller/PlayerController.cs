@@ -430,8 +430,10 @@ public class PlayerController : PlayerClass
             meleeSlashEffectTransform.Rotate(0f, 0f, 224.2f);
         else meleeSlashEffectTransform.Rotate(0f, 180f, 224.2f);
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(_meleeAttackPoint.position, MeleeAttackRange, _enemyLayerMask);
-        Vector2 vecTemp = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        _lookDirection = ((Vector3)vecTemp - transform.position).normalized;
+        Vector3 vecTemp = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        vecTemp.z = transform.position.z;
+        _lookDirection = (vecTemp - transform.position).normalized;
+        Debug.Log("Look direction magnitude: " + _lookDirection.magnitude);
         foreach (Collider2D enemy in hitEnemies)
         {
            
