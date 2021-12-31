@@ -6,20 +6,23 @@ public class LaserUpdated : MonoBehaviour
 {
     [SerializeField] private float distanceLaser = 100;
     [SerializeField] private LayerMask laserLayerMask;
-
+    [SerializeField] private float LaserDelayTime = 0.75f, LaserDelayCountDown;
+    private bool EndOfLaserDelay = false;
 
     public LineRenderer m_linerenderer;
     Transform m_transform;
     private bool rotating = true;
     private bool rotating2 = false;
-    float DelayTime = 1;
+    float DelayTime = 1f;
     public bool endOfLaser = false;
     public bool start = false;
 
     private bool RotationFix = true;
 
+
     void Start()
     {
+        LaserDelayCountDown = LaserDelayTime;
         m_transform = GetComponent<Transform>();
     }
     void Update()
@@ -29,7 +32,7 @@ public class LaserUpdated : MonoBehaviour
     void ShootLaser()
     {
 
-        if (start)
+        if (start && EndOfLaserDelay)
         {
             if (RotationFix)
             {
@@ -60,7 +63,7 @@ public class LaserUpdated : MonoBehaviour
             Draw2DRay(m_transform.position, m_transform.position);
             rotating = true;
             rotating2 = false;
-            DelayTime = 1;
+            DelayTime = 1f;
         }
     }
 
@@ -98,6 +101,7 @@ public class LaserUpdated : MonoBehaviour
                     rotating2 = false;
                     endOfLaser = true;
                     RotationFix = true;
+                    EndOfLaserDelay = false;
                 }
             }
 
@@ -108,5 +112,21 @@ public class LaserUpdated : MonoBehaviour
         m_linerenderer.SetPosition(0, StartPos);
         m_linerenderer.SetPosition(1, endPos);
 
+    }
+    public void StartLaser()
+    {
+        if(!start)  
+            InvokeRepeating("StartLaserAfterDelay", 0f, Time.fixedDeltaTime);
+        start = true;
+    }
+    private void StartLaserAfterDelay()
+    {
+        LaserDelayCountDown -= Time.deltaTime;
+        if (LaserDelayCountDown<=0)
+        {
+            EndOfLaserDelay = true;
+            LaserDelayCountDown = LaserDelayTime;
+            CancelInvoke("StartLaserAfterDelay");
+        }    
     }
 }

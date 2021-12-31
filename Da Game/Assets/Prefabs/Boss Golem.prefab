@@ -258,6 +258,8 @@ MonoBehaviour:
   laserLayerMask:
     serializedVersion: 2
     m_Bits: 0
+  LaserDelayTime: 0.75
+  LaserDelayCountDown: 0
   m_linerenderer: {fileID: 251220850}
   endOfLaser: 0
   start: 0
