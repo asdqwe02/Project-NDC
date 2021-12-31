@@ -35,6 +35,7 @@ public class ShopOwnerController : MonoBehaviour
         {
             PlayerController.instance.coins = (int)(currentMoney - CalculatePrice(UnlockedSlot));
             PlayerController.instance.UnlockedSlot += 1;
+            PlayerController.instance.Save();
             displayBuyOption();
         }
     }
