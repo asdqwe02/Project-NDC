@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 public class MenuController : MonoBehaviour
 {
     public GameObject PauseMenu;
+    public GameObject PauseMenu_Confirmation;
     public GameObject DeathMenu;
 
     private void Start()
@@ -24,8 +25,14 @@ public class MenuController : MonoBehaviour
         {
             if (PauseMenu.active)
             {
+                Scene currentScene = SceneManager.GetActiveScene();
+                string sceneName = currentScene.name;
+                if (sceneName!="Hideout" && sceneName != "Tutorial"  && PauseMenu_Confirmation.active)
+                    PauseMenu_Confirmation.SetActive(false);
                 PauseMenu.SetActive(false);
                 Time.timeScale = 1f;
+
+
             }
             else
             {
@@ -91,6 +98,10 @@ public class MenuController : MonoBehaviour
         Time.timeScale = 1f;
     }
 
+    public void UnfreezeTime()
+    {
+        Time.timeScale = 1f;
+    }
     //this function shouldn't be here but I don't want to make a whole new script to do this one simple function
     public void TutorialSceneReset() 
     {
