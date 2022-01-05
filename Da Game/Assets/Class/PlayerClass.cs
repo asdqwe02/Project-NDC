@@ -23,9 +23,6 @@ public class PlayerClass : MovingObjects
     [SerializeField] private Transform _dashPrefab;
     [SerializeField] private Transform _meleeSlashPrefab;
 
-    [Header("Buffs")]
-    [SerializeField] private string _buff = "";
-
     [Header("Utilities")]
     //Utilities
     public string scenePassword;

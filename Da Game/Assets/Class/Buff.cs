@@ -37,7 +37,7 @@ public class Buff : Interactable
             this.weight = weight;
         }
     }
-  
+
     private void Start()
     {
         animator = GetComponent<Animator>();
@@ -81,12 +81,12 @@ public class Buff : Interactable
     }
 
     //might want to change pc to PlayerController.instance and remove pc entirely
-    public override void Interact()
+    public override void Interact() //need to improve the single and multiple fire buff a bit 
     {
         if (pc != null)
         {
             // increased damage by 10 % if fire type is the same as buffs
-            float damageIncrease = pc.BaseDamage*0.1f;
+            float damageIncrease = pc.BaseDamage * 0.1f;
             if (damageIncrease > 2)
                 damageIncrease = 2f;
             //increased damage by 10% if player damage type is the same as buff
@@ -126,7 +126,7 @@ public class Buff : Interactable
                     pc.Hp += statStick.Hp;
                     break;
                 case BuffType.SingleBullet:
-                  
+
                     if (pc.FireType == 0)
                         pc.BaseDamage += damageIncrease;
                     else pc.FireType = 0;
@@ -134,7 +134,7 @@ public class Buff : Interactable
                     pc.FireRate = statStick.FireRate;
                     break;
                 case BuffType.MultiBullet:
-                    if (pc.FireType == 1) 
+                    if (pc.FireType == 1)
                     {
                         pc.BaseDamage += damageIncrease;
                     }
@@ -152,9 +152,16 @@ public class Buff : Interactable
         }
         //throw new System.NotImplementedException();
     }
-    public static void ApplyBuff(BuffType buff,PlayerClass StatStick)
+    public static void ApplyBuff(BuffType buff, PlayerClass StatStick) //need to improve the single and multiple fire buff a bit 
     {
-
+        float damageIncrease = PlayerController.instance.BaseDamage * 0.1f;
+        if (damageIncrease > 2)
+            damageIncrease = 2f;
+        if ((int)PlayerController.instance.DamageType_ == (int)buff)
+        {
+            PlayerController.instance.Damage += damageIncrease;
+            PlayerController.instance.BaseDamage += damageIncrease;
+        }
         switch (buff)
         {
             case BuffType.PhysicalAttack:
@@ -186,12 +193,16 @@ public class Buff : Interactable
                 PlayerController.instance.Hp += StatStick.Hp;
                 break;
             case BuffType.SingleBullet:
-                PlayerController.instance.FireType = 0;
+                if (PlayerController.instance.FireType==0)
+                    PlayerController.instance.BaseDamage += damageIncrease;
+                else PlayerController.instance.FireType = 0;
                 PlayerController.instance.Damage = PlayerController.instance.BaseDamage; //reset damage to base damage
                 PlayerController.instance.FireRate = StatStick.FireRate;
                 break;
             case BuffType.MultiBullet:
-                PlayerController.instance.FireType = 1;
+                if (PlayerController.instance.FireType == 1)
+                    PlayerController.instance.BaseDamage += damageIncrease;
+                else PlayerController.instance.FireType = 1;
                 PlayerController.instance.Damage = PlayerController.instance.BaseDamage / 2; // reduce damage for spread mode 
                 PlayerController.instance.FireRate = StatStick.FireRate * 10;
                 break;
@@ -255,7 +266,7 @@ public class Buff : Interactable
     {
         for (int i = 0; i < buffs.Length; i++)
         {
-            for (int j = i+1; j < buffs.Length; j++)
+            for (int j = i + 1; j < buffs.Length; j++)
             {
                 if (buffs[i].weight > buffs[j].weight)
                     SwapBuffRNG(ref buffs[i], ref buffs[j]);
@@ -282,9 +293,9 @@ public class Buff : Interactable
         float CumulativeProbability = 0f;
         float RNGRoll = Random.Range(0f, 1f);
         float TotalWeight = BuffRNGTotalWeight(buffs);
-        foreach  (BuffRNG item in buffs)
+        foreach (BuffRNG item in buffs)
         {
-            CumulativeProbability += item.weight/TotalWeight;
+            CumulativeProbability += item.weight / TotalWeight;
             if (RNGRoll <= CumulativeProbability)
                 return item.buffType;
         }
@@ -292,7 +303,7 @@ public class Buff : Interactable
     }
 
     //second option for rolling BuffRNG
-    public static BuffType RollBuffRNG(BuffRNG[] buffs,float RNGRoll)
+    public static BuffType RollBuffRNG(BuffRNG[] buffs, float RNGRoll)
     {
         float CumulativeProbability = 0f;
         float TotalWeight = BuffRNGTotalWeight(buffs);
@@ -307,7 +318,7 @@ public class Buff : Interactable
     public static void RemoveDamageTypeBuffsFromPool(ref BuffRNG[] buffs)
     {
         List<BuffRNG> temp = new List<BuffRNG>();
-        foreach  (BuffRNG item in buffs)
+        foreach (BuffRNG item in buffs)
         {
             switch (item.buffType)
             {
