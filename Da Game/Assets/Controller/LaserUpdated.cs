@@ -75,7 +75,7 @@ public class LaserUpdated : MonoBehaviour
             Vector3 to = new Vector3(0, 0, 179);
             if (Vector3.Distance(to, transform.rotation.eulerAngles) >= 0.5)
             {
-                transform.Rotate(0, 0, (Time.deltaTime + 2f) * -1);
+                transform.Rotate(0, 0, (Time.deltaTime + 0.35f) * -1);
             }
             else
             {
@@ -93,7 +93,7 @@ public class LaserUpdated : MonoBehaviour
                 Vector3 to = new Vector3(0, 0, 0);
                 if (Vector3.Distance(to, transform.rotation.eulerAngles) >= 0.5)
                 {
-                    transform.Rotate(0, 0, (Time.deltaTime + 2f) * 1);
+                    transform.Rotate(0, 0, (Time.deltaTime + 0.35f) * 1);
                 }
                 else
                 {
