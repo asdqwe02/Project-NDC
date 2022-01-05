@@ -220,12 +220,12 @@ MonoBehaviour:
   numberPopUp: {fileID: 6161134254988266509, guid: cdfc0503540752946bc3d0e7226c4aad, type: 3}
   hp: 30
   movementSpeed: 3
-  attackSpeed: 1.4
+  attackSpeed: 0.75
   armour: 0
   fireResistance: 2
   coldResistance: 1
   lightningResistance: 0
-  damage: 5
+  damage: 10
   damageType: 2
   statusEffects: 
   coinsPrefab: {fileID: 7675367445763309639, guid: 8ce031827186a1b4cb4597c8d786cc23, type: 3}

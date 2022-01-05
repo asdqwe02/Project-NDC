@@ -50,9 +50,9 @@ public class StatSheetController : MonoBehaviour
         if (pc.FireType != 0)
             FireType = "Spread Fire Mode";
 
-        statsText.text = "<color=green>" + pc.Hp + "/" + pc.MaxHP + "</color>\n" +
-                         pc.Damage + "\n" +
-                         pc.FireRate + "\n" +
+        statsText.text = "<color=green>" + pc.Hp.ToString("0.##") + "/" + pc.MaxHP + "</color>\n" +
+                         pc.Damage.ToString("0.##") + "\n" +
+                         pc.FireRate.ToString("0.##") + "\n" +
                          FireType + "\n" +
                          pc.DamageType_.ToString() +"\n"+
                          pc.MovementSpeed + "\n" +

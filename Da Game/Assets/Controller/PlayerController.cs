@@ -139,18 +139,18 @@ public class PlayerController : PlayerClass
 
         _moveDirection = new Vector2(moveX, moveY).normalized;
 
-        if (Input.GetKeyDown(KeyCode.F1))
-        {
-            ApplyStatusEffect(10, DamageType.Fire); //damage taken is 10 for tessting purpose
-        }
-        if (Input.GetKeyDown(KeyCode.F2))
-        {
-            ApplyStatusEffect(10, DamageType.Cold);
-        }
-        if (Input.GetKeyDown(KeyCode.F3))
-        {
-            ApplyStatusEffect(10, DamageType.Lightning);
-        }
+        //if (Input.GetKeyDown(KeyCode.F1))
+        //{
+        //    ApplyStatusEffect(10, DamageType.Fire); //damage taken is 10 for tessting purpose
+        //}
+        //if (Input.GetKeyDown(KeyCode.F2))
+        //{
+        //    ApplyStatusEffect(10, DamageType.Cold);
+        //}
+        //if (Input.GetKeyDown(KeyCode.F3))
+        //{
+        //    ApplyStatusEffect(10, DamageType.Lightning);
+        //}
 
 
         if (Input.GetKeyDown(KeyCode.E))
@@ -433,7 +433,7 @@ public class PlayerController : PlayerClass
         Vector3 vecTemp = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         vecTemp.z = transform.position.z;
         _lookDirection = (vecTemp - transform.position).normalized;
-        Debug.Log("Look direction magnitude: " + _lookDirection.magnitude);
+        //Debug.Log("Look direction magnitude: " + _lookDirection.magnitude);
         foreach (Collider2D enemy in hitEnemies)
         {
            

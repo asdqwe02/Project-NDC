@@ -85,6 +85,16 @@ public class Buff : Interactable
     {
         if (pc != null)
         {
+            // increased damage by 10 % if fire type is the same as buffs
+            float damageIncrease = pc.BaseDamage*0.1f;
+            if (damageIncrease > 2)
+                damageIncrease = 2f;
+            //increased damage by 10% if player damage type is the same as buff
+            if ((int)pc.DamageType_ == (int)buffType)
+            {
+                pc.Damage += damageIncrease;
+                pc.BaseDamage += damageIncrease;
+            }
             switch (buffType)
             {
                 case BuffType.PhysicalAttack:
@@ -116,12 +126,19 @@ public class Buff : Interactable
                     pc.Hp += statStick.Hp;
                     break;
                 case BuffType.SingleBullet:
-                    pc.FireType = 0;
+                  
+                    if (pc.FireType == 0)
+                        pc.BaseDamage += damageIncrease;
+                    else pc.FireType = 0;
                     pc.Damage = pc.BaseDamage; //reset damage to base damage
                     pc.FireRate = statStick.FireRate;
                     break;
                 case BuffType.MultiBullet:
-                    pc.FireType = 1;
+                    if (pc.FireType == 1) 
+                    {
+                        pc.BaseDamage += damageIncrease;
+                    }
+                    else pc.FireType = 1;
                     pc.Damage = pc.BaseDamage / 2; // reduce damage for spread mode 
                     pc.FireRate = statStick.FireRate * 10;
                     break;

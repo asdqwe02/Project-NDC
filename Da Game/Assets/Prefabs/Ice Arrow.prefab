@@ -95,8 +95,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 7645317348785127934}
-  _bulletSpeed: 50
-  _isFromPlayer: 0
+  _bulletSpeed: 35
+  isFromPlayer: 0
 --- !u!95 &7645317348785127934
 Animator:
   serializedVersion: 3
