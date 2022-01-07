@@ -234,7 +234,7 @@ MonoBehaviour:
   numberPopUp: {fileID: 6161134254988266509, guid: cdfc0503540752946bc3d0e7226c4aad, type: 3}
   hp: 100
   movementSpeed: 8
-  attackSpeed: 1
+  attackSpeed: 0.333
   armour: 1
   fireResistance: 0
   coldResistance: 0
@@ -256,10 +256,10 @@ MonoBehaviour:
   - {fileID: 805058170442436272, guid: 3c1a921af20c9ce4e990a4a57e581b0a, type: 3}
   _dashPrefab: {fileID: 8863281615483567224, guid: 0b05ca15a39a043498868cd5889f9604, type: 3}
   _meleeSlashPrefab: {fileID: 5263838983077366921, guid: d5756394fd17aed4aaf8e1e239e8b589, type: 3}
-  _buff: 
   scenePassword: Hideout
   coins: 0
   UnlockedSlot: 0
+  meleeAttackTime: 0
   collider2D: {fileID: 5269449442251462114}
   FacingRight: 1
   Counter: 0

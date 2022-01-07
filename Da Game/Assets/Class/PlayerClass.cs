@@ -36,7 +36,6 @@ public class PlayerClass : MovingObjects
     public float DashRange { get => _dashRange; set => _dashRange = value; }
     public Transform DashPrefab { get => _dashPrefab; set => _dashPrefab = value; }
     public Rigidbody2D Rb { get => rb; set => rb = value; }
-    public string Buff { get => _buff; set => _buff = value; }
     public Transform MeleeSlashPrefab { get => _meleeSlashPrefab; set => _meleeSlashPrefab = value; }
     public float MeleeAttackRange { get => _meleeAttackRange; set => _meleeAttackRange = value; }
     public float BaseDamage { get => baseDamage; set => baseDamage = value; }

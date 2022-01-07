@@ -8,7 +8,7 @@ public class PlayerController : PlayerClass
     public static string slot;
     //Variables used in Shooting 
     private Vector2 _lookDirection;
-
+    public float meleeAttackTime;
     //Variables used in Movement
     private Vector2 _moveDirection;
     private double DashReset_TakeTooLong = 0.75;
@@ -54,6 +54,7 @@ public class PlayerController : PlayerClass
         Singleton = this;
 
         FiringTime -= Time.deltaTime; // reset firing time
+        meleeAttackTime -= Time.deltaTime;
         BaseDamage = Damage; // setup base damage
         if (instance == null)
         {
@@ -98,7 +99,7 @@ public class PlayerController : PlayerClass
 
         Save_Base();
     }
-    
+
 
 
     // Update is called once per frame
@@ -181,16 +182,21 @@ public class PlayerController : PlayerClass
         }
 
         //Melee
-        if (Input.GetMouseButtonDown(1) && !animator.GetBool("ToSleep"))
+        if (meleeAttackTime > 0)
+            meleeAttackTime = meleeAttackTime - Time.deltaTime;
+        else if (Input.GetMouseButtonDown(1) && !animator.GetBool("ToSleep"))
+        {
             MeleeAttack();
+            meleeAttackTime += AttackSpeed;
+        }
 
         //Dash
         if (CanDash)
         {
-            if(HasDashCounter == 1)
+            if (HasDashCounter == 1)
             {
                 DashReset_TakeTooLong -= Time.deltaTime;
-                if(DashReset_TakeTooLong <= 0)
+                if (DashReset_TakeTooLong <= 0)
                 {
                     DashReset_TakeTooLong = 0.75;
                     HasDashCounter = 0;
@@ -200,7 +206,7 @@ public class PlayerController : PlayerClass
             {
                 isDashButtonDown = true;
                 HasDashCounter += 1;
-                if(HasDashCounter == 2)
+                if (HasDashCounter == 2)
                 {
                     CanDash = false;
                     DashCoolDown = 0.75;
@@ -211,7 +217,7 @@ public class PlayerController : PlayerClass
         else
         {
             DashCoolDown -= Time.deltaTime;
-            if(DashCoolDown <= 0)
+            if (DashCoolDown <= 0)
             {
                 CanDash = true;
                 HasDashCounter = 0;
@@ -271,7 +277,7 @@ public class PlayerController : PlayerClass
     }
 
     //Spread fire version 2 this is control by the machine god idk how it work exactly 
-    private void FireBulletSpreadV2() 
+    private void FireBulletSpreadV2()
     {
         //Barrel
         Vector3 barrelPos = _fireAttackPoint.position;
@@ -436,7 +442,7 @@ public class PlayerController : PlayerClass
         //Debug.Log("Look direction magnitude: " + _lookDirection.magnitude);
         foreach (Collider2D enemy in hitEnemies)
         {
-           
+
             //for dummy
             if (enemy.CompareTag("Dummy"))
             {
@@ -522,7 +528,7 @@ public class PlayerController : PlayerClass
             _restrictMovement = true;
         }
     }
- 
+
 
     public void HasDied()
     {

@@ -1,0 +1,1656 @@
+Using pre-set license
+Built from '2020.3/staging' branch; Version is '2020.3.17f1 (a4537701e4ab) revision 10769271'; Using compiler version '192528614'; Build Type 'Release'
+OS: 'Windows 10 Home Single Language; OS build 19043.1415; Version 2009; 64bit' Language: 'en' Physical Memory: 16236 MB
+BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 0
+
+COMMAND LINE ARGUMENTS:
+C:\Program Files\Unity\Hub\Editor\2020.3.17f1\Editor\Unity.exe
+-adb2
+-batchMode
+-noUpm
+-name
+AssetImportWorker0
+-projectPath
+C:/Users/new user/Desktop/SE100-P0/Da Game
+-logFile
+Logs/AssetImportWorker0.log
+-srvPort
+57068
+Successfully changed project path to: C:/Users/new user/Desktop/SE100-P0/Da Game
+C:/Users/new user/Desktop/SE100-P0/Da Game
+Using Asset Import Pipeline V2.
+Refreshing native plugins compatible for Editor in 73.42 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Initialize engine version: 2020.3.17f1 (a4537701e4ab)
+[Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2020.3.17f1/Editor/Data/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path C:/Users/new user/Desktop/SE100-P0/Da Game/Assets
+GfxDevice: creating device client; threaded=0
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: NVIDIA GeForce GTX 1650 (ID=0x1f91)
+    Vendor:   
+    VRAM:     3962 MB
+    Driver:   27.21.14.5763
+Initialize mono
+Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2020.3.17f1/Editor/Data/Managed'
+Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2020.3.17f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit'
+Mono config path = 'C:/Program Files/Unity/Hub/Editor/2020.3.17f1/Editor/Data/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56148
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2020.3.17f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Registered in 0.001848 seconds.
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 67.07 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.068 seconds
+Domain Reload Profiling:
+	ReloadAssembly (1069ms)
+		BeginReloadAssembly (54ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (0ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (1ms)
+		EndReloadAssembly (422ms)
+			LoadAssemblies (52ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (145ms)
+			ReleaseScriptCaches (0ms)
+			RebuildScriptCaches (31ms)
+			SetupLoadedEditorAssemblies (181ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (3ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (67ms)
+				BeforeProcessingInitializeOnLoad (15ms)
+				ProcessInitializeOnLoadAttributes (69ms)
+				ProcessInitializeOnLoadMethodAttributes (26ms)
+				AfterProcessingInitializeOnLoad (0ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (0ms)
+Platform modules already initialized, skipping
+Registering precompiled user dll's ...
+Registered in 0.005186 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 66.60 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.268 seconds
+Domain Reload Profiling:
+	ReloadAssembly (1269ms)
+		BeginReloadAssembly (134ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (5ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (17ms)
+		EndReloadAssembly (1076ms)
+			LoadAssemblies (90ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (324ms)
+			ReleaseScriptCaches (1ms)
+			RebuildScriptCaches (58ms)
+			SetupLoadedEditorAssemblies (485ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (3ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (67ms)
+				BeforeProcessingInitializeOnLoad (99ms)
+				ProcessInitializeOnLoadAttributes (296ms)
+				ProcessInitializeOnLoadMethodAttributes (13ms)
+				AfterProcessingInitializeOnLoad (6ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (7ms)
+Platform modules already initialized, skipping
+========================================================================
+Worker process is ready to serve import requests
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.04 seconds
+Refreshing native plugins compatible for Editor in 0.64 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3582 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 175.6 MB.
+System memory in use after: 175.8 MB.
+
+Unloading 31 unused Assets to reduce memory usage. Loaded Objects now: 4047.
+Total: 3.477700 ms (FindLiveObjects: 0.320800 ms CreateObjectMapping: 0.151500 ms MarkObjects: 2.913800 ms  DeleteObjects: 0.090500 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-codec-MediaFoundation-h265: 746d11721c4dcdbdad8f713fa42b33f4 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  path: Assets/Sprites/miscellaneous/Dungeon Collectables.png
+  artifactKey: Guid(933e5d462ada36242aa585b6a01158c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/miscellaneous/Dungeon Collectables.png using Guid(933e5d462ada36242aa585b6a01158c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'aaad82878884a48c6586535419d1b3c9') in 0.147960 seconds 
+  Import took 0.152914 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000277 seconds.
+  path: Assets/AstarPathfindingProject/Editor/EditorAssets/DarkSkin/gizmoButton_off@1x.png
+  artifactKey: Guid(b05124c2b9dc5429a84ef0195a916fce) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/AstarPathfindingProject/Editor/EditorAssets/DarkSkin/gizmoButton_off@1x.png using Guid(b05124c2b9dc5429a84ef0195a916fce) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '217b8836ef407e04dcf2ff3855660522') in 0.017467 seconds 
+  Import took 0.022536 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000221 seconds.
+  path: Assets/Sprites/miscellaneous/Constant fire Sprite.png
+  artifactKey: Guid(6ee7483ee8582c3428fe26e6eaa9660f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/miscellaneous/Constant fire Sprite.png using Guid(6ee7483ee8582c3428fe26e6eaa9660f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '81cfbacd669b0e374484a33f8355bf2c') in 0.037362 seconds 
+  Import took 0.043248 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000284 seconds.
+  path: Assets/Sprites/Portal/ezgif.com-gif-maker-removebg.png
+  artifactKey: Guid(c6984d1183a6d06448fe50004a8e3fd4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Portal/ezgif.com-gif-maker-removebg.png using Guid(c6984d1183a6d06448fe50004a8e3fd4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f56ba2f681fd83d37728754f7cbaa9c9') in 0.056922 seconds 
+  Import took 0.062371 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000278 seconds.
+  path: Assets/AstarPathfindingProject/Editor/EditorAssets/images/gridPivotSelect_Normal.png
+  artifactKey: Guid(9de7a15ab4e1d48da9861247bc34226d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/AstarPathfindingProject/Editor/EditorAssets/images/gridPivotSelect_Normal.png using Guid(9de7a15ab4e1d48da9861247bc34226d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '15e54891d138e6370af46af178ba614a') in 0.016488 seconds 
+  Import took 0.021874 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000249 seconds.
+  path: Assets/Sprites/Projectiles/Arrows/Arrows_pack.png
+  artifactKey: Guid(101da05c5b2c5af48a86c1be9766024e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Projectiles/Arrows/Arrows_pack.png using Guid(101da05c5b2c5af48a86c1be9766024e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3103215ea49ad21eb0f104a84c8739ed') in 0.036534 seconds 
+  Import took 0.041390 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000271 seconds.
+  path: Assets/AstarPathfindingProject/Editor/EditorAssets/images/ArrowUp.png
+  artifactKey: Guid(b1722c752c8754c5281b2efd6cf8477c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/AstarPathfindingProject/Editor/EditorAssets/images/ArrowUp.png using Guid(b1722c752c8754c5281b2efd6cf8477c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '82213748b75b01ce6639d78b6a053a79') in 0.017307 seconds 
+  Import took 0.022542 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000313 seconds.
+  path: Assets/Sprites/Projectiles/FireBall/B500-3.PNG
+  artifactKey: Guid(d20331e513d044d4a8550a530a2a6116) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Projectiles/FireBall/B500-3.PNG using Guid(d20331e513d044d4a8550a530a2a6116) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '06c67493460e04aedf567ed6a6ba636e') in 0.026816 seconds 
+  Import took 0.031673 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000226 seconds.
+  path: Assets/Sprites/Effects/Explosions/Explosion SpriteSheet.png
+  artifactKey: Guid(29cf12396b14fd24a941370aef31b7e6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Effects/Explosions/Explosion SpriteSheet.png using Guid(29cf12396b14fd24a941370aef31b7e6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '31dcc6c2042421421cd31588dced592a') in 0.025358 seconds 
+  Import took 0.030425 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000304 seconds.
+  path: Assets/Sprites/Projectiles/IceShard/I5050-5.png
+  artifactKey: Guid(5d8360a16167b11448efa82436608b94) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Projectiles/IceShard/I5050-5.png using Guid(5d8360a16167b11448efa82436608b94) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ec8bba8b22ffbdf7d39ffee9b65e3286') in 0.023035 seconds 
+  Import took 0.028800 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000284 seconds.
+  path: Assets/AstarPathfindingProject/ExampleScenes/Example2_Terrain/checkerGround.psd
+  artifactKey: Guid(ee2523340e7944c4297a80937a51484c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/AstarPathfindingProject/ExampleScenes/Example2_Terrain/checkerGround.psd using Guid(ee2523340e7944c4297a80937a51484c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4b57949bae5c9a18b80fd0097a17c7b3') in 0.020134 seconds 
+  Import took 0.025429 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000282 seconds.
+  path: Assets/Sprites/Effects/Explosions/Explosion 2 SpriteSheet.png
+  artifactKey: Guid(ef0c6c258960c9c419971caa98762283) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Effects/Explosions/Explosion 2 SpriteSheet.png using Guid(ef0c6c258960c9c419971caa98762283) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bf3c824f507775da14a50993f7ff2847') in 0.089571 seconds 
+  Import took 0.095674 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000344 seconds.
+  path: Assets/AstarPathfindingProject/Editor/EditorAssets/DarkSkin/deleteButton@1x.png
+  artifactKey: Guid(b5a4a564ac2dc4261a13719673f157e1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/AstarPathfindingProject/Editor/EditorAssets/DarkSkin/deleteButton@1x.png using Guid(b5a4a564ac2dc4261a13719673f157e1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '45e58608308bfd11b12b16b26847982c') in 0.023033 seconds 
+  Import took 0.031242 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000212 seconds.
+  path: Assets/Sprites/Players/damaged.png
+  artifactKey: Guid(c1dc3b096b87b6f42b48a359a0060a04) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Players/damaged.png using Guid(c1dc3b096b87b6f42b48a359a0060a04) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e189940ea0ffee90292c61a1b2f958d1') in 0.034088 seconds 
+  Import took 0.043938 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000357 seconds.
+  path: Assets/AstarPathfindingProject/Editor/EditorAssets/DarkSkin/images/gridPivotSelect_Normal.png
+  artifactKey: Guid(37972c32346084c13bfddb8c3dbed143) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/AstarPathfindingProject/Editor/EditorAssets/DarkSkin/images/gridPivotSelect_Normal.png using Guid(37972c32346084c13bfddb8c3dbed143) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e4e70fd32bda6c327978b0f0747f9204') in 0.020300 seconds 
+  Import took 0.028193 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000218 seconds.
+  path: Assets/Sprites/Projectiles/IceShard/I5050-9.png
+  artifactKey: Guid(6c94526257acee74fa1ed6925b29b222) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Projectiles/IceShard/I5050-9.png using Guid(6c94526257acee74fa1ed6925b29b222) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4ef925b4256f3dacef75face50fb8844') in 0.033342 seconds 
+  Import took 0.042445 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000222 seconds.
+  path: Assets/AstarPathfindingProject/Editor/EditorAssets/LightSkin/editButton@2x.png
+  artifactKey: Guid(7e276a83ed42e4e3584a50b6084eef8d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/AstarPathfindingProject/Editor/EditorAssets/LightSkin/editButton@2x.png using Guid(7e276a83ed42e4e3584a50b6084eef8d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '32285a2e5f08edd7e3977a1510f11341') in 0.019568 seconds 
+  Import took 0.029295 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000266 seconds.
+  path: Assets/AstarPathfindingProject/Editor/EditorAssets/DarkSkin/hex_diameter@1x.png
+  artifactKey: Guid(aec40eb6c450c4bdea484100ff9fb9a4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/AstarPathfindingProject/Editor/EditorAssets/DarkSkin/hex_diameter@1x.png using Guid(aec40eb6c450c4bdea484100ff9fb9a4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '37d8ed4916d06173dc97960896b43ee1') in 0.027757 seconds 
+  Import took 0.035771 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000316 seconds.
+  path: Assets/AstarPathfindingProject/Editor/EditorAssets/LightSkin/hex_width@1x.png
+  artifactKey: Guid(c3f63c474ba404e88a6a16a074cced39) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/AstarPathfindingProject/Editor/EditorAssets/LightSkin/hex_width@1x.png using Guid(c3f63c474ba404e88a6a16a074cced39) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f044ff60db567371b8ac553229ee2561') in 0.030328 seconds 
+  Import took 0.039163 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000210 seconds.
+  path: Assets/AstarPathfindingProject/Editor/EditorAssets/LightSkin/deleteButton_active@1x.png
+  artifactKey: Guid(c051ffc737cd54d909137d2937e82930) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/AstarPathfindingProject/Editor/EditorAssets/LightSkin/deleteButton_active@1x.png using Guid(c051ffc737cd54d909137d2937e82930) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '34e16dedd22bc8a15450c76db37c5b37') in 0.023645 seconds 
+  Import took 0.032351 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000202 seconds.
+  path: Assets/Sprites/Projectiles/FireBall/FB500-2.png
+  artifactKey: Guid(729465b83568b0743a270a9474b95d9d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Projectiles/FireBall/FB500-2.png using Guid(729465b83568b0743a270a9474b95d9d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e8957a9fb0235095983e32733014b3fc') in 0.033859 seconds 
+  Import took 0.042526 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000231 seconds.
+  path: Assets/Sprites/Enemies/Boss Golem/Golem Slam.png
+  artifactKey: Guid(0a242b6825753e8489ad1c538393b3f1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Enemies/Boss Golem/Golem Slam.png using Guid(0a242b6825753e8489ad1c538393b3f1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3037d6066003e27da26a1d29588fcbe5') in 0.061169 seconds 
+  Import took 0.067924 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000185 seconds.
+  path: Assets/Sprites/Projectiles/Physical Projectiles/FX046_03.png
+  artifactKey: Guid(0c85e884c7ba35b49b4cf6ed24aa5424) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Projectiles/Physical Projectiles/FX046_03.png using Guid(0c85e884c7ba35b49b4cf6ed24aa5424) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '618a2c0f22d0821a7d717bbc94cbd821') in 0.017447 seconds 
+  Import took 0.023082 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000188 seconds.
+  path: Assets/Sprites/Projectiles/IceShard/I5050-2.png
+  artifactKey: Guid(a42fe7ddbd5850a4ba3c9b63b8773d65) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Projectiles/IceShard/I5050-2.png using Guid(a42fe7ddbd5850a4ba3c9b63b8773d65) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0bba47d7528af8147041283beefcfcb8') in 0.024332 seconds 
+  Import took 0.029399 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000221 seconds.
+  path: Assets/AstarPathfindingProject/Editor/EditorAssets/DarkSkin/deleteButton_active@1x.png
+  artifactKey: Guid(d0f7738d6b5b2420b9a77bfef3926e2a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/AstarPathfindingProject/Editor/EditorAssets/DarkSkin/deleteButton_active@1x.png using Guid(d0f7738d6b5b2420b9a77bfef3926e2a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '77a2c76667b0513031aab175c093d6d6') in 0.015462 seconds 
+  Import took 0.021482 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000254 seconds.
+  path: Assets/Sprites/Enemies/Boss Golem/Die.png
+  artifactKey: Guid(552f1de2e24be11428e9974db9bf6f46) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Enemies/Boss Golem/Die.png using Guid(552f1de2e24be11428e9974db9bf6f46) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '91e69cf81367a2c2f3433faba58a2752') in 0.081197 seconds 
+  Import took 0.086648 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000176 seconds.
+  path: Assets/AstarPathfindingProject/Editor/EditorAssets/LightSkin/gizmoButton_off@2x.png
+  artifactKey: Guid(deb2afb942c3b42fbba8823da7f05894) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/AstarPathfindingProject/Editor/EditorAssets/LightSkin/gizmoButton_off@2x.png using Guid(deb2afb942c3b42fbba8823da7f05894) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9d7ed02713181a9ed05239f864c676da') in 0.016255 seconds 
+  Import took 0.021018 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000157 seconds.
+  path: Assets/Sprites/Projectiles/FireBall/FB500-3.png
+  artifactKey: Guid(302fca74f848fda489e7a96b61f4be9d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Projectiles/FireBall/FB500-3.png using Guid(302fca74f848fda489e7a96b61f4be9d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '194cdf6547dc5a620d1ced5effb4844f') in 0.022996 seconds 
+  Import took 0.028367 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000227 seconds.
+  path: Assets/AstarPathfindingProject/ExampleScenes/Materials/Textures/Falloff.psd
+  artifactKey: Guid(6f8825d71b24a41f79429012e915aab5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/AstarPathfindingProject/ExampleScenes/Materials/Textures/Falloff.psd using Guid(6f8825d71b24a41f79429012e915aab5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6012949bc1fbebf2b189246f50cdf873') in 0.017143 seconds 
+  Import took 0.022107 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000169 seconds.
+  path: Assets/Sprites/Projectiles/IceShard/I5050-8.png
+  artifactKey: Guid(b4bcc67a32ba9914fbab110e98fa0b6a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Projectiles/IceShard/I5050-8.png using Guid(b4bcc67a32ba9914fbab110e98fa0b6a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a2fe0f52eb3f4a5978c811028412270b') in 0.022943 seconds 
+  Import took 0.028183 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000235 seconds.
+  path: Assets/AstarPathfindingProject/Editor/EditorAssets/DarkSkin/images/gridPivotSelect.png
+  artifactKey: Guid(5006aa4ede39e49198b851d98e267b5d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/AstarPathfindingProject/Editor/EditorAssets/DarkSkin/images/gridPivotSelect.png using Guid(5006aa4ede39e49198b851d98e267b5d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd8ba5196ac71b6f25b6bde4948a3dc90') in 0.016774 seconds 
+  Import took 0.021722 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000195 seconds.
+  path: Assets/AstarPathfindingProject/Editor/EditorAssets/LightSkin/gizmoButton_on@1x.png
+  artifactKey: Guid(455f4fe795672465c8a4e8db3c6b9ccb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/AstarPathfindingProject/Editor/EditorAssets/LightSkin/gizmoButton_on@1x.png using Guid(455f4fe795672465c8a4e8db3c6b9ccb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd35aa7447c2b02fd182964f13e0d31db') in 0.017286 seconds 
+  Import took 0.022144 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000246 seconds.
+  path: Assets/Sprites/Projectiles/IceShard/I5050-7.png
+  artifactKey: Guid(e2d897df8e5ed6c4aba834482e65ec29) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Projectiles/IceShard/I5050-7.png using Guid(e2d897df8e5ed6c4aba834482e65ec29) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4aff98d1ebc2110e186a8706f816f590') in 0.015322 seconds 
+  Import took 0.020327 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000251 seconds.
+  path: Assets/AstarPathfindingProject/Editor/EditorAssets/DarkSkin/colorInterpolationBox.png
+  artifactKey: Guid(0790ee8db18ed49ed8369be285199835) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/AstarPathfindingProject/Editor/EditorAssets/DarkSkin/colorInterpolationBox.png using Guid(0790ee8db18ed49ed8369be285199835) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6bbc0a9b2fca6f0e1c167493f1dca968') in 0.014098 seconds 
+  Import took 0.018595 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000219 seconds.
+  path: Assets/AstarPathfindingProject/Editor/EditorAssets/images/ArrowDown.png
+  artifactKey: Guid(12ea2fbedc5cc4bd191d795f44b2de75) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/AstarPathfindingProject/Editor/EditorAssets/images/ArrowDown.png using Guid(12ea2fbedc5cc4bd191d795f44b2de75) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3cc1ce86828ae02fbfa16e08599ede04') in 0.013709 seconds 
+  Import took 0.018493 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000205 seconds.
+  path: Assets/AstarPathfindingProject/Editor/EditorAssets/DarkSkin/gizmoButton_off@2x.png
+  artifactKey: Guid(3772050cdbd2a472789aa76d6de5b270) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/AstarPathfindingProject/Editor/EditorAssets/DarkSkin/gizmoButton_off@2x.png using Guid(3772050cdbd2a472789aa76d6de5b270) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c98ae1fe205c6be78132465a3cd64d93') in 0.013406 seconds 
+  Import took 0.018236 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000303 seconds.
+  path: Assets/AstarPathfindingProject/Editor/EditorAssets/grid.psd
+  artifactKey: Guid(527965173b00f43f9a1b8fc9e8c2e64b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/AstarPathfindingProject/Editor/EditorAssets/grid.psd using Guid(527965173b00f43f9a1b8fc9e8c2e64b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c8db6090bb5bab68efcd1f1fcc5cee4c') in 0.014810 seconds 
+  Import took 0.019277 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000260 seconds.
+  path: Assets/Sprites/miscellaneous/Goblin King Sprite Sheet_head.png
+  artifactKey: Guid(80515513113d6124cb38a7fa9cd7affe) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/miscellaneous/Goblin King Sprite Sheet_head.png using Guid(80515513113d6124cb38a7fa9cd7affe) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c100efaadbbd9aadca8b32ab5c373d3f') in 0.013496 seconds 
+  Import took 0.018343 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000311 seconds.
+  path: Assets/AstarPathfindingProject/Editor/EditorAssets/DarkSkin/hex_width@1x.png
+  artifactKey: Guid(43a4af66a8c594a2daa4744ed77da2dd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/AstarPathfindingProject/Editor/EditorAssets/DarkSkin/hex_width@1x.png using Guid(43a4af66a8c594a2daa4744ed77da2dd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '205c69d93a256d4b463407d8ebc73860') in 0.014511 seconds 
+  Import took 0.019456 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000214 seconds.
+  path: Assets/Sprites/Enemies/Archer/attack.png
+  artifactKey: Guid(b42498676b6b961488919e246306c445) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Enemies/Archer/attack.png using Guid(b42498676b6b961488919e246306c445) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '56214f59415e900eb504b53d10aee0e9') in 0.045687 seconds 
+  Import took 0.050448 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000287 seconds.
+  path: Assets/AstarPathfindingProject/Editor/EditorAssets/DarkSkin/gizmoButton_on@2x.png
+  artifactKey: Guid(a454b67ef7bd04780aca99e364202679) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/AstarPathfindingProject/Editor/EditorAssets/DarkSkin/gizmoButton_on@2x.png using Guid(a454b67ef7bd04780aca99e364202679) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '420deb15e3dec95feab10201288f80f6') in 0.014922 seconds 
+  Import took 0.021254 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000261 seconds.
+  path: Assets/Sprites/Projectiles/FireBall/B500-4.PNG
+  artifactKey: Guid(02092eef9c1de52499ef576100d3f794) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Projectiles/FireBall/B500-4.PNG using Guid(02092eef9c1de52499ef576100d3f794) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7309c1435352f1614436802f9d7a4366') in 0.026244 seconds 
+  Import took 0.031860 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000301 seconds.
+  path: Assets/Sprites/Projectiles/FireBall/FB500-1.png
+  artifactKey: Guid(d3c4c9fa523533d4a96fa09ce84a26f5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Projectiles/FireBall/FB500-1.png using Guid(d3c4c9fa523533d4a96fa09ce84a26f5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '94688507f53d02e8b393a7f6a08e45df') in 0.015421 seconds 
+  Import took 0.020163 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000297 seconds.
+  path: Assets/AstarPathfindingProject/Editor/EditorAssets/DarkSkin/hex_diameter@2x.png
+  artifactKey: Guid(36094f49ffe31443eb5e8ea185115a1d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/AstarPathfindingProject/Editor/EditorAssets/DarkSkin/hex_diameter@2x.png using Guid(36094f49ffe31443eb5e8ea185115a1d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '77268184a217c73c442559090768828d') in 0.015056 seconds 
+  Import took 0.019844 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000314 seconds.
+  path: Assets/Sprites/Projectiles/IceShard/I5050-10.png
+  artifactKey: Guid(8d117b0be426bcf4c9a92007a39a10c6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Projectiles/IceShard/I5050-10.png using Guid(8d117b0be426bcf4c9a92007a39a10c6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '97bd42c788c851afee013a56e51a43ae') in 0.025260 seconds 
+  Import took 0.030081 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000211 seconds.
+  path: Assets/AstarPathfindingProject/Editor/EditorAssets/DarkSkin/deleteButton_active@2x.png
+  artifactKey: Guid(b9d7d6d7befb34b9c889e6195746c452) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/AstarPathfindingProject/Editor/EditorAssets/DarkSkin/deleteButton_active@2x.png using Guid(b9d7d6d7befb34b9c889e6195746c452) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e3170ad4222f04caa6285df164aa239f') in 0.014972 seconds 
+  Import took 0.020289 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000307 seconds.
+  path: Assets/Sprites/Projectiles/IceShard/I5050-11.png
+  artifactKey: Guid(15a05a7042ff0394189ea8a269ba74d5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Projectiles/IceShard/I5050-11.png using Guid(15a05a7042ff0394189ea8a269ba74d5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c404c88cb4da0cef5bdbd378fad58cf6') in 0.023001 seconds 
+  Import took 0.027778 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000295 seconds.
+  path: Assets/AstarPathfindingProject/Editor/EditorAssets/images/ArrowDown_on.png
+  artifactKey: Guid(d8951099054c64beaaa49d675d71cfcf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/AstarPathfindingProject/Editor/EditorAssets/images/ArrowDown_on.png using Guid(d8951099054c64beaaa49d675d71cfcf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ac2a4448f8dab9c8bf2084ec6e1b1018') in 0.016727 seconds 
+  Import took 0.021596 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000262 seconds.
+  path: Assets/Sprites/Projectiles/IceShard/I5050-4.png
+  artifactKey: Guid(794b03a143a47a04fba5d692b81eca42) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Projectiles/IceShard/I5050-4.png using Guid(794b03a143a47a04fba5d692b81eca42) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '414c1f33d195dbb8a0b0ea678ef0dd8a') in 0.021754 seconds 
+  Import took 0.026517 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000292 seconds.
+  path: Assets/Sprites/Projectiles/IceShard/I5050-3.png
+  artifactKey: Guid(7c30a4705c4f1fa478996e31fe47ae69) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Projectiles/IceShard/I5050-3.png using Guid(7c30a4705c4f1fa478996e31fe47ae69) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8e97f728222d9eb4d773a80955e629da') in 0.023885 seconds 
+  Import took 0.028435 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000243 seconds.
+  path: Assets/Sprites/Enemies/Archer/hit and death.png
+  artifactKey: Guid(8bf3a465bb3224b4f89ab86cdbe2afa8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Enemies/Archer/hit and death.png using Guid(8bf3a465bb3224b4f89ab86cdbe2afa8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8dab7fb2a74989fb46252f5bfe704ce5') in 0.043886 seconds 
+  Import took 0.049133 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000267 seconds.
+  path: Assets/Sprites/Projectiles/GolemArm/arm_projectile_glowing.png
+  artifactKey: Guid(bd7da8b066a77ea4792c848cc56eafbf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Projectiles/GolemArm/arm_projectile_glowing.png using Guid(bd7da8b066a77ea4792c848cc56eafbf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd4a65bdf036bfa0a6da3f993aafe6a06') in 0.041756 seconds 
+  Import took 0.046587 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000288 seconds.
+  path: Assets/Sprites/Projectiles/Physical Projectiles/bullet9.png
+  artifactKey: Guid(f4b1ed5d87719b0478c46776ae661a97) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Projectiles/Physical Projectiles/bullet9.png using Guid(f4b1ed5d87719b0478c46776ae661a97) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '685bca5393708ae1f251470d087bf3bf') in 0.013620 seconds 
+  Import took 0.018401 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000307 seconds.
+  path: Assets/AstarPathfindingProject/Editor/EditorAssets/LightSkin/headerBackground.png
+  artifactKey: Guid(620f088d04c284b21939ce24996fdbee) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/AstarPathfindingProject/Editor/EditorAssets/LightSkin/headerBackground.png using Guid(620f088d04c284b21939ce24996fdbee) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '206a2df9605de656f8e22a1093b22e5d') in 0.014732 seconds 
+  Import took 0.019290 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000308 seconds.
+  path: Assets/Sprites/miscellaneous/Destructible Objects Sprite Sheet.png
+  artifactKey: Guid(3c3782e5d5031054bb7285b1a562408f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/miscellaneous/Destructible Objects Sprite Sheet.png using Guid(3c3782e5d5031054bb7285b1a562408f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c790a4b5cbe40092b3b5263c766bbf4a') in 0.043420 seconds 
+  Import took 0.047931 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000302 seconds.
+  path: Assets/AstarPathfindingProject/Editor/EditorAssets/LightSkin/editButton_active@2x.png
+  artifactKey: Guid(f7ae6f90d33d043c684812513307ec16) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/AstarPathfindingProject/Editor/EditorAssets/LightSkin/editButton_active@2x.png using Guid(f7ae6f90d33d043c684812513307ec16) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cd82d5d6bdafdaedb6e97a6e5b9aab19') in 0.020853 seconds 
+  Import took 0.026389 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000317 seconds.
+  path: Assets/Sprites/Enemies/Boss Golem/Golem Firing Arm.png
+  artifactKey: Guid(22ed12e402ec53e4fa015960d2f57988) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Enemies/Boss Golem/Golem Firing Arm.png using Guid(22ed12e402ec53e4fa015960d2f57988) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a95e6cb9fefeb3529949f17316ba15f2') in 0.057836 seconds 
+  Import took 0.062983 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000259 seconds.
+  path: Assets/Sprites/miscellaneous/Dummy.png
+  artifactKey: Guid(5b834d808c64664489b7ede08adee663) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/miscellaneous/Dummy.png using Guid(5b834d808c64664489b7ede08adee663) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '75c31aef009125f214320de52e0afeb2') in 0.062775 seconds 
+  Import took 0.067752 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000318 seconds.
+  path: Assets/Sprites/Projectiles/Physical Projectiles/FX046_02.png
+  artifactKey: Guid(e1ff2a662ca599c4199f7c75397545bd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Projectiles/Physical Projectiles/FX046_02.png using Guid(e1ff2a662ca599c4199f7c75397545bd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '058cfc6667174a6ef4084faf59cdc857') in 0.016275 seconds 
+  Import took 0.021885 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000227 seconds.
+  path: Assets/AstarPathfindingProject/Editor/EditorAssets/images/gridPivotSelect_On.png
+  artifactKey: Guid(3d11311e97436432e897a4bd0b5fbfac) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/AstarPathfindingProject/Editor/EditorAssets/images/gridPivotSelect_On.png using Guid(3d11311e97436432e897a4bd0b5fbfac) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c747a65201bb37d2cd5e475042328ef6') in 0.016195 seconds 
+  Import took 0.021994 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000303 seconds.
+  path: Assets/Sprites/Projectiles/FireBall/FB500-4.png
+  artifactKey: Guid(5b064b013e6abde4890bb3f5113d7e02) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Projectiles/FireBall/FB500-4.png using Guid(5b064b013e6abde4890bb3f5113d7e02) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '537a2d9133c225f3fc7002e80fe3e2f3') in 0.023169 seconds 
+  Import took 0.028331 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000273 seconds.
+  path: Assets/Sprites/miscellaneous/coin Icon.png
+  artifactKey: Guid(95c95ca1e62f9844ab8a9f2b1a3c287f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/miscellaneous/coin Icon.png using Guid(95c95ca1e62f9844ab8a9f2b1a3c287f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fd0774c68d0ddac3b653e50b99ca13c8') in 0.034354 seconds 
+  Import took 0.040199 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000255 seconds.
+  path: Assets/AstarPathfindingProject/Editor/EditorAssets/LightSkin/gizmoButton_off@1x.png
+  artifactKey: Guid(c780955fc9d0f458abc0de8f2f9cedb2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/AstarPathfindingProject/Editor/EditorAssets/LightSkin/gizmoButton_off@1x.png using Guid(c780955fc9d0f458abc0de8f2f9cedb2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bc9eb54c76f9123dd87648e5c1c79f26') in 0.015055 seconds 
+  Import took 0.020577 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000284 seconds.
+  path: Assets/AstarPathfindingProject/Editor/EditorAssets/DarkSkin/editButton@1x.png
+  artifactKey: Guid(705155b2c3fce47f0a818ac32d5abe3f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/AstarPathfindingProject/Editor/EditorAssets/DarkSkin/editButton@1x.png using Guid(705155b2c3fce47f0a818ac32d5abe3f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '93452fbf17b2943fd89d7f95db0755a6') in 0.017810 seconds 
+  Import took 0.023490 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000324 seconds.
+  path: Assets/AstarPathfindingProject/Editor/EditorAssets/DarkSkin/hex_width@2x.png
+  artifactKey: Guid(321a1fe2502bc493d87337a3a4429cf5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/AstarPathfindingProject/Editor/EditorAssets/DarkSkin/hex_width@2x.png using Guid(321a1fe2502bc493d87337a3a4429cf5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cd810b4d36d636e254b9a4009681093f') in 0.016969 seconds 
+  Import took 0.021996 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000270 seconds.
+  path: Assets/Sprites/Projectiles/FireBall/B500-2.PNG
+  artifactKey: Guid(ab222263faf50a64a9889c22c4be01ad) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Projectiles/FireBall/B500-2.PNG using Guid(ab222263faf50a64a9889c22c4be01ad) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0e8a02a6e748b429df88e0484e87c1bf') in 0.023900 seconds 
+  Import took 0.029547 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000211 seconds.
+  path: Assets/AstarPathfindingProject/Editor/EditorAssets/LightSkin/deleteButton@2x.png
+  artifactKey: Guid(6444e8eb74e6f40e0a966d1e26744d08) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/AstarPathfindingProject/Editor/EditorAssets/LightSkin/deleteButton@2x.png using Guid(6444e8eb74e6f40e0a966d1e26744d08) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b408f52b77dbf43778f6c96051ef8ca1') in 0.016548 seconds 
+  Import took 0.021565 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000226 seconds.
+  path: Assets/Sprites/Enemies/Boss Golem/Fold.png
+  artifactKey: Guid(ad30066cead3d25448e1e50667c7e13a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Enemies/Boss Golem/Fold.png using Guid(ad30066cead3d25448e1e50667c7e13a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '866704fc97f21399ff35e66e6beca4d3') in 0.055977 seconds 
+  Import took 0.062080 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000246 seconds.
+  path: Assets/Sprites/Portal/ezgif.com-gif-maker-removebg2.png
+  artifactKey: Guid(1a3c6cb2ce63fb64b95edfc6ec632270) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Portal/ezgif.com-gif-maker-removebg2.png using Guid(1a3c6cb2ce63fb64b95edfc6ec632270) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '813559ce1d6cf7c39597b83619d8530b') in 0.059742 seconds 
+  Import took 0.065350 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000237 seconds.
+  path: Assets/Sprites/Enemies/Slime/hit and death.png
+  artifactKey: Guid(8a207ac48d3047841b22a8b1d4afb658) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Enemies/Slime/hit and death.png using Guid(8a207ac48d3047841b22a8b1d4afb658) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '20a2c411c1729e68b3438f9c0697655c') in 0.052530 seconds 
+  Import took 0.057340 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000209 seconds.
+  path: Assets/Sprites/Projectiles/IceShard/I5050-6.png
+  artifactKey: Guid(628c9cebb1e1e4242b7e83758d85c531) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Projectiles/IceShard/I5050-6.png using Guid(628c9cebb1e1e4242b7e83758d85c531) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '84bf55f0d60ab9a1e8763767e4e73d8a') in 0.025700 seconds 
+  Import took 0.030787 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000242 seconds.
+  path: Assets/Sprites/Projectiles/IceShard/I5050-1.png
+  artifactKey: Guid(821b1512bf37ef147bc806a663e265ea) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Projectiles/IceShard/I5050-1.png using Guid(821b1512bf37ef147bc806a663e265ea) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e6c963759e26ae60c86d05872f37a732') in 0.023203 seconds 
+  Import took 0.029445 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000275 seconds.
+  path: Assets/AstarPathfindingProject/Editor/EditorAssets/DarkSkin/deleteButton@2x.png
+  artifactKey: Guid(c730485723dee4bcbad9d8a7593a8799) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/AstarPathfindingProject/Editor/EditorAssets/DarkSkin/deleteButton@2x.png using Guid(c730485723dee4bcbad9d8a7593a8799) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '63aeaf29f3a2dca71f687117b943a64a') in 0.015453 seconds 
+  Import took 0.021416 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000196 seconds.
+  path: Assets/AstarPathfindingProject/Editor/EditorAssets/images/gridPivotSelect.png
+  artifactKey: Guid(b593db43606434498a7200f8281297d8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/AstarPathfindingProject/Editor/EditorAssets/images/gridPivotSelect.png using Guid(b593db43606434498a7200f8281297d8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b81f6e016d32ebf45ebbe03381b38a35') in 0.014614 seconds 
+  Import took 0.019602 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000216 seconds.
+  path: Assets/Sprites/Enemies/Slime/attack.png
+  artifactKey: Guid(376940a5e7186a74db844b2f2dc0a152) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Enemies/Slime/attack.png using Guid(376940a5e7186a74db844b2f2dc0a152) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6d7a885487a13d0996fd136b5e9abc5d') in 0.050301 seconds 
+  Import took 0.056095 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000204 seconds.
+  path: Assets/AstarPathfindingProject/Editor/EditorAssets/DarkSkin/gizmoButton_on@1x.png
+  artifactKey: Guid(54ad5f6eb8a9349568e58cd1204388a2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/AstarPathfindingProject/Editor/EditorAssets/DarkSkin/gizmoButton_on@1x.png using Guid(54ad5f6eb8a9349568e58cd1204388a2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'dfabbe7bcd7b6e2fb51723db4da1c8c5') in 0.015908 seconds 
+  Import took 0.020788 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000930 seconds.
+  path: Assets/AstarPathfindingProject/Editor/EditorAssets/LightSkin/hex_diameter@2x.png
+  artifactKey: Guid(5a358b45ec6c34f20b9f792e1f259b4f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/AstarPathfindingProject/Editor/EditorAssets/LightSkin/hex_diameter@2x.png using Guid(5a358b45ec6c34f20b9f792e1f259b4f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '64f1a8ccb305df021946b7798fa625a7') in 0.016074 seconds 
+  Import took 0.021591 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000216 seconds.
+  path: Assets/Sprites/miscellaneous/Circular Health bar/damaged.png
+  artifactKey: Guid(6e4d5c5dbe9156347a0a95c8837bd379) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/miscellaneous/Circular Health bar/damaged.png using Guid(6e4d5c5dbe9156347a0a95c8837bd379) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd00289f1938cadcb3121eaf24f3387ba') in 0.015211 seconds 
+  Import took 0.020237 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000225 seconds.
+  path: Assets/AstarPathfindingProject/ExampleScenes/Materials/Textures/Falloff-Reflected.psd
+  artifactKey: Guid(5d4852a517f1f496ebca302bd37b988a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/AstarPathfindingProject/ExampleScenes/Materials/Textures/Falloff-Reflected.psd using Guid(5d4852a517f1f496ebca302bd37b988a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '901f4c19145c819d306cd092171e2551') in 0.015600 seconds 
+  Import took 0.021553 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000241 seconds.
+  path: Assets/Sprites/Enemies/Slime/idle.png
+  artifactKey: Guid(299335bb13fd5fa4cb1fab9e6226ecd0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Enemies/Slime/idle.png using Guid(299335bb13fd5fa4cb1fab9e6226ecd0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '91bc2363db8fb44a38647e1567196d2b') in 0.040626 seconds 
+  Import took 0.045828 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000233 seconds.
+  path: Assets/AstarPathfindingProject/Editor/EditorAssets/DarkSkin/images/gridPivotSelect-03.png
+  artifactKey: Guid(0758c9e42111d4aec99694c875e9badc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/AstarPathfindingProject/Editor/EditorAssets/DarkSkin/images/gridPivotSelect-03.png using Guid(0758c9e42111d4aec99694c875e9badc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a8e163f1eba8da5b6939ea4a642b3455') in 0.016882 seconds 
+  Import took 0.021902 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000192 seconds.
+  path: Assets/AstarPathfindingProject/Editor/EditorAssets/DarkSkin/editButton@2x.png
+  artifactKey: Guid(e8ebb72a41d314b288545fddfd20cafd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/AstarPathfindingProject/Editor/EditorAssets/DarkSkin/editButton@2x.png using Guid(e8ebb72a41d314b288545fddfd20cafd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ca7892cbd51803325ea610f810bbef4b') in 0.016740 seconds 
+  Import took 0.022718 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000250 seconds.
+  path: Assets/Sprites/Projectiles/BallLightning/Balls Lightning All.gif
+  artifactKey: Guid(e60bc142b024dec4297b46b6b6b36494) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Projectiles/BallLightning/Balls Lightning All.gif using Guid(e60bc142b024dec4297b46b6b6b36494) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e44d7131ae1996b0d86e842d2e166010') in 0.032734 seconds 
+  Import took 0.038290 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000219 seconds.
+  path: Assets/AstarPathfindingProject/Editor/EditorAssets/LightSkin/editButton_active@1x.png
+  artifactKey: Guid(3354fe2e1951d420fa49d8f4fec2954b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/AstarPathfindingProject/Editor/EditorAssets/LightSkin/editButton_active@1x.png using Guid(3354fe2e1951d420fa49d8f4fec2954b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ea3ecd5cd96ddd6747bd5bc8c85efd76') in 0.017658 seconds 
+  Import took 0.023365 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000270 seconds.
+  path: Assets/AstarPathfindingProject/Editor/EditorAssets/LightSkin/hex_diameter@1x.png
+  artifactKey: Guid(b1817d211ea3547f088cddf76f3e6647) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/AstarPathfindingProject/Editor/EditorAssets/LightSkin/hex_diameter@1x.png using Guid(b1817d211ea3547f088cddf76f3e6647) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b5d70738ba657bba92ff4e3ffe49c080') in 0.017839 seconds 
+  Import took 0.022811 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000187 seconds.
+  path: Assets/AstarPathfindingProject/Editor/EditorAssets/LightSkin/deleteButton@1x.png
+  artifactKey: Guid(3240f334343ca4dee8239c16d2de57c6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/AstarPathfindingProject/Editor/EditorAssets/LightSkin/deleteButton@1x.png using Guid(3240f334343ca4dee8239c16d2de57c6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8792fbd05b029dd3b74bf0fc51a9c524') in 0.016609 seconds 
+  Import took 0.022139 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000259 seconds.
+  path: Assets/Sprites/NPC/Shop owner/Goblin King Sprite Sheet.png
+  artifactKey: Guid(26a85c79d70d80349bad12f95489d160) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/NPC/Shop owner/Goblin King Sprite Sheet.png using Guid(26a85c79d70d80349bad12f95489d160) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1502f7a7545d50278335b59befc2e568') in 0.097616 seconds 
+  Import took 0.102695 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000221 seconds.
+  path: Assets/Sprites/Projectiles/Physical Projectiles/FX046_01.png
+  artifactKey: Guid(a25beddb0cdc6a348bc5b6550fcf8a29) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Projectiles/Physical Projectiles/FX046_01.png using Guid(a25beddb0cdc6a348bc5b6550fcf8a29) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7fee6b496eaf170e0a90859b5ad39528') in 0.016158 seconds 
+  Import took 0.020906 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000236 seconds.
+  path: Assets/AstarPathfindingProject/Editor/EditorAssets/LightSkin/deleteButton_active@2x.png
+  artifactKey: Guid(19e49615b2c8540fd8a11acd2a26c335) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/AstarPathfindingProject/Editor/EditorAssets/LightSkin/deleteButton_active@2x.png using Guid(19e49615b2c8540fd8a11acd2a26c335) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f64433115585d9b84773eb7fc7c64140') in 0.016414 seconds 
+  Import took 0.021667 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000225 seconds.
+  path: Assets/AstarPathfindingProject/Editor/EditorAssets/LightSkin/gizmoButton_on@2x.png
+  artifactKey: Guid(731ce0beec302410299a12fa1da2dc54) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/AstarPathfindingProject/Editor/EditorAssets/LightSkin/gizmoButton_on@2x.png using Guid(731ce0beec302410299a12fa1da2dc54) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '44fbcaf9221b6feed1513c8897634960') in 0.015669 seconds 
+  Import took 0.020602 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000230 seconds.
+  path: Assets/AstarPathfindingProject/Editor/EditorAssets/LightSkin/editButton@1x.png
+  artifactKey: Guid(71ef598858974450ead310c33f29d5d3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/AstarPathfindingProject/Editor/EditorAssets/LightSkin/editButton@1x.png using Guid(71ef598858974450ead310c33f29d5d3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'aacf6199b73995b84a1e47669bc6a83d') in 0.015907 seconds 
+  Import took 0.021145 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000187 seconds.
+  path: Assets/AstarPathfindingProject/Editor/EditorAssets/DarkSkin/gridPivotSelect.png
+  artifactKey: Guid(11b8d44fcb3cf4c048a576df708e0ec6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/AstarPathfindingProject/Editor/EditorAssets/DarkSkin/gridPivotSelect.png using Guid(11b8d44fcb3cf4c048a576df708e0ec6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd661ae7f8c2f00c2b7e0c2c5328aff71') in 0.015627 seconds 
+  Import took 0.021000 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000207 seconds.
+  path: Assets/AstarPathfindingProject/Editor/EditorAssets/DarkSkin/editButton_active@2x.png
+  artifactKey: Guid(f6a4baf90a7bb4e4a92abe07f1a0a9d3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/AstarPathfindingProject/Editor/EditorAssets/DarkSkin/editButton_active@2x.png using Guid(f6a4baf90a7bb4e4a92abe07f1a0a9d3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1354f5e13417046dcd63519e836bc93c') in 0.018414 seconds 
+  Import took 0.024248 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000236 seconds.
+  path: Assets/Sprites/Projectiles/BallLightning/Ball Lightning.png
+  artifactKey: Guid(1d3d8124e088a5244ac456331cbe7b09) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Projectiles/BallLightning/Ball Lightning.png using Guid(1d3d8124e088a5244ac456331cbe7b09) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6be9d9cd145795f34b9e8ceefad1d3ac') in 0.083211 seconds 
+  Import took 0.088493 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000177 seconds.
+  path: Assets/Sprites/Projectiles/Arrows/Arrow_impact_pack.png
+  artifactKey: Guid(9448cf9c2f97dd740924a324315a798c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Projectiles/Arrows/Arrow_impact_pack.png using Guid(9448cf9c2f97dd740924a324315a798c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '03ae5f9f8429941ce0fa222dbcc106de') in 0.046994 seconds 
+  Import took 0.051732 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000223 seconds.
+  path: Assets/Sprites/Players/death.png
+  artifactKey: Guid(fd4a53a52f3f6eb4d8cee9ff145b9a09) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Players/death.png using Guid(fd4a53a52f3f6eb4d8cee9ff145b9a09) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '79d5b09078eac4c9f8dbc07f93bfa10d') in 0.041862 seconds 
+  Import took 0.047380 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000183 seconds.
+  path: Assets/AstarPathfindingProject/Editor/EditorAssets/DarkSkin/headerBackground.png
+  artifactKey: Guid(db5b85df63e094a1c96f11019bccc577) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/AstarPathfindingProject/Editor/EditorAssets/DarkSkin/headerBackground.png using Guid(db5b85df63e094a1c96f11019bccc577) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd824397798bec4d69bf17bbee24986bc') in 0.014854 seconds 
+  Import took 0.020079 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000220 seconds.
+  path: Assets/AstarPathfindingProject/ExampleScenes/Example5_PointGraph/ground.psd
+  artifactKey: Guid(b0749c40ee03a46eaa0401867a08b963) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/AstarPathfindingProject/ExampleScenes/Example5_PointGraph/ground.psd using Guid(b0749c40ee03a46eaa0401867a08b963) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3b4ad2c0516c6bdb3ba5aa8b7050e893') in 0.018276 seconds 
+  Import took 0.023686 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000194 seconds.
+  path: Assets/AstarPathfindingProject/Editor/EditorAssets/LightSkin/hex_width@2x.png
+  artifactKey: Guid(6010a63a238ef4899872fe5bd998dbb5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/AstarPathfindingProject/Editor/EditorAssets/LightSkin/hex_width@2x.png using Guid(6010a63a238ef4899872fe5bd998dbb5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3ba8f38f76d47e9504522d825334e47f') in 0.015193 seconds 
+  Import took 0.021618 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000184 seconds.
+  path: Assets/AstarPathfindingProject/Editor/EditorAssets/images/ArrowUp_on.png
+  artifactKey: Guid(4c914fdaf554243fe9fb26afc323caef) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/AstarPathfindingProject/Editor/EditorAssets/images/ArrowUp_on.png using Guid(4c914fdaf554243fe9fb26afc323caef) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '37233213f284bb76601ce31127647129') in 0.016070 seconds 
+  Import took 0.023020 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000224 seconds.
+  path: Assets/Sprites/Enemies/Boss Golem/Augment.png
+  artifactKey: Guid(570604348ccd1b841b16d453a04f53ba) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Enemies/Boss Golem/Augment.png using Guid(570604348ccd1b841b16d453a04f53ba) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4724dc3ca96b1037af4a033af8abc715') in 0.048578 seconds 
+  Import took 0.053634 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000203 seconds.
+  path: Assets/Sprites/miscellaneous/flashing arrow_sheet.png
+  artifactKey: Guid(11c9503df4f558342842da48b63a1383) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/miscellaneous/flashing arrow_sheet.png using Guid(11c9503df4f558342842da48b63a1383) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '491bb1dd98beb1ef852e0813d4be12e5') in 0.083392 seconds 
+  Import took 0.088434 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000189 seconds.
+  path: Assets/Sprites/Enemies/Slime/hop.png
+  artifactKey: Guid(682601802deb27443963c1c77ac409fb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Enemies/Slime/hop.png using Guid(682601802deb27443963c1c77ac409fb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e46764e6942822b028c646393303d9d6') in 0.065166 seconds 
+  Import took 0.070082 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000213 seconds.
+  path: Assets/Sprites/miscellaneous/E-Key.png
+  artifactKey: Guid(653b5bb58341c4444a86b6a18df912c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/miscellaneous/E-Key.png using Guid(653b5bb58341c4444a86b6a18df912c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0cf778d5f40585a6345b5d406f9b479b') in 0.026513 seconds 
+  Import took 0.032469 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000263 seconds.
+  path: Assets/AstarPathfindingProject/Editor/EditorAssets/DarkSkin/editButton_active@1x.png
+  artifactKey: Guid(e0cb3cc51f25a48bf8b0c647452b09b1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/AstarPathfindingProject/Editor/EditorAssets/DarkSkin/editButton_active@1x.png using Guid(e0cb3cc51f25a48bf8b0c647452b09b1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '85226a83a859886fa407f741ab22abb8') in 0.019109 seconds 
+  Import took 0.025862 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000222 seconds.
+  path: Assets/AstarPathfindingProject/Editor/EditorAssets/DarkSkin/images/gridPivotSelect_On.png
+  artifactKey: Guid(7ea4fc739ffbb4af1a466f655bf1d178) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/AstarPathfindingProject/Editor/EditorAssets/DarkSkin/images/gridPivotSelect_On.png using Guid(7ea4fc739ffbb4af1a466f655bf1d178) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '874db51a8562a454e0e5682957a68e51') in 0.018198 seconds 
+  Import took 0.025592 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000238 seconds.
+  path: Assets/Sprites/Projectiles/FireBall/FB500-5.png
+  artifactKey: Guid(2113fd0e31e0f7143861d4eb5691afb9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Projectiles/FireBall/FB500-5.png using Guid(2113fd0e31e0f7143861d4eb5691afb9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c8a926b4b5781444864fa7c0e9ba025b') in 0.027762 seconds 
+  Import took 0.036213 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000213 seconds.
+  path: Assets/AstarPathfindingProject/Editor/EditorAssets/LightSkin/colorInterpolationBox.png
+  artifactKey: Guid(9bf4f8f9d8795455bb87213dd56ed793) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/AstarPathfindingProject/Editor/EditorAssets/LightSkin/colorInterpolationBox.png using Guid(9bf4f8f9d8795455bb87213dd56ed793) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ca0094c7345ca4d8dbfca271f604b6db') in 0.015772 seconds 
+  Import took 0.022361 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 2.557902 seconds.
+  path: Assets/Sprites/Enemies/Archer/idle.png
+  artifactKey: Guid(3ede6ccfc668edd44b2dbcd775a7bfa1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Enemies/Archer/idle.png using Guid(3ede6ccfc668edd44b2dbcd775a7bfa1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd0035ff273c73fa79db17d91ef10cc28') in 0.042242 seconds 
+  Import took 0.047629 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000307 seconds.
+  path: Assets/Sprites/miscellaneous/image.png
+  artifactKey: Guid(e4117acd26bf4e1418cbccc512f76a69) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/miscellaneous/image.png using Guid(e4117acd26bf4e1418cbccc512f76a69) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6d7a8263ca25a02dd6ef16bb422ef09c') in 0.026222 seconds 
+  Import took 0.032108 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000255 seconds.
+  path: Assets/Sprites/Enemies/Boss Golem/Laser.png
+  artifactKey: Guid(f7533db6a051e064bbcbc315cd4ce9d2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Enemies/Boss Golem/Laser.png using Guid(f7533db6a051e064bbcbc315cd4ce9d2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '827101e11314cd97ef48a367e55aef05') in 0.047505 seconds 
+  Import took 0.053731 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000316 seconds.
+  path: Assets/Font/TextMesh Pro/Resources/Fonts & Materials/LiberationSans SDF.asset
+  artifactKey: Guid(8f586378b4e144a9851e7b34d9b748ee) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Font/TextMesh Pro/Resources/Fonts & Materials/LiberationSans SDF.asset using Guid(8f586378b4e144a9851e7b34d9b748ee) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b88c9c3b058c522361cc2ba3c179e9be') in 0.208349 seconds 
+  Import took 0.213927 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000304 seconds.
+  path: Assets/AstarPathfindingProject/Editor/EditorAssets/linkButton_normal.png
+  artifactKey: Guid(53ee29e7cbeb545bcb1ca238a2736fb8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/AstarPathfindingProject/Editor/EditorAssets/linkButton_normal.png using Guid(53ee29e7cbeb545bcb1ca238a2736fb8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd5f9400a666f03ab9fc7a4e60e4a497e') in 0.018612 seconds 
+  Import took 0.023466 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000302 seconds.
+  path: Assets/AstarPathfindingProject/Editor/EditorAssets/DarkSkin/pixelBox3@1x.png
+  artifactKey: Guid(7991166a167af4b4793b4fc8fcc3bfe2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/AstarPathfindingProject/Editor/EditorAssets/DarkSkin/pixelBox3@1x.png using Guid(7991166a167af4b4793b4fc8fcc3bfe2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'adf1251492851662999095a922182183') in 0.017926 seconds 
+  Import took 0.027329 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000286 seconds.
+  path: Assets/AstarPathfindingProject/Editor/EditorAssets/LightSkin/lock_closed@2x.png
+  artifactKey: Guid(7b229d059f89d49918aec1466c0c5819) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/AstarPathfindingProject/Editor/EditorAssets/LightSkin/lock_closed@2x.png using Guid(7b229d059f89d49918aec1466c0c5819) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '279dc2e8f0387b4d9e83830d51cea3ab') in 0.016662 seconds 
+  Import took 0.021748 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000297 seconds.
+  path: Assets/Font/TextMesh Pro/Resources/Fonts & Materials/LiberationSans SDF - Fallback.asset
+  artifactKey: Guid(2e498d1c8094910479dc3e1b768306a4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Font/TextMesh Pro/Resources/Fonts & Materials/LiberationSans SDF - Fallback.asset using Guid(2e498d1c8094910479dc3e1b768306a4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '535accc45a1686abbf67012f7a6d6f36') in 0.023657 seconds 
+  Import took 0.029812 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000296 seconds.
+  path: Assets/Sprites/miscellaneous/Player melee.png
+  artifactKey: Guid(d6f6eb7714fb31a4cb479c1077b95602) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/miscellaneous/Player melee.png using Guid(d6f6eb7714fb31a4cb479c1077b95602) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c2079d3863b4d7e22dc9eca56ccfcdd1') in 0.024068 seconds 
+  Import took 0.029149 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000296 seconds.
+  path: Assets/AstarPathfindingProject/Editor/EditorAssets/pixelBox2.png
+  artifactKey: Guid(2fa6580cc9f7f40919411d1ed85c6fe1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/AstarPathfindingProject/Editor/EditorAssets/pixelBox2.png using Guid(2fa6580cc9f7f40919411d1ed85c6fe1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1be48e345d6232bdad46f1651825a18e') in 0.016514 seconds 
+  Import took 0.022378 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000172 seconds.
+  path: Assets/AstarPathfindingProject/Editor/EditorAssets/DarkSkin/lock_open@1x.png
+  artifactKey: Guid(c43744025f7024e20b5fe880600d19a7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/AstarPathfindingProject/Editor/EditorAssets/DarkSkin/lock_open@1x.png using Guid(c43744025f7024e20b5fe880600d19a7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e7e27966b1d56eefe2ad073c5fb7915d') in 0.017608 seconds 
+  Import took 0.023466 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000282 seconds.
+  path: Assets/AstarPathfindingProject/Editor/EditorAssets/DarkSkin/pixelBox3@2x.png
+  artifactKey: Guid(9043fef44c60647b7a763eb86f912ba1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/AstarPathfindingProject/Editor/EditorAssets/DarkSkin/pixelBox3@2x.png using Guid(9043fef44c60647b7a763eb86f912ba1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9a0ab874461e528b95111096f0da0060') in 0.017741 seconds 
+  Import took 0.023354 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000313 seconds.
+  path: Assets/AstarPathfindingProject/Editor/EditorAssets/DarkSkin/pixelBox3_separator.png
+  artifactKey: Guid(3a08de11a34c44da28de4c086fd13461) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/AstarPathfindingProject/Editor/EditorAssets/DarkSkin/pixelBox3_separator.png using Guid(3a08de11a34c44da28de4c086fd13461) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '764240cf69d57e50b36eaf261eb431d6') in 0.015815 seconds 
+  Import took 0.021032 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000199 seconds.
+  path: Assets/AstarPathfindingProject/Editor/EditorAssets/DarkSkin/infoButton_active@1x.png
+  artifactKey: Guid(d008deade2077407fbf14446df2547c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/AstarPathfindingProject/Editor/EditorAssets/DarkSkin/infoButton_active@1x.png using Guid(d008deade2077407fbf14446df2547c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '33a7f257e20cc84bf4c4f574787dc6e8') in 0.017816 seconds 
+  Import took 0.023797 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000237 seconds.
+  path: Assets/Sprites/Enemies/Boss Golem/Idle.png
+  artifactKey: Guid(6d0048df433967a45a7fda107f84f4b0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Enemies/Boss Golem/Idle.png using Guid(6d0048df433967a45a7fda107f84f4b0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bf077d974a92babbd5c8b6b4cf8e2241') in 0.034076 seconds 
+  Import took 0.039551 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000290 seconds.
+  path: Assets/AstarPathfindingProject/Editor/EditorAssets/LightSkin/infoButton@1x.png
+  artifactKey: Guid(efb7b60811b9a4ec7b92ecfcaa9bcd0d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/AstarPathfindingProject/Editor/EditorAssets/LightSkin/infoButton@1x.png using Guid(efb7b60811b9a4ec7b92ecfcaa9bcd0d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1975059da66a66c276d9b4c0819d314b') in 0.017264 seconds 
+  Import took 0.022820 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000275 seconds.
+  path: Assets/AstarPathfindingProject/Editor/EditorAssets/pixelBox3_separator.png
+  artifactKey: Guid(e101da2dcb7a14fa2aed1a65c384a99b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/AstarPathfindingProject/Editor/EditorAssets/pixelBox3_separator.png using Guid(e101da2dcb7a14fa2aed1a65c384a99b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '42cd41a5aecfe6da69eed12d6d519691') in 0.015614 seconds 
+  Import took 0.020901 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000196 seconds.
+  path: Assets/AstarPathfindingProject/Editor/EditorAssets/pixelBox.png
+  artifactKey: Guid(bdec0523f27864115b7b727c8f5d90e2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/AstarPathfindingProject/Editor/EditorAssets/pixelBox.png using Guid(bdec0523f27864115b7b727c8f5d90e2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '058d3ef6869f9b9642ae15f8b00169d2') in 0.017842 seconds 
+  Import took 0.023629 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000226 seconds.
+  path: Assets/Sprites/Enemies/Boss Golem/Laser_sheet.png
+  artifactKey: Guid(d70fd0280459d014fb964054dc0dc4f1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Enemies/Boss Golem/Laser_sheet.png using Guid(d70fd0280459d014fb964054dc0dc4f1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e67edacced8ec504b30631da42daa5e3') in 0.078125 seconds 
+  Import took 0.083610 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000234 seconds.
+  path: Assets/Sprites/Buffs/Rocket Boots Sprite.png
+  artifactKey: Guid(be60eb2edf341dc48a663edf4c041460) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Buffs/Rocket Boots Sprite.png using Guid(be60eb2edf341dc48a663edf4c041460) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9d963fb5f6c9448007f2aad95a660cac') in 0.054138 seconds 
+  Import took 0.060868 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000171 seconds.
+  path: Assets/Sprites/miscellaneous/Smoke Sprite.png
+  artifactKey: Guid(50fe70afc95c9fa4f8e91a2c2dcd594e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/miscellaneous/Smoke Sprite.png using Guid(50fe70afc95c9fa4f8e91a2c2dcd594e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8fd32a9aa4abad8c811367dbfa42a6e5') in 0.048272 seconds 
+  Import took 0.056550 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000255 seconds.
+  path: Assets/Sprites/miscellaneous/stat stick.png
+  artifactKey: Guid(1fd22ce938d47a94c8d72bdedd4b1119) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/miscellaneous/stat stick.png using Guid(1fd22ce938d47a94c8d72bdedd4b1119) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c6b985574b2519f3b5752618113ee63a') in 0.023335 seconds 
+  Import took 0.030967 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000229 seconds.
+  path: Assets/AstarPathfindingProject/Editor/EditorAssets/images/upDownArrow_01.png
+  artifactKey: Guid(e4a6b67ac365349d8b7c358676aaf022) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/AstarPathfindingProject/Editor/EditorAssets/images/upDownArrow_01.png using Guid(e4a6b67ac365349d8b7c358676aaf022) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4c2331fc7bc567a93b0274b046259304') in 0.018301 seconds 
+  Import took 0.027709 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000202 seconds.
+  path: Assets/AstarPathfindingProject/Editor/EditorAssets/images/upDownArrow_02.png
+  artifactKey: Guid(0a9d941450e7c46cf8928d06762c2189) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/AstarPathfindingProject/Editor/EditorAssets/images/upDownArrow_02.png using Guid(0a9d941450e7c46cf8928d06762c2189) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9747677d37a540a57b53a120f672b7ff') in 0.018973 seconds 
+  Import took 0.027592 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000199 seconds.
+  path: Assets/Sprites/Enemies/Archer/run.png
+  artifactKey: Guid(f00b674bc5274da4a96ab45f02419701) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Enemies/Archer/run.png using Guid(f00b674bc5274da4a96ab45f02419701) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9646a5154f11520125128786e6f7f3bf') in 0.045036 seconds 
+  Import took 0.052697 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000229 seconds.
+  path: Assets/Sprites/Effects/Melee Slash/SFX304_05.png
+  artifactKey: Guid(64a5683a834f859469c669a8445f4528) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Effects/Melee Slash/SFX304_05.png using Guid(64a5683a834f859469c669a8445f4528) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ab7f68c79f3c2943b702dbbb7deaac7c') in 0.016922 seconds 
+  Import took 0.024705 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000202 seconds.
+  path: Assets/AstarPathfindingProject/Editor/EditorAssets/LightSkin/reset_normal.png
+  artifactKey: Guid(fb3e1d793e4f0459f8b913d0d2d76e6c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/AstarPathfindingProject/Editor/EditorAssets/LightSkin/reset_normal.png using Guid(fb3e1d793e4f0459f8b913d0d2d76e6c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '137637585f7711e2886c3ae4bec8ea31') in 0.016502 seconds 
+  Import took 0.022351 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000181 seconds.
+  path: Assets/AstarPathfindingProject/Editor/EditorAssets/DarkSkin/lock_open@2x.png
+  artifactKey: Guid(957d0fd6ae3494da9aed50c5d7d7ce4e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/AstarPathfindingProject/Editor/EditorAssets/DarkSkin/lock_open@2x.png using Guid(957d0fd6ae3494da9aed50c5d7d7ce4e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5d561fde980ebe5a48c67027e9c61796') in 0.016666 seconds 
+  Import took 0.023173 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000259 seconds.
+  path: Assets/AstarPathfindingProject/ExampleScenes/Example2_Terrain/Pathfinding_Terrain.asset
+  artifactKey: Guid(ce970816794dc4a6c8b5acdbc5953551) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/AstarPathfindingProject/ExampleScenes/Example2_Terrain/Pathfinding_Terrain.asset using Guid(ce970816794dc4a6c8b5acdbc5953551) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0511246f51f12cd3719f2ac4bff1a82c') in 0.046611 seconds 
+  Import took 0.052702 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000221 seconds.
+  path: Assets/AstarPathfindingProject/Editor/EditorAssets/linkButton_active.png
+  artifactKey: Guid(1066e2a70f10b481984312db993dadc8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/AstarPathfindingProject/Editor/EditorAssets/linkButton_active.png using Guid(1066e2a70f10b481984312db993dadc8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '21387efb9f567a87fdf7aadbe4acec73') in 0.019250 seconds 
+  Import took 0.024757 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000238 seconds.
+  path: Assets/AstarPathfindingProject/Editor/EditorAssets/DarkSkin/infoButton_active@2x.png
+  artifactKey: Guid(9b266e42522c048f6b62832985be51ed) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/AstarPathfindingProject/Editor/EditorAssets/DarkSkin/infoButton_active@2x.png using Guid(9b266e42522c048f6b62832985be51ed) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4e9520b2947407fe5f0353e5bffad808') in 0.016872 seconds 
+  Import took 0.022143 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000215 seconds.
+  path: Assets/Sprites/Effects/Status/PlayStation 3 - Final Fantasy 13 - Status Icons.png
+  artifactKey: Guid(f2bc175a615c26e4d908eec8a4bdf1bd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Effects/Status/PlayStation 3 - Final Fantasy 13 - Status Icons.png using Guid(f2bc175a615c26e4d908eec8a4bdf1bd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6ced337e072df921adec196665cba576') in 0.169541 seconds 
+  Import took 0.174828 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000231 seconds.
+  path: Assets/AstarPathfindingProject/Editor/EditorAssets/LightSkin/infoButton@2x.png
+  artifactKey: Guid(7ef0e648811f14f65b69c2df3f27de11) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/AstarPathfindingProject/Editor/EditorAssets/LightSkin/infoButton@2x.png using Guid(7ef0e648811f14f65b69c2df3f27de11) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '982f21565b967d48b641b222efbdbdaf') in 0.016039 seconds 
+  Import took 0.021338 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000206 seconds.
+  path: Assets/AstarPathfindingProject/ExampleScenes/Prefabs/MineBot/Materials/Minebot_NRM.tif
+  artifactKey: Guid(7cec4fc9f20c5e145941cf016d68ff64) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/AstarPathfindingProject/ExampleScenes/Prefabs/MineBot/Materials/Minebot_NRM.tif using Guid(7cec4fc9f20c5e145941cf016d68ff64) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7913b10ba49fc834a768976c0657b82f') in 0.026544 seconds 
+  Import took 0.032952 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000306 seconds.
+  path: Assets/AstarPathfindingProject/Editor/EditorAssets/LightSkin/lock_open@2x.png
+  artifactKey: Guid(d04d4a88875f842c88825d3d5b2b529c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/AstarPathfindingProject/Editor/EditorAssets/LightSkin/lock_open@2x.png using Guid(d04d4a88875f842c88825d3d5b2b529c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '291e1ddce4e3644c815cf9f8d301396e') in 0.015700 seconds 
+  Import took 0.021450 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000249 seconds.
+  path: Assets/AstarPathfindingProject/Editor/EditorAssets/images/upDownButtons_01.png
+  artifactKey: Guid(4cecafde1350347fd984baee5961a393) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/AstarPathfindingProject/Editor/EditorAssets/images/upDownButtons_01.png using Guid(4cecafde1350347fd984baee5961a393) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'edceb627b1b89167722b3aba59a37e20') in 0.016088 seconds 
+  Import took 0.021946 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000276 seconds.
+  path: Assets/Sprites/miscellaneous/Space ship sprite.png
+  artifactKey: Guid(dd88134c857389a498922f6b312ebd18) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/miscellaneous/Space ship sprite.png using Guid(dd88134c857389a498922f6b312ebd18) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8bab99aa83fcbaf903e8f5adc65516ec') in 0.031449 seconds 
+  Import took 0.036808 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000327 seconds.
+  path: Assets/Sprites/miscellaneous/Pixel mouse clicked.png
+  artifactKey: Guid(f80b08063ded70c45a0c265b9324c77d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/miscellaneous/Pixel mouse clicked.png using Guid(f80b08063ded70c45a0c265b9324c77d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '04397e964b27095a684bbf1a1107df98') in 0.027687 seconds 
+  Import took 0.034397 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000230 seconds.
+  path: Assets/Sprites/Effects/Melee Slash/SFX304_04.png
+  artifactKey: Guid(b927adced0c3e1d4381dfc2fc971979e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Effects/Melee Slash/SFX304_04.png using Guid(b927adced0c3e1d4381dfc2fc971979e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e150aad444dd9f3b4a3575d738c69c84') in 0.014792 seconds 
+  Import took 0.020147 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000217 seconds.
+  path: Assets/Sprites/Menu/mDHG0o.jpg
+  artifactKey: Guid(632a117930a9d83429b54c01731340bb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Menu/mDHG0o.jpg using Guid(632a117930a9d83429b54c01731340bb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e3914dd5f45dbace64b0b69c90e5c20a') in 0.022118 seconds 
+  Import took 0.027772 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000396 seconds.
+  path: Assets/Sprites/Enemies/Boss Golem/Laser_sheet (1).png
+  artifactKey: Guid(1b0c83d812dd8a1449f6a7960068c51b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Enemies/Boss Golem/Laser_sheet (1).png using Guid(1b0c83d812dd8a1449f6a7960068c51b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e8e6df7290a5fa0b72d2fcae7a4cdbb8') in 0.019302 seconds 
+  Import took 0.024543 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000457 seconds.
+  path: Assets/AstarPathfindingProject/ExampleScenes/Prefabs/MineBot/Materials/Minebot.tif
+  artifactKey: Guid(d7ab2029fbe34d0499a26f57de1f51d6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/AstarPathfindingProject/ExampleScenes/Prefabs/MineBot/Materials/Minebot.tif using Guid(d7ab2029fbe34d0499a26f57de1f51d6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '69477512dee64a8026ae13786f4aa53d') in 0.021632 seconds 
+  Import took 0.027109 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000299 seconds.
+  path: Assets/AstarPathfindingProject/Editor/EditorAssets/scene_box@2x.png
+  artifactKey: Guid(f834e7df6f42446b59c83dca1e5bd098) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/AstarPathfindingProject/Editor/EditorAssets/scene_box@2x.png using Guid(f834e7df6f42446b59c83dca1e5bd098) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '39415624ce803dc843aabb645a1c57cc') in 0.017975 seconds 
+  Import took 0.023546 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000229 seconds.
+  path: Assets/AstarPathfindingProject/ExampleScenes/Materials/Textures/Shadow.psd
+  artifactKey: Guid(741d7187968324981907bd5a897bb005) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/AstarPathfindingProject/ExampleScenes/Materials/Textures/Shadow.psd using Guid(741d7187968324981907bd5a897bb005) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b4ae4eb84bcda6271ed352bc33148223') in 0.015904 seconds 
+  Import took 0.021049 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000294 seconds.
+  path: Assets/Sprites/Effects/Melee Slash/SFX304_03.png
+  artifactKey: Guid(eecee1df828092442b24c91a3dfe19be) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Effects/Melee Slash/SFX304_03.png using Guid(eecee1df828092442b24c91a3dfe19be) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5a043c24776376c8ff39f6377519f54f') in 0.015677 seconds 
+  Import took 0.021306 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000320 seconds.
+  path: Assets/AstarPathfindingProject/Editor/EditorAssets/LightSkin/lock_open@1x.png
+  artifactKey: Guid(3805c157b9b38472684befb652c5d213) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/AstarPathfindingProject/Editor/EditorAssets/LightSkin/lock_open@1x.png using Guid(3805c157b9b38472684befb652c5d213) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '69d63ac245c9e3136ad02606e36386f8') in 0.015640 seconds 
+  Import took 0.020854 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000291 seconds.
+  path: Assets/AstarPathfindingProject/Editor/EditorAssets/DarkSkin/lock_closed@2x.png
+  artifactKey: Guid(6c38830c1556942fcb6ce893085d1daa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/AstarPathfindingProject/Editor/EditorAssets/DarkSkin/lock_closed@2x.png using Guid(6c38830c1556942fcb6ce893085d1daa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '985a5e8f7f2d937ec91bcb721301a08c') in 0.015570 seconds 
+  Import took 0.020916 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000317 seconds.
+  path: Assets/AstarPathfindingProject/Editor/EditorAssets/LightSkin/pixelBox3@1x.png
+  artifactKey: Guid(86cd0618b10f3494c831ac9215649110) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/AstarPathfindingProject/Editor/EditorAssets/LightSkin/pixelBox3@1x.png using Guid(86cd0618b10f3494c831ac9215649110) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bc68e37d3c05e7c9b36547b538be4b42') in 0.016541 seconds 
+  Import took 0.022703 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000227 seconds.
+  path: Assets/AstarPathfindingProject/Editor/EditorAssets/DarkSkin/pixelBox2.png
+  artifactKey: Guid(5d951d0a838a34f40ac2b9ce8968a7d6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/AstarPathfindingProject/Editor/EditorAssets/DarkSkin/pixelBox2.png using Guid(5d951d0a838a34f40ac2b9ce8968a7d6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '710bb51ee24e445668a2ef4b034e9f9d') in 0.019051 seconds 
+  Import took 0.025125 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000207 seconds.
+  path: Assets/AstarPathfindingProject/Editor/EditorAssets/LightSkin/lock_closed@1x.png
+  artifactKey: Guid(5e0cd84e9d84642ac883c25ca8d667ac) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/AstarPathfindingProject/Editor/EditorAssets/LightSkin/lock_closed@1x.png using Guid(5e0cd84e9d84642ac883c25ca8d667ac) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b74119d0512aeda8e4e6a9d7cd65eaa0') in 0.015530 seconds 
+  Import took 0.021413 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000208 seconds.
+  path: Assets/AstarPathfindingProject/Editor/EditorAssets/Materials/line_falloff_1px.png
+  artifactKey: Guid(6267c94129d874d7bafe507aa753046a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/AstarPathfindingProject/Editor/EditorAssets/Materials/line_falloff_1px.png using Guid(6267c94129d874d7bafe507aa753046a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'aebedb092e646ee03a231160963042a5') in 0.016651 seconds 
+  Import took 0.022600 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000257 seconds.
+  path: Assets/AstarPathfindingProject/Editor/EditorAssets/LightSkin/infoButton_active@2x.png
+  artifactKey: Guid(8acb97c3fcc694bf3b7d33b1ff321337) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/AstarPathfindingProject/Editor/EditorAssets/LightSkin/infoButton_active@2x.png using Guid(8acb97c3fcc694bf3b7d33b1ff321337) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '382be91dc84cf8673fc48d4ffc12a0c6') in 0.014829 seconds 
+  Import took 0.021392 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000219 seconds.
+  path: Assets/Sprites/Terrain and stuffs/Pillar/pixil-frame-0 (2).png
+  artifactKey: Guid(c9584e11d36512f4ba53adc75aa8a038) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Terrain and stuffs/Pillar/pixil-frame-0 (2).png using Guid(c9584e11d36512f4ba53adc75aa8a038) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f2d4cbff154ccd31c4cfedf197bc386b') in 0.106133 seconds 
+  Import took 0.111884 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000211 seconds.
+  path: Assets/AstarPathfindingProject/Editor/EditorAssets/images/upDownButtons_02.png
+  artifactKey: Guid(c7970d065c27b4d7c9ac2ff73b61733e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/AstarPathfindingProject/Editor/EditorAssets/images/upDownButtons_02.png using Guid(c7970d065c27b4d7c9ac2ff73b61733e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8ae484b0946392d3aefb82a2c3afe176') in 0.016310 seconds 
+  Import took 0.021565 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000291 seconds.
+  path: Assets/Sprites/Enemies/Archer/idle.png
+  artifactKey: Guid(3ede6ccfc668edd44b2dbcd775a7bfa1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Enemies/Archer/idle.png using Guid(3ede6ccfc668edd44b2dbcd775a7bfa1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd0035ff273c73fa79db17d91ef10cc28') in 0.028228 seconds 
+  Import took 0.033464 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000224 seconds.
+  path: Assets/Sprites/miscellaneous/Player Dash.png
+  artifactKey: Guid(f98074c75b5f87e40832baafe3f2e1c7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/miscellaneous/Player Dash.png using Guid(f98074c75b5f87e40832baafe3f2e1c7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3c07b78e0b0755418ad3590eb963a4d6') in 0.023486 seconds 
+  Import took 0.030534 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000315 seconds.
+  path: Assets/Sprites/Effects/Slam Effect/Slam Effect.png
+  artifactKey: Guid(0f9260d3f81d4024eb897d2e10bf944d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Effects/Slam Effect/Slam Effect.png using Guid(0f9260d3f81d4024eb897d2e10bf944d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '550123ccbab27fab41d51f86f614b9a3') in 0.063126 seconds 
+  Import took 0.068406 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000235 seconds.
+  path: Assets/Sprites/miscellaneous/Restart Button.png
+  artifactKey: Guid(1f164d6802a51864ba281ef5aae9f1f0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/miscellaneous/Restart Button.png using Guid(1f164d6802a51864ba281ef5aae9f1f0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0b6da662230a49dc0093c443314de8e1') in 0.021526 seconds 
+  Import took 0.027223 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000280 seconds.
+  path: Assets/Sprites/miscellaneous/Player Shoot.png
+  artifactKey: Guid(de4bf84a9d2ce2744a517d680a2eb3fe) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/miscellaneous/Player Shoot.png using Guid(de4bf84a9d2ce2744a517d680a2eb3fe) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6ac78da8ce8b269c684456d38faab0df') in 0.023429 seconds 
+  Import took 0.030180 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000287 seconds.
+  path: Assets/Sprites/Effects/Melee Slash/SFX304_01.png
+  artifactKey: Guid(e1db90cbcca701348abc41091a7b7d63) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Effects/Melee Slash/SFX304_01.png using Guid(e1db90cbcca701348abc41091a7b7d63) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9af3f38cabab6ab890379fb986a2c7ca') in 0.017031 seconds 
+  Import took 0.022593 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000237 seconds.
+  path: Assets/AstarPathfindingProject/Editor/EditorAssets/DarkSkin/infoButton@2x.png
+  artifactKey: Guid(623f6adf01f324cb7bc6aefe7f87d623) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/AstarPathfindingProject/Editor/EditorAssets/DarkSkin/infoButton@2x.png using Guid(623f6adf01f324cb7bc6aefe7f87d623) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '39579d5360256370dba0487c91c9c226') in 0.015539 seconds 
+  Import took 0.020852 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000231 seconds.
+  path: Assets/AstarPathfindingProject/Editor/EditorAssets/DarkSkin/lock_closed@1x.png
+  artifactKey: Guid(aaae516f9c5404f77a3e586cdd59695b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/AstarPathfindingProject/Editor/EditorAssets/DarkSkin/lock_closed@1x.png using Guid(aaae516f9c5404f77a3e586cdd59695b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9609226a011345a045bb435fab713598') in 0.015851 seconds 
+  Import took 0.022212 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000311 seconds.
+  path: Assets/AstarPathfindingProject/Editor/EditorAssets/DarkSkin/infoButton@1x.png
+  artifactKey: Guid(1986ec06d68774254928f44b896a3913) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/AstarPathfindingProject/Editor/EditorAssets/DarkSkin/infoButton@1x.png using Guid(1986ec06d68774254928f44b896a3913) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '38e08c02087e0017e18a3b7a39105ff1') in 0.016780 seconds 
+  Import took 0.022212 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000278 seconds.
+  path: Assets/AstarPathfindingProject/Editor/EditorAssets/scene_box@1x.png
+  artifactKey: Guid(a4bb5812f98bf40a68d9c1a69ad860cb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/AstarPathfindingProject/Editor/EditorAssets/scene_box@1x.png using Guid(a4bb5812f98bf40a68d9c1a69ad860cb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e30d84b4093487b29d3976d263e7f715') in 0.016713 seconds 
+  Import took 0.022052 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000227 seconds.
+  path: Assets/Sprites/Effects/Melee Slash/SFX304_02.png
+  artifactKey: Guid(8cf4609d12cda7246b3ebcde216f170e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Effects/Melee Slash/SFX304_02.png using Guid(8cf4609d12cda7246b3ebcde216f170e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1ad2f9d546e473b3233e8133624dcd67') in 0.014149 seconds 
+  Import took 0.020543 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000255 seconds.
+  path: Assets/AstarPathfindingProject/Editor/EditorAssets/LightSkin/infoButton_active@1x.png
+  artifactKey: Guid(7604699b5bc8f4343b03cc4d0b603403) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/AstarPathfindingProject/Editor/EditorAssets/LightSkin/infoButton_active@1x.png using Guid(7604699b5bc8f4343b03cc4d0b603403) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b3d9eece9ef902cb537bd647c41997f8') in 0.015422 seconds 
+  Import took 0.020844 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000298 seconds.
+  path: Assets/AstarPathfindingProject/Editor/EditorAssets/LightSkin/reset_on.png
+  artifactKey: Guid(990963b32226c440fb1a72e47e0ad7a2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/AstarPathfindingProject/Editor/EditorAssets/LightSkin/reset_on.png using Guid(990963b32226c440fb1a72e47e0ad7a2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6a13e000337bb7bddd8818a396cda555') in 0.017200 seconds 
+  Import took 0.022727 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000220 seconds.
+  path: Assets/Sprites/miscellaneous/Space-Key.png
+  artifactKey: Guid(639bdb1948a723f4bbb3d13684d75f37) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/miscellaneous/Space-Key.png using Guid(639bdb1948a723f4bbb3d13684d75f37) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e25531ba07756fd92a61740c6e54e91e') in 0.023140 seconds 
+  Import took 0.030226 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000270 seconds.
+  path: Assets/Sprites/miscellaneous/Pixel Mouse and keyboard.png
+  artifactKey: Guid(9371aa8d55cf971428dc64221e1cc32c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/miscellaneous/Pixel Mouse and keyboard.png using Guid(9371aa8d55cf971428dc64221e1cc32c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ff78c619704830c4d31df1376d6c9a2e') in 0.030288 seconds 
+  Import took 0.035834 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000335 seconds.
+  path: Assets/AstarPathfindingProject/Editor/EditorAssets/LightSkin/pixelBox3@2x.png
+  artifactKey: Guid(5ed56a3e069cd4b5aa4360154acc026a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/AstarPathfindingProject/Editor/EditorAssets/LightSkin/pixelBox3@2x.png using Guid(5ed56a3e069cd4b5aa4360154acc026a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ee6bbb4ebbc9cbb8b48b5d3cb9e14464') in 0.015212 seconds 
+  Import took 0.022589 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000301 seconds.
+  path: Assets/Sprites/miscellaneous/Pixel Rock.png
+  artifactKey: Guid(068c6a077c570364a866cc9f95edebed) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/miscellaneous/Pixel Rock.png using Guid(068c6a077c570364a866cc9f95edebed) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9bc2b9c1dfff38c2f1870019397a73cf') in 0.019242 seconds 
+  Import took 0.024566 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000264 seconds.
+  path: Assets/Sprites/Enemies/Boss Golem/Slam.png
+  artifactKey: Guid(4ddbe9d62f04e6f4d8a61368df042384) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Enemies/Boss Golem/Slam.png using Guid(4ddbe9d62f04e6f4d8a61368df042384) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'dff4d01cea5c397abc3b5ea0cc8350aa') in 0.058720 seconds 
+  Import took 0.064592 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 156.611220 seconds.
+  path: Assets/Prefabs/BuffStatStick.prefab
+  artifactKey: Guid(0e14a9956621aa54da7af1870c65e3c8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/BuffStatStick.prefab using Guid(0e14a9956621aa54da7af1870c65e3c8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7107eeeadb3f4c5b013ce5783c101214') in 0.027421 seconds 
+  Import took 0.033527 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.024865 seconds.
+  path: Assets/Prefabs/Player.prefab
+  artifactKey: Guid(34c9bdab8fa6858419e3e91245639865) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Player.prefab using Guid(34c9bdab8fa6858419e3e91245639865) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '46451e61f79b1845eb718983b6e4b546') in 0.056029 seconds 
+  Import took 0.061860 seconds .
+
+========================================================================
+Received Prepare
+Refreshing native plugins compatible for Editor in 4.11 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 16 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 107.0 MB.
+System memory in use after: 107.2 MB.
+
+Unloading 16 unused Assets to reduce memory usage. Loaded Objects now: 4621.
+Total: 4.597100 ms (FindLiveObjects: 0.375300 ms CreateObjectMapping: 0.164700 ms MarkObjects: 4.035400 ms  DeleteObjects: 0.021000 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-codec-MediaFoundation-h265: 746d11721c4dcdbdad8f713fa42b33f4 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 306.522145 seconds.
+  path: Assets/Prefabs/Player.prefab
+  artifactKey: Guid(34c9bdab8fa6858419e3e91245639865) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Player.prefab using Guid(34c9bdab8fa6858419e3e91245639865) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bc98019946b4263b8c3b62512c4f6d57') in 0.039775 seconds 
+  Import took 0.046326 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 6.688085 seconds.
+  path: Assets/Scenes/Tutorial.unity
+  artifactKey: Guid(c175b830cc302244cb6b05175a2c550a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/Tutorial.unity using Guid(c175b830cc302244cb6b05175a2c550a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '01d60274e835d6504aaf1a1de5fae540') in 0.007140 seconds 
+  Import took 0.013231 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 5.571203 seconds.
+  path: Assets/Scenes/Hideout.unity
+  artifactKey: Guid(b15677704bff04e49a9b7f818d84887f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/Hideout.unity using Guid(b15677704bff04e49a9b7f818d84887f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '39340cd6d8fd8778a1613ee14acea6b0') in 0.007113 seconds 
+  Import took 0.012988 seconds .
+
+========================================================================
+Received Prepare
+Refreshing native plugins compatible for Editor in 4.34 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 16 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 108.8 MB.
+System memory in use after: 109.0 MB.
+
+Unloading 16 unused Assets to reduce memory usage. Loaded Objects now: 4621.
+Total: 5.433800 ms (FindLiveObjects: 0.395200 ms CreateObjectMapping: 0.168900 ms MarkObjects: 4.847700 ms  DeleteObjects: 0.021000 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-codec-MediaFoundation-h265: 746d11721c4dcdbdad8f713fa42b33f4 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+AssetImportWorkerClient::OnTransportError - code=2 error=End of file
