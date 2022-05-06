@@ -165,6 +165,7 @@ public class PlayerController : PlayerClass
         {
             if (Input.GetMouseButton(0) && !animator.GetBool("ToSleep"))
             {
+                AudioManager.instance.PlaySound(AudioManager.Sound.PlayerShoot);
                 FiringTime = FiringTime + FireRate;
                 switch (FireType)
                 {
@@ -228,6 +229,7 @@ public class PlayerController : PlayerClass
         if (_moveDirection.magnitude != 0)
         {
             animator.SetBool("IsRunning", true);        //check whether the player is running with its magnitude
+            //AudioManager.instance.PlaySound(AudioManager.Sound.SlimeMoving); //Testing moving sound
             Counter = 0; //Reset the timer
         }
         else if (Counter < waitTime)
@@ -398,7 +400,6 @@ public class PlayerController : PlayerClass
     {
 
         Rb.velocity = new Vector2(_moveDirection.x * MovementSpeed, _moveDirection.y * MovementSpeed);
-
         if ((FacingRight && (rotZ < -89 || rotZ > 89)) || (!FacingRight && (rotZ > -89 && rotZ < 89)))
             Flip();
 
@@ -521,18 +522,21 @@ public class PlayerController : PlayerClass
 
     private void CheckHP()
     {
+        //
         if (Hp <= 0 && !InHO)
         {
             animator.SetBool("IsDying", true);
             Rb.velocity = Vector2.zero;
             _restrictMovement = true;
+            // death sound track is played after die animation
         }
     }
 
-
+    // don't delete this
     public void HasDied()
     {
         Death = true;
+        AudioManager.instance.PlaySoundTrack(AudioManager.SoundTrack.GameOverST);
     }
 
 

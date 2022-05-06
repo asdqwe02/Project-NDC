@@ -12,6 +12,7 @@ public class Bullet : MonoBehaviour
     private RNG statusEffectRNG;
     private bool isMoving = true, flip = false;
     private Rigidbody2D rb;
+    private AudioManager.Sound _hitSound;
     [SerializeField] private float _bulletSpeed = 50f;
     public bool isFromPlayer = false;
 
@@ -27,13 +28,14 @@ public class Bullet : MonoBehaviour
     {
         _shootDir = shootDir;
         _damage = damage;
-        
+
         transform.eulerAngles = new Vector3(0, 0, GetAngleFromVectorFloat(shootDir));
         isFromPlayer = IsFromPlayer;
         _knockBack = KnockBack;
         if (!isFromPlayer)
             gameObject.layer = 8;
         _damageType = damageType;
+        soundSetUp(damageType);
         //rb.AddForce(_shootDir * _bulletSpeed, ForceMode2D.Impulse);
         Destroy(gameObject, 1f);
     }
@@ -46,9 +48,30 @@ public class Bullet : MonoBehaviour
         if (!isFromPlayer)
             gameObject.layer = 8;
         _damageType = damageType;
+        soundSetUp(damageType);
         Destroy(gameObject, 1f);
     }
-
+    private void soundSetUp(MovingObjects.DamageType damageType)
+    {
+        //setting up hit sound for projectile
+        switch (damageType)
+        {
+            case MovingObjects.DamageType.Fire:
+                _hitSound = AudioManager.Sound.FireProj;
+                break;
+            case MovingObjects.DamageType.Cold:
+                _hitSound = AudioManager.Sound.ColdProj;
+                break;
+            case MovingObjects.DamageType.Lightning:
+                _hitSound = AudioManager.Sound.LihgtningProj;
+                break;
+            case MovingObjects.DamageType.Physical:
+                _hitSound = AudioManager.Sound.PhysicalProj;
+                break;
+            default:
+                break;
+        }
+    }
     void FixedUpdate()
     {
         if (!isMoving)
@@ -69,7 +92,7 @@ public class Bullet : MonoBehaviour
         BeginWaves bw = collision.GetComponent<BeginWaves>();
         Interactable interactable = collision.GetComponent<Interactable>();
         DummyController dummy = collision.GetComponent<DummyController>();
-
+        //Debug.Log(collision.GetComponent<Enemy>());
         if (isFromPlayer)
         {
             if (p != null || otherBullets != null || bw != null || interactable != null)
@@ -80,11 +103,14 @@ public class Bullet : MonoBehaviour
             {
                 if (animator != null)
                     animator.SetBool("Hit", true);
+               //Debug.Log("hit sound is: " + _hitSound);
+                AudioManager.instance.PlaySound(_hitSound, gameObject.transform.position);
                 isMoving = false;
             }
 
             if (Monster != null)
             {
+                // Debug.Log("monster take damage!!");
                 Monster.takeDamage(_damage, _damageType);
                 bool applyStatus = statusEffectRNG.RollNumber(25f); //Apply status effect to monster 
                 if (applyStatus)
@@ -114,6 +140,7 @@ public class Bullet : MonoBehaviour
 
                 if (animator != null)
                     animator.SetBool("Hit", true);
+                AudioManager.instance.PlaySound(_hitSound, gameObject.transform.position);
                 isMoving = false;
             }
             if (p != null)
@@ -126,7 +153,7 @@ public class Bullet : MonoBehaviour
                 }
 
             }
-        }  
+        }
     }
     public float GetAngleFromVectorFloat(Vector3 dir)
     {

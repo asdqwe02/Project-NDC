@@ -31,6 +31,10 @@ public class PortalHideoutController : Interactable
         }
 
     }
+    void Start()
+    {
+        AudioManager.instance.PlaySound(AudioManager.Sound.Portal,transform.position);
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         TurnOnIIcon(collision);

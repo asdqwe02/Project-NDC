@@ -211,7 +211,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 6773402051567981206}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: de6affa22445665438a0d26194f1e6d0, type: 3}
+  m_Script: {fileID: 11500000, guid: 35d0ec62bd6059e409b8bde8b20415fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   shockedTimer: 4
@@ -232,10 +232,10 @@ MonoBehaviour:
   healthPotionPrefab: {fileID: 7280410895787419857, guid: e42bbcb4223175f4f91737422063b27a, type: 3}
   minCoinDrop: 10
   maxCoinDrop: 100
-  collider2D: {fileID: 6773402051567981194}
+  target: {fileID: 0}
   _firePoint: {fileID: 6773402050616805387}
   _projectilePrefab: {fileID: 7645317348785127874, guid: f360086de2f9a514cb514c673fbf246a, type: 3}
   nextAttackTime: 0
-  target: {fileID: 0}
-  nextWaypointDistance: 3
   animator: {fileID: 6773402051567981193}
+  collider2D: {fileID: 6773402051567981194}
+  nextWaypointDistance: 3
