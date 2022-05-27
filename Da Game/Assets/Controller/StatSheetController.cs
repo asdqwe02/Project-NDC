@@ -8,8 +8,10 @@ public class StatSheetController : MonoBehaviour
     PlayerController pc;
     TextMeshProUGUI statsText;
     public GameObject statSheetsWindow;
-    void Start()
+    void Awake()
     {
+        if (statSheetsWindow == null)
+            statSheetsWindow = GameObject.Find("Canvas").transform.Find("Stat Sheet Window").gameObject;
         pc = PlayerController.instance;
         //pc = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
         if (statSheetsWindow!=null)
@@ -22,9 +24,9 @@ public class StatSheetController : MonoBehaviour
     }
     void CheckInput()
     {
-        if (Input.GetKeyDown(KeyCode.Tab))
+        if (Input.GetKeyDown(KeyCode.Tab) && statSheetsWindow!=null)
         {
-            if (!statSheetsWindow.active)
+            if (!statSheetsWindow.activeSelf)
             {
                 if (pc == null)
                     Debug.Log("pc is null");
@@ -35,9 +37,9 @@ public class StatSheetController : MonoBehaviour
 
             }
         }
-        if (Input.GetKeyUp(KeyCode.Tab))
+        if (Input.GetKeyUp(KeyCode.Tab) && statSheetsWindow!=null )
         {
-            if (statSheetsWindow.active)
+            if (statSheetsWindow.activeSelf)
             {
                 statSheetsWindow.SetActive(false);
 
@@ -60,5 +62,15 @@ public class StatSheetController : MonoBehaviour
                          "<color=red>" + pc.FireResistance + "</color>\n" +
                          "<color=lightblue>" + pc.ColdResistance + "</color>\n" +
                          "<color=yellow>" + pc.LightningResistance + "</color>";
+    }
+    public void ReloadStatSheetWindow()
+    {
+        if (statSheetsWindow == null)
+            statSheetsWindow = GameObject.Find("Canvas").transform.Find("Stat Sheet Window").gameObject;
+        pc = PlayerController.instance;
+        //pc = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
+        if (statSheetsWindow!=null)
+            statsText = statSheetsWindow.transform.GetChild(0).GetComponent<TextMeshProUGUI>();
+        else Debug.Log("Stat sheet window is null can't open stat sheet");
     }
 }

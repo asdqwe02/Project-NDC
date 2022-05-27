@@ -204,7 +204,8 @@ public class Buff : Interactable
                     PlayerController.instance.BaseDamage += damageIncrease;
                 else PlayerController.instance.FireType = 1;
                 PlayerController.instance.Damage = PlayerController.instance.BaseDamage / 2; // reduce damage for spread mode 
-                PlayerController.instance.FireRate = StatStick.FireRate * 10;
+                PlayerController.instance.PercentAttackSpeedIncrease -=50;
+                PlayerController.instance.CalculateAttackSpeed();
                 break;
             case BuffType.Movespeed:
                 PlayerController.instance.MovementSpeed += StatStick.MovementSpeed;

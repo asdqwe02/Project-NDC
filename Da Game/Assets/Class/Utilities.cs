@@ -20,6 +20,8 @@ public class Utilities
          new Buff.BuffRNG(Buff.BuffType.MultiBullet,150),
          new Buff.BuffRNG(Buff.BuffType.Movespeed,400)
     };
+    public static ModifierPool WeaponModifierPool = new ModifierPool(type:"weapon", jsonFilePath:"/Scriptable Object/ItemModifiers.json");
+    public static ModifierPool ArmourModifierPool = new ModifierPool(type:"armour", jsonFilePath:"/Scriptable Object/ItemModifiers.json");
     public static float GetAngleFromVectorFloat(Vector3 dir)
     {
         dir = dir.normalized;

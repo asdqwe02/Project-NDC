@@ -3,11 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 public class PlayerClass : MovingObjects
 {
-    public static PlayerClass instance;
+    // public static PlayerClass instance;
 
     [Header("Player Stats")]
     //Variables used in shooting projectiles
-    private float baseDamage = 0; //this is use to calculate damage increase or decrease when switching fire mode
+    private float baseDamage = 0; //this is use to calculate damage increase or decrease when switching fire mode and using item
+    private float baseAttackSpeed = 0; 
+    [SerializeField] private float percentDamageIncrease=0; //remove serializefield after testing
+    [SerializeField] private float percentAttackSpeedIncrease=0; //remove serializefield after testing
     private float maxHP = 0;
     [SerializeField] private float _fireRate = 0.5f;
     [SerializeField] private float _firingTime = 0f;
@@ -40,4 +43,7 @@ public class PlayerClass : MovingObjects
     public float MeleeAttackRange { get => _meleeAttackRange; set => _meleeAttackRange = value; }
     public float BaseDamage { get => baseDamage; set => baseDamage = value; }
     public float MaxHP { get => maxHP; set => maxHP = value; }
+    public float PercentDamageIncrease { get => percentDamageIncrease; set => percentDamageIncrease = value; }
+    public float PercentAttackSpeedIncrease { get => percentAttackSpeedIncrease; set => percentAttackSpeedIncrease = value; }
+    public float BaseAttackSpeed { get => baseAttackSpeed; set => baseAttackSpeed = value; }
 }

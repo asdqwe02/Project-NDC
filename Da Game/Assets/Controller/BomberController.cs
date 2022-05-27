@@ -81,7 +81,7 @@ public class BomberController : Bomber
         {
             //isDying = true;
             boxCollider2D.enabled = false;
-            DropItem();
+            Drop();
             animator.SetBool("IsExploding", true);
             
         }
@@ -157,7 +157,7 @@ public class BomberController : Bomber
     {
         Vector3 scaleVector = new Vector3(1.2f,1.2f,0);
         Vector3 offset = new Vector3(0,1f,0);
-        explodePrefab.GetComponent<ExplosionController>().SetUp(Damage,scaleVector);
-        Instantiate(explodePrefab,transform.position+offset,Quaternion.identity);
+        Transform Explosion = Instantiate(explodePrefab,transform.position+ offset,Quaternion.identity);
+        Explosion.GetComponent<ExplosionController>().SetUp(Damage,scaleVector);
     }
 }

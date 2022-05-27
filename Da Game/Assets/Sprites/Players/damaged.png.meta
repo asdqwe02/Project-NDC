@@ -8,6 +8,9 @@ TextureImporter:
   - first:
       213: -6806755141263944071
     second: damaged_1
+  - first:
+      213: -4102841925239998255
+    second: damaged_2
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -105,7 +108,7 @@ TextureImporter:
         width: 20
         height: 22
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -126,7 +129,7 @@ TextureImporter:
         width: 21
         height: 20
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -134,6 +137,27 @@ TextureImporter:
       bones: []
       spriteID: 97616e3434c8981a0800000000000000
       internalID: -6806755141263944071
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: damaged_2
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 42
+        width: 10
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d87d7cb107cf07c0800000000000000
+      internalID: -4102841925239998255
       vertices: []
       indices: 
       edges: []

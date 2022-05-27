@@ -19,6 +19,6 @@ public class Bomber : Enemy
   
     protected Rigidbody2D rb;
 
-    public GameObject explodePrefab;
+    public Transform explodePrefab;
 
 }

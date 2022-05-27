@@ -25,6 +25,7 @@ public class SlimeController : Slime
         target = PlayerController.instance.transform;
         seeker = GetComponent<Seeker>();
         rb = GetComponent<Rigidbody2D>();
+        circleCollider2D = GetComponent<CircleCollider2D>();
         StartingPosition = transform.position;
         InvokeRepeating("UpdatePath", 0f, .5f);
     }
@@ -79,7 +80,7 @@ public class SlimeController : Slime
         {
             //isDying = true;
             circleCollider2D.enabled = false;
-            DropItem();
+            Drop();
             animator.SetBool("IsDying", true);
             
         }

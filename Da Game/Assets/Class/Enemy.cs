@@ -7,6 +7,7 @@ public class Enemy : MovingObjects
     [Header("Drop Prefabs")]
     public Transform coinsPrefab;
     public Transform healthPotionPrefab;
+    public Transform itemPrefab;
     [Header("Coin drop range")]
     public int minCoinDrop = 0;
     public int maxCoinDrop = 0;
@@ -19,7 +20,7 @@ public class Enemy : MovingObjects
     {
         if (!dropped)
         {
-            int randomAmountofCoin = Random.RandomRange(minCoinDrop, maxCoinDrop);
+            int randomAmountofCoin = Random.Range(minCoinDrop, maxCoinDrop+1);
             coinsPrefab.GetComponent<CoinController>().setUpCoinDrop(randomAmountofCoin);
             Instantiate(coinsPrefab, transform.position, Quaternion.identity);
             dropped = true;
@@ -37,10 +38,35 @@ public class Enemy : MovingObjects
     }
     public void DropItem()
     {
-        itemRNG = new RNG();
-        if (itemRNG.RollNumber(20f))
-            DropPotion();
-        else DropCoins();
+        if (!dropped)
+        {
+            Instantiate(itemPrefab, transform.position, Quaternion.identity);
+            dropped = true;
+        }
+    }
+    public void Drop()
+    {
+        // itemRNG = new RNG();
+        // if (itemRNG.RollNumber(20f))
+        //     DropPotion();
+        // else DropCoins();
+
+        float chance = Random.Range(0f,1f);
+        Debug.Log(chance);
+        switch (chance)
+        {
+            case var x when (x <=0.2f):
+                DropItem();
+                break;
+            case var x when (x >0.2f && x <=0.45f):
+                DropPotion();
+                break;
+            case var x when (x > 0.45f):
+                DropCoins();
+                break;
+            default:
+                break;
+        }            
     }
     public override void takeDamage(float damageTaken, DamageType damageTypeTaken, Vector2 KnockBack)
     {

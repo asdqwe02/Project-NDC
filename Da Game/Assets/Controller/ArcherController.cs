@@ -19,8 +19,6 @@ public class ArcherController : Archer
 
     Seeker seeker;
 
-
-
     private void Start()
     {
         target = PlayerController.instance.transform;
@@ -92,7 +90,7 @@ public class ArcherController : Archer
         {
             isDying = true;
             collider2D.enabled = false;
-            DropItem();
+            Drop();
             animator.SetBool("IsDying", true);
 
         }

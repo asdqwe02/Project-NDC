@@ -22,7 +22,7 @@ namespace Pathfinding
 
 		private void Start()
 		{
-			target = PlayerController.Singleton.transform;
+			target = PlayerController.instance.transform;
 		}
 		void OnEnable()
 		{

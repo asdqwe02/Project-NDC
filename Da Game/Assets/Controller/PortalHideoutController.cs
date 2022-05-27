@@ -113,36 +113,6 @@ public class PortalHideoutController : Interactable
             Buff.ApplyBuff(BuffToApply, statStick);
             Text_Display += "+" + BuffToApply.ToString() + "\n";
 
-            //Obsolete delete later
-            /* Debug.Log("Buff applied: " + BuffToApply.ToString());
-
-             System.Random random = new System.Random();
-             int x = Random.Range(1, 101);
-             if (x < 11) // Numbers 1..10 ( A -> 10% )
-             {
-                 AddAS();
-                 //Display reveiced buffs 
-                 Text_Display += "+10% Attack Speed \n";
-             }
-             else if (x < 21) // Numbers 11..20 ( B -> 10 % )
-             {
-                 AddMS();
-                 //Display reveiced buffs 
-                 Text_Display += "+10% Movement Speed \n";
-             }
-             else if (x < 41) // Numbers 21..40 ( C -> 20 % )
-             {
-                 AddArmour();
-                 //Display reveiced buffs 
-                 Text_Display += "+10% Armour \n";
-             }
-             else if (x < 101) // Numbers 41..100 ( D -> 60 % ) 
-             {
-                 AddHP();
-                 //Display reveiced buffs 
-                 Text_Display += "+10% HP  \n";
-             } */
-
         }
         TextToDisplay.text = Text_Display;
 

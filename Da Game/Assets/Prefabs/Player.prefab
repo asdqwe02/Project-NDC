@@ -234,7 +234,7 @@ MonoBehaviour:
   numberPopUp: {fileID: 6161134254988266509, guid: cdfc0503540752946bc3d0e7226c4aad, type: 3}
   hp: 100
   movementSpeed: 8
-  attackSpeed: 0.333
+  attackSpeed: 4
   armour: 1
   fireResistance: 0
   coldResistance: 0
@@ -242,6 +242,8 @@ MonoBehaviour:
   damage: 12
   damageType: 0
   statusEffects: 
+  percentDamageIncrease: 0
+  percentAttackSpeedIncrease: 0
   _fireRate: 0.2
   _firingTime: 0
   _bulletAmount: 6

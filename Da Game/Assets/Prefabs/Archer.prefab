@@ -230,6 +230,7 @@ MonoBehaviour:
   statusEffects: 
   coinsPrefab: {fileID: 7675367445763309639, guid: 8ce031827186a1b4cb4597c8d786cc23, type: 3}
   healthPotionPrefab: {fileID: 7280410895787419857, guid: e42bbcb4223175f4f91737422063b27a, type: 3}
+  itemPrefab: {fileID: 7476034321120626651, guid: db470f030c63dbb42b768a5d0cf57b11, type: 3}
   minCoinDrop: 10
   maxCoinDrop: 100
   target: {fileID: 0}

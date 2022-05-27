@@ -99,6 +99,7 @@ public class FileSlotDisplayController : MonoBehaviour
     }
     public void Load(string slot)
     {
+        PlayerController.instance.gameObject.SetActive(true);
         PlayerController.slot = slot;
         PlayerController.IsLoading = true;
         PlayerController.To_Load = true;
@@ -107,6 +108,7 @@ public class FileSlotDisplayController : MonoBehaviour
     }
     public void Create(string slot)
     {
+        PlayerController.instance.gameObject.SetActive(true);
         PlayerController.slot = slot;
         PlayerController.IsLoading = false;
         PlayerController.To_Load = true;
@@ -118,6 +120,7 @@ public class FileSlotDisplayController : MonoBehaviour
     {
         //PlayerController.instance.Load_Base();
         Debug.Log("Pressed");
+        PlayerController.instance.gameObject.SetActive(true);
         SceneManager.LoadScene("Tutorial");
     }
     public void Quit()

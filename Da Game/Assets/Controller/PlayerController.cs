@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 public class PlayerController : PlayerClass
 {
@@ -30,7 +30,6 @@ public class PlayerController : PlayerClass
     private float rotZ;
     private Vector3 difference;
 
-    public static PlayerController Singleton;
     [Header("Layer Masks")]
     [SerializeField] private LayerMask _dashLayerMask;
     [SerializeField] private LayerMask _enemyLayerMask;
@@ -51,11 +50,6 @@ public class PlayerController : PlayerClass
 
     private void Awake()
     {
-        Singleton = this;
-
-        FiringTime -= Time.deltaTime; // reset firing time
-        meleeAttackTime -= Time.deltaTime;
-        BaseDamage = Damage; // setup base damage
         if (instance == null)
         {
             instance = this;
@@ -67,6 +61,12 @@ public class PlayerController : PlayerClass
                 Destroy(gameObject);
             }
         }
+        FiringTime -= Time.deltaTime; // reset firing time
+        meleeAttackTime -= Time.deltaTime;
+        BaseDamage = Damage; // setup base damage
+        FireRate = 1/AttackSpeed;
+        BaseAttackSpeed = AttackSpeed; // setup base attack speed
+       
         DontDestroyOnLoad(gameObject);
     }
 
@@ -96,7 +96,6 @@ public class PlayerController : PlayerClass
 
         IsPlayer = true;
         collider2D = GetComponent<BoxCollider2D>();
-
         Save_Base();
     }
 
@@ -165,6 +164,7 @@ public class PlayerController : PlayerClass
         {
             if (Input.GetMouseButton(0) && !animator.GetBool("ToSleep"))
             {
+
                 AudioManager.instance.PlaySound(AudioManager.Sound.PlayerShoot);
                 FiringTime = FiringTime + FireRate;
                 switch (FireType)
@@ -175,6 +175,9 @@ public class PlayerController : PlayerClass
                     case 1:
                         //FireBulletSpreadMode();
                         FireBulletSpreadV2(); //Machine god control this not me 
+                        break;
+                    case 2:
+                        FireBulletSpreadModeV3();
                         break;
                     default:
                         break;
@@ -188,7 +191,7 @@ public class PlayerController : PlayerClass
         else if (Input.GetMouseButtonDown(1) && !animator.GetBool("ToSleep"))
         {
             MeleeAttack();
-            meleeAttackTime += AttackSpeed;
+            meleeAttackTime += 1/AttackSpeed;
         }
 
         //Dash
@@ -367,6 +370,22 @@ public class PlayerController : PlayerClass
         }
 
     }
+    private void FireBulletSpreadModeV3(){
+        //Barrel
+        Vector3 barrelPos = _fireAttackPoint.position;
+
+        Vector2 vecTemp = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        _lookDirection = ((Vector3)vecTemp - barrelPos).normalized;
+
+        Transform bulletType = GetBulletType();
+        for (int i = 0; i < BulletAmount; i++)
+        {
+            float spreadAngle = UnityEngine.Random.Range(-45f,45f);
+            Vector2 shootDir = (Quaternion.Euler(0f,0f,spreadAngle) *  _lookDirection).normalized;
+            Transform firedBullet = Instantiate(bulletType, barrelPos, Quaternion.identity);
+            firedBullet.GetComponent<Bullet>().setUp(shootDir, true, Damage, DamageType_);
+        }
+    }
     //Get bullet type function
     private Transform GetBulletType()
     {
@@ -453,6 +472,10 @@ public class PlayerController : PlayerClass
             }
             if (!enemy.CompareTag("Golem"))
             {
+                
+                if (enemy.GetComponent<ShieldEnemy>()!=null) // extremely stupid
+                    if (enemy.GetComponent<ShieldEnemy>().Shield.activeSelf)
+                        return;
                 Enemy Monster = enemy.GetComponent<Enemy>();
                 Monster.takeDamage(0, DamageType.Physical, _lookDirection);
             }
@@ -616,7 +639,24 @@ public class PlayerController : PlayerClass
         }
     }
 
+    public void CalculateDamage()
+    {
+        
+        Damage = BaseDamage * (1+PercentDamageIncrease);
+        if (Damage <=0)
+            Damage=1;
+    }
+    public void CalculateAttackSpeed()
+    {
+        if (-PercentAttackSpeedIncrease>=1)
+        {
+            // calculation for reduce attack speed if the percent reduce is higher than 100%
+            AttackSpeed = BaseAttackSpeed / (BaseAttackSpeed*(1+ Mathf.Abs(PercentAttackSpeedIncrease)));
+        }
+        else AttackSpeed = BaseAttackSpeed * (1+PercentAttackSpeedIncrease);
 
+        FireRate = 1/AttackSpeed;
+    }
 
 }
 

@@ -103,7 +103,7 @@ public class Bullet : MonoBehaviour
             {
                 if (animator != null)
                     animator.SetBool("Hit", true);
-               //Debug.Log("hit sound is: " + _hitSound);
+                //Debug.Log("hit sound is: " + _hitSound);
                 AudioManager.instance.PlaySound(_hitSound, gameObject.transform.position);
                 isMoving = false;
             }
@@ -111,7 +111,7 @@ public class Bullet : MonoBehaviour
             if (Monster != null)
             {
                 // Debug.Log("monster take damage!!");
-                Monster.takeDamage(_damage, _damageType);
+                 Monster.takeDamage(_damage, _damageType);
                 bool applyStatus = statusEffectRNG.RollNumber(25f); //Apply status effect to monster 
                 if (applyStatus)
                 {
@@ -119,6 +119,13 @@ public class Bullet : MonoBehaviour
                 }
 
             }
+            // can use this to revamp this hit detection
+            if (collision.CompareTag("Enemy"))
+            {
+                if (collision.GetComponentInParent<ShieldEnemyController>()!=null)
+                    collision.GetComponentInParent<ShieldEnemyController>().ShieldTakeDamage(_damage);
+            }
+
             if (dummy != null)
             {
                 dummy.takeDamage(_damage, _damageType);

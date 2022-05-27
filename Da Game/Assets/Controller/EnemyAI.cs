@@ -29,7 +29,7 @@ public class EnemyAI : MonoBehaviour
     private void Start()
     {
 
-        target = PlayerController.Singleton.transform;
+        target = PlayerController.instance.transform;
         seeker = GetComponent<Seeker>();
         rb = GetComponent<Rigidbody2D>();
 

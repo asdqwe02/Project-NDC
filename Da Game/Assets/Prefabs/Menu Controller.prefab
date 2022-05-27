@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 612004504858912956}
   - component: {fileID: 612004504858912930}
   - component: {fileID: 612004504858912929}
+  - component: {fileID: -8882175485008765636}
   m_Layer: 0
   m_Name: Menu Controller
   m_TagString: Untagged
@@ -60,6 +61,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PauseMenu: {fileID: 0}
+  PauseMenu_Confirmation: {fileID: 0}
+  DeathMenu: {fileID: 0}
 --- !u!114 &612004504858912929
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -73,3 +76,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   statSheetsWindow: {fileID: 3987312609001687370, guid: 071fcceeb27b6864aaca76e73b8a0725, type: 3}
+--- !u!114 &-8882175485008765636
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 612004504858912957}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee0dd8ddcdc2da746abef8cb7499bab2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Inventory_UI: {fileID: 0}
+  Equipment_UI: {fileID: 0}
+  mainCanvas: {fileID: 0}

@@ -62,7 +62,9 @@ public class PillarController : MonoBehaviour
 
     private void End()
     {
+        Vector3 scale = new Vector3(0.6f,2f,0f);
         Transform Explosion = Instantiate(_explosionPrefab, ExplosionPoint.position, Quaternion.identity);
+        Explosion.GetComponent<ExplosionController>().SetUp(10,scale);
         Destroy(gameObject);
 
     }

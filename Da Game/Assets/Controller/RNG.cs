@@ -12,7 +12,7 @@ public class RNG
     public bool RollNumber(float Chance)
     {
         chance = Chance;
-        roll = Random.RandomRange(0, 100);
+        roll = Random.Range(0, 101);
         if (roll <= chance)
             return true;
         else return false;
