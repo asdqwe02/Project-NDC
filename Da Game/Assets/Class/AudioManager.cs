@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
 using System.Linq;
-
+using UnityEngine.SceneManagement;
 
 //Sound when projectiles hit somethings
 [System.Serializable]
@@ -46,8 +46,9 @@ public class AudioManager : MonoBehaviour
     {
         GameOverST,
         HideoutST,
-        BossGolemST,
+        BossST1,
         NormalLevelST,
+        MainMenuST,
 
     }
     //can't use struct and dictionary type is a bit limited
@@ -84,6 +85,18 @@ public class AudioManager : MonoBehaviour
         {
             Destroy(gameObject);
             return;
+        }
+        // PlaySoundTrack(SoundTrack.NormalLevelST);
+        switch (SceneManager.GetActiveScene().name)
+        {
+            case "Hideout":
+                PlaySoundTrack(SoundTrack.HideoutST);
+                break;
+            case "MainMenu":
+                PlaySoundTrack(SoundTrack.MainMenuST);
+                break;
+            default:
+                break;
         }
         DontDestroyOnLoad(gameObject);
     }
@@ -141,14 +154,18 @@ public class AudioManager : MonoBehaviour
     {
         if (soundTrackGameObject == null)
         {
-            soundTrackGameObject = new GameObject("Sound Track Sound");
+            soundTrackGameObject = new GameObject();
             soundTrackAudioSource = soundTrackGameObject.AddComponent<AudioSource>();
+            DontDestroyOnLoad(soundTrackGameObject); 
         }
         SoundAudioClip<SoundTrack> s = System.Array.Find(soundTrackArray, SoundTrack => SoundTrack.sound == soundTrack);
+        soundTrackAudioSource.name = s.name;
         soundTrackAudioSource.loop = s.loop;
         soundTrackAudioSource.volume = s.volume;
         soundTrackAudioSource.pitch = s.pitch;
-        soundTrackAudioSource.PlayOneShot(GetAudioClip(soundTrack));
+        // soundTrackAudioSource.PlayOneShot(GetAudioClip(soundTrack));
+        soundTrackAudioSource.clip= GetAudioClip(soundTrack);
+        soundTrackAudioSource.Play();
     }
 
     //need to implement this later
@@ -196,6 +213,10 @@ public class AudioManager : MonoBehaviour
         return true;
     }
 
+    public GameObject GetSoundTrackGameObject()
+    {
+        return soundTrackGameObject;
+    }
 
 
 }

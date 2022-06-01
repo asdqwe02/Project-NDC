@@ -22,7 +22,7 @@ public class ItemTooltip : MonoBehaviour
             Destroy(gameObject);
             return;
         }
-        Debug.Log("item tool tip instance "+ instance);
+        // Debug.Log("item tool tip instance "+ instance);
         backgroundRectTransfrom = transform.Find("Background").GetComponent<RectTransform>();
         itemImage = transform.Find("ItemImage").GetComponent<RectTransform>();
         itemSprite = itemImage.transform.Find("Image").GetComponent<Image>();

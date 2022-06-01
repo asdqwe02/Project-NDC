@@ -15,6 +15,7 @@ public class ItemController : Interactable,IPointerClickHandler,IPointerEnterHan
     public List<Modifier> itemMod = new List<Modifier>(); // for testing and debugging purpose
     [SerializeField] private bool equiped = false;
     private bool mouseOver=false;
+    [SerializeField] private GameObject itemContainer;
 
     void Awake()
     {
@@ -25,13 +26,14 @@ public class ItemController : Interactable,IPointerClickHandler,IPointerEnterHan
         SetUpItemModifiers();
         itemMod = Item.modifiers;
     }
-
     public override void Interact()
     {
         Debug.Log("interact with item");
         GetComponent<Renderer>().enabled = false;
 
         inInventory = InventoryController.instance.AddItem(gameObject);
+        if (ItemTooltip.instance.gameObject.activeSelf)
+            ItemTooltip.instance.HideItemToolTip();
     }
 
     private void SetUpItemModifiers()
@@ -169,8 +171,19 @@ public class ItemController : Interactable,IPointerClickHandler,IPointerEnterHan
     }
     public void OnPointerClick(PointerEventData eventData)
     {
+
         if (eventData.button == PointerEventData.InputButton.Right && inInventory)
         {
+            if (Input.GetKey(KeyCode.LeftControl) || Input.GetKey(KeyCode.RightControl))
+            {    
+                transform.parent = null;
+                float x_dir = Random.Range(-1f,1f);
+                float y_dir = Random.Range(-1f,1f);
+                Vector3 dropDirection = new Vector3 (x_dir,y_dir,0);
+                transform.parent =  Instantiate(itemContainer.transform,dropDirection + PlayerController.instance.transform.position,Quaternion.identity); // Look stupid
+                GetComponent<SpriteRenderer>().enabled = true;
+                return;
+            }
             if (!equiped)
             {
                 if (InventoryController.instance.AddItemToEquipmentSlot(gameObject))
@@ -187,21 +200,26 @@ public class ItemController : Interactable,IPointerClickHandler,IPointerEnterHan
                 }
             }
         }
+       
 
     }
     public void OnPointerEnter(PointerEventData eventData)
     {
+        mouseOver=true;
         ItemTooltip.instance.ShowItemToolTip(this);
          
     }
     public void OnPointerExit(PointerEventData eventData)
     {
+        mouseOver = false;
         ItemTooltip.instance.HideItemToolTip();    
     }
     private void OnMouseEnter() {
+        mouseOver = true;
         ItemTooltip.instance.ShowItemToolTip(this);
     }
     private void OnMouseExit() {
+        mouseOver = false;
         ItemTooltip.instance.HideItemToolTip();    
     }
     

@@ -15,6 +15,7 @@ public class PortalHideoutController : Interactable
     private Buff.BuffRNG[] buffs;
     public override void Interact()
     {
+        AudioManager.instance.PlaySoundTrack(AudioManager.SoundTrack.NormalLevelST);
         PlayerController.instance.CloseInteractableIcon();
         PlayerController.instance.Coin_tobeAdded = 0;
         PlayerController.instance.scenePassword = newScenePassword;

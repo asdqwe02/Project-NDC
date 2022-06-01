@@ -111,7 +111,7 @@ public class Bullet : MonoBehaviour
             if (Monster != null)
             {
                 // Debug.Log("monster take damage!!");
-                 Monster.takeDamage(_damage, _damageType);
+                Monster.takeDamage(_damage, _damageType);
                 bool applyStatus = statusEffectRNG.RollNumber(25f); //Apply status effect to monster 
                 if (applyStatus)
                 {

@@ -21,11 +21,28 @@ public class MenuController : MonoBehaviour
             return;
         }
         mainCanvas = GameObject.Find("Canvas").gameObject;
-        if (PauseMenu == null)
+        if (PauseMenu == null || DeathMenu == null)
         {
             PauseMenu = mainCanvas.transform.Find("Pause Menu").gameObject;
+            PauseMenu_Confirmation = PauseMenu.transform.Find("Retreat confirm").gameObject;  
+
+            PauseMenu.transform.Find("Retreat").GetComponent<Button>().onClick.AddListener(()=>{
+                PauseMenu.transform.Find("Retreat confirm").gameObject.SetActive(true);
+            });
             PauseMenu_Confirmation = PauseMenu.transform.Find("Retreat confirm").gameObject;
+            PauseMenu_Confirmation.transform.Find("Yes button").GetComponent<Button>().onClick.AddListener(()=>{
+                BackToHideout_Penalty();
+            });
+            PauseMenu_Confirmation.transform.Find("No button").GetComponent<Button>().onClick.AddListener(()=>{
+                PauseMenu.SetActive(false);
+                PauseMenu_Confirmation.SetActive(false);
+                UnfreezeTime();
+            });
+        }
+        if (DeathMenu == null && SceneManager.GetActiveScene().name!="Tutorial")
+        {
             DeathMenu = mainCanvas.transform.Find("DeathMenu").gameObject;
+            DeathMenu.transform.Find("Retreat").GetComponent<Button>().onClick.AddListener(()=> BackToHideout());
         }
         if (SceneManager.GetActiveScene().name=="Hideout")
             LoadHideoutPauseMenu();
@@ -68,7 +85,7 @@ public class MenuController : MonoBehaviour
                 {
                     Scene currentScene = SceneManager.GetActiveScene();
                     string sceneName = currentScene.name;
-                    if (sceneName!="Hideout" && sceneName != "Tutorial"  && PauseMenu_Confirmation.active)
+                    if (sceneName!="Hideout" && sceneName != "Tutorial"  && PauseMenu_Confirmation.activeSelf)
                         PauseMenu_Confirmation.SetActive(false);
                     PauseMenu.SetActive(false);
                     Time.timeScale = 1f;
@@ -100,6 +117,9 @@ public class MenuController : MonoBehaviour
         PlayerController.instance.Save();
         if (MainCanvasController.instance!=null)
             MainCanvasController.instance.DestroySelf();
+
+        // Sound Track Switch
+        AudioManager.instance.PlaySoundTrack(AudioManager.SoundTrack.MainMenuST);
         SceneManager.LoadScene("MainMenu");
         // mainCanvas.SetActive(false);
         Time.timeScale = 1f;
@@ -114,6 +134,8 @@ public class MenuController : MonoBehaviour
         PlayerController.instance.Load_Base();
         if (MainCanvasController.instance!=null)
             MainCanvasController.instance.DestroySelf();
+        AudioManager.instance.PlaySoundTrack(AudioManager.SoundTrack.HideoutST);
+
         SceneManager.LoadScene("Hideout");
         Time.timeScale = 1f;
     }
@@ -126,6 +148,7 @@ public class MenuController : MonoBehaviour
         PlayerController.instance.Load_Base();
         if (MainCanvasController.instance!=null)
             MainCanvasController.instance.DestroySelf();
+        AudioManager.instance.PlaySoundTrack(AudioManager.SoundTrack.HideoutST);
         SceneManager.LoadScene("Hideout");
 
         Time.timeScale = 1f;
@@ -140,6 +163,7 @@ public class MenuController : MonoBehaviour
         PlayerController.instance.Load_Base();
         if (MainCanvasController.instance!=null)
             MainCanvasController.instance.DestroySelf();
+        AudioManager.instance.PlaySoundTrack(AudioManager.SoundTrack.HideoutST);
         SceneManager.LoadScene("Hideout");
         Time.timeScale = 1f;
     }
@@ -156,7 +180,7 @@ public class MenuController : MonoBehaviour
     }
     public void ReloadMenuObject(Scene scene, LoadSceneMode mode)
     {
-        if (scene.name == "Hideout")
+        if (scene.name == "Hideout" || scene.name == "Tutorial")
         {
             mainCanvas = GameObject.Find("Canvas").gameObject;
             PauseMenu = mainCanvas.transform.Find("Pause Menu").gameObject;
@@ -175,6 +199,10 @@ public class MenuController : MonoBehaviour
                 UnfreezeTime();
             });
             DeathMenu = mainCanvas.transform.Find("DeathMenu").gameObject;
+            DeathMenu.transform.Find("Retreat").GetComponent<Button>().onClick.AddListener(()=>{
+                BackToHideout();
+            });
+            LoadHideoutPauseMenu();
             InventoryController.instance.ReloadInventoryUI();
             GetComponent<StatSheetController>().ReloadStatSheetWindow();
         }

@@ -31,7 +31,7 @@ public class CoinController : Interactable
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            pc = collision.gameObject.GetComponent<PlayerController>();
+            // pc = collision.gameObject.GetComponent<PlayerController>();
             Interact();
         }
     }
@@ -41,8 +41,8 @@ public class CoinController : Interactable
     }
     public override void Interact()
     {
-        pc.coins += coinAmount;
-        pc.Coin_tobeAdded += coinAmount;
+        PlayerController.instance.coins += coinAmount;
+        PlayerController.instance.Coin_tobeAdded += coinAmount;
         Destroy(gameObject);
     }
 }

@@ -11,8 +11,8 @@ public class EnemySpawner : MonoBehaviour
     {
         public string name;
         public Transform enemy;
-        public int count;
-        public float rate;
+        public int count; // number of enemy to spawn 
+        public float rate; // rate to spawn each enemy
     }
 
     public Wave[] waves;
@@ -29,6 +29,7 @@ public class EnemySpawner : MonoBehaviour
     {
         waveCountdown = timeBetweenWave;
         sr = GetComponent<SpriteRenderer>();
+        sr.enabled = false;
 
     }
 

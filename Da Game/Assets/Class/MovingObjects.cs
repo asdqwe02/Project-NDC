@@ -246,13 +246,4 @@ public class MovingObjects : MonoBehaviour
         takeDamage(burningDamage, DamageType.Fire);
     }
 
-    //should remove this 
-    protected void DropMoney(int low, int high)
-    {
-        if (!dropped)
-        {
-            PlayerController.instance.coins += Random.RandomRange(1, 10);
-            dropped = true; //should remove this also
-        }
-    }
 }

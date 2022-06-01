@@ -11,8 +11,8 @@ public class NumberPopupController : MonoBehaviour
     void Start()
     {
         //transform.localPosition += new Vector3(0, 0.5f, 0);
-        float randomXPos = Random.RandomRange(-0.25f, 0.25f);
-        float randomYPos = Random.RandomRange(0.25f, 0.5f);
+        float randomXPos = Random.Range(-0.25f, 0.25f);
+        float randomYPos = Random.Range(0.25f, 0.5f);
         transform.localPosition += new Vector3(randomXPos, randomYPos, 0);
     }
 

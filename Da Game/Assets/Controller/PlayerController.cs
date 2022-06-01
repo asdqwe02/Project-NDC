@@ -501,7 +501,14 @@ public class PlayerController : PlayerClass
         ImmuneTime = 0.75;
         Physics2D.IgnoreLayerCollision(9, 8);
     }
-
+    public override void takeDamage(float damageTaken, DamageType damageTypeTaken)
+    {
+        base.takeDamage(damageTaken, damageTypeTaken);
+        animator.SetBool("IsHurt", true);
+        IsHurt = true;
+        ImmuneTime = 0.75;
+        Physics2D.IgnoreLayerCollision(9, 8);
+    }
     private void OnDrawGizmosSelected()
     {
         if (_meleeAttackPoint == null)

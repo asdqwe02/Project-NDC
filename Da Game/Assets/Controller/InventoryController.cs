@@ -45,6 +45,8 @@ public class InventoryController : MonoBehaviour
     public void ToggleInventory(){
         bool activeState = Inventory_UI.activeSelf; //get the current active state
         activeState = !activeState; // invert it 
+        if (ItemTooltip.instance.gameObject.activeSelf)
+            ItemTooltip.instance.HideItemToolTip();
         Inventory_UI.SetActive(activeState);
     }
     public bool AddItem(GameObject item){

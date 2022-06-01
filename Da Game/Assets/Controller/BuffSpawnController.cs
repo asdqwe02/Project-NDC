@@ -9,7 +9,7 @@ public class BuffSpawnController : MonoBehaviour
     public Buff.BuffType buffType; //TODO: change this to buff pool 
     public Transform indicatorPrefab;
     PlayerController pc;
-    GameObject[] Spawner, StartPlate, MonsterAlive;
+    public GameObject[] Spawner, StartPlate, MonsterAlive;
     bool[] conditions;
     bool spawned = false;
     private Buff.BuffRNG[] buffs;
@@ -20,8 +20,10 @@ public class BuffSpawnController : MonoBehaviour
         pc = PlayerController.instance;
         buff.GetComponent<Buff>().SetUp(buffType);
         conditions = new bool[3] { false, false, false };
-        Spawner = GameObject.FindGameObjectsWithTag("EnemySpawner");
-        StartPlate = GameObject.FindGameObjectsWithTag("StartPlate");
+        if (Spawner.Length == 0)
+            Spawner = GameObject.FindGameObjectsWithTag("EnemySpawner");
+        if (StartPlate.Length == 0 )
+            StartPlate = GameObject.FindGameObjectsWithTag("StartPlate");
 
     }
 
@@ -36,7 +38,8 @@ public class BuffSpawnController : MonoBehaviour
             spawnPosition.x += Random.Range(-0.2f, 0.2f);
             spawnPosition.y += Random.Range(-0.2f, 0.2f);
             Instantiate(buff, spawnPosition, Quaternion.identity);
-            Instantiate(indicatorPrefab, transform.position, Quaternion.identity);
+            if (indicatorPrefab != null)
+                Instantiate(indicatorPrefab, transform.position, Quaternion.identity);
         }
     }
     

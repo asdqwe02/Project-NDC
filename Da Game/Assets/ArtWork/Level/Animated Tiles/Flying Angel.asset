@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13b75c95f34a00d4e8c04f76b73312e6, type: 3}
+  m_Name: Flying Angel
+  m_EditorClassIdentifier: 
+  m_AnimatedSprites:
+  - {fileID: 222846237359020021, guid: df1825cc98cb42345afd2cf1cabfb082, type: 3}
+  - {fileID: -3557980481076236834, guid: df1825cc98cb42345afd2cf1cabfb082, type: 3}
+  - {fileID: 1675447527806598363, guid: df1825cc98cb42345afd2cf1cabfb082, type: 3}
+  - {fileID: 5582120928817703999, guid: df1825cc98cb42345afd2cf1cabfb082, type: 3}
+  - {fileID: 6643666619251738029, guid: df1825cc98cb42345afd2cf1cabfb082, type: 3}
+  - {fileID: 6643666619251738029, guid: df1825cc98cb42345afd2cf1cabfb082, type: 3}
+  - {fileID: -3480700694821832099, guid: df1825cc98cb42345afd2cf1cabfb082, type: 3}
+  - {fileID: -3480700694821832099, guid: df1825cc98cb42345afd2cf1cabfb082, type: 3}
+  m_MinSpeed: 8
+  m_MaxSpeed: 8
+  m_AnimationStartTime: 0
+  m_AnimationStartFrame: 0
+  m_TileColliderType: 0

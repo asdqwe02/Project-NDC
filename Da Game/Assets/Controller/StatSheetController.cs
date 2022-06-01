@@ -5,14 +5,13 @@ using TMPro;
 public class StatSheetController : MonoBehaviour
 {
     // Start is called before the first frame update
-    PlayerController pc;
     TextMeshProUGUI statsText;
     public GameObject statSheetsWindow;
     void Awake()
     {
         if (statSheetsWindow == null)
             statSheetsWindow = GameObject.Find("Canvas").transform.Find("Stat Sheet Window").gameObject;
-        pc = PlayerController.instance;
+        // PlayerController.instance = PlayerController.instance;
         //pc = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
         if (statSheetsWindow!=null)
             statsText = statSheetsWindow.transform.GetChild(0).GetComponent<TextMeshProUGUI>();
@@ -28,7 +27,7 @@ public class StatSheetController : MonoBehaviour
         {
             if (!statSheetsWindow.activeSelf)
             {
-                if (pc == null)
+                if (PlayerController.instance == null)
                     Debug.Log("pc is null");
                 if (statsText == null)
                     Debug.Log("stats text is null");
@@ -49,25 +48,24 @@ public class StatSheetController : MonoBehaviour
     private void UpdatesStatSheet()
     {
         string FireType="Single Fire Mode";
-        if (pc.FireType != 0)
+        if (PlayerController.instance.FireType != 0)
             FireType = "Spread Fire Mode";
 
-        statsText.text = "<color=green>" + pc.Hp.ToString("0.##") + "/" + pc.MaxHP + "</color>\n" +
-                         pc.Damage.ToString("0.##") + "\n" +
-                         pc.FireRate.ToString("0.##") + "\n" +
+        statsText.text = "<color=green>" + PlayerController.instance.Hp.ToString("0.##") + "/" + PlayerController.instance.MaxHP + "</color>\n" +
+                         PlayerController.instance.Damage.ToString("0.##") + "\n" +
+                         PlayerController.instance.FireRate.ToString("0.##") + "\n" +
                          FireType + "\n" +
-                         pc.DamageType_.ToString() +"\n"+
-                         pc.MovementSpeed + "\n" +
-                         "<color=black>" + pc.Armour + "</color>\n" +
-                         "<color=red>" + pc.FireResistance + "</color>\n" +
-                         "<color=lightblue>" + pc.ColdResistance + "</color>\n" +
-                         "<color=yellow>" + pc.LightningResistance + "</color>";
+                         PlayerController.instance.DamageType_.ToString() +"\n"+
+                         PlayerController.instance.MovementSpeed + "\n" +
+                         "<color=black>" + PlayerController.instance.Armour + "</color>\n" +
+                         "<color=red>" + PlayerController.instance.FireResistance + "</color>\n" +
+                         "<color=lightblue>" + PlayerController.instance.ColdResistance + "</color>\n" +
+                         "<color=yellow>" + PlayerController.instance.LightningResistance + "</color>";
     }
     public void ReloadStatSheetWindow()
     {
         if (statSheetsWindow == null)
             statSheetsWindow = GameObject.Find("Canvas").transform.Find("Stat Sheet Window").gameObject;
-        pc = PlayerController.instance;
         //pc = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
         if (statSheetsWindow!=null)
             statsText = statSheetsWindow.transform.GetChild(0).GetComponent<TextMeshProUGUI>();

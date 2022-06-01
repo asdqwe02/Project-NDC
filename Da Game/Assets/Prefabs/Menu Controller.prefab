@@ -63,6 +63,7 @@ MonoBehaviour:
   PauseMenu: {fileID: 0}
   PauseMenu_Confirmation: {fileID: 0}
   DeathMenu: {fileID: 0}
+  HO_PauseMenu: {fileID: 0}
 --- !u!114 &612004504858912929
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -75,7 +76,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b65fb04ace24004eb631a2a98104e4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  statSheetsWindow: {fileID: 3987312609001687370, guid: 071fcceeb27b6864aaca76e73b8a0725, type: 3}
+  statSheetsWindow: {fileID: 0}
 --- !u!114 &-8882175485008765636
 MonoBehaviour:
   m_ObjectHideFlags: 0

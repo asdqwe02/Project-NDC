@@ -41,7 +41,7 @@
      <Compile Include="Assets\Controller\CrateController.cs" />
      <Compile Include="Assets\Controller\ShopNPController.cs" />
      <Compile Include="Assets\Class\Sound.cs" />
-     <Compile Include="Assets\Controller\GolemController.cs" />
+     <Compile Include="Assets\Controller\Enemy Controllers\GolemController.cs" />
      <Compile Include="Assets\Class\NonMovingObject.cs" />
      <Compile Include="Assets\Controller\ExplosionController.cs" />
      <Compile Include="Assets\Class\Slime.cs" />
@@ -50,10 +50,10 @@
      <Compile Include="Assets\Controller\SpriteAnimation.cs" />
      <Compile Include="Assets\Controller\RNG.cs" />
      <Compile Include="Assets\Controller\Camera_Follow.cs" />
-     <Compile Include="Assets\Controller\SlimeController.cs" />
+     <Compile Include="Assets\Controller\Enemy Controllers\SlimeController.cs" />
      <Compile Include="Assets\Controller\HealthBarController.cs" />
      <Compile Include="Assets\Class\Archer.cs" />
-     <Compile Include="Assets\Controller\ShieldEnemyController.cs" />
+     <Compile Include="Assets\Controller\Enemy Controllers\ShieldEnemyController.cs" />
      <Compile Include="Assets\Class\SpaceShip.cs" />
      <Compile Include="Assets\Controller\Entrance.cs" />
      <Compile Include="Assets\Scriptable Object\ItemSpriteData.cs" />
@@ -68,12 +68,13 @@
      <Compile Include="Assets\Controller\MainCanvasController.cs" />
      <Compile Include="Assets\Scriptable Object\Item.cs" />
      <Compile Include="Assets\Controller\DummyController.cs" />
-     <Compile Include="Assets\Class\GolemArm.cs" />
-     <Compile Include="Assets\Controller\EnemyAI.cs" />
+     <Compile Include="Assets\Controller\Enemy Controllers\GolemArm.cs" />
+     <Compile Include="Assets\Controller\DungeonDoorController.cs" />
+     <Compile Include="Assets\Controller\Enemy Controllers\EnemyAI.cs" />
      <Compile Include="Assets\Class\AudioManager.cs" />
      <Compile Include="Assets\Controller\CoinCounterController.cs" />
      <Compile Include="Assets\Controller\StatusController.cs" />
-     <Compile Include="Assets\Controller\EnemyAIDestinationSetter.cs" />
+     <Compile Include="Assets\Controller\Enemy Controllers\EnemyAIDestinationSetter.cs" />
      <Compile Include="Assets\Controller\MenuController.cs" />
      <Compile Include="Assets\Controller\NumberPopupController.cs" />
      <Compile Include="Assets\Controller\CoinController.cs" />
@@ -87,11 +88,12 @@
      <Compile Include="Assets\Controller\LaserUpdated.cs" />
      <Compile Include="Assets\Controller\ShopOwnerController.cs" />
      <Compile Include="Assets\Controller\StatSheetController.cs" />
-     <Compile Include="Assets\Controller\ArcherController.cs" />
+     <Compile Include="Assets\Controller\Enemy Controllers\ArcherController.cs" />
      <Compile Include="Assets\Class\SaveSytemManagement.cs" />
      <Compile Include="Assets\Class\ShieldEnemy.cs" />
      <Compile Include="Assets\Controller\ItemController.cs" />
      <Compile Include="Assets\Class\Bomber.cs" />
+     <Compile Include="Assets\Controller\DungeonPortalController.cs" />
      <Compile Include="Assets\Controller\ItemTooltip.cs" />
      <Compile Include="Assets\Controller\IsDyingEvent.cs" />
      <Compile Include="Assets\Class\MovingObjects.cs" />
@@ -101,8 +103,11 @@
      <Compile Include="Assets\Controller\HealthPotionController.cs" />
      <Compile Include="Assets\Controller\Interactable.cs" />
      <Compile Include="Assets\Class\Player Data.cs" />
-     <Compile Include="Assets\Controller\BomberController.cs" />
+     <Compile Include="Assets\Controller\Enemy Controllers\BomberController.cs" />
      <Compile Include="Assets\Animation\Enemies Animation\EnemyGFX.cs" />
+     <Compile Include="Assets\Controller\Enemy Controllers\BringerOfDeathController.cs" />
+     <Compile Include="Assets\Controller\Enemy Controllers\BODSpellController.cs" />
+     <Compile Include="Assets\Controller\ChildCollision2D.cs" />
      <None Include="Assets\Font\TextMesh Pro\Shaders\TMPro.cginc" />
      <None Include="Assets\Font\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
      <None Include="Assets\Font\TextMesh Pro\Shaders\TMP_Bitmap.shader" />
@@ -697,8 +702,8 @@
     <Reference Include="System.Xml.Serialization">
         <HintPath>C:/Program Files/Unity/Hub/Editor/2020.3.17f1/Editor/Data/NetStandard/compat/2.0.0/shims/netfx/System.Xml.Serialization.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.2D.Animation.Editor">
-        <HintPath>C:/Users/new user/Desktop/SE100-P0/Da Game/Library/ScriptAssemblies/Unity.2D.Animation.Editor.dll</HintPath>
+    <Reference Include="Unity.2D.Tilemap.Extras">
+        <HintPath>C:/Users/new user/Desktop/SE100-P0/Da Game/Library/ScriptAssemblies/Unity.2D.Tilemap.Extras.dll</HintPath>
     </Reference>
     <Reference Include="Unity.InternalAPIEngineBridge.001">
         <HintPath>C:/Users/new user/Desktop/SE100-P0/Da Game/Library/ScriptAssemblies/Unity.InternalAPIEngineBridge.001.dll</HintPath>
@@ -711,6 +716,9 @@
     </Reference>
     <Reference Include="Unity.RenderPipelines.Universal.Shaders">
         <HintPath>C:/Users/new user/Desktop/SE100-P0/Da Game/Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Shaders.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.2D.Animation.Editor">
+        <HintPath>C:/Users/new user/Desktop/SE100-P0/Da Game/Library/ScriptAssemblies/Unity.2D.Animation.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.RenderPipelines.Universal.Runtime">
         <HintPath>C:/Users/new user/Desktop/SE100-P0/Da Game/Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Runtime.dll</HintPath>
@@ -765,6 +773,9 @@
     </Reference>
     <Reference Include="UnityEngine.UI">
         <HintPath>C:/Users/new user/Desktop/SE100-P0/Da Game/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.2D.Tilemap.Extras.Editor">
+        <HintPath>C:/Users/new user/Desktop/SE100-P0/Da Game/Library/ScriptAssemblies/Unity.2D.Tilemap.Extras.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.InternalAPIEditorBridge.001">
         <HintPath>C:/Users/new user/Desktop/SE100-P0/Da Game/Library/ScriptAssemblies/Unity.InternalAPIEditorBridge.001.dll</HintPath>
