@@ -9,6 +9,7 @@ public class ItemTooltip : MonoBehaviour
     private RectTransform canvasRecTransform;
     private RectTransform rectTransform;
     private TextMeshProUGUI modifiersText;
+    private RectTransform Modifiers;
     private RectTransform itemImage;
     
     private Image itemSprite;
@@ -26,6 +27,7 @@ public class ItemTooltip : MonoBehaviour
         backgroundRectTransfrom = transform.Find("Background").GetComponent<RectTransform>();
         itemImage = transform.Find("ItemImage").GetComponent<RectTransform>();
         itemSprite = itemImage.transform.Find("Image").GetComponent<Image>();
+        Modifiers =transform.Find("Modifiers").GetComponent<RectTransform>();
         modifiersText = transform.Find("Modifiers").GetComponent<TextMeshProUGUI>(); 
         canvasRecTransform = GameObject.Find("Canvas").GetComponent<RectTransform>();
         rectTransform = transform.GetComponent<RectTransform>();
@@ -39,12 +41,12 @@ public class ItemTooltip : MonoBehaviour
             Vector2 popupMessagePos =  Input.mousePosition;
             // Debug.Log(popupMessagePos);
             // Right 
-            if (popupMessagePos.x + backgroundRectTransfrom.rect.width/2 > canvasRecTransform.rect.width)
-                popupMessagePos.x = canvasRecTransform.rect.width - backgroundRectTransfrom.rect.width/2;
+            if (popupMessagePos.x + backgroundRectTransfrom.rect.width > canvasRecTransform.rect.width)
+                popupMessagePos.x = canvasRecTransform.rect.width - backgroundRectTransfrom.rect.width;
             // Left 
-            if  ( popupMessagePos.x - backgroundRectTransfrom.rect.width/2 < 0f)
+            if  ( popupMessagePos.x < 0f)
             {
-                popupMessagePos.x = backgroundRectTransfrom.rect.width/2;
+                popupMessagePos.x = 0f;
             }
             // Top
             if (popupMessagePos.y > canvasRecTransform.rect.height)
@@ -75,12 +77,15 @@ public class ItemTooltip : MonoBehaviour
         }                        
         modifiersText.SetText(popupMessage);
         modifiersText.ForceMeshUpdate();
-
+        float modifer_x_pos = Modifiers.localPosition.x;
+        Vector3 modifer_pos = new Vector3 (modifer_x_pos,-(itemImage.rect.size.y + 25f));
+        Modifiers.localPosition = modifer_pos;
         Vector2 textSize = modifiersText.GetRenderedValues(false);
         float paddingWidth = itemImage.sizeDelta.x;
         float paddingHeight = itemImage.sizeDelta.y + 50f;
         Vector2 padding = new Vector2(paddingWidth,paddingHeight);
         backgroundRectTransfrom.sizeDelta = textSize + padding ;
+        rectTransform.sizeDelta = backgroundRectTransfrom.sizeDelta;
 
     }
     public void HideItemToolTip()

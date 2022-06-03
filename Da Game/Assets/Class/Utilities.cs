@@ -20,8 +20,9 @@ public class Utilities
          new Buff.BuffRNG(Buff.BuffType.MultiBullet,150),
          new Buff.BuffRNG(Buff.BuffType.Movespeed,400)
     };
-    public static ModifierPool WeaponModifierPool = new ModifierPool(type:"weapon", jsonFilePath:"/Scriptable Object/ItemModifiers.json");
-    public static ModifierPool ArmourModifierPool = new ModifierPool(type:"armour", jsonFilePath:"/Scriptable Object/ItemModifiers.json");
+    public static ModifierPool WeaponModifierPool = new ModifierPool(type:"weapon", jsonFilePath:"/StreamingAssets/ItemModifiers.json");
+    public static ModifierPool ArmourModifierPool = new ModifierPool(type:"armour", jsonFilePath:"/StreamingAssets/ItemModifiers.json");
+
     public static float GetAngleFromVectorFloat(Vector3 dir)
     {
         dir = dir.normalized;
@@ -49,5 +50,12 @@ public class Utilities
         float newY = vector.x * Mathf.Sin(angle) + vector.y * Mathf.Cos(angle);
         return new Vector2(newX, newY);
     }
-
+    public static bool IsAnimationPlaying(Animator anim, string stateName) // only work for layer 0 animation
+    {
+        if (anim.GetCurrentAnimatorStateInfo(0).IsName(stateName) &&
+            anim.GetCurrentAnimatorStateInfo(0).normalizedTime < 1.0f)
+            return true;
+        else
+            return false;
+    }
 }

@@ -46,9 +46,12 @@ public class AudioManager : MonoBehaviour
     {
         GameOverST,
         HideoutST,
-        BossST1,
         NormalLevelST,
         MainMenuST,
+        BossST1,
+        BossST2,
+        BossST2_Phase2,
+        None = -1,
 
     }
     //can't use struct and dictionary type is a bit limited
@@ -217,6 +220,19 @@ public class AudioManager : MonoBehaviour
     {
         return soundTrackGameObject;
     }
-
+    
+    public IEnumerator FadeOutST( float fadeDuration = 0f, float targetVolumne=0, SoundTrack NextST = SoundTrack.None)
+    {
+        float currentTime = 0;
+        float start = soundTrackAudioSource.volume;
+        while (currentTime < fadeDuration)
+        {
+            currentTime += Time.deltaTime;
+            soundTrackAudioSource.volume = Mathf.Lerp(start,targetVolumne,currentTime/fadeDuration);
+            yield return null;
+        }
+        PlaySoundTrack(NextST);
+        yield break;
+    }
 
 }

@@ -211,5 +211,11 @@ public class MenuController : MonoBehaviour
     {
         HO_PauseMenu = GameObject.Find("HO_Canvas").transform.Find("Pause Menu").gameObject;
         HO_PauseMenu.transform.Find("Exit Main Menu").GetComponent<Button>().onClick.AddListener(() => BackToMainMenu());
+        if (SceneManager.GetActiveScene().name == "Tutorial")
+        {
+            GameObject.Find("HO_Canvas").transform.Find("Reset Tutorial Scene Button").GetComponent<Button>().onClick.AddListener(()=>{
+                TutorialSceneReset();
+            });
+        }
     }
 }

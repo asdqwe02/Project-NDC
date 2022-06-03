@@ -25,6 +25,8 @@ public class BODSpellController : MonoBehaviour
                 knockBackX_Dir = -knockBackX_Dir;
             Vector2 knockBack = new Vector2(knockBackX_Dir,0);
             PlayerController.instance.takeDamage(_damage,_damageType,knockBack);
+            if (Random.Range(0f,1f)<=0.3f)
+                PlayerController.instance.ApplyStatusEffect(_damage,_damageType);
         }
     }
 }
