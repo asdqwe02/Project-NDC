@@ -8,9 +8,7 @@ simmer.io: https://simmer.io/@BerryAlmond/project-ndc
 
 Control:
 
- w
- 
-asd     -    movement
+wasd     -    movement
 
 Rigth click     -      equip / melee
 
