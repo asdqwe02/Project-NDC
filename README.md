@@ -1,6 +1,6 @@
 # PROJECT NDC
 
-Can play on itch.io or simmer.io
+Can play on itch.io or simmer.io  (if playing with itch.io link check the password in the text file)
 
 itch.io: https://berryalmond.itch.io/project-ndc
 
