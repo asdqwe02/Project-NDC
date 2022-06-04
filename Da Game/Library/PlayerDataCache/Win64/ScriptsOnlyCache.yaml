@@ -199,8 +199,6 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 1634}
     - Class: 114
-      Script: {instanceID: 1636}
-    - Class: 114
       Script: {instanceID: 1638}
     - Class: 114
       Script: {instanceID: 1992}
@@ -334,8 +332,6 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 1634}
     - Class: 114
-      Script: {instanceID: 1636}
-    - Class: 114
       Script: {instanceID: 1638}
     - Class: 114
       Script: {instanceID: 1992}
@@ -466,8 +462,6 @@ ScriptsOnlyBuild:
       Script: {instanceID: 798}
     - Class: 114
       Script: {instanceID: 1634}
-    - Class: 114
-      Script: {instanceID: 1636}
     - Class: 114
       Script: {instanceID: 1638}
     - Class: 114
@@ -603,8 +597,6 @@ ScriptsOnlyBuild:
       Script: {instanceID: 798}
     - Class: 114
       Script: {instanceID: 1634}
-    - Class: 114
-      Script: {instanceID: 1636}
     - Class: 114
       Script: {instanceID: 1638}
     - Class: 114
@@ -742,8 +734,6 @@ ScriptsOnlyBuild:
       Script: {instanceID: 798}
     - Class: 114
       Script: {instanceID: 1634}
-    - Class: 114
-      Script: {instanceID: 1636}
     - Class: 114
       Script: {instanceID: 1638}
     - Class: 114
@@ -1137,8 +1127,6 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 1634}
     - Class: 114
-      Script: {instanceID: 1636}
-    - Class: 114
       Script: {instanceID: 1638}
     - Class: 114
       Script: {instanceID: 1992}
@@ -1296,8 +1284,6 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 1634}
     - Class: 114
-      Script: {instanceID: 1636}
-    - Class: 114
       Script: {instanceID: 1638}
     - Class: 114
       Script: {instanceID: 1992}
@@ -1451,8 +1437,6 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 1634}
     - Class: 114
-      Script: {instanceID: 1636}
-    - Class: 114
       Script: {instanceID: 1638}
     - Class: 114
       Script: {instanceID: 1992}
@@ -1593,8 +1577,6 @@ ScriptsOnlyBuild:
       Script: {instanceID: 798}
     - Class: 114
       Script: {instanceID: 1634}
-    - Class: 114
-      Script: {instanceID: 1636}
     - Class: 114
       Script: {instanceID: 1638}
     - Class: 114
@@ -3562,4 +3544,4 @@ ScriptsOnlyBuild:
   - Assets/Scenes/Room_Boss1.unity
   - Assets/Scenes/Room_Boss2.unity
   - Assets/Scenes/Room1.unity
-  playerPath: C:/Users/new user/Desktop/Da game Realease/Da Game.exe
+  playerPath: C:/Users/new user/Desktop/Da game Pc Release v1.2.4/Da Game.exe

@@ -11,7 +11,9 @@ public class ModifierPool
     // JArray data;
     public ModifierPool(string type,string jsonFilePath){
         // string jsonString = File.ReadAllText(Application.dataPath + "/Scriptable Object/ItemModifiers.json");
-        string jsonString = File.ReadAllText(Application.dataPath + jsonFilePath);
+        // string jsonString = File.ReadAllText(Application.dataPath + jsonFilePath);
+        TextAsset itemmodifierjson = Resources.Load(jsonFilePath) as TextAsset;
+        string jsonString = itemmodifierjson.ToString();
         JArray data = JArray.Parse(jsonString);
         modifiersData = GetModiferData(type,data);
         if (modifiersData!=null)

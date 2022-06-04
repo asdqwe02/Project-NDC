@@ -182,6 +182,12 @@ public class ItemController : Interactable,IPointerClickHandler,IPointerEnterHan
                 Vector3 dropDirection = new Vector3 (x_dir,y_dir,0);
                 transform.parent =  Instantiate(itemContainer.transform,dropDirection + PlayerController.instance.transform.position,Quaternion.identity); // Look stupid
                 GetComponent<SpriteRenderer>().enabled = true;
+                GetComponent<RectTransform>().localScale = new Vector3(1,1,1);
+                if (equiped)
+                {
+                    RemoveItemEffect();
+                    equiped = false;
+                }
                 return;
             }
             if (!equiped)

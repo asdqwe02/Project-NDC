@@ -59,6 +59,7 @@ public class InventoryController : MonoBehaviour
 
                 item.transform.SetParent(slot);
                 item.GetComponent<RectTransform>().localPosition = Vector3.zero; // reset local position
+                item.GetComponent<RectTransform>().localScale = new Vector3(1,1,1);
                 return true;
             }
         return false;
