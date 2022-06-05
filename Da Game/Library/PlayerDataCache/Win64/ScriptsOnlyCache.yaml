@@ -129,10 +129,8 @@ ScriptsOnlyBuild:
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
-    - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
     - UnityEditor.Graphs.AnimationStateMachine.Graph
     - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
-    - UnityEditor.Graphs.AnimationStateMachine.StateNode
     - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
@@ -3144,7 +3142,7 @@ ScriptsOnlyBuild:
     className: DebugUIHandlerRow
   - hash:
       serializedVersion: 2
-      Hash: 5da00782a8fdde5e9bfa130dc649c487
+      Hash: ea944eac0d4e7f97fa5163fc9735a6a7
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: ShopOwnerController
@@ -3544,4 +3542,4 @@ ScriptsOnlyBuild:
   - Assets/Scenes/Room_Boss1.unity
   - Assets/Scenes/Room_Boss2.unity
   - Assets/Scenes/Room1.unity
-  playerPath: C:/Users/new user/Desktop/Da game Pc Release v1.2.4/Da Game.exe
+  playerPath: C:/Users/new user/Desktop/Da game pc release/Da Game.exe

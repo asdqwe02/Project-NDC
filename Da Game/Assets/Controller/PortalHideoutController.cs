@@ -119,7 +119,7 @@ public class PortalHideoutController : Interactable
 
         // Stop time and disable input 
         Time.timeScale = 0f;
-        Menu.SetActive(false);
+        MenuController.instance.gameObject.SetActive(false);
 
     }
 
@@ -127,6 +127,7 @@ public class PortalHideoutController : Interactable
     {
         SceneManager.LoadScene(sceneName);
         Time.timeScale = 1f;
-        Menu.SetActive(true);
+        MenuController.instance.gameObject.SetActive(true);
+
     }
 }

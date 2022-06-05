@@ -217,5 +217,10 @@ public class MenuController : MonoBehaviour
                 TutorialSceneReset();
             });
         }
+        LoadHideoutShopUI();
+    }
+    public void LoadHideoutShopUI()
+    {
+        GetComponent<ShopOwnerController>().LoadShopUI();
     }
 }
