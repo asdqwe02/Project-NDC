@@ -180,7 +180,7 @@ public class MenuController : MonoBehaviour
     }
     public void ReloadMenuObject(Scene scene, LoadSceneMode mode)
     {
-        if (scene.name == "Hideout" || scene.name == "Tutorial")
+        if (scene.name == "Hideout")
         {
             mainCanvas = GameObject.Find("Canvas").gameObject;
             PauseMenu = mainCanvas.transform.Find("Pause Menu").gameObject;
@@ -203,21 +203,25 @@ public class MenuController : MonoBehaviour
                 BackToHideout();
             });
             LoadHideoutPauseMenu();
+            LoadHideoutShopUI();
             InventoryController.instance.ReloadInventoryUI();
             GetComponent<StatSheetController>().ReloadStatSheetWindow();
+        }
+        if (scene.name == "Tutorial")
+        {
+            LoadHideoutPauseMenu();
+            InventoryController.instance.ReloadInventoryUI();
+            GetComponent<StatSheetController>().ReloadStatSheetWindow();
+            GameObject.Find("HO_Canvas").transform.Find("Reset Tutorial Scene Button").GetComponent<Button>().onClick.AddListener(()=>{
+                TutorialSceneReset();
+            });
+          
         }
     }
     public void LoadHideoutPauseMenu()
     {
         HO_PauseMenu = GameObject.Find("HO_Canvas").transform.Find("Pause Menu").gameObject;
         HO_PauseMenu.transform.Find("Exit Main Menu").GetComponent<Button>().onClick.AddListener(() => BackToMainMenu());
-        if (SceneManager.GetActiveScene().name == "Tutorial")
-        {
-            GameObject.Find("HO_Canvas").transform.Find("Reset Tutorial Scene Button").GetComponent<Button>().onClick.AddListener(()=>{
-                TutorialSceneReset();
-            });
-        }
-        LoadHideoutShopUI();
     }
     public void LoadHideoutShopUI()
     {
