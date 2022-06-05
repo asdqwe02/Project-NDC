@@ -21,5 +21,6 @@ Space     -     Dash
 E    -   Interact
 
 I    -   Open Inventory
+
 Tab  -   View player stat sheet
 ## note: update image and description for readme.md later
