@@ -5,7 +5,6 @@ using UnityEngine.Audio;
 using System.Linq;
 using UnityEngine.SceneManagement;
 
-//Sound when projectiles hit somethings
 [System.Serializable]
 public class SoundAudioClip<soundT>
 {

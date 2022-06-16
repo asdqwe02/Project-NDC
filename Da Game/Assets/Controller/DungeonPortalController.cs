@@ -42,6 +42,7 @@ public class DungeonPortalController : Interactable
         }
     }
     public override void Interact(){
+        PlayerController.instance.CloseInteractableIcon();
         PlayerController.instance.scenePassword = nextScenePassword;
         SceneManager.LoadScene(nextSceneName);
     }

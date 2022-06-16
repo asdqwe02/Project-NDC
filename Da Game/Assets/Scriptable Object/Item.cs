@@ -111,7 +111,7 @@ public class Modifier
 {
     public JObject modData;
     public int rollValue;
-    public int previousFireType;
+    public int previousFireType; //useless rn
     public Modifier(JObject mod,int roll=0)
     {
         this.modData = mod;
@@ -128,7 +128,7 @@ public enum ItemType{
 
 public class Item
 {
-     private string itemName;
+    private string itemName;
     public List<Sprite> itemsIcon;
     private Sprite currentSprite;
     public int amount = 0;
