@@ -42,7 +42,7 @@ public class PlayerController : PlayerClass
     [Header("Miscellaneous")]
     [SerializeField] private GameObject interactIcon;
     private Vector2 Size = new Vector2(0.1f, 0.1f);
-    public float Coin_tobeAdded = 0;
+    public int Coin_tobeAdded = 0;
     public bool Death = false;
     public bool InHO = true;
 
