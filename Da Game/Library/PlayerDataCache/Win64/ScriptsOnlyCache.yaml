@@ -61,6 +61,7 @@ ScriptsOnlyBuild:
     - UnityEditor.U2D.IK.IKEditorManagerHelper
     Unity.2D.Tilemap.Editor.dll:
     - UnityEditor.Tilemaps.GridBrush
+    - UnityEditor.Tilemaps.GridBrushEditor
     - UnityEditor.Tilemaps.GridPaintPaletteClipboard
     - UnityEditor.Tilemaps.GridPaintPaletteWindow
     - UnityEditor.Tilemaps.GridPaintingState
@@ -3541,4 +3542,4 @@ ScriptsOnlyBuild:
   - Assets/Scenes/Room_Boss1.unity
   - Assets/Scenes/Room_Boss2.unity
   - Assets/Scenes/Room1.unity
-  playerPath: C:/Users/new user/Desktop/Da game pc release/Da Game.exe
+  playerPath: C:/Users/new user/Desktop/Da game release/Da Game.exe
