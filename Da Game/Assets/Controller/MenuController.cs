@@ -11,7 +11,6 @@ public class MenuController : MonoBehaviour
     private GameObject mainCanvas;
     public GameObject HO_PauseMenu;
     public static MenuController instance;
-
     private void Awake() 
     {
         if (instance == null)
@@ -21,32 +20,32 @@ public class MenuController : MonoBehaviour
             return;
         }
         mainCanvas = GameObject.Find("Canvas").gameObject;
-        if (PauseMenu == null || DeathMenu == null)
-        {
-            PauseMenu = mainCanvas.transform.Find("Pause Menu").gameObject;
-            PauseMenu_Confirmation = PauseMenu.transform.Find("Retreat confirm").gameObject;  
+        // if (PauseMenu == null || DeathMenu == null)
+        // {
+        //     PauseMenu = mainCanvas.transform.Find("Pause Menu").gameObject;
+        //     PauseMenu_Confirmation = PauseMenu.transform.Find("Retreat confirm").gameObject;  
 
-            PauseMenu.transform.Find("Retreat").GetComponent<Button>().onClick.AddListener(()=>{
-                PauseMenu.transform.Find("Retreat confirm").gameObject.SetActive(true);
-            });
-            PauseMenu_Confirmation = PauseMenu.transform.Find("Retreat confirm").gameObject;
-            PauseMenu_Confirmation.transform.Find("Yes button").GetComponent<Button>().onClick.AddListener(()=>{
-                BackToHideout_Penalty();
-            });
-            PauseMenu_Confirmation.transform.Find("No button").GetComponent<Button>().onClick.AddListener(()=>{
-                PauseMenu.SetActive(false);
-                PauseMenu_Confirmation.SetActive(false);
-                UnfreezeTime();
-            });
-        }
-        if (DeathMenu == null && SceneManager.GetActiveScene().name!="Tutorial")
-        {
-            DeathMenu = mainCanvas.transform.Find("DeathMenu").gameObject;
-            DeathMenu.transform.Find("Retreat").GetComponent<Button>().onClick.AddListener(()=> BackToHideout());
-        }
+        //     PauseMenu.transform.Find("Retreat").GetComponent<Button>().onClick.AddListener(()=>{
+        //         PauseMenu.transform.Find("Retreat confirm").gameObject.SetActive(true);
+        //     });
+        //     PauseMenu_Confirmation = PauseMenu.transform.Find("Retreat confirm").gameObject;
+        //     PauseMenu_Confirmation.transform.Find("Yes button").GetComponent<Button>().onClick.AddListener(()=>{
+        //         BackToHideout_Penalty();
+        //     });
+        //     PauseMenu_Confirmation.transform.Find("No button").GetComponent<Button>().onClick.AddListener(()=>{
+        //         PauseMenu.SetActive(false);
+        //         PauseMenu_Confirmation.SetActive(false);
+        //         UnfreezeTime();
+        //     });
+        // }
+        // if (DeathMenu == null && SceneManager.GetActiveScene().name!="Tutorial")
+        // {
+        //     DeathMenu = mainCanvas.transform.Find("DeathMenu").gameObject;
+        //     DeathMenu.transform.Find("Retreat").GetComponent<Button>().onClick.AddListener(()=> BackToHideout());
+        // }
+        SceneManager.sceneLoaded += ReloadMenuObject;
         if (SceneManager.GetActiveScene().name=="Hideout")
             LoadHideoutPauseMenu();
-        SceneManager.sceneLoaded += ReloadMenuObject;
         DontDestroyOnLoad(gameObject);
     }
     private void Update()
@@ -143,6 +142,7 @@ public class MenuController : MonoBehaviour
     public void BackToHideout_Penalty()
     {
         PlayerController.instance.coins -= (int)(PlayerController.instance.Coin_tobeAdded * 0.7f);
+        Debug.Log(PlayerController.instance.coins + "coins");
         PlayerController.instance.Save();
         PlayerController.instance.scenePassword = "Hideout";
         PlayerController.instance.Load_Base();

@@ -473,8 +473,8 @@ public class PlayerController : PlayerClass
             if (!enemy.CompareTag("Golem"))
             {
                 
-                if (enemy.GetComponent<ShieldEnemy>()!=null) // extremely stupid
-                    if (enemy.GetComponent<ShieldEnemy>().Shield.activeSelf)
+                if (enemy.GetComponentInParent<ShieldEnemy>() !=null) // extremely stupid
+                    if (enemy.GetComponentInParent<ShieldEnemy>().Shield.activeSelf)
                         return;
                 Enemy Monster = enemy.GetComponent<Enemy>();
                 Monster.takeDamage(0, DamageType.Physical, _lookDirection);

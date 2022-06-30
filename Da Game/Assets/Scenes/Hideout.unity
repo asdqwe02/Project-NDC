@@ -157,7 +157,7 @@ RectTransform:
   - {fileID: 161780806}
   - {fileID: 1307531958}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -620,7 +620,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 612004504858912931, guid: 6c22640a0fad1e34ba90d1ce0d376127, type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 612004504858912931, guid: 6c22640a0fad1e34ba90d1ce0d376127, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4586,7 +4586,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &234917265
 GameObject:
@@ -11854,7 +11854,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1429518726 stripped
 MonoBehaviour:
@@ -12510,7 +12510,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7476034321120626651, guid: db470f030c63dbb42b768a5d0cf57b11, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7476034321120626651, guid: db470f030c63dbb42b768a5d0cf57b11, type: 3}
       propertyPath: m_LocalPosition.x
@@ -14196,7 +14196,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5269449442251462117, guid: 34c9bdab8fa6858419e3e91245639865, type: 3}
       propertyPath: m_RootOrder
-      value: 11
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 5269449442251462117, guid: 34c9bdab8fa6858419e3e91245639865, type: 3}
       propertyPath: m_LocalPosition.x
@@ -14257,7 +14257,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7476034321120626651, guid: db470f030c63dbb42b768a5d0cf57b11, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7476034321120626651, guid: db470f030c63dbb42b768a5d0cf57b11, type: 3}
       propertyPath: m_LocalPosition.x
@@ -14923,11 +14923,31 @@ PrefabInstance:
     - target: {fileID: 2715630276024636244, guid: 220a72603f02e624a8064dfc0ebc12ee, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 783158715}
+      objectReference: {fileID: 0}
+    - target: {fileID: 2715630276024636244, guid: 220a72603f02e624a8064dfc0ebc12ee, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2715630276174723693, guid: 220a72603f02e624a8064dfc0ebc12ee, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2715630276174723693, guid: 220a72603f02e624a8064dfc0ebc12ee, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 2715630276174723693, guid: 220a72603f02e624a8064dfc0ebc12ee, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
       value: 
       objectReference: {fileID: 783158715}
+    - target: {fileID: 2715630276174723693, guid: 220a72603f02e624a8064dfc0ebc12ee, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2715630276174723693, guid: 220a72603f02e624a8064dfc0ebc12ee, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 2715630277296703591, guid: 220a72603f02e624a8064dfc0ebc12ee, type: 3}
       propertyPath: m_Name
       value: Canvas

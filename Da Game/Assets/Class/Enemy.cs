@@ -52,7 +52,7 @@ public class Enemy : MovingObjects
         // else DropCoins();
 
         float chance = Random.Range(0f,1f);
-        Debug.Log(chance);
+        // Debug.Log(chance);
         switch (chance)
         {
             case var x when (x <=0.2f):
