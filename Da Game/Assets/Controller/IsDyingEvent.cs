@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using DesignPattern;
 public class IsDyingEvent : StateMachineBehaviour
 {
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
@@ -19,7 +19,12 @@ public class IsDyingEvent : StateMachineBehaviour
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        Destroy(animator.gameObject);
+        // animator.gameObject.SetActive(false);
+        // animator.gameObject.transform.localPosition = Vector3.zero;
+        if (!ObjectPooler.Instance.Reclaim(animator.gameObject))
+        {
+            Destroy(animator.gameObject);
+        }
     }
 
     // OnStateMove is called right after Animator.OnAnimatorMove()

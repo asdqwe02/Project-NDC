@@ -5,6 +5,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AstarPathfindingProject", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp", "Assembly-CSharp.csproj", "{074b1454-e3e5-517c-2506-817b72774f7d}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AllIn1VfxAssmebly", "AllIn1VfxAssmebly.csproj", "{ec6dbd8e-f8c6-2286-13da-b498b64835b9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AllIn1VfxDemoScriptAssemblies", "AllIn1VfxDemoScriptAssemblies.csproj", "{002ded49-03c7-acfc-3433-508d948440ee}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AstarPathfindingProjectEditor", "AstarPathfindingProjectEditor.csproj", "{0615d6b4-44dc-4ea8-32b8-f26e288e0c7c}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PackageToolsEditor", "PackageToolsEditor.csproj", "{01fb1370-1aed-4302-0e44-fb2f753c30eb}"
@@ -18,6 +22,10 @@ Global
 		{f68d9fec-ad88-c9de-108b-ed306cf04c14}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{074b1454-e3e5-517c-2506-817b72774f7d}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{074b1454-e3e5-517c-2506-817b72774f7d}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ec6dbd8e-f8c6-2286-13da-b498b64835b9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ec6dbd8e-f8c6-2286-13da-b498b64835b9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{002ded49-03c7-acfc-3433-508d948440ee}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{002ded49-03c7-acfc-3433-508d948440ee}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0615d6b4-44dc-4ea8-32b8-f26e288e0c7c}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{0615d6b4-44dc-4ea8-32b8-f26e288e0c7c}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{01fb1370-1aed-4302-0e44-fb2f753c30eb}.Debug|Any CPU.ActiveCfg = Debug|Any CPU

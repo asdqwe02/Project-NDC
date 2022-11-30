@@ -1,0 +1,90 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3922719653738104312
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3922719653738104314}
+  - component: {fileID: 3922719653738104313}
+  m_Layer: 0
+  m_Name: ObjectPooler
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3922719653738104314
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3922719653738104312}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 4.5042105, y: 3.8019128, z: -2.5687594}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3922719653738104313
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3922719653738104312}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 893d568c01fe0714185176b6596391ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _cleanUpInterval: 10
+  allPooledObjects: []
+  itemsToPool:
+  - name: Fire Ball Projectile
+    objectToPool: {fileID: 7542065460064705667, guid: e3c96377c084858459869b5009b733a7, type: 3}
+    amountToPool: 5
+    shouldExpand: 1
+    expirationTime: 5
+    nameTag: 0
+  - name: Ice Shard Projectile
+    objectToPool: {fileID: 7733938266634911419, guid: 51e17107ac527094890120e3cc848659, type: 3}
+    amountToPool: 5
+    shouldExpand: 1
+    expirationTime: 5
+    nameTag: 1
+  - name: Ball Lightning Projectile
+    objectToPool: {fileID: 805058170442436277, guid: 3c1a921af20c9ce4e990a4a57e581b0a, type: 3}
+    amountToPool: 5
+    shouldExpand: 1
+    expirationTime: 5
+    nameTag: 2
+  - name: Slime
+    objectToPool: {fileID: 3559020594092704450, guid: b2507e56b03b6db40af8be5c1246011e, type: 3}
+    amountToPool: 6
+    shouldExpand: 1
+    expirationTime: 30
+    nameTag: 3
+  - name: Archer
+    objectToPool: {fileID: 6773402051567981206, guid: 2987b9c308eab3c46b9eabf50ed3542d, type: 3}
+    amountToPool: 6
+    shouldExpand: 1
+    expirationTime: 5
+    nameTag: 4
+  - name: Bomber
+    objectToPool: {fileID: 8182998353918516087, guid: 81648dae62270734e93d4c1e576c9aee, type: 3}
+    amountToPool: 6
+    shouldExpand: 1
+    expirationTime: 5
+    nameTag: 5
+  - name: Shield Enemy
+    objectToPool: {fileID: 1795363131373320581, guid: 0ce16ef2c7250624a87d1150bd1830c6, type: 3}
+    amountToPool: 6
+    shouldExpand: 1
+    expirationTime: 5
+    nameTag: 6

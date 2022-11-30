@@ -6,7 +6,7 @@ public class ArcherController : Archer
 {
     [SerializeField] CircleCollider2D collider2D;
     private Vector2 direction;
-  
+
     public float nextWaypointDistance = 3f;
     //GFX
     bool FacingRight = true;
@@ -19,13 +19,18 @@ public class ArcherController : Archer
 
     Seeker seeker;
 
+    private void Awake()
+    {
+        base.Awake();
+        seeker = GetComponent<Seeker>();
+        rb = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
+
+    }
     private void Start()
     {
         target = PlayerController.instance.transform;
-        seeker = GetComponent<Seeker>();
-        rb = GetComponent<Rigidbody2D>();
         StartingPosition = transform.position;
-        animator = GetComponent<Animator>();
         InvokeRepeating("UpdatePath", 0f, .5f);
         nextAttackTime -= Time.deltaTime; //Next attack time start value
 
@@ -67,7 +72,7 @@ public class ArcherController : Archer
     private void FixedUpdate()
     {
 
-        CheckLife();
+        // CheckLife();
 
         FindTarget();
 
@@ -81,20 +86,26 @@ public class ArcherController : Archer
         FacingRight = !FacingRight;
         transform.Rotate(0f, 180f, 0f);
     }
-
-
-
-    void CheckLife() // maybe moving this to Enenmy class
+    public override void OnDeath(object sender, OnDeathEventArgs e)
     {
-        if (Hp <= 0)
-        {
-            isDying = true;
-            collider2D.enabled = false;
-            Drop();
-            animator.SetBool("IsDying", true);
-
-        }
+        base.OnDeath(sender, e);
+        // collider2D.enabled = false;
+        // Drop();
+        // animator.SetBool("IsDying", true);
     }
+
+
+    // void CheckLife() // maybe moving this to Enenmy class
+    // {
+    //     if (Hp <= 0)
+    //     {
+    //         isDying = true;
+    //         collider2D.enabled = false;
+    //         Drop();
+    //         animator.SetBool("IsDying", true);
+
+    //     }
+    // }
 
     private Vector3 GetRoamingPosition()
     {
@@ -127,7 +138,7 @@ public class ArcherController : Archer
             reachedEndofPath = false;
         }
 
-       
+
         direction = ((Vector2)path.vectorPath[currentWaypoint] - rb.position).normalized;
 
         //move with a velocity
@@ -179,6 +190,6 @@ public class ArcherController : Archer
         Vector2 KnockBack = new Vector2(aimDirection.x * scalar, aimDirection.y * scalar);
         Transform firedProjectile = Instantiate(_projectilePrefab, _firePoint.position, Quaternion.identity);
         firedProjectile.GetComponent<Bullet>().setUp(aimDirection, false, Damage, DamageType_, KnockBack);
-        AudioManager.instance.PlaySound(AudioManager.Sound.Woosh,transform.position);
+        AudioManager.Instance.PlaySound(AudioManager.Sound.Woosh, transform.position);
     }
 }

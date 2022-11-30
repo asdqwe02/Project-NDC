@@ -76,7 +76,14 @@ public class GolemController : Enemy
 
     [Header("Animator Parameter")]
     private bool HasDied = false;
+    private void Awake()
+    {
+        base.Awake();
+        seeker = GetComponent<Seeker>();
+        animator = GetComponent<Animator>();
+        AccessChildLaser = gameObject.GetComponentInChildren<LaserUpdated>();
 
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -85,18 +92,15 @@ public class GolemController : Enemy
             EndStagePopUp = GameObject.Find("EndInstacePortal").gameObject;
         EndStagePopUp.SetActive(false);
         rb = GetComponent<Rigidbody2D>();
-        seeker = GetComponent<Seeker>();
         StartingPosition = transform.position;
-        animator = GetComponent<Animator>();
         phase = Phase.FirstPhase;
         MaxHP = Hp;
-        AccessChildLaser = gameObject.GetComponentInChildren<LaserUpdated>();
         WayPointToArray();
         SlamTimer = SlamCooldown;
         RollnLaserTimer = RollnLaserCooldown;
         PullTimer = PullCooldown;
         _baseMoveSpeed = MovementSpeed;
-        AudioManager.instance.PlaySoundTrack(AudioManager.SoundTrack.BossST1);
+        AudioManager.Instance.PlaySoundTrack(AudioManager.SoundTrack.BossST1);
         InvokeRepeating("UpdatePath", 0f, .5f);
 
 
@@ -162,7 +166,7 @@ public class GolemController : Enemy
     {
         updatePhase();
         updateState();
-        CheckLife();
+        // CheckLife();
 
         if (path == null)
         {
@@ -306,16 +310,22 @@ public class GolemController : Enemy
         transform.Rotate(0f, 180f, 0f);
     }
 
-    void CheckLife()
-    {
-        if (Hp <= 0)
-        {
-            collider2D.enabled = false;
-            animator.SetBool("IsDying", true);
-            DropCoins();
-            EndStagePopUp.SetActive(true);
+    // void CheckLife()
+    // {
+    //     if (Hp <= 0)
+    //     {
+    //         collider2D.enabled = false;
+    //         animator.SetBool("IsDying", true);
+    //         DropCoins();
+    //         EndStagePopUp.SetActive(true);
 
-        }
+    //     }
+    // }
+    public override void OnDeath(object sender, OnDeathEventArgs e)
+    {
+        base.OnDeath(sender, e);
+        DropPotion();
+        EndStagePopUp.SetActive(true);
     }
     private Vector3 GetRoamingPosition()
     {
@@ -353,7 +363,7 @@ public class GolemController : Enemy
         animator.SetBool("IsFiringArm", false);
         Vector3 aimDirection = (target.position - _armLaunchPoint.position).normalized;
         Transform firedProjectile = Instantiate(_armProjectilePrefab, _armLaunchPoint.position, Quaternion.identity);
-        firedProjectile.localScale = firedProjectile.localScale*transform.localScale.x;
+        firedProjectile.localScale = firedProjectile.localScale * transform.localScale.x;
         firedProjectile.GetComponent<GolemArm>().setUp(aimDirection, _pullPoint);
         state = State.Slam;
         animator.SetBool("IsSlamming", true);
@@ -534,6 +544,6 @@ public class GolemController : Enemy
             CancelInvoke("PullCDTimer");
         }
     }
-    
+
 
 }

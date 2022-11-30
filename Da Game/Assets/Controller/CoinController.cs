@@ -8,7 +8,6 @@ public class CoinController : Interactable
     public Sprite[] coinSprites;
     public int coinAmount = 0;
     private SpriteRenderer spriteRenderer;
-    PlayerController pc;
     void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -22,8 +21,8 @@ public class CoinController : Interactable
             spriteRenderer.sprite = coinSprites[3];
         else if (200 < coinAmount && coinAmount <= 400)
             spriteRenderer.sprite = coinSprites[4];
-          else if (500<=coinAmount)
-            spriteRenderer.sprite = coinSprites[4];
+        else if (500 <= coinAmount)
+            spriteRenderer.sprite = coinSprites[4]; 
 
     }
 
@@ -31,7 +30,7 @@ public class CoinController : Interactable
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            // pc = collision.gameObject.GetComponent<PlayerController>();
+            pc = collision.gameObject.GetComponent<PlayerController>();
             Interact();
         }
     }
@@ -41,8 +40,12 @@ public class CoinController : Interactable
     }
     public override void Interact()
     {
-        PlayerController.instance.coins += coinAmount;
-        PlayerController.instance.Coin_tobeAdded += coinAmount;
+        if (pc)
+        {
+            pc.coins += coinAmount;
+            pc.Coin_tobeAdded += coinAmount;
+
+        }
         Destroy(gameObject);
     }
 }

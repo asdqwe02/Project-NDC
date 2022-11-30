@@ -4,7 +4,7 @@ using UnityEngine;
 using Pathfinding;
 public class ShieldEnemyController : ShieldEnemy
 {
-  
+
     private CircleCollider2D circleCollider2D;
     private Vector2 direction;
     private Vector3 StartingPosition;
@@ -23,14 +23,19 @@ public class ShieldEnemyController : ShieldEnemy
 
     bool FacingRight = false;
 
+    private void Awake()
+    {
+        base.Awake();
+        seeker = GetComponent<Seeker>();
+        rb = GetComponent<Rigidbody2D>();
+        circleCollider2D = GetComponent<CircleCollider2D>();
+
+    }
     // Start is called before the first frame update
     private void Start()
     {
         shieldPercent = 0.5f;
         target = PlayerController.instance.transform;
-        seeker = GetComponent<Seeker>();
-        rb = GetComponent<Rigidbody2D>();
-        circleCollider2D = GetComponent<CircleCollider2D>();
         Shield = transform.GetChild(0).gameObject; // get the shield
         StartingPosition = transform.position;
         InvokeRepeating("UpdatePath", 0f, .5f);
@@ -66,7 +71,6 @@ public class ShieldEnemyController : ShieldEnemy
 
     private void FixedUpdate()
     {
-        CheckLife();
 
         FindTarget();
 
@@ -87,17 +91,17 @@ public class ShieldEnemyController : ShieldEnemy
 
 
 
-    void CheckLife() //should move this to Enemy class
-    {
-        if (Hp <= 0)
-        {
-            //isDying = true;
-            circleCollider2D.enabled = false;
-            Drop();
-            animator.SetBool("IsDying", true);
-            
-        }
-    }
+    // void CheckLife() //should move this to Enemy class
+    // {
+    //     if (Hp <= 0)
+    //     {
+    //         //isDying = true;
+    //         circleCollider2D.enabled = false;
+    //         Drop();
+    //         animator.SetBool("IsDying", true);
+
+    //     }
+    // }
 
     private Vector3 GetRoamingPosition()
     {
@@ -136,11 +140,11 @@ public class ShieldEnemyController : ShieldEnemy
 
         Vector2 Velocity = new Vector2(direction.x * MovementSpeed, direction.y * MovementSpeed);
 
-        if (animator.GetBool("IsDying")  || animator.GetBool("IsActivatingShield"))
+        if (animator.GetBool("IsDying") || animator.GetBool("IsActivatingShield"))
         {
             Velocity = new Vector2(0, 0);
         }
-            
+
         rb.velocity = Velocity;
 
         if ((direction.x >= 0.01f && FacingRight) || (direction.x <= -0.01f && !FacingRight))
@@ -160,38 +164,41 @@ public class ShieldEnemyController : ShieldEnemy
             currentWaypoint++;
         }
 
-        if (shieldHP<=0 && shieldActive)
+        if (shieldHP <= 0 && shieldActive)
         {
             DeactivateShield();
         }
 
-        
-        
+
+
     }
-    private void ActivateShield(){
-        animator.SetBool("IsActivatingShield",false);
+    private void ActivateShield()
+    {
+        animator.SetBool("IsActivatingShield", false);
         circleCollider2D.enabled = false;
         Shield.SetActive(true);
         shieldActive = true;
         shieldHP = shieldBaseHP;
     }
-    private void DeactivateShield(){
+    private void DeactivateShield()
+    {
         circleCollider2D.enabled = true;
         Shield.SetActive(false);
         shieldActive = false;
-        InvokeRepeating("ShieldCDTimer",0f,Time.fixedDeltaTime);
+        InvokeRepeating("ShieldCDTimer", 0f, Time.fixedDeltaTime);
 
     }
-    private void OnCollisionEnter2D(Collision2D other) {
+    private void OnCollisionEnter2D(Collision2D other)
+    {
         if (other.gameObject.CompareTag("Player"))
         {
             float damage;
             if (Shield.activeSelf)
-                 damage = 1.5f*Damage;
+                damage = 1.5f * Damage;
             else damage = Damage;
             Vector2 knockBack = (PlayerController.instance.transform.position - transform.position).normalized;
-            knockBack *=0.5f;
-            other.gameObject.GetComponent<PlayerController>().takeDamage(damage,DamageType_,knockBack);
+            knockBack *= 0.5f;
+            other.gameObject.GetComponent<PlayerController>().takeDamage(damage, DamageType_, knockBack);
         }
     }
 
@@ -201,12 +208,12 @@ public class ShieldEnemyController : ShieldEnemy
         if (shieldTimer <= 0)
         {
             shieldTimer = shieldCD;
-            animator.SetBool("IsActivatingShield",true);
+            animator.SetBool("IsActivatingShield", true);
             CancelInvoke("ShieldCDTimer");
         }
     }
     public void ShieldTakeDamage(float damage)
     {
         shieldHP -= damage;
-    } 
+    }
 }

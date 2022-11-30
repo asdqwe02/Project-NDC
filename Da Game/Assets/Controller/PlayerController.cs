@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using DesignPattern;
 public class PlayerController : PlayerClass
 {
     public static bool IsLoading; //1: load , 2 : create
@@ -64,9 +65,9 @@ public class PlayerController : PlayerClass
         FiringTime -= Time.deltaTime; // reset firing time
         meleeAttackTime -= Time.deltaTime;
         BaseDamage = Damage; // setup base damage
-        FireRate = 1/AttackSpeed;
+        FireRate = 1 / AttackSpeed;
         BaseAttackSpeed = AttackSpeed; // setup base attack speed
-       
+
         DontDestroyOnLoad(gameObject);
     }
 
@@ -165,7 +166,7 @@ public class PlayerController : PlayerClass
             if (Input.GetMouseButton(0) && !animator.GetBool("ToSleep"))
             {
 
-                AudioManager.instance.PlaySound(AudioManager.Sound.PlayerShoot);
+                AudioManager.Instance.PlaySound(AudioManager.Sound.PlayerShoot);
                 FiringTime = FiringTime + FireRate;
                 switch (FireType)
                 {
@@ -191,7 +192,7 @@ public class PlayerController : PlayerClass
         else if (Input.GetMouseButtonDown(1) && !animator.GetBool("ToSleep"))
         {
             MeleeAttack();
-            meleeAttackTime += 1/AttackSpeed;
+            meleeAttackTime += 1 / AttackSpeed;
         }
 
         //Dash
@@ -277,8 +278,11 @@ public class PlayerController : PlayerClass
         _lookDirection = (vecTemp - transform.position).normalized;
 
 
-        Transform firedBullet = Instantiate(bulletType, barrelPos, Quaternion.identity);
+        // Transform firedBullet = Instantiate(bulletType, barrelPos, Quaternion.identity);
+        Transform firedBullet = ObjectPooler.Instance.GetPooledObject(TagName.IceBullet).transform;
+        firedBullet.position = barrelPos;
         firedBullet.GetComponent<Bullet>().setUp(_lookDirection, true, Damage, DamageType_);
+        firedBullet.gameObject.SetActive(true);
     }
 
     //Spread fire version 2 this is control by the machine god idk how it work exactly 
@@ -370,7 +374,8 @@ public class PlayerController : PlayerClass
         }
 
     }
-    private void FireBulletSpreadModeV3(){
+    private void FireBulletSpreadModeV3()
+    {
         //Barrel
         Vector3 barrelPos = _fireAttackPoint.position;
 
@@ -380,8 +385,8 @@ public class PlayerController : PlayerClass
         Transform bulletType = GetBulletType();
         for (int i = 0; i < BulletAmount; i++)
         {
-            float spreadAngle = UnityEngine.Random.Range(-45f,45f);
-            Vector2 shootDir = (Quaternion.Euler(0f,0f,spreadAngle) *  _lookDirection).normalized;
+            float spreadAngle = UnityEngine.Random.Range(-45f, 45f);
+            Vector2 shootDir = (Quaternion.Euler(0f, 0f, spreadAngle) * _lookDirection).normalized;
             Transform firedBullet = Instantiate(bulletType, barrelPos, Quaternion.identity);
             firedBullet.GetComponent<Bullet>().setUp(shootDir, true, Damage, DamageType_);
         }
@@ -472,8 +477,8 @@ public class PlayerController : PlayerClass
             }
             if (!enemy.CompareTag("Golem"))
             {
-                
-                if (enemy.GetComponentInParent<ShieldEnemy>() !=null) // extremely stupid
+
+                if (enemy.GetComponentInParent<ShieldEnemy>() != null) // extremely stupid
                     if (enemy.GetComponentInParent<ShieldEnemy>().Shield.activeSelf)
                         return;
                 Enemy Monster = enemy.GetComponent<Enemy>();
@@ -566,7 +571,7 @@ public class PlayerController : PlayerClass
     public void HasDied()
     {
         Death = true;
-        AudioManager.instance.PlaySoundTrack(AudioManager.SoundTrack.GameOverST);
+        AudioManager.Instance.PlaySoundTrack(AudioManager.SoundTrack.GameOverST);
     }
 
 
@@ -648,21 +653,21 @@ public class PlayerController : PlayerClass
 
     public void CalculateDamage()
     {
-        
-        Damage = BaseDamage * (1+PercentDamageIncrease);
-        if (Damage <=0)
-            Damage=1;
+
+        Damage = BaseDamage * (1 + PercentDamageIncrease);
+        if (Damage <= 0)
+            Damage = 1;
     }
     public void CalculateAttackSpeed()
     {
-        if (-PercentAttackSpeedIncrease>=1)
+        if (-PercentAttackSpeedIncrease >= 1)
         {
             // calculation for reduce attack speed if the percent reduce is higher than 100%
-            AttackSpeed = BaseAttackSpeed / (BaseAttackSpeed*(1+ Mathf.Abs(PercentAttackSpeedIncrease)));
+            AttackSpeed = BaseAttackSpeed / (BaseAttackSpeed * (1 + Mathf.Abs(PercentAttackSpeedIncrease)));
         }
-        else AttackSpeed = BaseAttackSpeed * (1+PercentAttackSpeedIncrease);
+        else AttackSpeed = BaseAttackSpeed * (1 + PercentAttackSpeedIncrease);
 
-        FireRate = 1/AttackSpeed;
+        FireRate = 1 / AttackSpeed;
     }
 
 }

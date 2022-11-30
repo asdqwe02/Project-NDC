@@ -12,18 +12,18 @@ public class BringerOfDeathController : Enemy
 
     [SerializeField] private Transform spell;
     private int spellAmountPerCast = 15;
-    private int castAmount = 2, currentCast=0;
+    private int castAmount = 2, currentCast = 0;
     private float spellOffsetY = 3f;
-    [SerializeField] private Vector2 attackRange;    
+    [SerializeField] private Vector2 attackRange;
     public bool spellCD = true;
     public bool teleportCD = true;
     public bool cloneCD = true;
 
-    public float spellCDTime =5f, teleportCDTime =7f, cloneCDTime = 25f;
+    public float spellCDTime = 5f, teleportCDTime = 7f, cloneCDTime = 25f;
     public bool isClone = false;
     [SerializeField] private GameObject clonePrefab;
 
-    public bool[] phase = new bool[2]{true,false};
+    public bool[] phase = new bool[2] { true, false };
 
     bool FacingRight = true;
 
@@ -51,21 +51,25 @@ public class BringerOfDeathController : Enemy
         Roam,
         Die
     }
-
-    private void Start() 
+    private void Awake()
     {
-        target = PlayerController.instance.transform;
-        seeker = GetComponent<Seeker>();
-        rb = GetComponent<Rigidbody2D>();
+        base.Awake();
         if (animator == null)
             animator = GetComponent<Animator>();
-        spellOffsetY = spell.transform.localScale.y*2.3f;
-        currentCast = castAmount;
-        spellCDTime = castAmount * spellAmountPerCast*0.75f + 3.5f; // arbitrarily + 3.5 for the cooldown
-        attackRange = new Vector2(2f,1f);
+        seeker = GetComponent<Seeker>();
+        rb = GetComponent<Rigidbody2D>();
         attackRange.x *= GetComponent<SpriteRenderer>().bounds.size.x;
-        attackRange.y *= GetComponent<SpriteRenderer>().bounds.size.y/2.25f;
+        attackRange.y *= GetComponent<SpriteRenderer>().bounds.size.y / 2.25f;
         collider2D = GetComponent<CapsuleCollider2D>();
+
+    }
+    private void Start()
+    {
+        target = PlayerController.instance.transform;
+        spellOffsetY = spell.transform.localScale.y * 2.3f;
+        currentCast = castAmount;
+        spellCDTime = castAmount * spellAmountPerCast * 0.75f + 3.5f; // arbitrarily + 3.5 for the cooldown
+        attackRange = new Vector2(2f, 1f);
         MaxHP = Hp;
 
         if (!isClone)
@@ -73,17 +77,17 @@ public class BringerOfDeathController : Enemy
             // CloneSkill();
             // StartCoroutine(CoolDown("SpellCD",spellCDTime));
             // StartCoroutine(CoolDown("TeleportCD",20f));
-            StartCoroutine(CoolDown("SpellCD",spellCDTime));
-            animator.SetFloat("AttackSpeed",AttackSpeed);
+            StartCoroutine(CoolDown("SpellCD", spellCDTime));
+            animator.SetFloat("AttackSpeed", AttackSpeed);
             clonePrefab = Resources.Load("Prefabs/Bringer Of Death") as GameObject;
-            AudioManager.instance.PlaySoundTrack(AudioManager.SoundTrack.BossST2);
+            AudioManager.Instance.PlaySoundTrack(AudioManager.SoundTrack.BossST2);
         }
-       
+
 
         state = State.Run;
         InvokeRepeating("UpdatePath", 0f, .5f);
 
-        
+
     }
     void UpdatePath() // being call in InvokeRepeating above
     {
@@ -104,7 +108,7 @@ public class BringerOfDeathController : Enemy
         }
     }
 
-    private void FixedUpdate() 
+    private void FixedUpdate()
     {
         CheckLife();
         UpdateAction();
@@ -132,32 +136,32 @@ public class BringerOfDeathController : Enemy
         switch (state)
         {
             case State.Run:
-                animator.SetBool("Run",true);
-                animator.SetBool("Idle",false);
-                animator.SetBool("Attack",false);
-                animator.SetBool("Spell",false);
+                animator.SetBool("Run", true);
+                animator.SetBool("Idle", false);
+                animator.SetBool("Attack", false);
+                animator.SetBool("Spell", false);
                 break;
             case State.Attack:
-                animator.SetBool("Attack",true);
-                animator.SetBool("Spell",false);
-                animator.SetBool("Run",false);
-                animator.SetBool("Idle",false);
+                animator.SetBool("Attack", true);
+                animator.SetBool("Spell", false);
+                animator.SetBool("Run", false);
+                animator.SetBool("Idle", false);
                 break;
             case State.Spell:
-                animator.SetBool("Spell",true);
-                animator.SetBool("Attack",false);
-                animator.SetBool("Run",false);
-                animator.SetBool("Idle",false);
+                animator.SetBool("Spell", true);
+                animator.SetBool("Attack", false);
+                animator.SetBool("Run", false);
+                animator.SetBool("Idle", false);
                 break;
             case State.Teleport:
-                animator.SetBool("Teleport",true);
-                animator.SetBool("Run",false);
-                animator.SetBool("Idle",false);
-                animator.SetBool("Attack",false);
-                animator.SetBool("Spell",false);
+                animator.SetBool("Teleport", true);
+                animator.SetBool("Run", false);
+                animator.SetBool("Idle", false);
+                animator.SetBool("Attack", false);
+                animator.SetBool("Spell", false);
                 break;
             case State.Die:
-                animator.SetBool("Dying",true);
+                animator.SetBool("Dying", true);
                 break;
             default:
                 Debug.Log("State = null in Bringer Of Death Controller Script!");
@@ -172,7 +176,7 @@ public class BringerOfDeathController : Enemy
         }
         rb.velocity = Velocity;
     }
-    
+
     void flip()
     {
         FacingRight = !FacingRight;
@@ -183,13 +187,13 @@ public class BringerOfDeathController : Enemy
     {
         if (state != State.Die)
         {
-            if (Mathf.Abs(target.position.x - transform.position.x) <= attackRange.x 
+            if (Mathf.Abs(target.position.x - transform.position.x) <= attackRange.x
                 && Mathf.Abs(target.position.y - transform.position.y) <= attackRange.y
-                && teleportCD 
+                && teleportCD
                 && spellCD)
             {
                 state = State.Attack;
-            } 
+            }
             if (!spellCD && teleportCD)
                 state = State.Spell;
             if (!teleportCD)
@@ -197,7 +201,7 @@ public class BringerOfDeathController : Enemy
             if (!cloneCD && !isClone && teleportCD)
                 CloneSkill();
         }
-      
+
     }
     public void CheckAttackRange()
     {
@@ -206,13 +210,14 @@ public class BringerOfDeathController : Enemy
         {
             flip();
         }
-        if (Mathf.Abs(target.position.x - transform.position.x) > attackRange.x 
+        if (Mathf.Abs(target.position.x - transform.position.x) > attackRange.x
             || Mathf.Abs(target.position.y - transform.position.y) > attackRange.y)
         {
             state = State.Run;
         }
     }
-    private void OnTriggerEnter2D(Collider2D other) {
+    private void OnTriggerEnter2D(Collider2D other)
+    {
         if (other.CompareTag("Player"))
         {
             // Debug.Log("BoD hit player with attack");
@@ -225,56 +230,58 @@ public class BringerOfDeathController : Enemy
                 Vector2 knockBack = (PlayerController.instance.transform.position - transform.position).normalized;
                 if (!isClone)
                 {
-                    knockBack *=0.5f;
-                    PlayerController.instance.takeDamage(Damage*1.5f,DamageType.Physical,knockBack);
+                    knockBack *= 0.5f;
+                    PlayerController.instance.takeDamage(Damage * 1.5f, DamageType.Physical, knockBack);
                 }
-                else 
+                else
                 {
-                    knockBack*=0.25f;
-                    PlayerController.instance.takeDamage(Damage,DamageType.Physical,knockBack);
+                    knockBack *= 0.25f;
+                    PlayerController.instance.takeDamage(Damage, DamageType.Physical, knockBack);
                 }
             }
         }
     }
-    private void OnTriggerStay2D(Collider2D other) {
+    private void OnTriggerStay2D(Collider2D other)
+    {
         if (other.CompareTag("Player"))
-            Debug.Log("Player is still in trigger");    
+            Debug.Log("Player is still in trigger");
     }
-    private void OnCollisionEnter2D(Collision2D other) {
+    private void OnCollisionEnter2D(Collision2D other)
+    {
 
-        if (other.gameObject.layer ==LayerMask.NameToLayer("Monster"))
+        if (other.gameObject.layer == LayerMask.NameToLayer("Monster"))
         {
             // Debug.Log("monster touch monster");
             Physics2D.IgnoreCollision(other.collider, collider2D);
         }
         if (other.collider.CompareTag("Player"))
         {
-            Vector2 knockBack = 0.3f*(PlayerController.instance.transform.position - transform.position).normalized;
-            PlayerController.instance.takeDamage(Damage/10f,DamageType.Physical,knockBack);
+            Vector2 knockBack = 0.3f * (PlayerController.instance.transform.position - transform.position).normalized;
+            PlayerController.instance.takeDamage(Damage / 10f, DamageType.Physical, knockBack);
         }
-        
+
     }
 
     private IEnumerator CastSpell()
     {
         // Debug.Log("Bringer of Death spell casted");
-        currentCast --;
+        currentCast--;
         if (currentCast == 0)
         {
-            animator.SetBool("Spell",false);
-            animator.SetBool("Idle",true);
+            animator.SetBool("Spell", false);
+            animator.SetBool("Idle", true);
             state = State.Run;
             currentCast = castAmount;
             spellCD = true;
-            StartCoroutine(CoolDown("SpellCD",spellCDTime));
+            StartCoroutine(CoolDown("SpellCD", spellCDTime));
         }
         for (int i = 0; i < spellAmountPerCast; i++)
         {
             Vector3 spawnPos = PlayerController.instance.transform.position;
-            spawnPos.y+=spellOffsetY;
-            spawnPos.x+= Random.Range(-0.075f,0.075f);
-            Transform Spell = Instantiate(spell,spawnPos,Quaternion.identity);
-            Spell.GetComponent<BODSpellController>().SetUp(0.25f*Damage,DamageType.Lightning); // change this later
+            spawnPos.y += spellOffsetY;
+            spawnPos.x += Random.Range(-0.075f, 0.075f);
+            Transform Spell = Instantiate(spell, spawnPos, Quaternion.identity);
+            Spell.GetComponent<BODSpellController>().SetUp(0.25f * Damage, DamageType.Lightning); // change this later
             yield return new WaitForSeconds(0.75f);
         }
     }
@@ -282,7 +289,7 @@ public class BringerOfDeathController : Enemy
     public IEnumerator CoolDown(string CDFunctionName, float CDTime)
     {
         yield return new WaitForSeconds(CDTime);
-        Invoke(CDFunctionName,0f);
+        Invoke(CDFunctionName, 0f);
     }
     private void SpellCD()
     {
@@ -299,19 +306,19 @@ public class BringerOfDeathController : Enemy
     private IEnumerator Teleport()
     {
         yield return new WaitForSeconds(3f);
-        animator.SetBool("Teleport",false);
-        animator.SetBool("Run",true);
+        animator.SetBool("Teleport", false);
+        animator.SetBool("Run", true);
         Vector3 teleportPos = PlayerController.instance.transform.position;
-        teleportPos.x += Random.Range(-3f,3f);
+        teleportPos.x += Random.Range(-3f, 3f);
         transform.position = teleportPos;
         teleportCD = true;
-        StartCoroutine(CoolDown("TeleportCD",teleportCDTime));
+        StartCoroutine(CoolDown("TeleportCD", teleportCDTime));
     }
     private void CloneSkill()
     {
-        float cloneSpawnDistance = Random.Range(5,8);
-        float [] pos_x =  new float[4] {-cloneSpawnDistance,cloneSpawnDistance,0,0}; 
-        float [] pos_y = new float[4] {0,0,cloneSpawnDistance,-cloneSpawnDistance};
+        float cloneSpawnDistance = Random.Range(5, 8);
+        float[] pos_x = new float[4] { -cloneSpawnDistance, cloneSpawnDistance, 0, 0 };
+        float[] pos_y = new float[4] { 0, 0, cloneSpawnDistance, -cloneSpawnDistance };
         for (int i = 0; i < 4; i++)
         {
             Vector3 clonePos = target.position;
@@ -319,13 +326,13 @@ public class BringerOfDeathController : Enemy
             // clonePos.y += 5f*(Random.Range(0,2) * 2 - 1f);
             clonePos.x += pos_x[i];
             clonePos.y += pos_y[i];
-            GameObject clone = Instantiate(clonePrefab,clonePos,Quaternion.identity);
+            GameObject clone = Instantiate(clonePrefab, clonePos, Quaternion.identity);
             clone.GetComponent<BringerOfDeathController>().SetUpClone();
             clone.name = "BoD Clone";
 
         }
         cloneCD = true;
-        StartCoroutine(CoolDown("CloneCD",cloneCDTime));
+        StartCoroutine(CoolDown("CloneCD", cloneCDTime));
     }
     private IEnumerator CloneDieAfter(float DieAfter)
     {
@@ -334,29 +341,42 @@ public class BringerOfDeathController : Enemy
     }
     public void CheckLife()
     {
-        if (Hp<=0.6f*MaxHP && !phase[1] && !isClone)
+        if (Hp <= 0.6f * MaxHP && !phase[1] && !isClone)
         {
-            StartCoroutine(AudioManager.instance.FadeOutST(fadeDuration:0.75f,targetVolumne:0.05f,NextST:AudioManager.SoundTrack.BossST2_Phase2));
-            phase[1]=true; // phase 2
-            AttackSpeed *=1.25f;
-            Damage *=1.5f;
-            animator.SetFloat("AttackSpeed",AttackSpeed);
+            StartCoroutine(AudioManager.Instance.FadeOutST(fadeDuration: 0.75f, targetVolumne: 0.05f, NextST: AudioManager.SoundTrack.BossST2_Phase2));
+            phase[1] = true; // phase 2
+            AttackSpeed *= 1.25f;
+            Damage *= 1.5f;
+            animator.SetFloat("AttackSpeed", AttackSpeed);
             CloneSkill();
             teleportCD = false;
         }
 
-        if (Hp<=0 && state != State.Die)
-        {
+        // if (Hp <= 0 && state != State.Die)
+        // {
+        //     state = State.Die;
+
+
+        //     if (!isClone)
+        //     {
+        //         BringerOfDeathController[] bossClone = GameObject.FindObjectsOfType<BringerOfDeathController>();
+        //         foreach (var clone in bossClone)
+        //             clone.state = State.Die;
+        //         Drop();
+        //     }
+        // }
+    }
+    public override void OnDeath(object sender, OnDeathEventArgs e)
+    {
+        if (state != State.Die)
             state = State.Die;
-           
-            
-            if (!isClone)
-            {
-                BringerOfDeathController [] bossClone = GameObject.FindObjectsOfType<BringerOfDeathController>();
-                foreach(var clone in bossClone)
-                    clone.state = State.Die;
-                Drop();
-            }
+        if (!isClone)
+        {
+            BringerOfDeathController[] bossClone = GameObject.FindObjectsOfType<BringerOfDeathController>();
+            foreach (var clone in bossClone)
+                clone.state = State.Die;
+            Drop();
+            DropCoins();
         }
     }
     public void SetUpClone(float hp = 100, float damage = 1, DamageType damagetype = DamageType.Physical) // all these stat are abitrary
@@ -368,12 +388,12 @@ public class BringerOfDeathController : Enemy
         Hp = hp;
         Damage = damage;
         DamageType_ = damagetype;
-        GetComponent<SpriteRenderer>().color = new Color(1f,1f,1f,0.7843f);
-        GetComponent<Animator>().SetFloat("AppearSpeed",0.45f);
-        GetComponent<Animator>().SetFloat("AttackSpeed",0.75f);
+        GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 0.7843f);
+        GetComponent<Animator>().SetFloat("AppearSpeed", 0.45f);
+        GetComponent<Animator>().SetFloat("AttackSpeed", 0.75f);
         collider2D = GetComponent<CapsuleCollider2D>();
         collider2D.enabled = true; // this to try to fix some weird bug
-        StartCoroutine(CloneDieAfter(cloneCDTime-10f));
+        StartCoroutine(CloneDieAfter(cloneCDTime - 10f));
 
     }
 }

@@ -15,12 +15,15 @@ public class Enemy : MovingObjects
     private RNG itemRNG;
     protected float knockBackForce = 10f;
 
-
+    public void Awake()
+    {
+        OnDeathEvent += OnDeath;
+    }
     public void DropCoins()
     {
         if (!dropped)
         {
-            int randomAmountofCoin = Random.Range(minCoinDrop, maxCoinDrop+1);
+            int randomAmountofCoin = Random.Range(minCoinDrop, maxCoinDrop + 1);
             coinsPrefab.GetComponent<CoinController>().setUpCoinDrop(randomAmountofCoin);
             Instantiate(coinsPrefab, transform.position, Quaternion.identity);
             dropped = true;
@@ -51,14 +54,14 @@ public class Enemy : MovingObjects
         //     DropPotion();
         // else DropCoins();
 
-        float chance = Random.Range(0f,1f);
+        float chance = Random.Range(0f, 1f);
         // Debug.Log(chance);
         switch (chance)
         {
-            case var x when (x <=0.2f):
+            case var x when (x <= 0.2f):
                 DropItem();
                 break;
-            case var x when (x >0.2f && x <=0.45f):
+            case var x when (x > 0.2f && x <= 0.45f):
                 DropPotion();
                 break;
             case var x when (x > 0.45f):
@@ -66,12 +69,18 @@ public class Enemy : MovingObjects
                 break;
             default:
                 break;
-        }            
+        }
     }
     public override void takeDamage(float damageTaken, DamageType damageTypeTaken, Vector2 KnockBack)
     {
         base.takeDamage(damageTaken, damageTypeTaken, KnockBack);
         GetComponent<Rigidbody2D>().velocity = KnockBack * knockBackForce;
         //GetComponent<Rigidbody2D>().AddForce(KnockBack*knockBackForce);
+    }
+    public virtual void OnDeath(object sender, OnDeathEventArgs e)
+    {
+        e.animator?.SetBool("IsDying", true);
+        e.collider.enabled = false;
+        Drop();
     }
 }

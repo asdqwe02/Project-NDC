@@ -11,7 +11,7 @@ public class ExplosionController : MonoBehaviour
     private float _damage=0;
     void Start()
     {
-        AudioManager.instance.PlaySound(AudioManager.Sound.ExplosionFire1,transform.position);
+        AudioManager.Instance.PlaySound(AudioManager.Sound.ExplosionFire1,transform.position);
     }
 
     // Update is called once per frame

@@ -105,7 +105,7 @@ public class FileSlotDisplayController : MonoBehaviour
         PlayerController.To_Load = true;
         ResetScene();
         SceneManager.LoadScene("Hideout");
-        AudioManager.instance.PlaySoundTrack(AudioManager.SoundTrack.HideoutST);
+        AudioManager.Instance.PlaySoundTrack(AudioManager.SoundTrack.HideoutST);
     }
     public void Create(string slot)
     {
@@ -115,7 +115,7 @@ public class FileSlotDisplayController : MonoBehaviour
         PlayerController.To_Load = true;
         ResetScene();
         SceneManager.LoadScene("Hideout");
-        AudioManager.instance.PlaySoundTrack(AudioManager.SoundTrack.HideoutST);
+        AudioManager.Instance.PlaySoundTrack(AudioManager.SoundTrack.HideoutST);
 
     }
 

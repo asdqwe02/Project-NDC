@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class HealthPotionController : Interactable
 {
-    PlayerController pc; // Might need to use this in multiplayer mode if it's ever being implemented
-    public float HealHP=0;
+    public float HealHP = 0;
     public Transform numberPopUp;
 
 
@@ -14,15 +13,16 @@ public class HealthPotionController : Interactable
         // pc = collision.gameObject.GetComponent<PlayerController>();
         if (collision.CompareTag("Player"))
         {
+            pc = collision.GetComponent<PlayerController>();
             Interact();
         }
     }
     public override void Interact()
     {
         HealHP = PlayerController.instance.MaxHP * 0.2f;
-        PlayerController.instance.Hp += HealHP;
-        if (PlayerController.instance.Hp > PlayerController.instance.MaxHP)
-            PlayerController.instance.Hp = PlayerController.instance.MaxHP;
+        pc.Hp += HealHP;
+        if (pc?.Hp > pc?.MaxHP)
+            pc.Hp = pc.MaxHP;
         numberPopUp.GetComponent<NumberPopupController>().HealingNumberSetUp(HealHP);
         Instantiate(numberPopUp, transform.position, Quaternion.identity);
         Destroy(gameObject);

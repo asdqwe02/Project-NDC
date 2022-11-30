@@ -18,14 +18,17 @@ public class SlimeController : Slime
 
     bool FacingRight = true;
 
-    // Start is called before the first frame update
-    private void Start()
+    private void Awake()
     {
-        
-        target = PlayerController.instance.transform;
+        base.Awake();
         seeker = GetComponent<Seeker>();
         rb = GetComponent<Rigidbody2D>();
         circleCollider2D = GetComponent<CircleCollider2D>();
+
+    }
+    private void Start()
+    {
+        target = PlayerController.instance.transform;
         StartingPosition = transform.position;
         InvokeRepeating("UpdatePath", 0f, .5f);
     }
@@ -53,7 +56,7 @@ public class SlimeController : Slime
 
     private void FixedUpdate()
     {
-        CheckLife();
+        // CheckLife();
 
         FindTarget();
 
@@ -74,16 +77,23 @@ public class SlimeController : Slime
 
 
 
-    void CheckLife() //should move this to Enemy class
+    // void CheckLife() //should move this to Enemy class
+    // {
+    //     if (Hp <= 0)
+    //     {
+    //         //isDying = true;
+    //         circleCollider2D.enabled = false;
+    //         Drop();
+    //         animator.SetBool("IsDying", true);
+
+    //     }
+    // }
+    public override void OnDeath(object sender, OnDeathEventArgs e)
     {
-        if (Hp <= 0)
-        {
-            //isDying = true;
-            circleCollider2D.enabled = false;
-            Drop();
-            animator.SetBool("IsDying", true);
-            
-        }
+        base.OnDeath(sender, e);
+        // circleCollider2D.enabled = false;
+        // Drop();
+        // animator.SetBool("IsDying", true);
     }
 
     private Vector3 GetRoamingPosition()
@@ -167,7 +177,7 @@ public class SlimeController : Slime
 
             float scalar = 0.3f;
             Vector2 KnockBack = new Vector2(direction.x * scalar, direction.y * scalar);
-            collision.gameObject.GetComponent<PlayerController>().takeDamage(Damage, DamageType_,KnockBack);
+            collision.gameObject.GetComponent<PlayerController>().takeDamage(Damage, DamageType_, KnockBack);
         }
     }
 }

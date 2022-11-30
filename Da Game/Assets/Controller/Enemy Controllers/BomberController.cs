@@ -5,7 +5,7 @@ using Pathfinding;
 
 public class BomberController : Bomber
 {
-    
+
     private BoxCollider2D boxCollider2D;
     private Vector2 direction;
     private Vector3 StartingPosition;
@@ -19,14 +19,18 @@ public class BomberController : Bomber
 
     bool FacingRight = false;
 
-    // Start is called before the first frame update
-    private void Start()
+    private void Awake()
     {
-        
-        target = PlayerController.instance.transform;
+        base.Awake();
         seeker = GetComponent<Seeker>();
         rb = GetComponent<Rigidbody2D>();
         boxCollider2D = GetComponent<BoxCollider2D>();
+
+    }
+    private void Start()
+    {
+
+        target = PlayerController.instance.transform;
         StartingPosition = transform.position;
         InvokeRepeating("UpdatePath", 0f, .5f);
     }
@@ -54,7 +58,7 @@ public class BomberController : Bomber
 
     private void FixedUpdate()
     {
-        CheckLife();
+        // CheckLife();
 
         FindTarget();
 
@@ -74,18 +78,22 @@ public class BomberController : Bomber
     }
 
 
-
-    void CheckLife() //should move this to Enemy class
+    public override void OnDeath(object sender, OnDeathEventArgs e)
     {
-        if (Hp <= 0)
-        {
-            //isDying = true;
-            boxCollider2D.enabled = false;
-            Drop();
-            animator.SetBool("IsExploding", true);
-            
-        }
+        base.OnDeath(sender, e);
+        e.animator?.SetBool("IsExploding", true);
     }
+    // void CheckLife() //should move this to Enemy class
+    // {
+    //     if (Hp <= 0)
+    //     {
+    //         //isDying = true;
+    //         boxCollider2D.enabled = false;
+    //         Drop();
+    //         animator.SetBool("IsExploding", true);
+
+    //     }
+    // }
 
     private Vector3 GetRoamingPosition()
     {
@@ -128,7 +136,7 @@ public class BomberController : Bomber
 
         if (Vector2.Distance(transform.position, target.transform.position) <= AttackRange)
         {
-            animator.SetBool("IsExploding",true);
+            animator.SetBool("IsExploding", true);
 
         }
         if (animator.GetBool("IsExploding"))
@@ -155,9 +163,9 @@ public class BomberController : Bomber
     }
     private void Explode()
     {
-        Vector3 scaleVector = new Vector3(1.2f,1.2f,0);
-        Vector3 offset = new Vector3(0,1f,0);
-        Transform Explosion = Instantiate(explodePrefab,transform.position+ offset,Quaternion.identity);
-        Explosion.GetComponent<ExplosionController>().SetUp(Damage,scaleVector);
+        Vector3 scaleVector = new Vector3(1.2f, 1.2f, 0);
+        Vector3 offset = new Vector3(0, 1f, 0);
+        Transform Explosion = Instantiate(explodePrefab, transform.position + offset, Quaternion.identity);
+        Explosion.GetComponent<ExplosionController>().SetUp(Damage, scaleVector);
     }
 }

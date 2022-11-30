@@ -22,7 +22,7 @@ TagManager:
   - Monster
   - Player
   - Pillars
-  - 
+  - Test
   - 
   - 
   - 
@@ -73,4 +73,7 @@ TagManager:
     locked: 0
   - name: Upper
     uniqueID: 1690295473
+    locked: 0
+  - name: UI
+    uniqueID: 2945821987
     locked: 0

@@ -43,6 +43,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1bb0b5b3378eadd4386be334cfc0f734, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _masterVolumeMultiplier: 0.4
+  _soundTrackVolume: 0.5
   soundAudiosClipArray:
   - name: Player Shooting
     sound: 4

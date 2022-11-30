@@ -5,7 +5,7 @@ using UnityEngine;
 public abstract class Interactable : MonoBehaviour
 {
    
-    private PlayerController pc;
+    protected PlayerController pc; // Might need to use this in multiplayer mode if it's ever being implemented
     private void Reset()
     {
         GetComponent<CircleCollider2D>().isTrigger= true;

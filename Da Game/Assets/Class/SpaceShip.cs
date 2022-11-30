@@ -4,6 +4,6 @@ public class SpaceShip : MonoBehaviour
 {
     void Start()
     {
-        AudioManager.instance.PlaySound(AudioManager.Sound.FireBurning,gameObject.transform.position);
+        AudioManager.Instance.PlaySound(AudioManager.Sound.FireBurning,gameObject.transform.position);
     }
 }

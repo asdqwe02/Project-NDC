@@ -15,7 +15,7 @@ public class PortalHideoutController : Interactable
     private Buff.BuffRNG[] buffs;
     public override void Interact()
     {
-        AudioManager.instance.PlaySoundTrack(AudioManager.SoundTrack.NormalLevelST);
+        AudioManager.Instance.PlaySoundTrack(AudioManager.SoundTrack.NormalLevelST);
         PlayerController.instance.CloseInteractableIcon();
         PlayerController.instance.Coin_tobeAdded = 0;
         PlayerController.instance.scenePassword = newScenePassword;
@@ -34,7 +34,7 @@ public class PortalHideoutController : Interactable
     }
     void Start()
     {
-        AudioManager.instance.PlaySound(AudioManager.Sound.Portal,transform.position);
+        AudioManager.Instance.PlaySound(AudioManager.Sound.Portal,transform.position);
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {

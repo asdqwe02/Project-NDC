@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 4706746103006470022}
   - component: {fileID: 1785055248158426933}
   - component: {fileID: 8066681840028845279}
+  - component: {fileID: -6654166466145786570}
   m_Layer: 0
   m_Name: FireBallPrefab
   m_TagString: bullet
@@ -28,8 +29,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7542065460064705667}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.74, y: 0.87, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0.0034108064, w: 0.9999942}
+  m_LocalPosition: {x: 0.38823512, y: -1.3717662, z: -0.43653885}
   m_LocalScale: {x: 0.130674, y: 0.13067402, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -165,5 +166,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 7542065460064705666}
+  isMoving: 1
+  flip: 0
   _bulletSpeed: 20
-  _isFromPlayer: 0
+  isFromPlayer: 1
+--- !u!114 &-6654166466145786570
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7542065460064705667}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53bb13440ef6e4a4886daeb9e1d8299f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nameTag: 0

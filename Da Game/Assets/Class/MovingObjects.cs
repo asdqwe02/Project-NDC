@@ -2,10 +2,11 @@ using UnityEngine;
 using Pathfinding;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine.UI;
+// using UnityEngine.UI;
+using System;
+
 public class MovingObjects : MonoBehaviour
 {
-    private bool dropped = false;
     protected bool IsPlayer = false;
 
 
@@ -28,7 +29,24 @@ public class MovingObjects : MonoBehaviour
     [SerializeField] private DamageType damageType;
     [SerializeField] protected List<StatusEffect> statusEffects = new List<StatusEffect>();
 
-    public float Hp { get => hp; set => hp = value; }
+    /// <summary>
+    ///  Event handler when a moving object die (its hp reduce to 0 or below)
+    /// </summary>
+    public event EventHandler<OnDeathEventArgs> OnDeathEvent;
+    public float Hp
+    {
+        get { return hp; }
+        set
+        {
+            hp = value;
+            if (hp <= 0)
+            {
+                OnDeathEvent?.Invoke(this, new OnDeathEventArgs(
+                    GetComponent<Collider2D>(), GetComponent<Animator>()
+                ));
+            }
+        }
+    }
     public float MovementSpeed { get => movementSpeed; set => movementSpeed = value; }
     public float AttackSpeed { get => attackSpeed; set => attackSpeed = value; }
     public int Armour { get => armour; set => armour = value; }
@@ -193,8 +211,8 @@ public class MovingObjects : MonoBehaviour
         }
         finalDamage = Mathf.Round(finalDamage * 100f) / 100f; //round final damage to have only 2 numbers after decimal point
         if (finalDamage < 0)
-            finalDamage = 0f;
-        hp -= finalDamage;
+            finalDamage = 1f;
+        Hp -= finalDamage;
         if (numberPopUp != null)
         {
             numberPopUp.GetComponent<NumberPopupController>().DamageNumberSetUp(finalDamage, damageTypeTaken);
@@ -246,4 +264,14 @@ public class MovingObjects : MonoBehaviour
         takeDamage(burningDamage, DamageType.Fire);
     }
 
+    public class OnDeathEventArgs : EventArgs
+    {
+        public Collider2D collider;
+        public Animator animator;
+        public OnDeathEventArgs(Collider2D collider2D, Animator animator)
+        {
+            collider = collider2D;
+            this.animator = animator;
+        }
+    }
 }

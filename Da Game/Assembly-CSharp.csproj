@@ -37,7 +37,12 @@
   </PropertyGroup>
   <ItemGroup>
      <Compile Include="Assets\Controller\Laser.cs" />
+     <Compile Include="Assets\TEST DELETE LATER\TestButtonClick.cs" />
+     <Compile Include="Assets\TEST DELETE LATER\TestFootprintScriptV2.cs" />
      <Compile Include="Assets\Class\Enemy.cs" />
+     <Compile Include="Assets\Controller\DestroyOnLoad.cs" />
+     <Compile Include="Assets\Class\ObjectPooler.cs" />
+     <Compile Include="Assets\Class\Singleton.cs" />
      <Compile Include="Assets\Controller\CrateController.cs" />
      <Compile Include="Assets\Controller\ShopNPController.cs" />
      <Compile Include="Assets\Class\Sound.cs" />
@@ -51,6 +56,7 @@
      <Compile Include="Assets\Controller\SpriteAnimation.cs" />
      <Compile Include="Assets\Controller\RNG.cs" />
      <Compile Include="Assets\Controller\Camera_Follow.cs" />
+     <Compile Include="Assets\Controller\VolumeSliderController.cs" />
      <Compile Include="Assets\Controller\Enemy Controllers\SlimeController.cs" />
      <Compile Include="Assets\Controller\HealthBarController.cs" />
      <Compile Include="Assets\Class\Archer.cs" />
@@ -64,15 +70,20 @@
      <Compile Include="Assets\Controller\PortalHideoutController.cs" />
      <Compile Include="Assets\Controller\Slam.cs" />
      <Compile Include="Assets\Class\Bullet.cs" />
+     <Compile Include="Assets\Controller\Enemy Controllers\MossBossController.cs" />
      <Compile Include="Assets\Controller\PillarController.cs" />
      <Compile Include="Assets\Controller\EnemySpawner.cs" />
      <Compile Include="Assets\Controller\EndStageController.cs" />
+     <Compile Include="Assets\TEST DELETE LATER\TestFootprintScript.cs" />
      <Compile Include="Assets\Controller\MainCanvasController.cs" />
      <Compile Include="Assets\Scriptable Object\Item.cs" />
      <Compile Include="Assets\Controller\DummyController.cs" />
+     <Compile Include="Assets\TEST DELETE LATER\FootprintDestroy.cs" />
      <Compile Include="Assets\Controller\Enemy Controllers\GolemArm.cs" />
      <Compile Include="Assets\Controller\DungeonDoorController.cs" />
      <Compile Include="Assets\Controller\Enemy Controllers\EnemyAI.cs" />
+     <Compile Include="Assets\Class\WeightPool.cs" />
+     <Compile Include="Assets\Class\PauseScreen.cs" />
      <Compile Include="Assets\Class\AudioManager.cs" />
      <Compile Include="Assets\Controller\CoinCounterController.cs" />
      <Compile Include="Assets\Controller\StatusController.cs" />
@@ -83,6 +94,7 @@
      <Compile Include="Assets\Controller\Exit.cs" />
      <Compile Include="Assets\Controller\InventoryController.cs" />
      <Compile Include="Assets\Controller\BuffSpawnController.cs" />
+     <Compile Include="Assets\Controller\SettingPanelNavController.cs" />
      <Compile Include="Assets\Class\Utilities.cs" />
      <Compile Include="Assets\Controller\StatusbarController.cs" />
      <Compile Include="Assets\Controller\TutorialBuffSpawnController.cs" />
@@ -827,9 +839,17 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="AllIn1VfxDemoScriptAssemblies.csproj">
+      <Project>{002ded49-03c7-acfc-3433-508d948440ee}</Project>
+      <Name>AllIn1VfxDemoScriptAssemblies</Name>
+    </ProjectReference>
     <ProjectReference Include="PackageToolsEditor.csproj">
       <Project>{01fb1370-1aed-4302-0e44-fb2f753c30eb}</Project>
       <Name>PackageToolsEditor</Name>
+    </ProjectReference>
+    <ProjectReference Include="AllIn1VfxAssmebly.csproj">
+      <Project>{ec6dbd8e-f8c6-2286-13da-b498b64835b9}</Project>
+      <Name>AllIn1VfxAssmebly</Name>
     </ProjectReference>
     <ProjectReference Include="AstarPathfindingProject.csproj">
       <Project>{f68d9fec-ad88-c9de-108b-ed306cf04c14}</Project>

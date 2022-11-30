@@ -10,22 +10,21 @@ public class Bullet : MonoBehaviour
     private float _damage;
     private MovingObjects.DamageType _damageType;
     private RNG statusEffectRNG;
-    private bool isMoving = true, flip = false;
+    [SerializeField] private bool isMoving = true, flip = false;
     private Rigidbody2D rb;
     private AudioManager.Sound _hitSound;
     [SerializeField] private float _bulletSpeed = 50f;
     public bool isFromPlayer = false;
 
-    private void Start()
+    private void Awake()
     {
         statusEffectRNG = new RNG();
         rb = GetComponent<Rigidbody2D>();
-        rb.AddForce(_shootDir * _bulletSpeed, ForceMode2D.Impulse);
-
 
     }
     public void setUp(Vector3 shootDir, bool IsFromPlayer, float damage, MovingObjects.DamageType damageType, Vector3 KnockBack)
     {
+        isMoving = true;
         _shootDir = shootDir;
         _damage = damage;
 
@@ -36,11 +35,12 @@ public class Bullet : MonoBehaviour
             gameObject.layer = 8;
         _damageType = damageType;
         soundSetUp(damageType);
-        //rb.AddForce(_shootDir * _bulletSpeed, ForceMode2D.Impulse);
-        Destroy(gameObject, 1f);
+        rb.AddForce(_shootDir * _bulletSpeed, ForceMode2D.Impulse);
+        // Destroy(gameObject, 1f);
     }
     public void setUp(Vector3 shootDir, bool IsFromPlayer, float damage, MovingObjects.DamageType damageType)
     {
+        isMoving = true;
         _shootDir = shootDir;
         _damage = damage;
         transform.eulerAngles = new Vector3(0, 0, GetAngleFromVectorFloat(shootDir));
@@ -49,7 +49,12 @@ public class Bullet : MonoBehaviour
             gameObject.layer = 8;
         _damageType = damageType;
         soundSetUp(damageType);
-        Destroy(gameObject, 1f);
+        // Destroy(gameObject, 1f);
+    }
+    private void OnEnable()
+    {
+        rb.AddForce(_shootDir * _bulletSpeed, ForceMode2D.Impulse);
+        isMoving = true;
     }
     private void soundSetUp(MovingObjects.DamageType damageType)
     {
@@ -104,7 +109,7 @@ public class Bullet : MonoBehaviour
                 if (animator != null)
                     animator.SetBool("Hit", true);
                 //Debug.Log("hit sound is: " + _hitSound);
-                AudioManager.instance.PlaySound(_hitSound, gameObject.transform.position);
+                AudioManager.Instance.PlaySound(_hitSound, gameObject.transform.position);
                 isMoving = false;
             }
 
@@ -122,7 +127,7 @@ public class Bullet : MonoBehaviour
             // can use this to revamp this hit detection
             if (collision.CompareTag("Enemy"))
             {
-                if (collision.GetComponentInParent<ShieldEnemyController>()!=null)
+                if (collision.GetComponentInParent<ShieldEnemyController>() != null)
                     collision.GetComponentInParent<ShieldEnemyController>().ShieldTakeDamage(_damage);
             }
 
@@ -147,7 +152,7 @@ public class Bullet : MonoBehaviour
 
                 if (animator != null)
                     animator.SetBool("Hit", true);
-                AudioManager.instance.PlaySound(_hitSound, gameObject.transform.position);
+                AudioManager.Instance.PlaySound(_hitSound, gameObject.transform.position);
                 isMoving = false;
             }
             if (p != null)
@@ -170,4 +175,5 @@ public class Bullet : MonoBehaviour
             n += 360;
         return n;
     }
+
 }

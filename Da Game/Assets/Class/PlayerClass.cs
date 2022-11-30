@@ -8,9 +8,9 @@ public class PlayerClass : MovingObjects
     [Header("Player Stats")]
     //Variables used in shooting projectiles
     private float baseDamage = 0; //this is use to calculate damage increase or decrease when switching fire mode and using item
-    private float baseAttackSpeed = 0; 
-    [SerializeField] private float percentDamageIncrease=0; //remove serializefield after testing
-    [SerializeField] private float percentAttackSpeedIncrease=0; //remove serializefield after testing
+    private float baseAttackSpeed = 0;
+    [SerializeField] private float percentDamageIncrease = 0; //remove serializefield after testing
+    [SerializeField] private float percentAttackSpeedIncrease = 0; //remove serializefield after testing
     private float maxHP = 0;
     [SerializeField] private float _fireRate = 0.5f;
     [SerializeField] private float _firingTime = 0f;
