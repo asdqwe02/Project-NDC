@@ -499,6 +499,7 @@ public class PlayerController : PlayerClass
 
     public override void takeDamage(float damage, DamageType damageType, Vector2 KnockBack)
     {
+
         base.takeDamage(damage, damageType, KnockBack);
         Rb.AddForce(KnockBack);
         animator.SetBool("IsHurt", true);
@@ -508,6 +509,7 @@ public class PlayerController : PlayerClass
     }
     public override void takeDamage(float damageTaken, DamageType damageTypeTaken)
     {
+
         base.takeDamage(damageTaken, damageTypeTaken);
         animator.SetBool("IsHurt", true);
         IsHurt = true;

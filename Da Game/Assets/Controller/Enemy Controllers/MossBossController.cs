@@ -23,14 +23,20 @@ public class MossBossController : Enemy
     public State state;
     [Header("Skill Cooldown")]
     [SerializeField] float _spinAttackCDTime;
-    [SerializeField] bool spinAttackCD;
+    [SerializeField] float _rangeAttackCDTime;
+    [SerializeField] float _superAttackCDTime;
+    [SerializeField] float _throwAttackCDTime;
+    [SerializeField] bool _spinAttackCD;
+    [SerializeField] bool _rangeAttackCD;
+    [SerializeField] bool _superAttackCD;
+    [SerializeField] bool _throwAttackCD;
+    [SerializeField] bool _spinning;
     [Header("Skill Queue")]
     Queue<int> attackTypeQueue;
     public enum State
     {
-        Attack,
-        Spell,
-        Teleport,
+        Static,
+        Buff,
         Run,
         Idle,
         Roam,
@@ -42,8 +48,8 @@ public class MossBossController : Enemy
         if (animator == null)
             animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
-        attackRange.x *= GetComponent<SpriteRenderer>().bounds.size.x;
-        attackRange.y *= GetComponent<SpriteRenderer>().bounds.size.y / 2.25f;
+        // attackRange.x *= GetComponent<SpriteRenderer>().bounds.size.x;
+        // attackRange.y *= GetComponent<SpriteRenderer>().bounds.size.y / 2.25f;
         collider2D = GetComponent<CapsuleCollider2D>();
 
     }
@@ -56,7 +62,6 @@ public class MossBossController : Enemy
 
         state = State.Run;
         InvokeRepeating("UpdatePath", 0f, .5f);
-        StartCoroutine(SpinAttack(10));
 
     }
     void UpdatePath() // being call in InvokeRepeating above
@@ -162,11 +167,31 @@ public class MossBossController : Enemy
             //   )
             // {
             //     state = State.Attack;
-            // }
-            if (!spinAttackCD)
+            // }\
+            if (
+                   !_spinAttackCD
+                    && state != State.Static
+                   && state != State.Buff)
             {
-                StartCoroutine(SpinAttack(10f));
+                StartCoroutine(SpinAttack(3f));
             }
+            else if ((!_rangeAttackCD || !_superAttackCD || !_throwAttackCD) && !_spinning && animator.GetInteger("AttackType") != 0)
+            {
+                state = State.Static;
+                animator.SetTrigger("Attack");
+                switch (animator.GetInteger("AttackType"))
+                {
+                    case 1:
+                    case 2:
+                    case 3:
+                        break;
+                }
+            }
+            // if (Mathf.Abs(target.position.x - transform.position.x) <= attackRange.x
+            //   && Mathf.Abs(target.position.y - transform.position.y) <= attackRange.y)
+            // {
+
+            // }
 
         }
 
@@ -193,12 +218,11 @@ public class MossBossController : Enemy
             // {
             //     Debug.Log("Hit player layer");
             // }
-            if (animator.GetBool("Attack"))
-            {
-                Vector2 knockBack = (PlayerController.instance.transform.position - transform.position).normalized;
 
-            }
+            Vector2 knockBack = (PlayerController.instance.transform.position - transform.position).normalized;
+            PlayerController.instance.takeDamage(1, DamageType.Cold, knockBack);
         }
+
     }
     private void OnTriggerStay2D(Collider2D other)
     {
@@ -218,6 +242,9 @@ public class MossBossController : Enemy
             Vector2 knockBack = 0.3f * (PlayerController.instance.transform.position - transform.position).normalized;
             PlayerController.instance.takeDamage(Damage / 10f, DamageType.Physical, knockBack);
         }
+        // Debug.Log("this collider" + other.collider.name);
+        // Debug.Log("other collider" + other.otherCollider.name);
+
 
     }
 
@@ -267,16 +294,58 @@ public class MossBossController : Enemy
     }
     IEnumerator SpinAttack(float duration)
     {
-        spinAttackCD = true;
+        _spinAttackCD = true;
+        _spinning = true; ;
         animator.SetInteger("AttackType", 0);
         animator.SetTrigger("Attack");
         yield return new WaitForSeconds(duration);
         animator.SetTrigger("EndSpinAttack");
+        _spinning = false;
+        CheckNextSkill();
         yield return CoolDown(
              _spinAttackCDTime,
-             () => { spinAttackCD = true; },
-             () => { spinAttackCD = false; }
+             () => { _spinAttackCD = true; },
+             () => { _spinAttackCD = false; }
          );
+
+    }
+
+    public void CheckNextSkill()
+    {
+        if (!_superAttackCD)
+        {
+            animator.SetInteger("AttackType", 2);
+            return;
+        }
+        if (!_rangeAttackCD)
+        {
+            animator.SetInteger("AttackType", 1);
+            return;
+        }
+        if (!_throwAttackCD)
+        {
+            animator.SetInteger("AttackType", 3);
+            return;
+        }
+        animator.SetInteger("AttackType", 0);
+    }
+    public void RangeAttackCoolDown()
+    {
+        StartCoroutine(CoolDown(
+            _rangeAttackCDTime,
+            () => { _rangeAttackCD = true; },
+            () => { _rangeAttackCD = false; }
+        ));
+        state = State.Run;
+    }
+    public void SuperAttackCoolDown()
+    {
+        StartCoroutine(CoolDown(
+           _superAttackCDTime,
+           () => { _superAttackCD = true; },
+           () => { _superAttackCD = false; }
+       ));
+        state = State.Run;
     }
 }
 
