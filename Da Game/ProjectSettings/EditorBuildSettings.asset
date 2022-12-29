@@ -30,6 +30,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Room_Boss1.unity
     guid: b6a59d6ae1828064cbec1adf5e3b6d50
   - enabled: 1
+    path: Assets/Scenes/Room2.unity
+    guid: ced8caf39efe14942abe22e254ea2314
+  - enabled: 1
     path: Assets/Scenes/Room_Boss2.unity
     guid: 578944981b717344a9c2dca873f0d7c9
   - enabled: 1

@@ -1846,7 +1846,7 @@ Tilemap:
       - {fileID: 6053195032790500351, guid: df1825cc98cb42345afd2cf1cabfb082, type: 3}
       - {fileID: 8721429137451661332, guid: df1825cc98cb42345afd2cf1cabfb082, type: 3}
       - {fileID: -6458759058330197233, guid: df1825cc98cb42345afd2cf1cabfb082, type: 3}
-      m_AnimationSpeed: 3
+      m_AnimationSpeed: 3.0000002
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
   - first: {x: 38, y: -3, z: 0}
@@ -1882,7 +1882,7 @@ Tilemap:
       - {fileID: 6053195032790500351, guid: df1825cc98cb42345afd2cf1cabfb082, type: 3}
       - {fileID: 8721429137451661332, guid: df1825cc98cb42345afd2cf1cabfb082, type: 3}
       - {fileID: -6458759058330197233, guid: df1825cc98cb42345afd2cf1cabfb082, type: 3}
-      m_AnimationSpeed: 3.0000002
+      m_AnimationSpeed: 3
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
   - first: {x: 47, y: -3, z: 0}
@@ -40608,7 +40608,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9415f822cce790444a62824be7d24c46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  room: 1
+  room: 0
 --- !u!224 &1112495129 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3987312609001687369, guid: 071fcceeb27b6864aaca76e73b8a0725, type: 3}
